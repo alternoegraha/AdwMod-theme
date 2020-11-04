@@ -1,7 +1,6 @@
 AdwaitaExtended
 =====
-**This master branch are for GNOME 3.38. this is also new home for this project**
-> Using previous versions? there's a `gnome-3-34` and `gnome-3.36` branch
+> This master branch are for GNOME 3.38. Using previous versions? there's a `gnome-3-34` and `gnome-3.36` branch
 
 AdwaitaExtended is a stock Adwaita theme modified with:
 
@@ -15,7 +14,7 @@ AdwaitaExtended is a stock Adwaita theme modified with:
 > Although MATE is supported, currently there's no WM theme for Marco. I recommended to change default WM to metacity because it uses native GTK theming than legacy metacity-3 XML theming (although it's still available but disabled by default)
 - Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream
 
-### Screenies
+### Screenshots
 ![Light](/data/ss-light.png)
 ![Dark](/data/ss-dark.png)
 
