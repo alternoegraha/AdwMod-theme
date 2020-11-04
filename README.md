@@ -1,6 +1,6 @@
 AdwaitaExtended
 =====
-**This master branch are for GNOME 3.38. this is also new home for the project because my old account has messed up**
+**This master branch are for GNOME 3.38. this is also new home for this project**
 > Using previous versions? there's a `gnome-3-34` and `gnome-3.36` branch
 
 AdwaitaExtended is a stock Adwaita theme modified with:
