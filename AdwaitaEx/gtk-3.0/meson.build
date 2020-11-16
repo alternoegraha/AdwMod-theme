@@ -15,6 +15,7 @@ gtk3_scss_dependencies = [
   '_colors.scss',
   '_common.scss',
   '_apps.scss',
+  '_budgie-desktop.scss',
   '_libhandy.scss',
   '_drawing.scss',
 ]
