@@ -20,7 +20,7 @@
 	.nautilus-canvas-item.dim-label,
 	.nautilus-list-dim-label {
 		color: mix($fg_color, $bg_color, 50%);
-    &:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	entry.search > * {
@@ -342,6 +342,21 @@ na-tray-applet {
 				}
 			}
 		}
+	}
+
+	.nemo-window-pane widget.entry {
+    	border: 0;
+    	border-radius: $button_radius;
+
+    	@include entry(focus);
+
+    	&:selected { &:focus, & { @extend %selected_items; }}
+  	}
+
+  	.nemo-canvas-item.dim-label,
+	.nemo-dim-list-label {
+		color: mix($fg_color, $bg_color, 50%);
+    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	toolbar.horizontal.primary-toolbar { 
