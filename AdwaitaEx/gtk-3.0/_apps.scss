@@ -313,3 +313,85 @@ na-tray-applet {
 .caja-navigation-window toolbar {
 	border-bottom: 1px solid $borders_color;
 }
+
+/**** Nemo FM ****/
+.nemo-window {
+	.sidebar {
+		scrolledwindow.frame { 
+			border: none;
+
+			.view {
+				background-color: $sidebar_bg_color;
+				&:backdrop { 
+					background-color: $backdrop_sidebar_bg_color;
+					color: $backdrop_fg_color;
+				}
+
+				&:hover { background: mix($bg_color, $fg_color, 97%); }
+
+				&:active,
+				&:selected {
+					&, &:hover { background: mix($bg_color, $fg_color, 92%); }
+
+					color: mix($fg_color, $text_color, 50%); 
+
+					&:backdrop {
+						background: mix($backdrop_bg_color, $backdrop_fg_color, 92%);
+						color: mix($backdrop_fg_color, $backdrop_text_color, 85%);
+					}
+				}
+			}
+		}
+	}
+
+	toolbar.horizontal.primary-toolbar { 
+		border-bottom: 1px solid $borders_color;
+		padding: 4px;
+		padding-top: 5px;
+		&:dir(ltr) { padding-left: 5px; }
+		&:dir(rtl) { padding-right: 5px; }
+
+		toolitem box widget * {
+			min-height: 0;
+			min-width: 0;
+		}
+
+		.linked button { margin-right: 0; }
+	}
+
+	grid.vertical > widget {
+		> box { padding: 0; }
+		box-shadow: 0 -1px $borders_color;
+		button { 
+			@extend %button_basic_flat;
+			&:hover { @include button(hover); }
+			&:active { @include button(active); }
+		}
+	}
+
+	.floating-bar {
+		padding: 1px;
+		background-color: $base_color;
+		border-width: 1px;
+		border-style: solid solid none;
+		border-color: $borders_color;
+		border-radius: 3px 3px 0 0;
+		
+		&.bottom.left {
+			border-left-style: none;
+			border-top-left-radius: 0;
+		}
+		
+		&.bottom.right {
+			border-right-style: none;
+			border-top-right-radius: 0;
+		}
+		
+		&:backdrop {
+			background-color: $backdrop_base_color;
+			border-color: $backdrop_borders_color;
+		}
+		
+		button { padding: 0px; }
+	}
+}
