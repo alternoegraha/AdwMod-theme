@@ -117,3 +117,8 @@ read if you used those and something break with a version upgrade you're on your
 
 /* Very contrasty background for text views (@theme_text_color foreground) */
 @define-color text_view_bg #{"" + if($variant == 'light', $base_color, darken($base_color,6%))};
+
+/* Budgie desktop icon tasklist indicator colors */
+@define-color budgie_tasklist_indicator_color shade(#{$osd_fg_color}, 0.9);
+@define-color budgie_tasklist_indicator_color_active #{"" + $osd_fg_color};
+@define-color budgie_tasklist_indicator_color_active_window shade(#{$osd_fg_color}, 0.7);
