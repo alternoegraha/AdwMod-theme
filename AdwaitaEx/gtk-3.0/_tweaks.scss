@@ -52,5 +52,5 @@ decoration {
 
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {
-	buttonbox, .dialog-action-box { margin: 8px; }
+	buttonbox, .dialog-action-area { margin: 8px; }
 }
