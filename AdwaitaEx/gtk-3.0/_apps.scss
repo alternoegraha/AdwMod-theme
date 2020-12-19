@@ -194,6 +194,21 @@ $disk_space_free: $osd_fg_color;
 	.linked button {
 		@extend %button_basic;
 		@extend %linked;
+
+		// special case for light variant button borders 
+		// instead of creating 'artifacts' when hovering media controls section menuitem
+		@if $variant == 'light' {
+			&, &:hover, &:disabled { 
+				border-color: transparentize(black, 0.77);
+				border-bottom-color: transparentize(black, 0.7);
+				background-clip: padding-box;
+			}
+
+			&:active { 
+				border-color: transparentize(black, 0.7);
+				border-top-color: transparentize(black, 0.64);
+			}
+		}
 	}
 }
 
@@ -206,6 +221,28 @@ dialog.xfsm-logout-dialog.keycap {
 	border-color: $xfsm_dialog_borders;
 	
 	separator.horizontal { background-color: transparent; }
+}
+
+// xfce4-notifyd
+#XfceNotifyWindow {
+	background-color: $bg_color;
+	color: $fg_color;
+	border-color: transparentize(black, 0.77);
+	background-clip: padding-box;
+	box-shadow: none;
+	border-radius: $window_radius;
+
+	buttonbox { padding: 0; }
+
+	button { 
+		&, &:backdrop { 
+			@include button(normal);
+
+			&:hover { @include button(hover); }
+			&:active { @include button(active); }
+			&:disabled { @include button(insensitive); }
+		} 
+	}
 }
 
 /**** MATE desktop ****/
@@ -347,6 +384,7 @@ na-tray-applet {
 	.nemo-window-pane widget.entry {
     	border: 0;
     	border-radius: $button_radius;
+    	background-color: $base_color;
 
     	@include entry(focus);
 
