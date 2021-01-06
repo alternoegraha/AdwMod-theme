@@ -14,6 +14,7 @@ gtk4_scss_dependencies = [
   '_colors.scss',
   '_common.scss',
   '_drawing.scss',
+  '_tweaks.scss',
 ]
 
 # Generate .css files and install
