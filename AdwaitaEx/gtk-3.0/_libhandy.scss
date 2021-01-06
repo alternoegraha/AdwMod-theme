@@ -172,7 +172,7 @@ viewswitcher {
       &.narrow {
         font-size: 0.75rem;
         padding-top: 4px;
-        padding-bottom: 0px;
+        padding-bottom: 2px;
 
         image,
         label {
@@ -230,6 +230,7 @@ viewswitcher {
 
 viewswitcherbar actionbar > revealer > box {
   padding: 0;
+  min-height: $_headerbar_height;
 }
 
 // Content list
