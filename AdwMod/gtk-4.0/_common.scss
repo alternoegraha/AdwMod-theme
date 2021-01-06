@@ -13,6 +13,17 @@ $menu_margin: $menu_radius; //margin around menuitems & sidebar items
 $window_radius: $button_radius + 3;
 $popover_radius: $button_radius + 4;
 
+// Optional compact sizes for buttons, headerbar and headerbar widgets
+$_sizevariant: 'compact'; //compact otherwise
+$_headerbar_height: if($_sizevariant=='default', 46px, 40px);
+$_entry_height: if($_sizevariant=='default', 32px, 28px);
+$_btn_pad: if($_sizevariant=='default', 4px 9px, 2px 6px);
+$_hb_btn_pad: if($_sizevariant=='default', 6px, 5px);
+$_img_btn_pad: if($_sizevariant=='default', 5px, 2px);
+$_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
+$_circ_btn_pad: if($_sizevariant=='default', 4px, 2px 6px);
+$_switch_margin: if($_sizevariant=='default', 10px, 7px);
+
 /***************
  * Base States *
  ***************/
@@ -280,7 +291,7 @@ spinner {
 %entry,
 entry {
   %entry_basic, & {
-    min-height: 32px;
+    min-height: $_entry_height;
     padding-left: 8px;
     padding-right: 8px;
     border: 1px solid;
@@ -475,7 +486,7 @@ button {
 
     min-height: 24px;
     min-width: 16px;
-    padding: 4px 9px;
+    padding: $_btn_pad;
     border: 1px solid;
     border-radius: $button_radius;
     transition: $button_transition;
@@ -545,8 +556,8 @@ button {
 
     &.image-button {
       min-width: 24px;
-      padding-left: 5px;
-      padding-right: 5px;
+      padding-left: $_img_btn_pad;
+      padding-right: $_img_btn_pad;
     }
 
     &.text-button {
@@ -741,8 +752,8 @@ button {
   .linked.vertical > & { @extend %linked_vertical; }
 
   &.circular { // force circular button shape
-    min-width: 32px;
-    min-height: 32px;
+    min-width: $_entry_height;
+    min-height: $_entry_height;
     padding: 0;
     border-radius: 9999px;
 
@@ -1409,7 +1420,7 @@ windowcontrols {
 %titlebar,
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
   border-color: $alt_borders_color;
@@ -1515,8 +1526,8 @@ headerbar {
   separator:not(.sidebar),
   button,
   menubutton {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: $_hb_btn_pad;
+    margin-bottom: $_hb_btn_pad;
   }
 
   // Reset margins for buttons inside menubutton
@@ -1526,8 +1537,8 @@ headerbar {
   }
 
   switch {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $_switch_margin;
+    margin-bottom: $_switch_margin;
   }
 
   &.titlebar headerbar:not(.titlebar) {
