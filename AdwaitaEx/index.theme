@@ -1,9 +1,0 @@
-[X-GNOME-Metatheme]
-Name=AdwaitaExtended
-Type=X-GNOME-Metatheme
-Comment=Adwaita Extended
-Encoding=UTF-8
-GtkTheme=AdwaitaEx
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
