@@ -1,4 +1,4 @@
-<img src="data/logo.svg" alt="AdwMod" align="left" width="128" height="128"/>
+<img src="data/logo.svg" alt="AdwMod" align="left" width="64" height="64"/>
 
 AdwMod
 =====
