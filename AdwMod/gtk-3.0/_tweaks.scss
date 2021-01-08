@@ -54,3 +54,15 @@ decoration {
 dialog:not(messagedialog) {
 	buttonbox, .dialog-action-area { margin: 8px; }
 }
+
+/**** Notebooks/Tabs tweaks ****/
+notebook > header tab {
+    min-width: $_entry_height;
+    min-height: $_entry_height;
+    padding: 1px 10px;
+
+    button.flat {
+        min-width: 18px;
+        min-height: 18px;
+    }
+}
