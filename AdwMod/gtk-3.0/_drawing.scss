@@ -359,7 +359,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
   // normal osd button
   //
-    $_bg: if($c != $bg_color, transparentize($c, 0.5), $osd_bg_color);
+    $_bg: if($c != $_default_button_c, transparentize($c, 0.5), $osd_bg_color);
 
     color: $osd_fg_color;
     border-color: $osd_borders_color;
@@ -376,7 +376,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
   // active osd button
   //
-    $_bg: if($c != $bg_color, transparentize($c, 0.3), lighten($osd_bg_color, 12%));
+    $_bg: if($c != $_default_button_c, transparentize($c, 0.3), darken($osd_bg_color, 10%));
 
     color: white;
     border-color: $osd_borders_color;
@@ -393,7 +393,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
   // active osd button
   //
-    $_bg: if($c != $bg_color, $c, $osd_borders_color);
+    $_bg: if($c != $_default_button_c, $c, darken($osd_bg_color, 20%));
 
     color: white;
     border-color: $osd_borders_color;
@@ -424,7 +424,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
   // backdrop osd button
   //
-    $_bg: if($c != $bg_color, transparentize($c, 0.5), $osd_bg_color);
+    $_bg: if($c != $_default_button_c, transparentize($c, 0.5), $osd_bg_color);
 
     color: $osd_fg_color;
     border-color: $osd_borders_color;
