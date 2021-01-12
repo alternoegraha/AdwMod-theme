@@ -38,8 +38,14 @@ $dash_border_radius: $modal_radius * 1.5;
 .dash-label {
   background-color: transparentize($osd_bg_color,0.05);
   border-radius: $base_border_radius + 2px;
-  border:none;
-  box-shadow:0 0 0 1px $osd_outer_borders_color;
+  
+  // because of remain-unfixed box-shadow cut off, use border instead
+  // see issue #1090 and #3068 at gnome-shell gitlab issues
+  // i should wait #1053 merged finally in mutter for proper fix.
+  border: 1px solid $osd_outer_borders_color;
+  box-shadow: none;
+  background-clip: padding-box;
+  
   color: $osd_fg_color;
   padding: $base_padding $base_padding + 4px;
   text-align: center;
