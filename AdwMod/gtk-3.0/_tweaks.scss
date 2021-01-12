@@ -156,3 +156,19 @@ levelbar {
     }
   }
 }
+
+/**** window button tweaks ****/
+$_titlebutton_hvr_color: if($variant == 'light', darken($headerbar_color,26%), darken($headerbar_color,11%));
+$_titlebutton_prs_color: if($variant == 'light', darken($headerbar_color,30%), darken($headerbar_color,15%));
+
+button.titlebutton {
+  &:not(appmenu) {
+    background-image: none;
+    border-color: transparent;
+    box-shadow: none;
+    
+    &:hover { background-color: $_titlebutton_hvr_color; }
+    &:active,
+    &:checked { background-color: $_titlebutton_prs_color; }
+  }
+}
