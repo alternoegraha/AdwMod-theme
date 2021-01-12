@@ -77,3 +77,82 @@ button.circular {
       @include button(hover);
     }
 }
+
+/**** flatter scale/progressbar ****/
+// special case for haderbar/CSD
+headerbar {
+  scale {
+    highlight {
+      &:backdrop {
+        border-color: $selected_bg_color;
+        background-color: $selected_bg_color;
+      }
+    }
+    
+    fill, trough {
+      &:backdrop, & { 
+        background-color: darken($dark_fill,8%);
+        border-color: darken($dark_fill,8%);
+      }
+    }
+  }
+}
+
+progressbar {
+    progress {
+      &:backdrop, & {
+        border-color: $selected_bg_color;
+        background-color: $selected_bg_color;
+      }
+    }
+
+    trough {
+      &:backdrop, & {
+        border-color: $dark_fill;
+        background-color: $dark_fill;
+      }
+    }
+}
+
+scale  {
+    highlight {
+        border-color: $selected_bg_color;
+        background-color: $selected_bg_color;
+        
+        &:backdrop { border-color: $selected_bg_color; }
+    }
+
+    fill, trough { 
+      &:backdrop, & { 
+        background-color: $dark_fill; 
+        border-color: $dark_fill; 
+      }   
+    }
+}
+
+levelbar {
+  block {
+    &.low {
+      border-color: $warning_color;
+    }
+
+    &.high,
+    &:not(.empty) {
+      border-color: $selected_bg_color;
+      background-color: $selected_bg_color;
+
+      &:backdrop { border-color: $selected_bg_color; }
+    }
+
+    &.full {
+      border-color: $success_color;
+    }
+
+    &.empty {
+      background-color: darken($bg_color, 5%);
+      border-color: darken($bg_color, 5%);
+
+      &:backdrop { border-color: darken($bg_color, 5%); }
+    }
+  }
+}
