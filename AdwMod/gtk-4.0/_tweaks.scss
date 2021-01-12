@@ -9,3 +9,8 @@ windowcontrols button {
     min-height: 30px;
     padding: 0 4px;
 }
+
+/**** scale slider tweaks ****/
+scale > trough > slider {
+    border-color: $borders_color;
+}

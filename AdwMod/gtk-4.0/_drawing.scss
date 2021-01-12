@@ -22,6 +22,12 @@
   }
 }
 
+@function _widget_edge($c:$borders_edge) {
+// outer highlight "used" on most widgets
+  @if $c == none { @return none; }
+  @else { @return 0 1px $c; }
+}
+
 @mixin _shadows($list...) {
 //
 // Helper mixin to stack up to box-shadows;
@@ -108,8 +114,22 @@
   @else { @return darken($c, 15%); }
 }
 
+@function _button_hilight_color($c) {
+//
+// calculate the right top highlight color for buttons
+//
+// $c: base color;
+//
+  @if lightness($c)>95% { @return white; }
+  @else if lightness($c)>90% { @return transparentize(white, 0.2); }
+  @else if lightness($c)>80% { @return transparentize(white, 0.5); }
+  @else if lightness($c)>50% { @return transparentize(white, 0.8); }
+  @else if lightness($c)>40% { @return transparentize(white, 0.9); }
+  @else { @return transparentize(white, 0.98); }
+}
+
 $_default_button_c: lighten($bg_color,2%);
-@mixin button($t, $c:$_default_button_c, $tc:$fg_color) {
+@mixin button($t, $c:$_default_button_c, $tc:$fg_color, $edge: none) {
 //
 // Button drawing function
 //
@@ -122,6 +142,9 @@ $_default_button_c: lighten($bg_color,2%);
 // backdrop, backdrop-active, backdrop-insensitive, backdrop-insensitive-active,
 // osd, osd-hover, osd-active, osd-insensitive, osd-backdrop, undecorated
 //
+  $_hilight_color: _button_hilight_color($c);
+  $_button_edge: if($edge == none, none, _widget_edge($edge));
+  $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
   $_button_shadow: 0 1px 2px transparentize($shadow_color, 0.03);
 
   @if $t==normal {
@@ -131,9 +154,10 @@ $_default_button_c: lighten($bg_color,2%);
     color: $tc;
     outline-color: if($c != $_default_button_c, $alt_focus_border_color, $focus_border_color);
     border-color: if($c!=$_default_button_c, _border_color($c, true), $borders_color); //tint if not default button color
+    border-bottom-color: if($c!=$_default_button_c, _border_color($c, true), $alt_borders_color);
     background-image: if($variant == 'light', linear-gradient(to top, darken($c, 2%) 2px, $c),
                                               linear-gradient(to top, darken($c,1%) 2px, $c));
-    @include _shadows($_button_shadow);
+    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
 
   @else if $t==hover {
@@ -141,14 +165,15 @@ $_default_button_c: lighten($bg_color,2%);
   // hovered button
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color($c), $borders_color);
+    border-color: if($c != $_default_button_c, _border_color(darken($c, 3%)), $borders_color);
+    border-bottom-color: if($c != $_default_button_c, _border_color(darken($c, 3%), true), $alt_borders_color);
     @if $variant == 'light' {
       background-image: linear-gradient(to top, darken($c,16%), darken($c,8%) 1px);
-      @include _shadows($_button_shadow);
+      @include _shadows(inset 0 1px darken($c,1%), $_button_edge, $_button_shadow);
     }
     @else {
       background-image: linear-gradient(to top, darken($c,4%) 20%, darken($c, 3%) 90%);
-      @include _shadows($_button_shadow);
+       @include _shadows(inset 0 1px $c, $_button_edge, $_button_shadow);
     }
   }
 
@@ -157,7 +182,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed button
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color($c), $borders_color);
+    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 9%)));
     box-shadow: none;
   }
@@ -167,7 +193,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed togglebutton hover
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color($c), $borders_color);
+    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 18%)), image(darken($c, 12%)));
     box-shadow: none;
   }
@@ -177,7 +204,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed togglebutton pushed further :)
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color($c), $borders_color);
+    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 22%)), image(darken($c, 14%)));
     box-shadow: none;
   }
@@ -272,6 +300,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-color: transparent;
     background-image: image($_bg);
     background-clip: padding-box;
+    box-shadow: none;
   }
 
   @else if $t==osd-hover {
@@ -285,6 +314,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-color: transparent;
     background-image: image($_bg);
     background-clip: padding-box;
+    box-shadow: none;
   }
 
   @else if $t==osd-active {
@@ -357,7 +387,7 @@ $_default_button_c: lighten($bg_color,2%);
   }
 }
 
-@mixin headerbar_fill($c:$headerbar_bg_color, $ov: none) {
+@mixin headerbar_fill($c:$headerbar_bg_color, $hc: $top_hilight, $ov: none) {
 //
 // headerbar fill
 //
@@ -371,6 +401,7 @@ $_default_button_c: lighten($bg_color,2%);
   @if $ov != none { background: $c $ov, $gradient; }
   @else { background: $c $gradient; }
 
+  box-shadow: inset 0 1px $hc; 
 }
 
 @mixin overshoot($p, $t:normal, $c:$fg_color) {
