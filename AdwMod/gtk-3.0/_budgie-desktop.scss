@@ -444,37 +444,37 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 // popovers
 window.budgie-popover:not(.csd) {
 	&.background {
-		padding: 2px;
 		background-color: $popover_bg_color;
-		border-radius: $popover_radius;
+		border-radius: $menu_radius;
 		border: 0px solid if($variant=='light', transparentize(black, 0.5), darken($borders_color, 2%));
 		
 		box-shadow: 0 1px 2px transparentize(black, 0.7),
 								0 0 0 1px if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
 	}
-	
+
 	> frame.container {
 		&,
 		> border {
 			border-style: none;
 			background-color: transparent;
 		}
-		
-		padding: 4px;
+
+        margin: -2px;
 	}
 	
 	button.flat {
 		min-height: 20px;
-  	padding-left: 5px;
-  	padding-right: 5px;
-  	border-radius: $button_radius;
-  	outline-offset: -2px;
-  	
+  	    padding-left: 5px;
+  	    padding-right: 5px;
+  	    border-radius: $menu_radius;
+  	    outline-offset: -2px;
+        transition: none;  	
+        
 		@extend %undecorated_button;
 		
 		&:hover { background-color: $popover_hover_color; }
 
-  	&:selected { @extend %selected_items; }
+  	    &:selected { @extend %selected_items; }
 	}
 	
 	&.night-light-indicator {
@@ -488,31 +488,35 @@ window.budgie-popover:not(.csd) {
 	}
 }
 
+%budgie_popover_pad {
+     .container { padding: 4px; }
+}
+
 .budgie-menu {
-	scrolledwindow,
-  list,
-  row { // reset styling
-    min-width: 0;
-    min-height: 0;
-    border: none;
-    background: none;
-    box-shadow: none;
-  }
+    @extend %budgie_popover_pad;
+
+    scrolledwindow,
+    list,
+    row { // reset styling
+        min-width: 0;
+        min-height: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
   
-  margin: 1px;
+    entry { margin-bottom: 3px; }
   
-  entry { margin-bottom: 3px; }
-  
-  scrolledwindow {
+    scrolledwindow {
 		border: 1px solid $borders_color;
 		background-color: $base_color;
 	}
 	
 	row.activatable { // reset background
-    padding: 0;
-    background-image: none;
-    background-color: $base_color;
-    color: $fg_color;
+        padding: 0;
+        background-image: none;
+        background-color: $base_color;
+        color: $fg_color;
 
 		border-left: 0;
 		border-right: 0;
@@ -570,15 +574,16 @@ window.budgie-popover:not(.csd) {
 
 // places applet
 .places-menu {
+    .container { padding: 2px; }
 	box.vertical > revealer > list {
-		background-color: $bg_color;
+		background-color: $base_color;
 		&.always-expand { background-color: transparent; }
 	}
 	
 	.alternative-label {
 		font-size: 11pt;
 		&:dir(ltr) { padding: 2px 0 0 4px; }
-    &:dir(rtl) { padding: 2px 4px 0 0; }
+        &:dir(rtl) { padding: 2px 4px 0 0; }
 	}
 	
 	list {
@@ -592,6 +597,7 @@ window.budgie-popover:not(.csd) {
 
 // user menu
 .user-menu {
+    @extend %budgie_popover_pad;
 	list,
 	row { // reset styling
 		border: none;
@@ -606,6 +612,7 @@ window.budgie-popover:not(.csd) {
 
 // night light indicator
 .night-light-indicator {
+    @extend %budgie_popover_pad;
 	.view-header {
 		padding-top: 2px;
 		&:dir(ltr) { padding-right: 4px; }
