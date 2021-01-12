@@ -66,3 +66,14 @@ notebook > header tab {
         min-height: 18px;
     }
 }
+
+/**** circular button fixes ****/
+button.circular {
+    &:not(.flat):not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
+      @include button(normal);
+    }
+
+    &:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
+      @include button(hover);
+    }
+}
