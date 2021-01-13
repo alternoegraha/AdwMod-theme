@@ -78,82 +78,35 @@ button.circular {
     }
 }
 
-/**** flatter scale/progressbar ****/
-// special case for haderbar/CSD
+/**** scale/progressbar tweaks ****/
+// increase contrast on CSD/header bars
 headerbar {
   scale {
-    highlight {
-      &:backdrop {
-        border-color: $selected_bg_color;
-        background-color: $selected_bg_color;
-      }
-    }
-    
     fill, trough {
-      &:backdrop, & { 
-        background-color: darken($dark_fill,8%);
-        border-color: darken($dark_fill,8%);
-      }
+      border-color: if($variant == 'light', 
+                    darken($borders_color, 8%), 
+                    darken($borders_color, 4%));
+      background-color: if($variant == 'light', 
+                        darken($dark_fill, 8%), 
+                        darken($dark_fill, 4%));
     }
   }
 }
 
-progressbar {
-    progress {
-      &:backdrop, & {
-        border-color: $selected_bg_color;
-        background-color: $selected_bg_color;
-      }
-    }
+scale slider:not(.osd) {
+  background-clip: padding-box;
+  &, &:hover {
+    border-color: if($variant == 'light', 
+                  transparentize(black, 0.7),
+                  transparentize($alt_borders_color, 0.1));
+  }
 
-    trough {
-      &:backdrop, & {
-        border-color: $dark_fill;
-        background-color: $dark_fill;
-      }
-    }
-}
+  &:active { border-color: $progress_border_color; }
 
-scale  {
-    highlight {
-        border-color: $selected_bg_color;
-        background-color: $selected_bg_color;
-        
-        &:backdrop { border-color: $selected_bg_color; }
-    }
-
-    fill, trough { 
-      &:backdrop, & { 
-        background-color: $dark_fill; 
-        border-color: $dark_fill; 
-      }   
-    }
-}
-
-levelbar {
-  block {
-    &.low {
-      border-color: $warning_color;
-    }
-
-    &.high,
-    &:not(.empty) {
-      border-color: $selected_bg_color;
-      background-color: $selected_bg_color;
-
-      &:backdrop { border-color: $selected_bg_color; }
-    }
-
-    &.full {
-      border-color: $success_color;
-    }
-
-    &.empty {
-      background-color: darken($bg_color, 5%);
-      border-color: darken($bg_color, 5%);
-
-      &:backdrop { border-color: darken($bg_color, 5%); }
-    }
+  &:backdrop { 
+    border-color: if($variant == 'light', 
+                  transparentize(black, 0.77),
+                  transparentize($alt_borders_color, 0.5));  
   }
 }
 
