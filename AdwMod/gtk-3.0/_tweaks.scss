@@ -67,17 +67,6 @@ notebook > header tab {
     }
 }
 
-/**** circular button fixes ****/
-button.circular {
-    &:not(.flat):not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
-      @include button(normal);
-    }
-
-    &:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
-      @include button(hover);
-    }
-}
-
 /**** scale/progressbar tweaks ****/
 // increase contrast on CSD/header bars
 headerbar {
