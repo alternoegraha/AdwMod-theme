@@ -26,19 +26,32 @@
 			&:checked {
 				.overview-icon {
 					border-radius: 0;
-					background-color: transparent;
+					background: none;
 					box-shadow: none;
 					color: $panel_fg_color; //override because it will darker in light variant
 				}
 			}
 		}
+
+		.panel-button {
+			&.clock-display {
+      	.clock {
+        	box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.10);
+      	}
+
+      	&:hover, &:active, &:overview, &:focus, &:checked {
+      		.clock { box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.20); }
+      	}
+    	}
+  	}
 		
 		StButton.show-apps {
-			&:active, &:overview, &:focus, &:checked {
-     	 // Trick due to St limitations. It needs a background to draw a box-shadow
-     		background-color: rgba(0, 0, 0, 0.01);
-      	box-shadow: inset 0 -2px 0 0 lighten($selected_bg_color,5%);
+    	border-radius: 0;
+			&:hover, &:active, &:overview, &:focus, &:checked {
+     		background-color: rgba(255, 255, 255, 0.20);
     	}
+
+    	.overview-icon { background-color: transparent; }
 		}
 	}
 }
