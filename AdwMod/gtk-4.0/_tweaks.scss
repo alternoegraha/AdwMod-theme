@@ -1,0 +1,16 @@
+/**** CSD window controls tweak ****/
+windowcontrols button {
+    margin: 0px;
+    padding: $_hb_btn_pad;
+}
+
+/**** reduce navigation-sidebar row height ****/
+.navigation-sidebar > row {
+    min-height: 30px;
+    padding: 0 4px;
+}
+
+/**** scale slider tweaks ****/
+scale > trough > slider {
+    border-color: $borders_color;
+}
