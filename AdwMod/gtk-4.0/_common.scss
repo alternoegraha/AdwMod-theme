@@ -2558,11 +2558,9 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
  * GtkScale *
  ************/
 %scale_trough {
-  border: 1px solid $dark_fill;
+  border: 1px solid $borders_color;
   border-radius: 3px;
   background-color: $dark_fill;
-
-  headerbar & { background-color: darken($dark_fill,8%); } //3504
 
   &:disabled {
    background-color: $insensitive_bg_color;
@@ -2587,7 +2585,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 }
 
 %scale_highlight {
-  border: 1px solid $selected_bg_color;
+  border: 1px solid $selected_borders_color;
   border-radius: 3px;
   background-color: $selected_bg_color;
 
@@ -3026,25 +3024,25 @@ progressbar {
     }
 
     border-radius: 1.5px;
-    $_progress-radius: 5px;
+
     &.left {
-      border-top-left-radius: $_progress-radius;
-      border-bottom-left-radius: $_progress-radius;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
 
     &.right {
-      border-top-right-radius: $_progress-radius;
-      border-bottom-right-radius: $_progress-radius;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
     }
 
     &.top {
-      border-top-right-radius: $_progress-radius;
-      border-top-left-radius: $_progress-radius;
+      border-top-right-radius: 2px;
+      border-top-left-radius: 2px;
     }
 
     &.bottom {
-      border-bottom-right-radius: $_progress-radius;
-      border-bottom-left-radius: $_progress-radius;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
   }
 
@@ -3073,25 +3071,25 @@ progressbar {
  * Level Bar *
  *************/
 
-$_levelbar_size: 9px;
-$_levelbar_border_radius: 5px;
+$levelbar_size: 9px;
+$levelbar_border_radius: 3px;
 
 levelbar {
   &.horizontal {
     trough > block {
-      min-height: $_levelbar_size;
-      border-radius: $_levelbar_border_radius;
+      min-height: $levelbar_size;
+      border-radius: $levelbar_border_radius;
 
       &:dir(rtl) {
-        border-radius: 0 $_levelbar_border_radius $_levelbar_border_radius 0;
+        border-radius: 0 $levelbar_border_radius $levelbar_border_radius 0;
       }
 
       &:dir(ltr) {
-        border-radius: $_levelbar_border_radius 0 0 $_levelbar_border_radius;
+        border-radius: $levelbar_border_radius 0 0 $levelbar_border_radius;
       }
 
       &.empty,&.full {
-        border-radius: $_levelbar_border_radius;
+        border-radius: $levelbar_border_radius;
       }
     }
 
@@ -3112,12 +3110,12 @@ levelbar {
 
   &.vertical {
     trough > block {
-      min-width: $_levelbar_size;
-      border-radius: $_levelbar_border_radius;
+      min-width: $levelbar_size;
+      border-radius: $levelbar_border_radius;
     }
 
     &.discrete > trough > block {
-      min-width: $_levelbar_size - 7px;
+      min-width: $levelbar_size - 7px;
       margin: 1px 0;
       min-height: 32px;
     }
@@ -3132,24 +3130,24 @@ levelbar {
     border: 1px solid;
 
     &.low {
-      border-color: $warning_color;
+      border-color: if($variant == 'light', darken($warning_color, 10%), $borders_color);
       background-color: $warning_color;
     }
 
     &.high,
     &:not(.empty) {
-      border-color: $selected_bg_color;
+      border-color: if($variant == 'light', darken($selected_bg_color, 10%), $borders_color);
       background-color: $selected_bg_color;
     }
 
     &.full {
-      border-color: $success_color;
+      border-color: if($variant == 'light', darken($success_color, 10%), $borders_color);
       background-color: $success_color;
     }
 
     &.empty {
       background-color: darken($bg_color, 5%);
-      border-color: darken($bg_color, 5%);
+      border-color: $borders_color;
     }
   }
 }
