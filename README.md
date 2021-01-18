@@ -16,8 +16,14 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Xfce (4.14 and up)
 - MATE (partially supported)
 ### Unsupported
+- Downstream-patched GNOME sessions
+> use vanilla/stock GNOME session by installing `gnome-session`
+- old version of GNOME shell
+> this means distros that ships with old GNOME (e.g Ubuntu 18.04 or Debian stable) are unsupported
+- Xfce 4.12 and older
+> AdwMod doesn't have Xfce4 gtk2 theming and no plans to add it
 - Qt-based desktops (Plasma, Deepin, LXQt, Lumina)
-- LXDE
+- LXDE/Openbox
 - Pantheon/elementary OS
 > because some elementary Apps uses custom stylesheet that requires elementary GTK theme to work
 
