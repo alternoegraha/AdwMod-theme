@@ -38,5 +38,6 @@ endforeach
 if not get_option('flatpak')
   subdir('src')
 else
-  subdir('src/gtk')
+  subdir('src/gtk-3.0')
+  subdir('src/gtk-4.0')
 endif
