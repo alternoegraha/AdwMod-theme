@@ -10,20 +10,22 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Consistent GTK2 theme (finally!)
 - Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes (except in Gtk4)
 
-### Supported desktop environments
-- GNOME shell (3.36 and up)
+## Supported desktop environments
+- GNOME (3.36 and up)
 - Budgie Desktop (10.5.x and up)
 - Xfce (4.14 and up)
 - MATE (partially supported)
-#### Unsupported
+### Unsupported
 - Qt-based desktops (Plasma, Deepin, LXQt, Lumina)
 - LXDE
 - Pantheon/elementary OS
-> some elementary Apps uses custom stylesheet that requires elementary GTK theme
+> because some elementary Apps uses custom stylesheet that requires elementary GTK theme to work
 
 ### Screenshots
-![Light](/.data/ss-light.png)
-![Dark](/.data/ss-dark.png)
+![Light](/.data/light.png)
+![Light-gtk4](/.data/light-gtk4.png)
+![Dark](/.data/dark.png)
+![Dark-gtk4](/.data/dark-gtk4.png)
 
 ### Installation
 Clone this repo, and open directory with terminal and then:
