@@ -14,3 +14,27 @@ windowcontrols button {
 scale > trough > slider {
     border-color: $borders_color;
 }
+
+// scale: add some contrast in headerbar/CSD
+headerbar {
+	scale {
+		> trough, > trough > fill {
+			border-color: if($variant == 'light', 
+                    darken($borders_color, 8%), 
+                    darken($borders_color, 4%));
+      background-color: if($variant == 'light', 
+                        darken($dark_fill, 8%), 
+                        darken($dark_fill, 4%));
+
+      &:backdrop {
+      	border-color: $borders_color;
+      	background-color: $dark_fill;
+      }
+
+      &:disabled {
+   			background-color: $insensitive_bg_color;
+   			border-color: $insensitive_borders_color;
+  		}
+		}
+	}
+}
