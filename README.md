@@ -31,10 +31,12 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 Clone this repo, and open directory with terminal and then:
 ```
 # system-wide install
+-----
 meson build
 sudo ninja -C build install
 
 # single user install 
+-----
 meson build --prefix=$HOME/.local
 ninja -C build install
 ```
