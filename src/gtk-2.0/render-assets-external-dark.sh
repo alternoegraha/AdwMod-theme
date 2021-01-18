@@ -3,8 +3,8 @@
 INKSCAPE="/usr/bin/inkscape"
 OPTIPNG="/usr/bin/optipng"
 
-SRC_FILE="assets-external.svg"
-ASSETS_DIR="assets"
+SRC_FILE="assets-external-dark.svg"
+ASSETS_DIR="assets-dark"
 INDEX="assets-external.txt"
 
 for i in `cat $INDEX`
