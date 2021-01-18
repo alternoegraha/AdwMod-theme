@@ -1,4 +1,4 @@
-<img src="data/logo.svg" alt="AdwMod" align="left" width="64" height="64"/>
+<img src=".data/logo.svg" alt="AdwMod" align="left" width="64" height="64"/>
 
 AdwMod
 =====
@@ -17,8 +17,8 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes
 
 ### Screenshots
-![Light](/data/ss-light.png)
-![Dark](/data/ss-dark.png)
+![Light](/.data/ss-light.png)
+![Dark](/.data/ss-dark.png)
 
 ### Installation
 Clone this repo, and open directory with terminal and then:

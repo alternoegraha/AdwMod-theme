@@ -1,0 +1,26 @@
+option(
+  'theme_name',
+  type: 'string',
+  value: 'AdwMod',
+  description: 'Set theme name',
+)
+
+option(
+  'colors',
+  type: 'array',
+  choices: ['default', 'dark'],
+  description: 'Choose color variant(s)',
+)
+
+option(
+  'gnome_shell_version',
+  type: 'string',
+  description: 'Manually set gnome-shell version',
+)
+
+option(
+  'flatpak',
+  type: 'boolean',
+  value: false,
+  description: 'Build theme for flatpak package',
+)
