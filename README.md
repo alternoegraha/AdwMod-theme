@@ -4,7 +4,7 @@ AdwMod
 =====
 AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/GTK default theme) modified with some enhancements and additions.
 
-### Features
+## Features
 - Uses compact variant by default `$sizevariant: compact;` (to make it better for low-resolution screens)
 - Adaptive font size in GNOME shell.
 - Consistent GTK2 theme (finally!)
@@ -21,13 +21,13 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Pantheon/elementary OS
 > because some elementary Apps uses custom stylesheet that requires elementary GTK theme to work
 
-### Screenshots
+## Screenshots
 ![Light](/.data/light.png)
 ![Light-gtk4](/.data/light-gtk4.png)
 ![Dark](/.data/dark.png)
 ![Dark-gtk4](/.data/dark-gtk4.png)
 
-### Installation
+## Installation
 Clone this repo, and open directory with terminal and then:
 ```
 # system-wide install
@@ -38,7 +38,7 @@ sudo ninja -C build install
 meson build --prefix=$HOME/.local
 ninja -C build install
 ```
-### Credits
+## Credits
 - https://gitlab.gnome.org/GNOME/gtk (Adwaita GTK theme)
 - https://gitlab.gnome.org/GNOME/gnome-themes-extra (Adwaita GTK 2 theme)
 - https://gitlab.gnome.org/GNOME/gnome-shell (Adwaita shell theme)
