@@ -54,8 +54,10 @@
   @extend %status_text;
 }
 
-.grid-search-results {
-  spacing: $base_spacing * 6;
+@if $shell_ver == 3.38 {
+  .grid-search-results {
+    spacing: $base_spacing * 6;
+  }
 }
 
 // Search results with icons

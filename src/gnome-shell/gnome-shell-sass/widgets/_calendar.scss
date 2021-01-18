@@ -171,29 +171,31 @@
   }
 }
 
-/* Events */
-.events-button {
-  @include notification_bubble;
-  padding: $base_padding * 2;
+@if $shell_ver == 3.38 {
+  /* Events */
+  .events-button {
+    @include notification_bubble;
+    padding: $base_padding * 2;
 
-  .events-box {
-    spacing: $base_spacing;
-  }
+    .events-box {
+      spacing: $base_spacing;
+    }
 
-  .events-list {
-    spacing: 2 * $base_spacing;
-  }
+    .events-list {
+      spacing: 2 * $base_spacing;
+    }
 
-  .events-title {
-    color: desaturate(darken($fg_color,40%), 10%);
-    font-weight: bold;
-    margin-bottom: $base_margin;
-  }
+    .events-title {
+      color: desaturate(darken($fg_color,40%), 10%);
+      font-weight: bold;
+      margin-bottom: $base_margin;
+    }
 
-  .event-time {
-    color: darken($fg_color,20%);
-    font-feature-settings: "tnum";
-    font-size: $base_font_size - 10;
+    .event-time {
+      color: darken($fg_color,20%);
+      font-feature-settings: "tnum";
+      font-size: $base_font_size - 10;
+    }
   }
 }
 
