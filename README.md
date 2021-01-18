@@ -2,19 +2,24 @@
 
 AdwMod
 =====
-> This master branch are for GNOME 3.38. Using previous versions? there's a `gnome-3-34` and `gnome-3.36` branch
-
 AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/GTK default theme) modified with some enhancements and additions.
 
 ### Features
 - Uses compact variant by default `$sizevariant: compact;` (to make it better for low-resolution screens)
-- **New!** Adaptive font size in GNOME shell.
+- Adaptive font size in GNOME shell.
 - Consistent GTK2 theme (finally!)
-- Xfce4 support (with xfwm4 theme included)
-- Budgie Desktop support (Requires Budgie Desktop 10.5.1 or latest git version)
-- MATE desktop support
-> Although MATE is supported, currently there's no WM theme for Marco. I recommended to change default WM to metacity because it uses native GTK theming than legacy metacity-3 XML theming
-- Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes
+- Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes (except in Gtk4)
+
+### Supported desktop environments
+- GNOME shell (3.36 and up)
+- Budgie Desktop (10.5.x and up)
+- Xfce (4.14 and up)
+- MATE (partially supported)
+#### Unsupported
+- Qt-based desktops (Plasma, Deepin, LXQt, Lumina)
+- LXDE
+- Pantheon/elementary OS
+> some elementary Apps uses custom stylesheet that requires elementary GTK theme
 
 ### Screenshots
 ![Light](/.data/ss-light.png)
@@ -23,12 +28,16 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 ### Installation
 Clone this repo, and open directory with terminal and then:
 ```
-meson build --prefix=/usr
+# system-wide install
+meson build
 sudo ninja -C build install
+
+# single user install 
+meson build --prefix=$HOME/.local
+ninja -C build install
 ```
 ### Credits
 - https://gitlab.gnome.org/GNOME/gtk (Adwaita GTK theme)
 - https://gitlab.gnome.org/GNOME/gnome-themes-extra (Adwaita GTK 2 theme)
 - https://gitlab.gnome.org/GNOME/gnome-shell (Adwaita shell theme)
 - https://github.com/ubuntu/yaru (Upstream sync script)
-- https://github.com/godlyranchdressing/gnome-theme-starter (Meson build template)
