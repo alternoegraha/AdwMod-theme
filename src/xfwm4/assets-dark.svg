@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -15,8 +13,8 @@
    viewBox="0 0 66.14583 66.145835"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="assets.svg">
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
+   sodipodi:docname="assets-dark.svg">
   <defs
      id="defs2">
     <linearGradient
@@ -33,34 +31,6 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient5592">
-      <stop
-         style="stop-color:#1b1b1b;stop-opacity:1"
-         offset="0"
-         id="stop5586" />
-      <stop
-         id="stop5588"
-         offset="0.8125"
-         style="stop-color:#1b1b1b;stop-opacity:1" />
-      <stop
-         style="stop-color:#070707;stop-opacity:1"
-         offset="1"
-         id="stop5590" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient5271"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#373737;stop-opacity:1"
-         offset="0"
-         id="stop5265" />
-      <stop
-         style="stop-color:#323232;stop-opacity:1"
-         offset="1"
-         id="stop5269" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient1124"
        id="linearGradient5243"
        gradientUnits="userSpaceOnUse"
@@ -68,26 +38,6 @@
        y1="248.31665"
        x2="3.175"
        y2="256.78333" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5271"
-       id="linearGradient5594"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1578947,0,0,1.1578947,1.7631556,1.2631584)"
-       x1="11"
-       y1="2"
-       x2="11"
-       y2="20" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5592"
-       id="linearGradient5596"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.4,0,0,1.4,-0.20000108,-1.4000183)"
-       x1="10.499999"
-       y1="3.0000136"
-       x2="10.499999"
-       y2="19.000013" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1124"
@@ -114,9 +64,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="6.052834"
+     inkscape:zoom="1"
      inkscape:cx="63.094711"
-     inkscape:cy="203.46525"
+     inkscape:cy="42.936109"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -124,14 +74,15 @@
      inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
      inkscape:window-width="1366"
-     inkscape:window-height="668"
+     inkscape:window-height="666"
      inkscape:window-x="0"
-     inkscape:window-y="31"
+     inkscape:window-y="32"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
      showguides="false"
      inkscape:guide-bbox="true"
-     inkscape:object-nodes="true">
+     inkscape:object-nodes="true"
+     inkscape:document-rotation="0">
     <inkscape:grid
        type="xygrid"
        id="grid815" />
@@ -585,7 +536,7 @@
          transform="matrix(0.26458333,0,0,0.26458333,26.855209,258.37082)"
          id="button-hover">
         <rect
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5594);fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#111111;fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
            id="rect5360-6"
            width="22"
            height="22"
@@ -593,14 +544,8 @@
            y="3.0000007"
            rx="19"
            ry="19" />
-        <path
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#ffffff;stroke-width:0.99999994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate;opacity:0.02"
-           d="m 3.9999978,13.999436 c 0,-5.2594065 4.6830004,-9.4935115 10.4999992,-9.4935115 5.817001,0 10.500001,4.234105 10.500001,9.4935115"
-           id="rect5181"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="csc" />
         <rect
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:url(#linearGradient5596);stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#111111;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
            id="rect5365-1"
            width="21"
            height="21"
@@ -627,7 +572,7 @@
          transform="matrix(0.26458333,0,0,0.26458333,32.411459,259.95831)"
          id="button-active">
         <rect
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#070707;fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
            id="rect5360-6-3"
            width="22"
            height="22"
@@ -636,7 +581,7 @@
            rx="19"
            ry="19" />
         <rect
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#1b1b1b;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#070707;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate"
            id="rect5365-1-5"
            width="21"
            height="21"
