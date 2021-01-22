@@ -15,7 +15,7 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Budgie Desktop (10.5.x and up)
 - Xfce (4.14 and up)
 - MATE (partially supported)
-> Use `metacity` as default window manager. Currently there's no legacy metacity theme (used by Marco, Compiz and Cinnamon, `metacity-theme-3.xml`) available
+> For MATE: Use `metacity` as default window manager. Currently there's no legacy metacity theme (used by Marco, Compiz and Cinnamon, `metacity-theme-3.xml`) available
 ### Unsupported
 - Downstream-patched GNOME sessions
 > use vanilla/stock GNOME session by installing `gnome-session`
