@@ -1,9 +1,0 @@
-[X-GNOME-Metatheme]
-Name=AdwMod
-Type=X-GNOME-Metatheme
-Comment=Adwaita Modified
-Encoding=UTF-8
-GtkTheme=AdwMod
-IconTheme=Adwaita
-CursorTheme=Adwaita
-CursorSize=24
