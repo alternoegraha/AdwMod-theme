@@ -11,21 +11,21 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes (except in Gtk4)
 
 ## Supported desktop environments
-- GNOME (3.36 and up)
+- GNOME shell (3.36 and up)
 - Budgie Desktop (10.5.x and up)
 - Xfce (4.14 and up)
 - MATE (partially supported)
+> Use `metacity` as default window manager. Currently there's no legacy metacity theme (used by Marco, Compiz and Cinnamon, `metacity-theme-3.xml`) available
 ### Unsupported
 - Downstream-patched GNOME sessions
 > use vanilla/stock GNOME session by installing `gnome-session`
-- old version of GNOME shell
+- GNOME shell 3.34 and older
 > this means distros that ships with old GNOME (e.g Ubuntu 18.04 or Debian stable) are unsupported
 - Xfce 4.12 and older
 > AdwMod doesn't have Xfce4 gtk2 theming and no plans to add it
-- Qt-based desktops (Plasma, Deepin, LXQt, Lumina)
 - LXDE/Openbox
 - Pantheon/elementary OS
-> because some elementary Apps uses custom stylesheet that requires elementary GTK theme to work
+> because apps designed for elementary OS uses custom stylesheet that requires elementary GTK theme to work
 
 ## Screenshots
 ![Light](/.data/light.png)
@@ -47,7 +47,7 @@ meson build --prefix=$HOME/.local
 ninja -C build install
 ```
 ## Credits
-- https://gitlab.gnome.org/GNOME/gtk (Adwaita GTK theme)
-- https://gitlab.gnome.org/GNOME/gnome-themes-extra (Adwaita GTK 2 theme)
-- https://gitlab.gnome.org/GNOME/gnome-shell (Adwaita shell theme)
-- https://github.com/ubuntu/yaru (Upstream sync script)
+- https://gitlab.gnome.org/GNOME/gtk - Adwaita GTK theme
+- https://gitlab.gnome.org/GNOME/gnome-themes-extra - Adwaita GTK2 theme
+- https://gitlab.gnome.org/GNOME/gnome-shell - Adwaita shell theme
+- https://github.com/ubuntu/yaru - upstream sync script
