@@ -5,7 +5,7 @@ $popover_arrow_height: 12px;
 //.the popover itself
 .popup-menu-boxpointer {
   -arrow-border-radius: $base_border_radius+4;
-  -arrow-background-color: $bg_color;
+  -arrow-background-color: $base_color;
   -arrow-border-width: 1px;
   -arrow-border-color: if($variant == 'light', transparentize(black, 0.6), $borders_color);
   -arrow-base: $popover_arrow_height * 2;
@@ -47,12 +47,13 @@ $popover_arrow_height: 12px;
   }
 
   &:checked {
-    background-color: lighten($bg_color, 2%);
+    background-color: darken($bg_color, 2%);
     box-shadow: none;
   }
 
   &.selected {
-    background-color: transparentize(white, if($variant=='light', 0.2, 0.9));
+	background-color: if($variant == 'light', darken($bg_color, 6%), 
+darken($bg_color, 8%));
     color: $fg_color;
   }
 
@@ -77,7 +78,7 @@ $popover_arrow_height: 12px;
 
 // popover submenus
 .popup-sub-menu {
-  background-color: darken($bg_color, 3%);
+  background-color: darken($base_color, 1%);
   box-shadow: none;
   border-top: 1px solid transparentize($borders_color, 0.2);
   border-bottom: 1px solid transparentize($borders_color, 0.2);
