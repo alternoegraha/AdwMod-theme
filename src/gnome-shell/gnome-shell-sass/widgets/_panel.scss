@@ -46,14 +46,13 @@ $panel_height: 32px;
   .panel-button {
     font-weight: bold;
     color: $panel_fg_color;
-    -natural-hpadding: if($_sizevariant == 'default', $base_padding 
-+ 4, $base_padding * 2);
+    -natural-hpadding: $base_padding * 2;
     -minimum-hpadding: $base_padding;
     transition-duration: 150ms;
     border: 3px solid transparent;
     border-radius: 99px;
 		
-		StLabel { padding: 0 $base_margin; }
+		StLabel { padding: 0 2px; }
 
     &.clock-display {
       .clock {
