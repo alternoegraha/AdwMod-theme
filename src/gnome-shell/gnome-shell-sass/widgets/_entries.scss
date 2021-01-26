@@ -3,7 +3,7 @@
 StEntry {
   border-radius: $base_border_radius;
   padding: 0 8px;
-  min-height: 28px;
+  min-height: if($_sizevariant == 'default', 32px, 28px);
   border-width: 1px;
   color: $fg_color;
   @include entry(normal);

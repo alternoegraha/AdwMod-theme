@@ -1,17 +1,17 @@
 /* Dash to Dock */
 
 #dashtodockContainer {
-	&.left, &.right { #dash { padding: 1px 0; } }
-
-	&.top, &.bottom { #dash { padding: 0 1px; } }
-
-	&.extended #dash { border-color: transparent; }
-
 	@if $_sizevariant == 'compact' { 
+		&.left, &.right { #dash { padding: 1px 0; } }
+
+		&.top, &.bottom { #dash { padding: 0 1px; } }
+
 		.dash-item-container > StWidget { padding: 
 4px 5px; }
 	}
 
+	&.extended #dash { border-color: transparent; }
+	
 	.app-well-app-running-dot {
 		margin-bottom: -1px;
 		width: 4px;
