@@ -3,18 +3,18 @@
 #dashtodockContainer {
 	&.left, &.right { 
 		#dash { 
-			padding: if($_sizevariant == 'default', 3px 2px, 1px 0); 
+			padding: $base_margin+2 0; 
 		}
 	}
 
 	&.top, &.bottom { 
 		#dash { 
-			padding: if($_sizevariant == 'default', 2px 3px, 0 1px);
+			padding: 0 $base_margin+2;
 		}
 	}
 
 	.dash-item-container > StWidget { 
-		padding: $base_padding+2 $base_padding+3;
+		padding: $base_margin+4 $base_margin;
 	}
 
 
