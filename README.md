@@ -5,7 +5,7 @@ AdwMod
 AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/GTK default theme) modified with some enhancements and additions.
 
 ## Features
-- Uses compact variant by default `$sizevariant: compact;` (to make it better for low-resolution screens)
+- Available in **two variants.** 'Default' and 'Compact'
 - Adaptive font size in GNOME shell.
 - Consistent GTK2 theme (finally!)
 - Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes (except in Gtk4)
