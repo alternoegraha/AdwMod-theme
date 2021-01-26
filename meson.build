@@ -19,13 +19,22 @@ foreach color: get_option('colors')
     color_suffix = '-dark'
     scss_variant = 'dark'
   endif
-
-  themes += {
-    'name': theme_base_name + color_suffix,
-    'dir': theme_base_dir + color_suffix,
-    'color': color_suffix,
-    'scss_variant': scss_variant,
-  }
+  foreach size: get_option('sizes')
+    if size == 'default'
+      size_suffix = ''
+      size_variant = 'default'
+    elif size == 'compact'
+      size_suffix = '-compact'
+      size_variant = 'compact'
+    endif
+    themes += {
+      'name': theme_base_name + size_suffix + color_suffix,
+      'dir': theme_base_dir + size_suffix + color_suffix,
+      'color': color_suffix,
+      'scss_variant': scss_variant,
+      'size_variant': size_variant,
+    }
+  endforeach
 endforeach
 
 foreach theme: themes

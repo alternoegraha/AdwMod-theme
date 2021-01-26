@@ -26,6 +26,7 @@ foreach theme: themes
 
   gtk_scss_conf = configuration_data()
   gtk_scss_conf.set('variant', theme['scss_variant'])
+  gtk_scss_conf.set('_sizevariant', theme['size_variant'])
 
   foreach gtk_version: gtk_versions
     gtk_version_dir = join_paths(theme['dir'], 'gtk-@0@'.format(gtk_version))

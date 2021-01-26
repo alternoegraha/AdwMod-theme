@@ -78,6 +78,7 @@ foreach theme: themes
 
   gnome_shell_scss_conf = configuration_data()
   gnome_shell_scss_conf.set('variant', theme['scss_variant'])
+  gnome_shell_scss_conf.set('_sizevariant', theme['size_variant'])
   gnome_shell_scss_conf.set('version', gnome_shell_version)
 
   # Configure SCSS file
