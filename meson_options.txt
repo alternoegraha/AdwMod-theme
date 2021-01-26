@@ -13,6 +13,13 @@ option(
 )
 
 option(
+  'sizes',
+  type: 'array',
+  choices: ['default', 'compact'],
+  description: 'Choose size variant(s)',
+)
+
+option(
   'gnome_shell_version',
   type: 'string',
   description: 'Manually set gnome-shell version',

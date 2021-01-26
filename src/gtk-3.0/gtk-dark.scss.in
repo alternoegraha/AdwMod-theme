@@ -1,4 +1,5 @@
 $variant: 'dark';
+$_sizevariant: "@_sizevariant@";
 
 @import 'colors';
 @import 'drawing';
