@@ -7,7 +7,10 @@
 
 	&.extended #dash { border-color: transparent; }
 
-	.dash-item-container > StWidget { padding: 4px 5px; }
+	@if $_sizevariant == 'compact' { 
+		.dash-item-container > StWidget { padding: 
+4px 5px; }
+	}
 
 	.app-well-app-running-dot {
 		margin-bottom: -1px;

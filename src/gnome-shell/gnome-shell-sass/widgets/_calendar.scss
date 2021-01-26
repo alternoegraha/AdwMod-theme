@@ -80,7 +80,7 @@
   }
 
 
-  $calendar_day_size: 32px - 4;
+  $calendar_day_size: if($_sizevariant == 'default', 32px, 28px);
 
   .calendar-day-base {
     font-size: $base_font_size - 10;

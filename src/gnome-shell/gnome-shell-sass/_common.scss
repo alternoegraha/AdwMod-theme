@@ -26,9 +26,9 @@ $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 /* Global Values */
 
 // padding, margin and spacing
-$base_padding: 4px;
-$base_margin: 2px;
-$base_spacing: 4px;
+$base_padding: if($_sizevariant == 'default', 6px, 4px);
+$base_margin: if($_sizevariant == 'default', 4px, 2px);
+$base_spacing: if($_sizevariant == 'default', 6px, 4px);
 
 // border radii
 $base_border_radius: 5px;
@@ -110,7 +110,7 @@ stage {
   border-radius: $base_border_radius;
   border-style: solid;
   border-width: 1px;
-  min-height: 24px;
+	min-height: if($_sizevariant == 'default', 24px, 22px);
   padding: $base_padding * 0.5 $base_padding * 4;
 
   @include button(normal);

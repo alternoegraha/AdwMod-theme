@@ -2,7 +2,7 @@
 
 $app_icon_size: 96px;
 
-$app_icon_padding: 22px;
+$app_icon_padding: if($_sizevariant == 'default', 24px, 22px);
 
 // app icons
 .icon-grid {
@@ -15,7 +15,8 @@ $app_icon_padding: 22px;
 	@else {
 		-shell-grid-horizontal-item-size: $app_icon_size + $app_icon_padding * 2;
   	-shell-grid-vertical-item-size: $app_icon_size + $app_icon_padding * 2;
-  	spacing: $base_spacing * 6;
+		spacing: if($_sizevariant == 'default', $base_spacing * 4, $base_spacing * 
+6);
 
   	.overview-icon {
     	icon-size: $app_icon_size;
@@ -53,15 +54,15 @@ $app_grid_fg_color: #fff;
   border: 1px solid $osd_outer_borders_color;
   background-color: transparentize(darken($osd_bg_color,10%), 0.05);
   @if $shell_ver >= 3.38 { 
-		padding: 10px; 
+		padding: if($_sizevariant == 'default', 12px, 10px); 
 	}
 	@else { 
-		spacing: 10px; 
+		spacing: if($_sizevariant == 'default', 12px, 10px); 
 	}
 
   & .folder-name-container {
-    padding: 20px 32px 0;
-    spacing: 8px;
+		padding: if($_sizevariant == 'default', 24px 36px, 20px 32px) 0;
+		spacing: if($_sizevariant == 'default', 12px, 8px);
 
     & .folder-name-label,
     & .folder-name-entry {
@@ -78,8 +79,8 @@ $app_grid_fg_color: #fff;
       @extend %button;
 
       padding: 0;
-      width: 32px;
-      height: 32px;
+			width: if($_sizevariant == 'default', 36px, 32px);
+			height: if($_sizevariant == 'default', 36px, 32px);
       border-radius: 18px;
 
       & > StIcon { icon-size: 16px }
@@ -104,8 +105,8 @@ $app_grid_fg_color: #fff;
 .app-folder-dialog-container {
   padding: $base_padding + 8;
   @if $shell_ver >= 3.38 { 
-		width: 500px;
-  	height: 500px;
+		width: if($_sizevariant == 'default', 620px, 500px);
+		height: if($_sizevariant == 'default', 620px, 500px);
 	}
 	@else {
 		width: 600px;
