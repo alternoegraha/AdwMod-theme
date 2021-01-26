@@ -1,40 +1,52 @@
 // Additional tweaks
 // Instead modifying _common.scss, let some tweaks available here
 
-/**** Reduce PlacesSidebar height ****/
-placessidebar row {
-	min-height: 34px;
-}
+// make compact sizings only available in -compact sizevariant
+@if $_sizevariant == 'compact' {
+	/**** Reduce PlacesSidebar height ****/
+	placessidebar row {
+		min-height: 34px;
+	}
 
-/**** Make titlebar height more 'compact' ****/
-.titlebar.default-decoration {
-  min-height: 24px;
+	/**** Make titlebar height more 'compact' ****/
+	.titlebar.default-decoration {
+		min-height: 24px;
 
-  button.titlebutton {
-  	min-height: 22px;
-  	min-width: 22px;
-  }
-}
-
-/**** Fix slimmed circular buttons ****/
-* { & button.circular { min-width: 0; } }
-
-/**** Fix for apps that uses HdyViewSwitcher in headerbar ****/
-headerbar {
-	hdyviewswitcher {
-		button.radio {
-			box {
-				&.horizontal.wide {
-					margin: -6px 0;
-				}
-				
-				&.vertical.narrow {
-					margin: -3px 0;
+		button.titlebutton {
+			min-height: 22px;
+			min-width: 22px;
+		}
+	}
+  
+	/**** Fix slimmed circular buttons ****/
+	* { & button.circular { min-width: 0; } }
+	
+	/**** Notebooks/Tabs tweaks ****/
+	notebook > header tab {
+		min-width: $_entry_height;
+		min-height: $_entry_height;
+		padding: 1px 10px;
+		
+		button.flat {
+			min-width: 18px;
+			min-height: 18px;
+		}
+	}
+	
+	/**** Fix for apps that uses HdyViewSwitcher in headerbar ****/
+	// libhandy 0.x specific, for libhandy1 styling go to _libhandy.scss
+	headerbar {
+		hdyviewswitcher {
+			button.radio {
+				box {
+					&.horizontal.wide { margin: -6px 0; }
+					
+					&.vertical.narrow { margin: -3px 0; }
 				}
 			}
+					
+			label { margin: -2px 0; }
 		}
-		
-		label { margin: -2px 0; }
 	}
 }
 
@@ -53,18 +65,6 @@ decoration {
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {
 	buttonbox, .dialog-action-area { margin: 8px; }
-}
-
-/**** Notebooks/Tabs tweaks ****/
-notebook > header tab {
-    min-width: $_entry_height;
-    min-height: $_entry_height;
-    padding: 1px 10px;
-
-    button.flat {
-        min-width: 18px;
-        min-height: 18px;
-    }
 }
 
 /**** scale/progressbar tweaks ****/

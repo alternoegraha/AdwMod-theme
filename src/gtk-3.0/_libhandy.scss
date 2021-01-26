@@ -171,8 +171,8 @@ viewswitcher {
     > stack > box {
       &.narrow {
         font-size: 0.75rem;
-        padding-top: 4px;
-        padding-bottom: 2px;
+        padding-top: if($_sizevariant == 'default', 7px, 4px);
+        padding-bottom: if($_sizevariant == 'default', 5px, 2px);
 
         image,
         label {
@@ -182,7 +182,7 @@ viewswitcher {
       }
 
       &.wide {
-        padding: 3px 12px;
+        padding: if($_sizevariant == 'default', 8px, 3px) 12px;
 
         label {
           &:dir(ltr) {
