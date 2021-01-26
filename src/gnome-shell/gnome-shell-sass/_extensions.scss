@@ -1,14 +1,22 @@
 /* Dash to Dock */
 
 #dashtodockContainer {
-	@if $_sizevariant == 'compact' { 
-		&.left, &.right { #dash { padding: 1px 0; } }
-
-		&.top, &.bottom { #dash { padding: 0 1px; } }
-
-		.dash-item-container > StWidget { padding: 
-4px 5px; }
+	&.left, &.right { 
+		#dash { 
+			padding: if($_sizevariant == 'default', 3px 2px, 1px 0); 
+		}
 	}
+
+	&.top, &.bottom { 
+		#dash { 
+			padding: if($_sizevariant == 'default', 2px 3px, 0 1px);
+		}
+	}
+
+	.dash-item-container > StWidget { 
+		padding: $base_padding+2 $base_padding+3;
+	}
+
 
 	&.extended #dash { border-color: transparent; }
 	

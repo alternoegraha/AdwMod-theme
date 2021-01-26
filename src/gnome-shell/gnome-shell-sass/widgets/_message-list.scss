@@ -3,7 +3,7 @@
 
 // main list
 .message-list {
-  width: 31.5em;
+	width: if($_sizevariant == 'default', 33.5em, 31.5em);
   padding: 0 $base_padding * 2;
 
   .message-list-placeholder { spacing: 12px; }
