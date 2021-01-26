@@ -28,15 +28,16 @@
 }
 
 // message bubbles
+$_msg_icon_vert_pad: if($_sizevariant == 'default', 1.125em, 0.75em);
 .message {
   @include notification_bubble;
 
   // icon container
   .message-icon-bin {
-    padding: 0.75em 0 0.75em ($base_padding * 2);
+		padding: $_msg_icon_vert_pad 0 $_msg_icon_vert_pad ($base_padding * 2);
 
     &:rtl {
-      padding: 0.75em ($base_padding * 2) 0.75em 0;
+			padding: $_msg_icon_vert_pad ($base_padding * 2) $_msg_icon_vert_pad;
     }
 
     // icon size and color
@@ -54,8 +55,8 @@
 
   // content
   .message-content {
-    padding: $base_padding + $base_margin * 2;
-    spacing: 4px;
+		padding: if($_sizevariant == 'default', 0.875em, 0.5em);
+		spacing: 0.25em;
   }
 
   // title
@@ -72,7 +73,7 @@
       color: transparentize($fg_color, 0.5);
       font-size: $base_font_size - 20;
       /* HACK: the label should be baseline-aligned with a 1em label, fake this with some bottom padding */
-      padding-bottom: 0.13em;
+      padding-bottom: if($_sizevariant == 'default', 0.13em, 0);
 
       &:ltr { text-align: right };
       &:rtl { text-align: left };
@@ -99,7 +100,7 @@
 
 /* Media Controls */
 .message-media-control {
-  padding: $base_padding * 2 $base_padding * 4;
+	padding: if($_sizevariant == 'default', 0.75em 1.5em, 0.625em 1.375em);
   color: darken($fg_color, 15%);
 
   // uses $hover_bg_color since the media controls are in a notification_bubble
