@@ -60,7 +60,7 @@
   .calendar-month-label {
     color: lighten($fg_color,5%);
     font-weight: bold;
-    padding: 8px 0;
+    padding: if($_sizevariant == 'default', 8px, 6px) 0;
     &:focus {}
   }
 
@@ -72,8 +72,8 @@
 
   .pager-button {
     background-color: transparent;
-    height: 32px;
-    width: 32px;
+    height: if($_sizevariant == 'default', 32px, 28px);
+    width: if($_sizevariant == 'default', 32px, 28px);
     border-radius: $base_border_radius;
     &:hover, &:focus { background-color: lighten($hover_bg_color, 5%); }
     &:active { background-color: $active_bg_color; }
