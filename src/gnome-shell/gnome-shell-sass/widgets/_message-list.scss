@@ -73,7 +73,7 @@ $_msg_icon_vert_pad: if($_sizevariant == 'default', 1.125em, 0.75em);
       color: transparentize($fg_color, 0.5);
       font-size: $base_font_size - 20;
       /* HACK: the label should be baseline-aligned with a 1em label, fake this with some bottom padding */
-      padding-bottom: if($_sizevariant == 'default', 0.13em, 0);
+      padding-top: 0.2em;
 
       &:ltr { text-align: right };
       &:rtl { text-align: left };
@@ -123,15 +123,16 @@ $_msg_icon_vert_pad: if($_sizevariant == 'default', 1.125em, 0.75em);
 
 // album-art
 .media-message-cover-icon {
-  icon-size: $base_icon_size*2 !important; // 48px
+  icon-size: $base_icon_size*2 !important;
   border-radius: $base_border_radius;
 
   // when there is no artwork
   &.fallback {
     color: darken($fg_color, 17%);
     background-color: $bg_color;
-    border: 1px solid transparent;
+    border: 0;
     border-radius: $base_border_radius;
-    icon-size: $base_icon_size * 2 !important;
+    icon-size: $base_icon_size !important;
+    padding: 8px !important;
   }
 }
