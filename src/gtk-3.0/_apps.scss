@@ -172,7 +172,7 @@ $disk_space_free: $osd_fg_color;
 		border-radius: 0;
 		border: 0;
 
-		font-weight: bold;
+		font-weight: 700;
 		
 		label:backdrop { // backdrop override
 			color: $fg_color;
@@ -188,10 +188,8 @@ $disk_space_free: $osd_fg_color;
 			// another backdrop override
 			&:backdrop { background: none; }
 		}
-	}
 
-	&.horizontal {
-		button.flat.toggle {
+		&:not(#pulseaudio-button).flat.toggle {
 			image, label { padding: 0 4px; }
 		}
 	}
@@ -207,6 +205,8 @@ $disk_space_free: $osd_fg_color;
 		@extend %button_basic;
 		margin: 2px 1px;
 		font-weight: normal;
+
+		label { padding: 0; }
 	}
 
 	menu { font-weight: normal; }
@@ -231,6 +231,8 @@ $disk_space_free: $osd_fg_color;
 				border-color: transparentize(black, 0.7);
 				border-top-color: transparentize(black, 0.64);
 			}
+
+			&:disabled { border-color: transparentize(black, 0.77); }
 		}
 	}
 }
@@ -242,6 +244,8 @@ dialog.xfsm-logout-dialog.keycap {
 	background-color: $bg_color;
 	box-shadow: none;
 	border-color: $xfsm_dialog_borders;
+	background-clip: padding-box;
+	border-radius: $window_radius;
 	
 	separator.horizontal { background-color: transparent; }
 }
@@ -250,7 +254,7 @@ dialog.xfsm-logout-dialog.keycap {
 #XfceNotifyWindow {
 	background-color: $bg_color;
 	color: $fg_color;
-	border-color: transparentize(black, 0.77);
+	border-color: if($variant == 'light', transparentize(black, 0.77), $borders_color);
 	background-clip: padding-box;
 	box-shadow: none;
 	border-radius: $window_radius;
