@@ -42,6 +42,20 @@ $panel_height: 32px;
     }
   }
 
+  // remove panel dropdown arrows
+  // NOTE: in GNOME 40 it was removed out of box
+  // (although it's on JS level, not CSS level)
+  // you can also use 'Remove dropdown arrows' shell extension too
+  // to remove additional but unnoticeable small gap
+  @if $shell_ver <= 3.38 {
+    .popup-menu-arrow {
+      width: 0;
+      height: 0;
+      padding: 0;
+      color: transparent;
+    }
+  }
+
   // panel menus
   .panel-button {
     font-weight: bold;
