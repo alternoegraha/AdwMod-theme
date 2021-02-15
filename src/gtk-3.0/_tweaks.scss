@@ -63,6 +63,55 @@ scrollbar slider {
 	min-height: 8px;
 }
 
+/**** switch tweaks ****/
+$_inv_bg_color: desaturate(#f6f5f4, 100%);
+
+switch {
+	headerbar & {
+		border-color: darken($borders_color, 3%);
+		background-color: if($variant == 'light', 
+                        darken($dark_fill, 8%), 
+                        darken($dark_fill, 4%));
+	}
+
+	slider {
+		@include button(normal);
+		background-clip: padding-box;
+		border-bottom-color: $borders_color;
+	}
+
+	&:hover slider { 
+		@include button(hover);
+		border-bottom-color: $borders_color;
+	}
+
+	// 'inverted' slider when checked (dark variant)
+	&:checked > slider {
+		@include button(normal, $c: $_inv_bg_color);
+		border: 1px solid $checkradio_borders_color;
+	}
+
+	&:checked:hover > slider {
+		@include button(hover, $c: $_inv_bg_color);
+		border: 1px solid $checkradio_borders_color;
+	}
+
+	&:disabled slider { @include button(disabled); }
+	&:backdrop {
+		slider { 
+			@include button(backdrop);
+			transition: $backdrop_transition;
+		}
+
+		&:checked > slider {
+			@include button(backdrop, $c: $_inv_bg_color);
+			border: 1px solid $checkradio_borders_color;
+		}
+
+		&:disabled slider { @include button(backdrop-insensitive); }
+	}
+}
+
 /**** Context menu tweaks ****/
 // Derived from yaru-theme
 decoration {
