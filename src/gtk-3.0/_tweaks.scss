@@ -56,11 +56,9 @@
 }
 
 /**** scrollbar tweaks ****/
-// due applying new upstream change that scrollbar now became 'big boi'
-// let's tweak it a bit
 scrollbar slider {
-	min-width: 8px;
-	min-height: 8px;
+	// workaround: apparently new scrollbar change commit causes 'jumping' content in some areas
+	transition: none;
 }
 
 /**** switch tweaks ****/
