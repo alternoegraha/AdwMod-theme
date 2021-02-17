@@ -60,8 +60,8 @@ $panel_height: 32px;
   .panel-button {
     font-weight: bold;
     color: $panel_fg_color;
-    -natural-hpadding: $base_padding * 2;
-    -minimum-hpadding: $base_padding;
+    -natural-hpadding: if($_sizevariant == 'default', $base_padding, $base_padding+2) * 2;
+    -minimum-hpadding: if($_sizevariant == 'default', $base_padding, $base_padding+2);
     transition-duration: 150ms;
     border: 3px solid transparent;
     border-radius: 99px;
@@ -74,7 +74,7 @@ $panel_height: 32px;
         border: 3px solid transparent;
         border-radius: 99px;
 
-        padding: 0 $base_padding * 2;
+        padding: 0 if($_sizevariant == 'default', $base_padding, $base_padding+2) * 2;
       }
     }
 
@@ -96,13 +96,13 @@ $panel_height: 32px;
     // status area icons
     .system-status-icon {
       icon-size: $base_icon_size;
-      padding: $base_padding - 1px;
+      padding: if($_sizevariant == 'default', $base_padding, $base_padding+2) - 1px;
     }
 
     // app menu icon
     .app-menu-icon {
-      margin-left: $base_margin;
-      margin-right: $base_margin;
+      margin-left: if($_sizevariant == 'default', $base_margin, $base_margin+2);
+      margin-right: if($_sizevariant == 'default', $base_margin, $base_margin+2);
       -st-icon-style: symbolic;
       // dimensions of the icon are hardcoded
     }
@@ -132,6 +132,6 @@ $panel_height: 32px;
 
 // App Menu
 #appMenu {
-  spacing: $base_spacing;
+  spacing: if($_sizevariant == 'default', $base_spacing, $base_spacing+2);
   .label-shadow { color: transparent; }
 }
