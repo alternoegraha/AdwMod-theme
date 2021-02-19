@@ -125,7 +125,7 @@
   @else if lightness($c)>80% { @return transparentize(white, 0.5); }
   @else if lightness($c)>50% { @return transparentize(white, 0.8); }
   @else if lightness($c)>40% { @return transparentize(white, 0.9); }
-  @else { @return transparentize(white, 0.98); }
+  @else { @return transparentize(white, 0.93); }
 }
 
 $_default_button_c: lighten($bg_color,2%);
@@ -156,7 +156,7 @@ $_default_button_c: lighten($bg_color,2%);
     border-color: if($c!=$_default_button_c, _border_color($c, true), $borders_color); //tint if not default button color
     border-bottom-color: if($c!=$_default_button_c, _border_color($c, true), $alt_borders_color);
     background-image: if($variant == 'light', linear-gradient(to top, darken($c, 2%) 2px, $c),
-                                              linear-gradient(to top, darken($c,1%) 2px, $c));
+                                              linear-gradient(to top, darken($c,1%) 2px, lighten($c, 1%)));
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
 
@@ -165,8 +165,8 @@ $_default_button_c: lighten($bg_color,2%);
   // hovered button
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color(darken($c, 3%)), $borders_color);
-    border-bottom-color: if($c != $_default_button_c, _border_color(darken($c, 3%), true), $alt_borders_color);
+    border-color: if($c != $_default_button_c, _border_color($c, true), $borders_color);
+    border-bottom-color: if($c != $_default_button_c, _border_color($c, true), $alt_borders_color);
     @if $variant == 'light' {
       background-image: linear-gradient(to top, darken($c,16%), darken($c,8%) 1px);
       @include _shadows(inset 0 1px darken($c,1%), $_button_edge, $_button_shadow);
@@ -182,8 +182,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed button
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
-    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
+    border-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 9%)));
     box-shadow: none;
   }
@@ -193,8 +193,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed togglebutton hover
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
-    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
+    border-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 18%)), image(darken($c, 12%)));
     box-shadow: none;
   }
@@ -204,8 +204,8 @@ $_default_button_c: lighten($bg_color,2%);
   // pushed togglebutton pushed further :)
   //
     color: $tc;
-    border-color: if($c != $_default_button_c, _border_color(darken($c, 8%)), darken($borders_color, 3%));
-    border-top-color: if($c != $_default_button_c, _border_color(darken($c, 8%), true), darken($borders_color, 8%));
+    border-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 3%));
+    border-top-color: if($c != $_default_button_c, _border_color($c, true), darken($borders_color, 8%));
     background-image: if($variant == 'light', image(darken($c, 22%)), image(darken($c, 14%)));
     box-shadow: none;
   }
@@ -217,7 +217,7 @@ $_default_button_c: lighten($bg_color,2%);
     $_bg: if($c != $_default_button_c, mix($c, $base_color, 85%), $insensitive_bg_color);
 
     color: if($tc != $fg_color, mix($tc, $_bg, 50%), $insensitive_fg_color);
-    border-color: if($c != $_default_button_c, _border_color($c), $insensitive_borders_color);
+    border-color: if($c != $_default_button_c, _border_color($c, true), $insensitive_borders_color);
     background-image: image($_bg);
   }
 
@@ -226,7 +226,7 @@ $_default_button_c: lighten($bg_color,2%);
   // insensitive pushed button
   //
     $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 6%));
-    $_bc: if($c != $_default_button_c, _border_color($c), $insensitive_borders_color);
+    $_bc: if($c != $_default_button_c, _border_color($c, true), $insensitive_borders_color);
 
     color: if($c != $_default_button_c, mix($tc, $_bg, 60%), $insensitive_fg_color);
     border-color: $_bc;
@@ -239,7 +239,7 @@ $_default_button_c: lighten($bg_color,2%);
   // backdrop button
   //
     $_bg: if($c != $_default_button_c, $c, $backdrop_bg_color);
-    $_bc: if($variant == 'light', $c, _border_color($c));
+    $_bc: if($variant == 'light', $c, _border_color($c, true));
 
     color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
     border-color: if($c != $_default_button_c, $_bc, $backdrop_borders_color);
@@ -252,7 +252,7 @@ $_default_button_c: lighten($bg_color,2%);
   // backdrop pushed button
   //
     $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 4%));
-    $_bc: if($variant == 'light', $_bg ,_border_color($c));
+    $_bc: if($variant == 'light', $_bg, _border_color($c, true));
 
     color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
     border-color: if($c != $_default_button_c, $_bc, $backdrop_borders_color);
@@ -266,7 +266,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
 
     $_bg: if($c != $_default_button_c, mix($c, $base_color, 85%), $insensitive_bg_color);
-    $_bc: if($variant == 'light', $_bg,_border_color($c));
+    $_bc: if($variant == 'light', $_bg, _border_color($c, true));
 
     color: if($c != $_default_button_c, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
     border-color: if($c != $_default_button_c, $_bc, $backdrop_borders_color);
@@ -280,7 +280,7 @@ $_default_button_c: lighten($bg_color,2%);
   //
 
     $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 4%));
-    $_bc: if($variant == 'light', $_bg, _border_color($c));
+    $_bc: if($variant == 'light', $_bg, _border_color($c, true));
 
     color: if($c != $_default_button_c, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
     border-color: if($c != $_default_button_c, $_bc, $backdrop_borders_color);
