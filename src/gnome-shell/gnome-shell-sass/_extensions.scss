@@ -3,21 +3,21 @@
 #dashtodockContainer {
 	&.left, &.right { 
 		#dash { 
-			padding: $base_margin+2 0; 
+			padding: $base_margin+4 0; 
 		}
 		
 		.dash-item-container > StWidget { 
-			padding: $base_margin $base_margin+4;
+			padding: 0 $base_margin+4;
 		}
 	}
 
 	&.top, &.bottom { 
 		#dash { 
-			padding: 0 $base_margin+2;
+			padding: 0 $base_margin+4;
 		}
 		
 		.dash-item-container > StWidget { 
-			padding: $base_margin+4 $base_margin;
+			padding: $base_margin+4 0;
 		}
 	}
 
