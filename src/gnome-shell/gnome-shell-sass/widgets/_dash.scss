@@ -7,7 +7,7 @@ $dash_border_radius: $modal_radius * 1.5;
 #dash {
   @extend %overview_panel;
   font-size: $base_font_size - 20;
-  padding: ($dash_spacing / 2) 0;
+  padding: ($dash_spacing / 2)*2 0;
 
   border-radius: 0 $dash_border_radius $dash_border_radius 0; 
   border-left-width: 0;
@@ -27,11 +27,19 @@ $dash_border_radius: $modal_radius * 1.5;
     width: $dash_placeholder_size;
     height: $dash_placeholder_size;
   }
+  
+  .app-well-app-running-dot {
+  	height: 4px;
+  	width: 4px;
+  	border-radius:5px;
+  	background-color: $osd_fg_color;
+  	margin-bottom: 1px;
+	}
 }
 
 // Dash Items
 .dash-item-container > StWidget {
-  padding: ($dash_spacing / 2) $dash_spacing;
+  padding: 0 $dash_spacing;
 }
 
 // OSD Tooltip
@@ -50,6 +58,13 @@ $dash_border_radius: $modal_radius * 1.5;
   padding: $base_padding $base_padding + 4px;
   text-align: center;
   -x-offset: $base_margin * 2; // distance from the dash edge
+}
+
+// increase padding in icons
+.app-well-app, .show-apps {
+	.overview-icon {
+		padding: 6px;
+	}
 }
 
 // Show apps button
