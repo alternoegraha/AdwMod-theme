@@ -521,3 +521,24 @@ na-tray-applet {
 		}
 	}
 }
+
+/**** Chromium ****/
+window.background.chromium {
+	// no corner radius in menuitem
+	menuitem { border-radius: 0; }
+	// make tab bars (if system titlebar enabled) blend with window
+	// in chrome/ium version < 88, the bg when on incognito mode will darken
+	$_chrome_toolbar_bg: if($variant == 'light', darken($bg_color, 12%), darken($bg_color, 6%));
+
+	menubar { 
+		background-color: $_chrome_toolbar_bg;
+
+		&:backdrop { background-color: $backdrop_bg_color; }
+	}
+}
+
+/**** Firefox ****/
+#MozillaGtkWidget {
+	// no corner radius in menuitem
+	menuitem { border-radius: 0; }
+}
