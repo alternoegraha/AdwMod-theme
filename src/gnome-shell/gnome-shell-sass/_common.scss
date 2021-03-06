@@ -102,7 +102,7 @@ stage {
 %bubble_panel {
   color: $fg_color;
   background-color: $bg_color;
-  border: 1px solid if($variant=='light', rgba(0,0,0, 0.6), $borders_color);
+  border: 1px solid if($variant=='light', transparentize(black, 0.5), transparentize(black, 0.25));
 }
 
 // button styling
