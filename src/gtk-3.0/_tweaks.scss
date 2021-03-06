@@ -95,7 +95,7 @@ switch {
 /**** Context menu tweaks ****/
 // Derived from yaru-theme
 decoration {
-	$_wm_border: if($variant == 'light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
+	$_wm_border: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
 
 	.csd.popup & {
 		border-radius: $popover_radius;

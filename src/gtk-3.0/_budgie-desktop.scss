@@ -1,6 +1,6 @@
 /**** Budgie-desktop ****/
 
-$budgie_borders: if($variant == 'light', transparentize(black, 0.77), $borders_color);
+$budgie_borders: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
 $_budgie_panel_bg: black;
 $_budgie_panel_fg: #eeeeec;
 
@@ -449,7 +449,7 @@ window.budgie-popover:not(.csd) {
 		border: 0px solid if($variant=='light', transparentize(black, 0.5), darken($borders_color, 2%));
 		
 		box-shadow: 0 1px 2px transparentize(black, 0.7),
-								0 0 0 1px if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
+								0 0 0 1px $budgie_borders;
 	}
 
 	> frame.container {
