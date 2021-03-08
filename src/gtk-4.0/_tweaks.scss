@@ -88,3 +88,8 @@ video {
 		border-radius: 99px;
 	}
 }
+
+/**** round csd windows ****/
+window.csd {
+	border-radius: $window_radius;
+}
