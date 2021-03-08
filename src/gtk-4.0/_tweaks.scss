@@ -70,3 +70,21 @@ headerbar {
 		}
 	}
 }
+
+/**** make OSD toolbar pretty or same as gtk3 ****/
+.osd {
+	padding: 13px;
+	border-radius: 5px;
+}
+
+// special case for GtkVideo widget
+video {
+	.osd {
+		padding: $_hb_btn_pad $_hb_btn_pad+1; // same as headerbar padding
+		border-radius: 0;
+	}
+	// unfortunately the big play button became not rounded
+	image.osd {
+		border-radius: 99px;
+	}
+}
