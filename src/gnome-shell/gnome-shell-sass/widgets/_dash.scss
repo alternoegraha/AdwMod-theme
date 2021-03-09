@@ -1,19 +1,32 @@
 /* Dash */
 
+$dash_background_color: #3b3b3b;
 $dash_placeholder_size: 32px;
-$dash_spacing: $base_padding + 4px;
+$dash_padding: $base_padding + 4px;
+$dash_spacing: $base_padding / 4px;
+$dash_bottom_margin: $base_margin * 4;
 $dash_border_radius: $modal_radius * 1.5;
 
 #dash {
-  @extend %overview_panel;
   font-size: $base_font_size - 20;
-  padding: ($dash_spacing / 2)*2 0;
 
-  border-radius: 0 $dash_border_radius $dash_border_radius 0; 
-  border-left-width: 0;
-  &:rtl {
-    border-radius: $dash_border_radius 0 0 $dash_border_radius;
-    border-right-width: 0;
+  @if $shell_ver <= 3.38 { // 3.38 and 3.36
+    @extend %overview_panel;
+    padding: ($dash_padding / 2)*2 0;
+
+    border-radius: 0 $dash_border_radius $dash_border_radius 0; 
+    border-left-width: 0;
+    &:rtl {
+      border-radius: $dash_border_radius 0 0 $dash_border_radius;
+      border-right-width: 0;
+    }
+  } @else { // GNOME 40
+    margin-top: $base_spacing * 2;
+    padding: 0 $dash_padding;
+
+    .overview-icon {
+      padding: $dash_padding / 2;
+    }
   }
 
   .placeholder {
@@ -37,27 +50,54 @@ $dash_border_radius: $modal_radius * 1.5;
 	}
 }
 
+// GNOME 40 specific theming
+@if $shell_ver >= 40 {
+  .dash-background {
+    background-color: $dash_background_color;
+    margin-bottom: $dash_bottom_margin;
+    padding: $dash_padding;
+    border-radius: $dash_border_radius;
+  }
+
+  .dash-item-container .app-well-app, .show-apps {
+    padding: $dash_padding $dash_spacing $dash_padding + $dash_bottom_margin;
+  }
+
+  .dash-separator {
+    width: 1px;
+    margin: 0 ($dash_spacing + ($dash_padding / 2)) $dash_bottom_margin;
+    background-color: transparentize($osd_fg_color, 0.7);
+  }
+}
+
 // Dash Items
 .dash-item-container > StWidget {
-  padding: 0 $dash_spacing;
+  padding: 0 $dash_padding;
 }
 
 // OSD Tooltip
 .dash-label {
-  background-color: transparentize($osd_bg_color,0.05);
-  border-radius: $base_border_radius + 2px;
-  
-  // because of remain-unfixed box-shadow cut off, use border instead
-  // see issue #1090 and #3068 at gnome-shell gitlab issues
-  // i should wait #1053 merged finally in mutter for proper fix.
-  border: 1px solid $osd_outer_borders_color;
-  box-shadow: none;
-  background-clip: padding-box;
-  
+  @if $shell_ver <= 3.38 { // 3.38 & 3.36
+    background-color: transparentize($osd_bg_color,0.05);
+    border-radius: $base_border_radius + 2px;
+    // because of remain-unfixed box-shadow cut off, use border instead
+    // see issue #1090 and #3068 at gnome-shell gitlab issues
+    // i should wait #1053 merged finally in mutter for proper fix.
+    // NOTE: it's fixed in GNOME 40, and also this bug is not present in 3.36.
+    border: 1px solid $osd_outer_borders_color;
+    box-shadow: none;
+    background-clip: padding-box;
+    padding: $base_padding $base_padding + 4px;
+    -x-offset: $base_margin * 2; // distance from the dash edge
+  } @else { // GNOME 40
+    background-color: $osd_bg_color;
+    border-radius: 99px;
+    padding: $base_padding $base_padding * 2;
+    -y-offset: $base_margin * 3; // distance from the dash edge
+  }
+
   color: $osd_fg_color;
-  padding: $base_padding $base_padding + 4px;
   text-align: center;
-  -x-offset: $base_margin * 2; // distance from the dash edge
 }
 
 // increase padding in icons
