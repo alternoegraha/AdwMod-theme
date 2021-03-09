@@ -6,23 +6,23 @@ $app_icon_padding: if($_sizevariant == 'default', 24px, 22px);
 
 // app icons
 .icon-grid {
-	@if $shell_ver == 3.38 { // 3.38
+  @if $shell_ver == 3.36 { // 3.36
+    -shell-grid-horizontal-item-size: $app_icon_size + $app_icon_padding * 2;
+    -shell-grid-vertical-item-size: $app_icon_size + $app_icon_padding * 2;
+    spacing: if($_sizevariant == 'default', $base_spacing * 4, $base_spacing * 
+6);
+
+    .overview-icon {
+      icon-size: $app_icon_size;
+    }
+  }
+  @if $shell_ver == 3.38 { // 3.38
   	row-spacing: $base_spacing * 6;
   	column-spacing: $base_spacing * 6;
   	max-row-spacing: $base_spacing * 12;
   	max-column-spacing: $base_spacing * 12;
 	}
-	@if $shell_ver == 3.36 { // 3.36
-		-shell-grid-horizontal-item-size: $app_icon_size + $app_icon_padding * 2;
-  	-shell-grid-vertical-item-size: $app_icon_size + $app_icon_padding * 2;
-		spacing: if($_sizevariant == 'default', $base_spacing * 4, $base_spacing * 
-6);
-
-  	.overview-icon {
-    	icon-size: $app_icon_size;
-  	}
-	}
-  @else { // GNOME 40
+  @if $shell_ver >= 40 { // GNOME 40
     row-spacing: $base_spacing * 2;
     column-spacing: $base_spacing * 2;
     max-row-spacing: $base_spacing * 12;
@@ -56,7 +56,8 @@ $app_grid_fg_color: #fff;
 .app-well-app.app-folder {
   @if $shell_ver <= 3.38 { 
     background-color: transparentize($osd_bg_color, 0.8);
-  } @else {
+  } 
+  @if $shell_ver >= 40 {
     background-color: darken($system_bg_color, 3%)
   }
   border-radius: $base_border_radius + 4px; // same as %icon_tile
@@ -68,15 +69,15 @@ $dash_background_color: #3b3b3b;
 .app-folder-dialog {
   border-radius: $modal_radius * 1.5;
   
+  @if $shell_ver == 3.36 { 
+    spacing: if($_sizevariant == 'default', 12px, 10px); 
+  }
   @if $shell_ver <= 3.38 {
     border: 1px solid $osd_outer_borders_color;
     background-color: transparentize(darken($osd_bg_color,10%), 0.05);
 		padding: if($_sizevariant == 'default', 12px, 10px); 
 	}
-	@if $shell_ver == 3.36 { 
-		spacing: if($_sizevariant == 'default', 12px, 10px); 
-	} 
-  @else {
+  @if $shell_ver >= 40 {
     background-color: $dash_background_color;
     padding: if($_sizevariant == 'default', 12px 0px 12px 0px, 10px 0px 10px 0px); 
   }
@@ -121,7 +122,9 @@ $dash_background_color: #3b3b3b;
       	padding: 15px 12px;
     	}
   	}
-	} @if $shell_ver >= 40 {
+	}
+
+  @if $shell_ver >= 40 {
     & .icon-grid {
       row-spacing: $base_spacing * 2;
       column-spacing: $base_spacing * 5;
@@ -138,13 +141,13 @@ $dash_background_color: #3b3b3b;
 }
 .app-folder-dialog-container {
   padding: $base_padding + 8;
+  @if $shell_ver == 3.36 {
+    width: 600px;
+    height: 400px;
+  }
   @if $shell_ver >= 3.38 { 
 		width: if($_sizevariant == 'default', 620px, 500px);
 		height: if($_sizevariant == 'default', 620px, 500px);
-	}
-	@else {
-		width: 600px;
-  	height: 400px;
 	}
 }
 
@@ -230,19 +233,6 @@ $dash_background_color: #3b3b3b;
   }
 }
 
-// Some hacks I don't even know
-@if $shell_ver <= 3.36 {
-	.all-apps,
-	.frequent-apps > StBoxLayout {
-  	// horizontal padding to make sure scrollbars or dash don't overlap content
-  	padding: 0px 88px 10px 88px;
-	}
-}
-
-// Label when no frequent apps
-@if $shell_ver == 3.36 { .no-frequent-applications-label { @extend %status_text; } }
-
-
 // shutdown and other actions in the grid
 .system-action-icon {
   background-color: rgba(0,0,0,0.8);
@@ -252,6 +242,16 @@ $dash_background_color: #3b3b3b;
 }
 
 @if $shell_ver == 3.36 {
+  // Some hacks I don't even know
+  .all-apps,
+  .frequent-apps > StBoxLayout {
+    // horizontal padding to make sure scrollbars or dash don't overlap content
+    padding: 0px 88px 10px 88px;
+  }
+
+  // Label when no frequent apps
+  .no-frequent-applications-label { @extend %status_text; }
+
 	/* Frequent | All toggle */
 	// container
 	.app-view-controls { 

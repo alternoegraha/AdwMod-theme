@@ -20,7 +20,9 @@ $dash_border_radius: $modal_radius * 1.5;
       border-radius: $dash_border_radius 0 0 $dash_border_radius;
       border-right-width: 0;
     }
-  } @else { // GNOME 40
+  } 
+
+  @if $shell_ver >= 40 { // GNOME 40
     margin-top: $base_spacing * 2;
     padding: 0 $dash_padding;
 
