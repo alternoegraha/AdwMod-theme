@@ -25,7 +25,7 @@ $dash_border_radius: $modal_radius * 1.5;
     padding: 0 $dash_padding;
 
     .overview-icon {
-      padding: $dash_padding+2 / 2;
+      padding: if($_sizevariant == 'default', $dash_padding / 2, ($dash_padding + 2) / 2);
     }
   }
 
