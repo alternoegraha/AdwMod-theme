@@ -186,7 +186,7 @@ $dash_background_color: #3b3b3b;
 // App Grid pagination indicators
 .page-indicator {
   @if $shell_ver <= 3.38 { padding: 15px 20px; }
-  @else { padding: $base_padding $base_padding; }
+  @if $shell_ver >= 40 { padding: $base_padding $base_padding; }
 
   .page-indicator-icon {
     width: 10px;
