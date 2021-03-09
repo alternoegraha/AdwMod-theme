@@ -303,7 +303,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-color: transparent;
     background-image: image($_bg);
     background-clip: padding-box;
-    box-shadow: none;
+    @include _shadows(inset 0 1px transparentize(white, 0.93));
   }
 
   @else if $t==osd-hover {
@@ -317,7 +317,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-color: transparent;
     background-image: image($_bg);
     background-clip: padding-box;
-    box-shadow: none;
+    @include _shadows(inset 0 1px transparentize(white, 0.93));
   }
 
   @else if $t==osd-active {
@@ -356,6 +356,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-color: transparent;
     background-image: image($_bg);
     background-clip: padding-box;
+    box-shadow: none;
   }
 
   @else if $t==undecorated {
