@@ -12,6 +12,11 @@ $search_entry_height: 36px;
   background-color: $bg_color;
   border-color: $borders_color;
 
+  @if $shell_ver >= 40 {
+    margin-top: $base_spacing;
+    margin-bottom: $base_spacing;
+  }
+
   &:hover {
     background-color: $hover_bg_color;
     border-color: $hover_borders_color;

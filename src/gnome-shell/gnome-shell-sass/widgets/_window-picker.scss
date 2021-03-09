@@ -65,6 +65,7 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
     border: none;
     height: $window_close_button_size;
     width: $window_close_button_size;
+    border-radius: $window_close_button_size * 0.5 + $window_close_button_padding * 2;
 
     & StIcon { icon-size: 16px; }
 
@@ -80,6 +81,7 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
     color: $osd_fg_color;
     height: 30px;
     width: 30px;
+    border-radius: 99px; // 99px instead. FTW
 
     & StIcon { icon-size: 24px; }
 
@@ -93,7 +95,6 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
     }
   }
 
-  border-radius: $window_close_button_size * 0.5 + $window_close_button_padding * 2;
   padding: $window_close_button_padding;
   box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.5);
   

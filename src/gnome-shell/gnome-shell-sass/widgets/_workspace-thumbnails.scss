@@ -2,24 +2,37 @@
 
 // thumbnails in overview
 .workspace-thumbnails {
-  @extend %overview_panel;
+  @if $shell_ver <= 3.38 { // 3.38 & 3.36
+    @extend %overview_panel; 
+    spacing: $base_spacing * 2;
+    padding: $base_padding * 2;
+
+    border-radius: $modal_radius 0 0 $modal_radius;
+    border-right-width: 0;
+
+    &:rtl {
+      border-radius: 0 $modal_radius $modal_radius 0;
+      border-left-width: 0;
+    }
+  }
+
   visible-width: 32px; //amount visible before hover
-  spacing: $base_spacing * 2;
-  padding: $base_padding * 2;
+  spacing: $base_spacing;
+  padding: $base_padding;
 
-  border-radius: $modal_radius 0 0 $modal_radius;
-  border-right-width: 0;
-
-  &:rtl {
-    border-radius: 0 $modal_radius $modal_radius 0;
-    border-left-width: 0;
+  @if $shell_ver >= 40 {
+    .workspace-thumbnail {
+      @extend %overview_panel;
+      border-radius: 3px;
+    }
   }
 
   // drag and drop indicator
   .placeholder {
     background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
     background-size: contain;
-    height: 24px;
+    @if $shell_ver <= 3.38 { height: 24px; }
+    @else { width: 18px; }
   }
 }
 

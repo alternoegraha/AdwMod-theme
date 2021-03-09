@@ -5,6 +5,7 @@ $panel_corner_radius: 0;
 $panel_bg_color: transparentize(black, 0.2);
 $panel_fg_color: #ccc;
 $panel_height: 32px;
+$panel_transition_duration: 250ms;
 
 
 #panel {
@@ -12,6 +13,12 @@ $panel_height: 32px;
   font-weight: bold;
   height: $panel_height;
   font-feature-settings: "tnum";
+
+  @if $shell_ver >= 40 {
+    transition-duration: $panel_transition_duration;
+
+    &:overview { background-color: transparent; }
+  }
 
   // transparent panel on lock & login screens
   &.unlock-screen,
@@ -99,6 +106,13 @@ $panel_height: 32px;
       padding: if($_sizevariant == 'default', $base_padding, $base_padding+2) - 1px;
     }
 
+    @if $shell_ver >= 40 {
+      .panel-status-indicators-box .system-status-icon,
+      .panel-status-menu-box .system-status-icon {
+        margin: 0;
+      }
+    }
+
     // app menu icon
     .app-menu-icon {
       margin-left: if($_sizevariant == 'default', $base_margin, $base_margin+2);
@@ -115,9 +129,11 @@ $panel_height: 32px;
     }
   }
 
-  .panel-status-indicators-box,
-  .panel-status-menu-box {
-    spacing: 2px;
+  @if $shell_ver <= 3.38 {
+    .panel-status-indicators-box,
+    .panel-status-menu-box {
+      spacing: 2px;
+    }
   }
 
   // spacing between power icon and (optional) percentage label
