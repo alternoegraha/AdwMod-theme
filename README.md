@@ -8,7 +8,7 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Available in **two variants.** 'Default' and 'Compact'
 - Adaptive font size in GNOME shell.
 - Consistent GTK2 theme (finally!)
-- Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync with upstream changes (except in Gtk4)
+- Modifications/tweaks are done in `_tweaks.scss` instead modifying `_common.scss` directly, to keep in sync and reduce some diffs with upstream `_common.scss` (except in Gtk4 and gnome-shell theme)
 
 ## Supported desktop environments
 - GNOME shell (3.36 and up)
@@ -33,6 +33,11 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 ![Dark](/.data/dark.png)
 ![Dark-gtk4](/.data/dark-gtk4.png)
 
+## Recommendations
+### Font
+- Any `sans-serif` font
+- font size: 11pt for **default** variant, 9/10pt for **compact** variant
+
 ## Installation
 Clone this repo, and open directory with terminal and then:
 ```
@@ -51,3 +56,4 @@ ninja -C build install
 - https://gitlab.gnome.org/GNOME/gnome-themes-extra - Adwaita GTK2 theme
 - https://gitlab.gnome.org/GNOME/gnome-shell - Adwaita shell theme
 - https://github.com/ubuntu/yaru - upstream sync script
+- https://github.com/nana-4/materia-theme - meson.build files including gnome-shell version detect logic
