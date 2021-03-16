@@ -80,10 +80,10 @@
   }
 
 
-  $calendar_day_size: if($_sizevariant == 'default', 32px, 28px);
+  $calendar_day_size: if($_sizevariant == 'default', 32px, 26px);
 
   .calendar-day-base {
-    font-size: $base_font_size - 10;
+    font-size: $base_font_size - 20;
     text-align: center;
     width: $calendar_day_size;
     height: $calendar_day_size;
@@ -102,7 +102,7 @@
     &.calendar-day-heading {
       color: lighten($fg_color,10%);
       margin-top: 1em;
-      font-size: $base_font_size - 10;
+      font-size: $base_font_size - 20;
     }
   }
 
