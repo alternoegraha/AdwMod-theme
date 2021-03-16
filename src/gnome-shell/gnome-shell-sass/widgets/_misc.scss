@@ -11,7 +11,7 @@ $text_color: if($variant == 'light', black, white);
   background-size: contain;
   color: $fg_color;
   border-radius: 99px;
-  border: 2px transparentize($fg_color, 0.25);
+  @if $shell_ver <= 3.38 { border: 2px transparentize($fg_color, 0.25); }
   &:hover {
     color: $text_color;
   }
@@ -20,9 +20,15 @@ $text_color: if($variant == 'light', black, white);
     background-color: transparentize($base_color, 0.10);
     border-radius: 99px;
     
-    // workaround: make user symbolic icons not 'leaking'
-    // especially when using some icon theme e.g Papirus (only for < 3.38)
-    @if $shell_ver <= 3.38 { padding: 14px; }
+    padding: 14px;
+    width: $base_icon_size * 2.5; height:  $base_icon_size * 2.5; // 40px;
+  }
+  
+  @if $shell_ver >= 40 { // for GNOME 40??
+  	icon-size: $base_icon_size * 4;
+  	&.user-avatar {
+  		border: 2px transparentize($fg_color, 0.25);
+  	}
   }
 }
 
