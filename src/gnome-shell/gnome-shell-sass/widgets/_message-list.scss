@@ -55,13 +55,14 @@ $_msg_icon_vert_pad: if($_sizevariant == 'default', 1.125em, 0.75em);
 
   // content
   .message-content {
-		padding: if($_sizevariant == 'default', 0.875em, 0.5em);
-		spacing: 0.25em;
+		padding: if($_sizevariant == 'default', 0.7em, 0.5em);
+		spacing: 0.3em;
   }
 
   // title
   .message-title {
     font-weight: bold;
+    padding-top: 0.125em;
   }
 
   // secondary container in title box
