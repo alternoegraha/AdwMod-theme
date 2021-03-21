@@ -11,7 +11,7 @@ $text_color: if($variant == 'light', black, white);
   background-size: contain;
   color: $fg_color;
   border-radius: 99px;
-  @if $shell_ver <= 3.38 { border: 2px transparentize($fg_color, 0.25); }
+  border: 2px transparentize($fg_color, 0.25);
   &:hover {
     color: $text_color;
   }
