@@ -85,11 +85,13 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
   @if $shell_ver >= 40 { // GNOME 40
     background-color: $osd_bg_color;
     color: $osd_fg_color;
-    height: 30px;
-    width: 30px;
+    height: if($_sizevariant == 'default', 30px, 26px);
+    width: if($_sizevariant == 'default', 30px, 26px);
     border-radius: 99px; // 99px instead. FTW
 
-    & StIcon { icon-size: 24px; }
+    & StIcon { 
+    	icon-size: if($_sizevariant == 'default', 24px, 16px); 
+    }
 
     &:hover {
       background-color: lighten($osd_bg_color, 15%);
