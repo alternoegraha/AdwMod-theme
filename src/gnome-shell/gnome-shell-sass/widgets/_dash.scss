@@ -23,7 +23,7 @@ $dash_border_radius: $modal_radius * 1.5;
   } 
 
   @if $shell_ver >= 40 { // GNOME 40
-    margin-top: $base_spacing * 2;
+    margin-top: $dash_bottom_margin;
     padding: 0 $dash_padding;
 
     .overview-icon {
