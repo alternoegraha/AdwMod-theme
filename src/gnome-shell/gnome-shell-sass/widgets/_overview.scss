@@ -2,7 +2,7 @@
 
 @if $shell_ver >= 40 {
 	.controls-manager, .secondary-monitor-workspaces {
-		spacing: $base_spacing * 2;
+		spacing: if($_sizevariant == 'default', $base_spacing * 2, $base_spacing * 4);
 	}
 
 	#overviewGroup {
