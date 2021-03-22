@@ -64,12 +64,16 @@ $dash_border_radius: $modal_radius * 1.5;
   .dash-background {
     background-color: $dash_background_color;
     margin-bottom: $dash_bottom_margin;
-    padding: $dash_padding;
+    padding: ($dash_padding / 2)*2;
     border-radius: $dash_border_radius;
+  }
+  
+  StIcon {
+  	icon-shadow: 0 1px 5px rgba(black, 0.4);
   }
 
   .dash-item-container .app-well-app, .show-apps {
-    padding: $dash_padding $dash_spacing $dash_padding + $dash_bottom_margin;
+    padding: $dash_padding 0 $dash_padding + $dash_bottom_margin;
   }
 
   .dash-separator {
