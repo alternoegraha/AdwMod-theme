@@ -4,7 +4,7 @@ $dash_background_color: #3b3b3b;
 $dash_placeholder_size: 32px;
 $dash_padding: $base_padding + 4px;
 $dash_spacing: $base_padding / 4px;
-$dash_bottom_margin: $base_margin * 4;
+$dash_bottom_margin: if($_sizevariant == 'default', $base_margin * 4, $base_margin * 8);
 $dash_border_radius: $modal_radius * 1.5;
 
 #dash {
@@ -27,7 +27,7 @@ $dash_border_radius: $modal_radius * 1.5;
     padding: 0 $dash_padding;
 
     .overview-icon {
-      padding: if($_sizevariant == 'default', $dash_padding / 2, ($dash_padding + 2) / 2);
+      padding: 0; // reset
     }
   }
 
@@ -49,6 +49,13 @@ $dash_border_radius: $modal_radius * 1.5;
   	border-radius:5px;
   	background-color: $osd_fg_color;
   	margin-bottom: 1px;
+	}
+	
+	// increase padding in icons
+	.app-well-app, .show-apps {
+		.overview-icon {
+			padding: 6px;
+		}
 	}
 }
 
@@ -102,13 +109,6 @@ $dash_border_radius: $modal_radius * 1.5;
 
   color: $osd_fg_color;
   text-align: center;
-}
-
-// increase padding in icons
-.app-well-app, .show-apps {
-	.overview-icon {
-		padding: 6px;
-	}
 }
 
 // Show apps button
