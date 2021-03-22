@@ -1,6 +1,6 @@
 /* Dash */
 
-$dash_background_color: #3b3b3b;
+$dash_background_color: rgba(255, 255, 255, 0.15);
 $dash_placeholder_size: 32px;
 $dash_padding: $base_padding + 4px;
 $dash_spacing: $base_padding / 4px;
@@ -70,6 +70,7 @@ $dash_border_radius: $modal_radius * 1.5;
     margin-bottom: $dash_bottom_margin;
     padding: ($dash_padding / 2)*2;
     border-radius: $dash_border_radius;
+    box-shadow: 0 3px 9px 1px transparentize(black, 0.5);
   }
 
   .dash-item-container .app-well-app, .show-apps {
