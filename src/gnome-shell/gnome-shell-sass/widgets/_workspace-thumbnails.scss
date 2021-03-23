@@ -21,7 +21,7 @@
     padding: $base_padding;
     
     .workspace-thumbnail {
-      @extend %overview_panel;
+      background-color: darken($osd_bg_color, 2%); //better visibility
       border-radius: 3px;
     }
   }
