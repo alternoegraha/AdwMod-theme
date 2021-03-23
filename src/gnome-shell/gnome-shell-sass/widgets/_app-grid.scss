@@ -42,6 +42,10 @@ $app_grid_fg_color: #fff;
 .app-well-app,
 %app-well-app {
   @include overview-icon($app_grid_fg_color);
+  
+  @if $shell_ver >= 40 {
+  	StIcon { icon-shadow: 0 1px 5px 1px rgba(black, 0.5); }
+  }
 
   .overview-icon.overview-icon-with-label {
     padding: 10px 8px 5px 8px;
