@@ -129,11 +129,9 @@ $panel_transition_duration: 250ms;
     }
   }
 
-  @if $shell_ver <= 3.38 {
-    .panel-status-indicators-box,
-    .panel-status-menu-box {
-      spacing: 2px;
-    }
+  .panel-status-indicators-box,
+  .panel-status-menu-box {
+    spacing: 2px;
   }
 
   // spacing between power icon and (optional) percentage label
@@ -150,4 +148,11 @@ $panel_transition_duration: 250ms;
 #appMenu {
   spacing: if($_sizevariant == 'default', $base_spacing, $base_spacing+2);
   .label-shadow { color: transparent; }
+}
+
+@if $shell_ver >= 40 {
+	#appMenu .panel-status-menu-box {
+		padding: 0;
+		spacing: 0;
+	}
 }
