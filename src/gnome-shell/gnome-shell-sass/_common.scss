@@ -76,7 +76,7 @@ stage {
 %osd_panel {
   color: $osd_fg_color;
   background-color: $osd_bg_color;
-  border: 1px solid $osd_outer_borders_color;
+  @if $shell_ver <= 3.38 { border: 1px solid $osd_outer_borders_color; }
   border-radius: $base_border_radius * 2 + 4px;
   padding: $base_padding * 2;
 }
@@ -102,7 +102,7 @@ stage {
 %bubble_panel {
   color: $fg_color;
   background-color: $bg_color;
-  border: 1px solid if($variant=='light', transparentize(black, 0.5), transparentize(black, 0.25));
+  border: 1px solid if($variant=='light', rgba(0,0,0, 0.6), $borders_color);
 }
 
 // button styling
