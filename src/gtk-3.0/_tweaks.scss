@@ -79,7 +79,7 @@ switch {
 		border: 1px solid $checkradio_borders_color;
 	}
 
-	&:disabled slider { @include button(disabled); }
+	&:disabled slider { @include button(insensitive); }
 	&:backdrop {
 		slider { 
 			@include button(backdrop);
