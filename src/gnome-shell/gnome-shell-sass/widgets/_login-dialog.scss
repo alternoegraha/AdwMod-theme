@@ -10,7 +10,7 @@
   border: none;
   background-color: transparent;
 
-  $_gdm_bg: lighten(#2e3436, 19%);
+  $_gdm_bg: $system_bg_color;
 
   StEntry {
     @if $variant=='dark' {
