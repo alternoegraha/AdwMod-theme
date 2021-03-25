@@ -64,3 +64,8 @@
 		}
 	}
 }
+
+/* appindicator extension */
+.appindicator-box { 
+	padding: 0 if($_sizevariant == 'default', $base_padding, $base_padding+2); 
+}
