@@ -67,5 +67,5 @@
 
 /* appindicator extension */
 .appindicator-box { 
-	padding: 0 if($_sizevariant == 'default', $base_padding - 2, $base_padding); 
+	padding: 0 if($_sizevariant == 'default', $base_padding - 1, $base_padding); 
 }
