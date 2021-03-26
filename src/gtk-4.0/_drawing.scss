@@ -222,6 +222,7 @@ $_default_button_c: lighten($bg_color,2%);
     color: if($tc != $fg_color, mix($tc, $_bg, 50%), $insensitive_fg_color);
     border-color: if($c != $_default_button_c, _border_color($c, true), $insensitive_borders_color);
     background-image: image($_bg);
+    box-shadow: none;
   }
 
   @else if $t==insensitive-active {
