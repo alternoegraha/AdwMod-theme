@@ -1,27 +1,36 @@
 /* Dash to Dock */
 
+
 #dashtodockContainer {
-	&.left, &.right { 
-		#dash { 
-			padding: $base_margin+4 0; 
+	@if $shell_ver <= 3.38 {
+		&.left, &.right { 
+			#dash { 
+				padding: $base_margin+4 0; 
+			}
+			
+			.dash-item-container > StWidget { 
+				padding: 0 $base_margin+4;
+			}
 		}
+
+		&.top, &.bottom { 
+			#dash { 
+				padding: 0 $base_margin+4;
+			}
 		
-		.dash-item-container > StWidget { 
-			padding: 0 $base_margin+4;
+			.dash-item-container > StWidget { 
+				padding: $base_margin+4 0;
+			}
+		}
+
+		&.extended #dash { border: 0; }
+	}
+	@if $shell_ver >= 40 {
+		#dash { 
+		// GNOME 40-specific DtD theming will added in future
+		// currently the DtD theming inherits default dash
 		}
 	}
-
-	&.top, &.bottom { 
-		#dash { 
-			padding: 0 $base_margin+4;
-		}
-		
-		.dash-item-container > StWidget { 
-			padding: $base_margin+4 0;
-		}
-	}
-
-	&.extended #dash { border: 0; }
 }
 
 /* Dash to Panel */
