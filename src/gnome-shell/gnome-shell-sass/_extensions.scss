@@ -40,15 +40,15 @@ $dtd_margin: ($dash_bottom_margin - 8);
 				border: 1px solid rgba(white, 0.07);
 				
 				background-color: rgba(white, 0.2);
-				padding: $dtd_padding - 4;
+				padding: $dtd_padding - 7;
 				border-radius: $dash_border_radius - 2;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dtd_padding 0 $dtd_padding + $dtd_margin;
+    		padding: ($dtd_padding - 1) 0 ($dtd_padding - 1) + $dtd_margin;
   		}
   		
-  		.dash-separator { margin: 0 ($dtd_spacing + ($dtd_padding / 2)) $dtd_margin; }
+  		.dash-separator { margin: 0 ($dtd_spacing + ($dtd_padding / 2 - 1)) $dtd_margin; }
   		
   		// legible running dot
   		.app-well-app-running-dot {
