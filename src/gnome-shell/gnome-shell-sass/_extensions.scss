@@ -33,11 +33,13 @@ $dtd_margin: ($dash_bottom_margin - 8);
 			margin-top: $dtd_margin;
 			.dash-background {
 				// no drop shadow because it bleeds out, use 'border' instead
-				box-shadow: 0 0 0 1px rgba(black, 0.45);
+				box-shadow: 0 0 0 1px rgba(black, 0.95);
 				// reduce bottom margin
 				margin-bottom: $dtd_margin;
+				// add 'highlight effect'
+				border: 1px solid rgba(white, 0.07);
 				
-				background-color: rgba(white, 0.25);
+				background-color: rgba(white, 0.2);
 				padding: $dtd_padding - 4;
 				border-radius: $dash_border_radius - 2;
 			}
@@ -47,6 +49,11 @@ $dtd_margin: ($dash_bottom_margin - 8);
   		}
   		
   		.dash-separator { margin: 0 ($dtd_spacing + ($dtd_padding / 2)) $dtd_margin; }
+  		
+  		// legible running dot
+  		.app-well-app-running-dot {
+  			box-shadow: 0 0 0 1px rgba(black, 0.3);
+  		}
 		}
 	}
 }
