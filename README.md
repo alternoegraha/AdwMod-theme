@@ -1,7 +1,7 @@
 <img src=".data/logo.svg" alt="AdwMod" align="left" width="32" height="32"/>
 
-AdwMod
-=====
+# AdwMod
+
 AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/GTK default theme) modified with some enhancements and additions.
 
 ## Features
