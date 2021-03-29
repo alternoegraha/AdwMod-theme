@@ -13,7 +13,7 @@ gtk4_scss_dependencies = [
   '_common.scss',
 #  '_apps.scss',
 #  '_budgie-desktop.scss',
-#  '_libhandy.scss',
+  '_libadwaita.scss',
   '_drawing.scss',
 ]
 
