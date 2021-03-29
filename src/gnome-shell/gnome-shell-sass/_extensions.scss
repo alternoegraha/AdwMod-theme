@@ -33,10 +33,11 @@ $dtd_margin: ($dash_bottom_margin - 8);
 			margin-top: $dtd_margin;
 			.dash-background {
 				// no drop shadow because it bleeds out, use 'border' instead
-				box-shadow: 0 0 0 1px rgba(black, 0.75);
+				box-shadow: 0 0 0 1px rgba(black, 0.45);
 				// reduce bottom margin
 				margin-bottom: $dtd_margin;
 				
+				background-color: rgba(white, 0.25);
 				padding: $dtd_padding - 4;
 				border-radius: $dash_border_radius - 2;
 			}
