@@ -1,7 +1,7 @@
 /* Dash to Dock */
 $dtd_padding: if($_sizevariant == 'default', $dash_padding, ($dash_padding + 2));
 $dtd_spacing: if($_sizevariant == 'default', $dash_spacing, ($dash_spacing + 1));
-$dtd_margin: ($dash_bottom_margin - 8);
+$dtd_margin: $dash_bottom_margin;
 
 #dashtodockContainer {
 	@if $shell_ver <= 3.38 {

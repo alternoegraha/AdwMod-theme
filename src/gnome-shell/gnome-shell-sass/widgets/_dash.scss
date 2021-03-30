@@ -1,10 +1,10 @@
 /* Dash */
 
-$dash_background_color: rgba(255, 255, 255, 0.15);
+$dash_background_color: rgba(255, 255, 255, 0.2);
 $dash_placeholder_size: 32px;
 $dash_padding: $base_padding + 4px;
 $dash_spacing: $base_padding / 4px;
-$dash_bottom_margin: if($_sizevariant == 'default', $base_margin * 4, $base_margin * 8);
+$dash_bottom_margin: if($_sizevariant == 'default', $base_margin * 4 - 6, $base_margin * 8 - 6);
 $dash_border_radius: $modal_radius * 1.5;
 
 #dash {
@@ -66,11 +66,12 @@ $dash_border_radius: $modal_radius * 1.5;
 // GNOME 40 specific theming
 @if $shell_ver >= 40 {
   .dash-background {
+  	border: 1px solid rgba(white, 0.07);
     background-color: $dash_background_color;
     margin-bottom: $dash_bottom_margin;
-    padding: ($dash_padding / 2)*2;
+    padding: ($dash_padding / 2);
     border-radius: $dash_border_radius;
-    box-shadow: 0 3px 9px 1px transparentize(black, 0.5);
+    box-shadow: 0 0 0 1px rgba(black, 0.95);
   }
 
   .dash-item-container .app-well-app, .show-apps {
