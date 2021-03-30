@@ -10,6 +10,7 @@ $_sizevariant: "@_sizevariant@";
 @import 'colors';
 @import 'drawing';
 @import 'common';
+@import 'apps';
 @import 'libadwaita';
 @import 'tweaks';
 @import 'colors-public';

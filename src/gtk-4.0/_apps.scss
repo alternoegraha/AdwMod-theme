@@ -1,0 +1,11 @@
+/* GNOME text editor */
+.org-gnome-TextEditor {
+	page searchbar {
+		background-clip: padding-box;
+		border-color: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
+	}
+	
+	listview row button {
+		border: 0;
+	}
+}

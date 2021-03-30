@@ -11,7 +11,7 @@ gtk4_scss_dependencies = [
   '_tweaks.scss',
   '_colors.scss',
   '_common.scss',
-#  '_apps.scss',
+  '_apps.scss',
 #  '_budgie-desktop.scss',
   '_libadwaita.scss',
   '_drawing.scss',
