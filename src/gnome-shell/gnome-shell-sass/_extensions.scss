@@ -29,27 +29,6 @@ $dtd_margin: $dash_bottom_margin;
 	}
 	@if $shell_ver >= 40 {
 		#dash { 
-			// add some bare minimum styling for d-t-d v70 'alpha'
-			margin-top: $dtd_margin;
-			.dash-background {
-				// no drop shadow because it bleeds out, use 'border' instead
-				box-shadow: 0 0 0 1px rgba(black, 0.95);
-				// reduce bottom margin
-				margin-bottom: $dtd_margin;
-				// add 'highlight effect'
-				border: 1px solid rgba(white, 0.07);
-				
-				background-color: rgba(white, 0.2);
-				padding: 4px;
-				border-radius: $dash_border_radius - 2;
-			}
-			
-			.dash-item-container .app-well-app, .show-apps {
-    		padding: ($dtd_padding + 2) 0 ($dtd_padding + 2) + $dtd_margin;
-  		}
-  		
-  		.dash-separator { margin: 0 ($dtd_spacing + ($dtd_padding / 2) - 2) $dtd_margin; }
-  		
   		// legible running dot
   		.app-well-app-running-dot {
   			box-shadow: 0 0 0 1px rgba(black, 0.3);
