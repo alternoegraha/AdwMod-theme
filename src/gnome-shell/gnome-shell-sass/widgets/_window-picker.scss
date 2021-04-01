@@ -45,14 +45,13 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
 
 // Window titles
 .window-caption {
-  @if $shell_ver <= 3.38 { // 3.38 & 3.36
+  @if $shell_ver >= 3.36 and $shell_ver < 40 { // 3.38 & 3.36
     border:1px solid $osd_outer_borders_color;
     border-radius: $base_border_radius + 1;
     font-weight: bold;
     font-size: $base_font_size;
   } 
-
-  @if $shell_ver >= 40 { // GNOME 40
+	@else { // GNOME 40
     border-radius: 99px;
   }
 
@@ -63,15 +62,13 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
 
 // Close button
 .window-close {
-  @if $shell_ver <= 3.38 { // 3.38 & 3.36
+  @if $shell_ver >= 3.36 and $shell_ver < 40 { // 3.38 & 3.36
     background-color: $selected_bg_color;
     color: $selected_fg_color;
     border: none;
     height: $window_close_button_size;
     width: $window_close_button_size;
     border-radius: $window_close_button_size * 0.5 + $window_close_button_padding * 2;
-
-    & StIcon { icon-size: 16px; }
 
     &:hover {
       background-color: lighten($selected_bg_color, 5%);
@@ -81,17 +78,13 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
       background-color: darken($selected_bg_color, 5%);
     }
   } 
-
-  @if $shell_ver >= 40 { // GNOME 40
+  @else { // GNOME 40
+  	border: 1px solid rgba(black, 0.45);
     background-color: $osd_bg_color;
     color: $osd_fg_color;
-    height: if($_sizevariant == 'default', 30px, 26px);
-    width: if($_sizevariant == 'default', 30px, 26px);
-    border-radius: 99px; // 99px instead. FTW
-
-    & StIcon { 
-    	icon-size: if($_sizevariant == 'default', 24px, 16px); 
-    }
+    height: if($_sizevariant == 'default', 24px, 20px);
+    width: if($_sizevariant == 'default', 24px, 20px);
+    border-radius: 9999px; // 9999px instead. FTW
 
     &:hover {
       background-color: lighten($osd_bg_color, 15%);
@@ -102,6 +95,8 @@ $window_clone_border_size: if($_sizevariant == 'default', 6px, 4px);
       background-color: darken($osd_bg_color, 5%);
     }
   }
+  
+  & StIcon { icon-size: 16px; }
 
   padding: $window_close_button_padding;
   box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.5);
