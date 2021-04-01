@@ -115,6 +115,34 @@ menu,
 	}
 }
 
+/**** placessidebar tweaks ****/
+placessidebar {
+	row {
+		&:hover { background-color: darken($popover_hover_color, 5%); }
+		&:selected {
+			&.activatable, & {
+				background-color: $popover_hover_color;
+				color: inherit;
+			
+				&:hover { background-color: darken($popover_hover_color, 5%); }
+			}
+		}
+		
+		&:backdrop {
+			color: inherit;
+			
+			&:selected {
+				&.activatable, & {
+					background-color: $popover_hover_color;
+					color: inherit;
+			
+					&:hover { background-color: darken($popover_hover_color, 5%); }
+				}
+			}
+		}
+	}
+}
+
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {
 	buttonbox, .dialog-action-area { margin: 8px; }

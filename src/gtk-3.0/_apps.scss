@@ -51,21 +51,6 @@
 			border-radius: 0;
 		}
 	}
-
-	.sidebar-row:hover { background: mix($bg_color, $fg_color, 97%); }
-
-	.sidebar-row:active,
-	.sidebar-row:selected {
-		&, &:hover { background: mix($bg_color, $fg_color, 92%); }
-
-		image, label { color: mix($fg_color, $text_color, 50%); }
-
-		&:backdrop {
-			background: mix($backdrop_bg_color, $backdrop_fg_color, 92%);
-
-			image, label { color: mix($backdrop_fg_color, $backdrop_text_color, 85%); }
-		}
-	}
 	
 	.floating-bar {
 		padding: 1px;
@@ -389,20 +374,20 @@ na-tray-applet {
 				background-color: $sidebar_bg_color;
 				&:backdrop { 
 					background-color: $backdrop_sidebar_bg_color;
-					color: $backdrop_fg_color;
+					color: inherit;
 				}
 
-				&:hover { background: mix($bg_color, $fg_color, 97%); }
+				&:hover { background: darken($popover_hover_color, 5%); }
 
 				&:active,
 				&:selected {
-					&, &:hover { background: mix($bg_color, $fg_color, 92%); }
+					&, &:hover { background: $popover_hover_color; }
 
-					color: mix($fg_color, $text_color, 50%); 
+					color: inherit; 
 
 					&:backdrop {
-						background: mix($backdrop_bg_color, $backdrop_fg_color, 92%);
-						color: mix($backdrop_fg_color, $backdrop_text_color, 85%);
+						background: $popover_hover_color;
+						color: inherit;
 					}
 				}
 			}
