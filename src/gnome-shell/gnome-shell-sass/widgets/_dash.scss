@@ -4,7 +4,7 @@ $dash_background_color: rgba(255, 255, 255, 0.2);
 $dash_placeholder_size: 32px;
 $dash_padding: $base_padding + 4px;
 $dash_spacing: $base_padding / 4px;
-$dash_bottom_margin: if($_sizevariant == 'default', $base_margin * 4 - 4, $base_margin * 8 - 4);
+$dash_bottom_margin: if($_sizevariant == 'default', $base_margin * 4 - 4, $base_margin * 8 - 2);
 $dash_border_radius: $base_border_radius + 3;
 
 #dash {
@@ -55,7 +55,6 @@ $dash_border_radius: $base_border_radius + 3;
   	margin-bottom: 1px;
 	}
 	
-	// increase padding in icons + corner radius in dash items tweak
 	.app-well-app, .show-apps {
 		.overview-icon {
 			border-radius: $dash_border_radius - 2;
@@ -65,12 +64,15 @@ $dash_border_radius: $base_border_radius + 3;
 }
 
 // GNOME 40 specific theming
+$_separator_padding: if($_sizevariant == 'default', ($dash_spacing + ($dash_padding / 2) - 2), ($dash_spacing + ($dash_padding / 2)));
+$_dash_bg_pad: 4px;
+
 @if $shell_ver >= 40 {
   .dash-background {
   	border: 1px solid rgba(white, 0.07);
     background-color: $dash_background_color;
     margin-bottom: $dash_bottom_margin;
-    padding: ($dash_padding / 2);
+    padding: $_dash_bg_pad;
     border-radius: $dash_border_radius;
     box-shadow: 0 0 0 1px black;
   }
@@ -81,7 +83,7 @@ $dash_border_radius: $base_border_radius + 3;
 
   .dash-separator {
     width: 1px;
-    margin: 0 ($dash_spacing + ($dash_padding / 2)) $dash_bottom_margin;
+    margin: 0 $_separator_padding $dash_bottom_margin;
     background-color: transparentize($osd_fg_color, 0.7);
   }
 }
