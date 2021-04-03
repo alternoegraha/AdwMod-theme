@@ -368,6 +368,9 @@ na-tray-applet {
 }
 
 /**** Nemo FM ****/
+$_storagebar_bg: mix($fg_color, $bg_color, 35%);
+$_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
+
 .nemo-window {
 	.sidebar {
 		scrolledwindow.frame { 
@@ -394,6 +397,17 @@ na-tray-applet {
 					}
 				}
 			}
+		}
+		
+		.places-treeview {
+			-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_bg;
+    	-NemoPlacesTreeView-disk-full-fg-color: $fg_color;
+    	-GtkTreeView-vertical-separator: 8;
+    	
+    	&:backdrop {
+    		-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_backdrop;
+    		-NemoPlacesTreeView-disk-full-fg-color: $backdrop_fg_color;
+    	}
 		}
 	}
 
