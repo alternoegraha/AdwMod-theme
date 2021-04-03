@@ -159,6 +159,7 @@ $disk_space_free: $osd_fg_color;
 		border: 0;
 
 		font-weight: 700;
+		font-feature-settings: "tnum";
 		
 		label:backdrop { // backdrop override
 			color: $fg_color;
