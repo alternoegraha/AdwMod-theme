@@ -14,7 +14,7 @@ $search_entry_height: 36px;
 
   @if $shell_ver >= 40 {
     margin-top: if($_sizevariant == 'default', $base_spacing * 2, $base_spacing * 4);
-    margin-bottom: if($_sizevariant == 'default', $base_spacing * 2, $base_spacing * 4);
+    margin-bottom: if($_sizevariant == 'default', $base_spacing + 2, $base_spacing + 4);
   }
 
   &:hover {
