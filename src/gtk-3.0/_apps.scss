@@ -176,13 +176,15 @@ $disk_space_free: $osd_fg_color;
 			&:backdrop { background: none; }
 		}
 
-		&:not(#pulseaudio-button).flat.toggle {
+		&#applicationmenu-button,
+		&#clock-button {
 			image, label { padding: 0 4px; }
 		}
 	}
 
 	&.vertical {
-		button.flat.toggle {
+		&#applicationmenu-button,
+		&#clock-button {
 			image, label { padding: 4px 0; }
 		}
 	}
