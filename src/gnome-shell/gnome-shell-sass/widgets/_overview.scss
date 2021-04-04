@@ -11,7 +11,7 @@
 }
 
 #overview {
-  spacing: 24px;
+  @if $shell_ver >= 3.36 and $shell_ver < 40 { spacing: 24px; }
   background-color: transparent;
 }
 
