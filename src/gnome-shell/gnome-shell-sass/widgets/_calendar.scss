@@ -171,7 +171,7 @@
   }
 }
 
-@if $shell_ver == 3.38 {
+@if $shell_ver > 3.38 {
   /* Events */
   .events-button {
     @include notification_bubble;
