@@ -113,7 +113,7 @@
 	<border name="title_border" left="0" right="0" top="0" bottom="0" />
 </frame_geometry>
 
-<frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="false" rounded_top_right="false" parent="small">
+<frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="7" rounded_top_right="7" parent="small">
 	<distance name="title_vertical_pad" value="5"/>
 </frame_geometry>
 
