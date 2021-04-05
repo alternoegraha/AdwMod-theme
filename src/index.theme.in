@@ -1,9 +1,12 @@
-[X-GNOME-Metatheme]
+[Desktop Entry]
 Name=@theme_name@
 Type=X-GNOME-Metatheme
 Comment=Adwaita Modified
 Encoding=UTF-8
+
+[X-GNOME-Metatheme]
 GtkTheme=@theme_name@
+MetacityTheme=@theme_name@
 IconTheme=Adwaita
 CursorTheme=Adwaita
 CursorSize=24
