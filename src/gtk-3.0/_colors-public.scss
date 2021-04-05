@@ -89,6 +89,9 @@ these are pretty self explicative */
 $_wm_bg_a: if($variant == 'light', darken($bg_color, 9%), darken($bg_color, 4%));
 $_wm_bg_b: if($variant == 'light', darken($bg_color, 12%), darken($bg_color, 6%));
 
+$_titlebutton_hvr_color: if($variant == 'light', darken($headerbar_color,26%), darken($headerbar_color,11%));
+$_titlebutton_prs_color: if($variant == 'light', darken($headerbar_color,30%), darken($headerbar_color,15%));
+
 $_wm_highlight: if($variant=='light', $top_hilight,  // Sass gets mad if this is
                   transparentize(black,1));          // done directly in the
                                                      // color definition
@@ -105,11 +108,11 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_bg_b #{"" + $_wm_bg_b};
 
 @define-color wm_shadow alpha(black, 0.35);
-@define-color wm_border alpha(black, 0.35);
+@define-color wm_border #{"" + $alt_borders_color};
 
-@define-color wm_button_hover_color_a shade(#{$bg_color}, 1.3);
+@define-color wm_button_hover_color_a #{$_titlebutton_hvr_color};
 @define-color wm_button_hover_color_b #{$bg_color};
-@define-color wm_button_active_color_a shade(#{$bg_color}, 0.85);
+@define-color wm_button_active_color_a #{$_titlebutton_prs_color};
 @define-color wm_button_active_color_b shade(#{$bg_color}, 0.89);
 @define-color wm_button_active_color_c shade(#{$bg_color}, 0.9);
 
