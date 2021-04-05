@@ -140,6 +140,17 @@ placessidebar {
 				}
 			}
 		}
+		
+		@at-root button.sidebar-button {
+			row:selected & {
+				&:not(:active):not(:checked):not(:hover):not(disabled) {
+					color: $fg_color;
+					border-color: transparentize($borders_color, .5);
+
+					&:backdrop { color: $backdrop_fg_color; }
+				}
+			}
+		}
 	}
 }
 
