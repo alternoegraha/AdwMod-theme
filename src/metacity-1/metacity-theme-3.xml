@@ -45,8 +45,8 @@
 	<distance name="right_titlebar_edge" value="2"/>
 	<distance name="title_vertical_pad" value="4"/>
 	<border name="title_border" left="4" right="4" top="8" bottom="8"/>
-	<border name="button_border" left="1" right="1" top="0" bottom="0"/>
-	<aspect_ratio name="button" value="1.15"/>
+	<border name="button_border" left="4" right="4" top="0" bottom="0"/>
+	<aspect_ratio name="button" value="1.45"/>
 </frame_geometry>
 
 <frame_geometry name="normal_unfocused" title_scale="medium" rounded_top_left="7" rounded_top_right="7" parent="normal">
@@ -64,7 +64,7 @@
 							title_vertical_pad on normal state
 							or you'll have bigger buttons 								-->
 	<border name="title_border" left="4" right="4" top="8" bottom="8"/>
-	<border name="button_border" left="1" right="1" top="0" bottom="0"/>
+	<border name="button_border" left="4" right="4" top="0" bottom="0"/>
 	<distance name="bottom_height" value="0" />
 </frame_geometry>
 
@@ -83,8 +83,8 @@
 	<distance name="left_titlebar_edge" value="2"/>
 	<distance name="right_titlebar_edge" value="2"/>
 	<distance name="title_vertical_pad" value="4"/>
-	<border name="title_border" left="4" right="4" top="4" bottom="4"/>
-	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
+	<border name="title_border" left="4" right="4" top="6" bottom="6"/>
+	<border name="button_border" left="2" right="2" top="0" bottom="0"/>
 </frame_geometry>
 
 <frame_geometry name="small_unfocused" parent="small">
@@ -114,7 +114,7 @@
 </frame_geometry>
 
 <frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="7" rounded_top_right="7" parent="small">
-	<distance name="title_vertical_pad" value="5"/>
+	<distance name="title_vertical_pad" value="4"/>
 </frame_geometry>
 
 <frame_geometry name="attached" title_scale="medium" hide_buttons="false" rounded_top_left="true" rounded_top_right="true" rounded_bottom_left="4" rounded_bottom_right="4" parent="normal">
@@ -188,7 +188,7 @@
 <draw_ops name="rounded_hilight">
 	<line x1="5" y1="1" x2="width-6" y2="1" color="C_window_bg_hilight" />
 	<arc color="C_window_bg_hilight" x="0" y="1" width="17" height="17"  start_angle="0" extent_angle="-60" />
-	<arc color="C_window_bg_hilight" x="width-17" y="1" width="17" height="17"  start_angle="0" extent_angle="90" />
+	<arc color="C_window_bg_hilight" x="width-18" y="1" width="17" height="17"  start_angle="0" extent_angle="90" />
 </draw_ops>
 
 <draw_ops name="titlebar_focused">
