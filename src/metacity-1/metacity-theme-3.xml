@@ -14,8 +14,8 @@
 
 <constant name="C_border_focused" value="gtk:custom(borders,gtk:bg[NORMAL])" />
 <constant name="C_border_unfocused" value="gtk:custom(unfocused_borders,gtk:bg[NORMAL])" />
-<constant name="C_window_border_focused" value="blend/#000000/gtk:bg[NORMAL]/0.45" />
-<constant name="C_window_border_unfocused" value="blend/#000000/gtk:bg[NORMAL]/0.45" />
+<constant name="C_window_border_focused" value="blend/#000000/gtk:bg[NORMAL]/0.25" />
+<constant name="C_window_border_unfocused" value="blend/#000000/gtk:bg[NORMAL]/0.25" />
 <constant name="C_window_bg_hilight" value="gtk:custom(wm_borders_edge,gtk:base[NORMAL])" />
 
 <constant name="C_titlebar_focused_hilight" value="gtk:custom(wm_highlight,gtk:base[NORMAL])" />
