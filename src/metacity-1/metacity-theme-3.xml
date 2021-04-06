@@ -45,8 +45,8 @@
 	<distance name="right_titlebar_edge" value="2"/>
 	<distance name="title_vertical_pad" value="4"/>
 	<border name="title_border" left="4" right="4" top="8" bottom="8"/>
-	<border name="button_border" left="4" right="4" top="0" bottom="0"/>
-	<aspect_ratio name="button" value="1.45"/>
+	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
+	<aspect_ratio name="button" value="1.1"/>
 </frame_geometry>
 
 <frame_geometry name="normal_unfocused" title_scale="medium" rounded_top_left="7" rounded_top_right="7" parent="normal">
@@ -64,7 +64,7 @@
 							title_vertical_pad on normal state
 							or you'll have bigger buttons 								-->
 	<border name="title_border" left="4" right="4" top="8" bottom="8"/>
-	<border name="button_border" left="4" right="4" top="0" bottom="0"/>
+	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
 	<distance name="bottom_height" value="0" />
 </frame_geometry>
 
@@ -84,7 +84,7 @@
 	<distance name="right_titlebar_edge" value="2"/>
 	<distance name="title_vertical_pad" value="4"/>
 	<border name="title_border" left="4" right="4" top="6" bottom="6"/>
-	<border name="button_border" left="2" right="2" top="0" bottom="0"/>
+	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
 </frame_geometry>
 
 <frame_geometry name="small_unfocused" parent="small">
