@@ -94,16 +94,3 @@ video {
 		border-radius: 99px;
 	}
 }
-
-/**** round csd windows ****/
-window.csd {
-	border-radius: $window_radius;
-
-	&.maximized,
-	&.fullscreen,
-	&.tiled,
-	&.tiled-top,
-	&.tiled-left,
-	&.tiled-right,
-	&.tiled-bottom { border-radius: 0; }
-}
