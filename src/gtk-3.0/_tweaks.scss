@@ -3,6 +3,12 @@
 
 // make compact sizings only available in -compact sizevariant
 @if $_sizevariant == 'compact' {
+	/**** button.color sizing fix ****/
+	button.color {
+		min-width: 22px;
+		min-height: 14px;
+	}
+	
 	/**** Reduce PlacesSidebar height ****/
 	placessidebar row {
 		min-height: 34px;
