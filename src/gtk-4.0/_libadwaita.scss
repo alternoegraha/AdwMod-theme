@@ -1,5 +1,30 @@
 /* Initial styling for libhandy gtk4/libadwaita */
-// based upstream: https://gitlab.gnome.org/exalm/libadwaita/-/blob/main/src/themes/_Adwaita-base.scss
+// based upstream: https://gitlab.gnome.org/exalm/libadwaita/-/blob/main/src/stylesheet/_custom.scss
+
+$leaflet_dimming: rgba(0, 0, 0, if($variant == 'light', 0.12, 0.24));
+$leaflet_border: rgba(0, 0, 0, if($variant == 'light', 0.05, 0.2));
+$leaflet_outline: rgba(255, 255, 255, if($variant == 'light', 0.2, 0.05));
+
+// AdwActionRow
+
+row {
+  label.subtitle {
+    font-size: smaller;
+    opacity: 0.55;
+    text-shadow: none;
+  }
+
+  > box.header {
+    margin-left: 12px;
+    margin-right: 12px;
+    min-height: 50px;
+
+    > box.title {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}
 
 // AdwComboRow
 
@@ -9,11 +34,12 @@ popover.combo > contents {
   list, listview {
     border-style: none;
     background-color: transparent;
+    min-width: 200px;
 
     & > row {
       padding: 0px 12px 0px 12px;
       min-height: 50px;
-      border-bottom: 1px solid rgba($borders_color, 0.5);
+      border-bottom: 1px solid transparentize($borders_color, 0.5);
 
       &:selected {
         outline-color: $alt_focus_border_color;
@@ -40,15 +66,65 @@ popover.combo > contents {
   }
 }
 
+listview.inline {
+  background: none;
+}
+
 // AdwExpanderRow
 
+@mixin margin-start($margin) {
+  &:dir(ltr) {
+    margin-left: $margin;
+  }
+
+  &:dir(rtl) {
+    margin-right: $margin;
+  }
+}
+
 row.expander {
+  // Drop transparent background on expander rows to let nested rows handle it,
+  // avoiding double highlights.
+  background-color: transparent;
   padding: 0px;
 
-  image.expander-row-arrow {
-    &:dir(ltr) { margin-left: 6px; }
+  list.nested > row {
+    background-color: transparentize($bg_color, 0.5);
+    border-color: transparentize($borders_color, 0.3);
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+  }
 
-  	&:dir(rtl) { margin-right: 6px; }
+  // AdwExpanderRow arrow rotation
+
+  image.expander-row-arrow {
+    transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @include margin-start(6px);
+  }
+
+  &:checked image.expander-row-arrow {
+    -gtk-icon-transform: rotate(0turn);
+  }
+
+  &:not(:checked) image.expander-row-arrow {
+    opacity: 0.55;
+    text-shadow: none;
+
+    &:dir(ltr) {
+      -gtk-icon-transform: rotate(-0.25turn);
+    }
+
+    &:dir(rtl) {
+      -gtk-icon-transform: rotate(0.25turn);
+    }
+  }
+
+  &:checked image.expander-row-arrow:not(:disabled) {
+    color: $selected_bg_color;
+  }
+
+  & image.expander-row-arrow:disabled {
+    color: $insensitive_fg_color;
   }
 }
 
@@ -107,7 +183,7 @@ viewswitcher {
       &:hover:not(:backdrop) {
         // Reimplementation of $button_fill from Adwaita. The colors are made
         // only 70% visible to avoid the highlight to be too strong.
-        $c: rgba($bg_color, 0.7);
+        $c: transparentize($bg_color, 0.3);
         $button_fill: if($variant == 'light', linear-gradient(to top, shade($c, 0.96) 2px, $c),
                                               linear-gradient(to top, shade($c, 0.99) 2px, $c));
         background-image: $button_fill;
@@ -192,10 +268,41 @@ viewswitcher {
 
 viewswitcherbar actionbar > revealer > box {
   padding: 0;
-  min-height: $_headerbar_height;
+}
+
+// AdwViewSwitcherTitle
+
+viewswitchertitle viewswitcher {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 // Content list
+
+// Makes the corners of the given border rounded.
+// $border must be top, bottom, left, or right.
+@mixin rounded-border($border) {
+  // The floors (top, bottom) and walls (left, right) of the corners matching
+  // $border. This is needed to easily form floor-wall pairs regardless of
+  // whether $border is a floor or a wall.
+  $corners: (
+    'top': (('top'), ('left', 'right')),
+    'bottom': (('bottom'), ('left', 'right')),
+    'left': (('top', 'bottom'), ('left')),
+    'right': (('top', 'bottom'), ('right')),
+  );
+
+  @if not map-get($corners, $border) {
+    @error "Unknown border type: #{$border}";
+  }
+
+  // Loop through the floors and walls of the corners of $border.
+  @each $floor in nth(map-get($corners, $border), 1) {
+    @each $wall in nth(map-get($corners, $border), 2) {
+      border-#{$floor}-#{$wall}-radius: 8px;
+    }
+  }
+}
 
 list.content,
 listview.content {
@@ -232,7 +339,7 @@ listview.content {
 
     &,
     list > row {
-      border-color: rgba($borders_color, 0.7);
+      border-color: transparentize($borders_color, 0.3);
       border-style: solid;
       transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -249,8 +356,7 @@ listview.content {
     &.expander:checked row.header,
     &.expander:checked + row,
     &.expander:checked + row.expander row.header {
-      border-top-left-radius: $window_radius;
-      border-top-right-radius: $window_radius;
+      @include rounded-border(top);
     }
 
     // Bottom border
@@ -268,8 +374,7 @@ listview.content {
     &.expander:not(:checked).checked-expander-row-previous-sibling row.header,
     &.expander.empty:checked row.header,
     &.expander list.nested > row:last-child {
-      border-bottom-left-radius: $window_radius;
-      border-bottom-right-radius: $window_radius;
+      @include rounded-border(bottom);
     }
 
     // Add space around expanded rows
@@ -284,44 +389,164 @@ listview.content {
 
 button.list-button:not(:active):not(:checked):not(:hover) {
   background: none;
-  border: 1px solid rgba($borders_color, 0.5);
+  border: 1px solid transparentize($borders_color, 0.5);
   box-shadow: none;
-}
-
-// Unified window
-
-window.csd.unified:not(.solid-csd):not(.fullscreen) {
-  // Remove the sheen on headerbar...
-  headerbar {
-    box-shadow: inset 0 1px rgba(255, 255, 255, if($variant == 'light', 0.7, 0));
-
-    &.selection-mode {
-      box-shadow: none;
-    }
-  }
-
-  // ...and add it on the window itself
-  > contents > outline {
-    // Use a white sheen instead of @borders, as it has to be neutral enough
-    // for any content and not just headerbar background
-    box-shadow: inset 0 1px rgba(255, 255, 255, if($variant == 'light', 0.34, 0.065));
-  }
-
-  &:not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) {
-    &,
-    > contents > outline {
-      border-radius: $window_radius;
-    }
-  }
 }
 
 // AdwStatusPage
 
-statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
-  color: transparentize($fg_color, 0.5);
+statuspage > scrolledwindow > viewport > box {
+  margin: 36px 12px;
+  border-spacing: 36px;
 
-  &:backdrop {
-    color: transparentize($backdrop_fg_color, 0.5);
+  > clamp > box {
+    border-spacing: 12px;
+
+    > .icon {
+      color: transparentize($fg_color, 0.5);
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      &:backdrop {
+        color: transparentize($backdrop_fg_color, 0.5);
+      }
+    }
   }
 }
 
+// Shadows
+
+@mixin background-shadow($direction) {
+  background-image:
+    linear-gradient($direction,
+                    rgba(0, 0, 0, if($variant == 'light', 0.05, 0.1)),
+                    rgba(0, 0, 0, if($variant == 'light', 0.01, 0.02)) 40px,
+                    rgba(0, 0, 0, 0) 56px),
+    linear-gradient($direction,
+                    rgba(0, 0, 0, if($variant == 'light', 0.03, 0.06)),
+                    rgba(0, 0, 0, if($variant == 'light', 0.01, 0.02)) 7px,
+                    rgba(0, 0, 0, 0) 24px);
+}
+
+flap,
+leaflet {
+  > dimming {
+    background: $leaflet_dimming;
+  }
+
+  > border {
+    min-width: 1px;
+    min-height: 1px;
+    background: $leaflet_border;
+  }
+
+  > shadow {
+    min-width: 56px;
+    min-height: 56px;
+
+    &.left  { @include background-shadow(to right); }
+    &.right { @include background-shadow(to left); }
+    &.up    { @include background-shadow(to bottom); }
+    &.down  { @include background-shadow(to top); }
+  }
+
+  > outline {
+    min-width: 1px;
+    min-height: 1px;
+    background: $leaflet_outline;
+  }
+}
+
+// AdwAvatar
+
+avatar {
+  border-radius: 9999px;
+  font-weight: bold;
+
+  // The list of colors to generate avatars.
+  // Each avatar color is represented by a font color, a gradient start color and a gradient stop color.
+  // There are 8 different colors for avtars in the list if you change the number of them you
+  // need to update the NUMBER_OF_COLORS in src/adw-avatar.c.
+  // The 2D list has this form: ((font-color, gradient-top-color, gradient-bottom-color)).
+  $avatarcolorlist: (
+   (#cfe1f5, #83b6ec, #337fdc), // blue
+   (#caeaf2, #7ad9f1, #0f9ac8), // cyan
+   (#cef8d8, #8de6b1, #29ae74), // green
+   (#e6f9d7, #b5e98a, #6ab85b), // lime
+   (#f9f4e1, #f8e359, #d29d09), // yellow
+   (#ffead1, #ffcb62, #d68400), // gold
+   (#ffe5c5, #ffa95a, #ed5b00), // orange
+   (#f8d2ce, #f78773, #e62d42), // raspberry
+   (#fac7de, #e973ab, #e33b6a), // magenta
+   (#e7c2e8, #cb78d4, #9945b5), // purple
+   (#d5d2f5, #9e91e8, #7a59ca), // violet
+   (#f2eade, #e3cf9c, #b08952), // beige
+   (#e5d6ca, #be916d, #785336), // brown
+   (#d8d7d3, #c0bfbc, #6e6d71), // gray
+  );
+
+  @for $i from 1 through length($avatarcolorlist) {
+    &.color#{$i} {
+      $avatarcolor: nth($avatarcolorlist, $i);
+      background-image: linear-gradient(nth($avatarcolor, 2), nth($avatarcolor, 3));
+      color: nth($avatarcolor, 1);
+    }
+  }
+
+  &.contrasted { color: #fff; }
+
+  &.image { background: none; }
+}
+
+// Preferences
+
+window.preferences > contents > leaflet > box > stack > stack > scrolledwindow > viewport > clamp > list,
+preferencespage > scrolledwindow > viewport > clamp > box {
+  margin: 0 12px;
+
+  transition: margin-bottom 200ms ease,
+              margin-top 200ms ease,
+              border-spacing 200ms ease;
+
+  $sizes: ("small": 18px, "medium": 24px, "large": 30px);
+
+  @each $name, $size in $sizes {
+    &.#{$name} {
+      margin-top: $size;
+      margin-bottom: $size;
+      border-spacing: $size;
+    }
+  }
+}
+
+preferencesgroup > box {
+  // Add space between the description and the title.
+  > label:not(:first-child) {
+    margin-top: 6px;
+  }
+
+  // Add space between the box and the labels.
+  > box:not(:first-child) {
+    margin-top: 12px;
+  }
+}
+
+// AdwWindowTitle
+
+windowtitle {
+  .title {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: smaller;
+    padding-left: 12px;
+    padding-right: 12px;
+    opacity: 0.55;
+    text-shadow: none;
+  }
+}
