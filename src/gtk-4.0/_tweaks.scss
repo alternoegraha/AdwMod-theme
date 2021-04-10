@@ -1,5 +1,11 @@
 @if $_sizevariant == 'compact' {
-/**** CSD window controls tweak ****/
+	/**** button.color sizing fix ****/
+	button.color {
+		min-width: 22px;
+		min-height: 14px;
+	}
+	
+	/**** CSD window controls tweak ****/
 	windowcontrols button {
 		padding: $_hb_btn_pad;
 	}
