@@ -85,8 +85,13 @@ stage {
 // for the dash and workspace switcher
 %overview_panel {
   color: $osd_fg_color;
-  background-color: transparentize($osd_bg_color, 0.2);
-  @if $shell_ver <= 3.38 { border: 1px solid $osd_outer_borders_color; }
+  @if $shell_ver < 40 and $shell_ver >= 3.36 { 
+  	background-color: transparentize($osd_bg_color, 0.2);
+  	border: 1px solid $osd_outer_borders_color; 
+  }
+  @else {
+  	background-color: transparentize($osd_fg_color, 0.9);
+  }
 }
 
 // icon tiles
