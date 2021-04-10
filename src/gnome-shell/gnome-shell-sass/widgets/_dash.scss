@@ -65,7 +65,7 @@ $dash_border_radius: $base_border_radius + 3;
 
 // GNOME 40 specific theming
 $_separator_padding: if($_sizevariant == 'default', ($dash_spacing + ($dash_padding / 2) - 2), ($dash_spacing + ($dash_padding / 2)));
-$_dash_bg_pad: 4px;
+$_dash_bg_pad: 6px;
 
 @if $shell_ver >= 40 {
   .dash-background {
