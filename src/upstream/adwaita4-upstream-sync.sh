@@ -46,7 +46,7 @@ done
 wget_check=`which wget | wc -l`
 [ $wget_check == 0 ] && echo "install wget" && exit 1
 
-root=https://gitlab.gnome.org/GNOME/gtk/raw/master/gtk/theme/Adwaita
+root=https://gitlab.gnome.org/GNOME/libadwaita/raw/main/src/stylesheet
 
 [ ! -d ${_destination} ] && echo ${_destination} folder does not exists && exit 1
 
@@ -56,9 +56,10 @@ files=(
     _colors-public.scss
     _colors.scss
     _common.scss
+    _custom.scss
     _drawing.scss
     Adwaita-dark.scss
-    Adwaita.scss
+    Adwaita-light.scss
     gtk.css
     gtk-dark.css
     README
