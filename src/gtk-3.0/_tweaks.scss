@@ -61,6 +61,22 @@
 	}
 }
 
+/**** selectionmode tweaks ****/
+headerbar.selection-mode {
+	text-shadow: none;
+	-gtk-icon-shadow: none;
+	
+	//top hilight override
+	box-shadow: inset 0 1px transparentize(white, 0.8);
+	&:backdrop {
+		box-shadow: inset 0 1px transparentize(white, 0.8);
+		label { 
+			color: $backdrop_selected_fg_color;
+			opacity: 0.8;
+		}
+	}
+}
+
 /**** switch tweaks ****/
 switch {
 	headerbar & {
