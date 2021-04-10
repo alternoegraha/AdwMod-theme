@@ -1,5 +1,5 @@
 /* Initial styling for libhandy gtk4/libadwaita */
-// based upstream: https://gitlab.gnome.org/exalm/libadwaita/-/blob/main/src/stylesheet/_custom.scss
+// based upstream: https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/_custom.scss
 
 $leaflet_dimming: rgba(0, 0, 0, if($variant == 'light', 0.12, 0.24));
 $leaflet_border: rgba(0, 0, 0, if($variant == 'light', 0.05, 0.2));
