@@ -17,11 +17,11 @@
   }
 
   @if $shell_ver >= 40 { // GNOME 40
-    spacing: $base_spacing;
-    padding: $base_padding;
+    spacing: 6px;
+    padding: 6px;
     
     .workspace-thumbnail {
-      background-color: darken($osd_bg_color, 2%); //better visibility
+      @extend %overview_panel;
       border-radius: 3px;
     }
   }
@@ -32,7 +32,7 @@
   .placeholder {
     background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
     background-size: contain;
-    @if $shell_ver <= 3.38 { height: 24px; }
+    @if $shell_ver < 40 and $shell_ver >= 3.36 { height: 24px; }
     @else { width: 18px; }
   }
 }
