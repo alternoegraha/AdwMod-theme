@@ -402,9 +402,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 }
 
 %budgie_dialog {
-	&, decoration { 
-		border-radius: 7px;
-	}
+	&, decoration { border-radius: 7px; }
 	
 	background-color: $bg_color;
 	box-shadow: 0 1px 2px transparentize(black, 0.8), 
@@ -414,7 +412,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 %budgie_dialog_button {
 	.linked.horizontal > button { // same as GTK 3 message dialog
-		padding: 10px 14px;
+		padding: if($_sizevariant == 'default', 10px 14px, 6px 8px);
 		border-radius: 0;
     border-left-style: solid;
     border-right-style: none;
@@ -446,6 +444,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 // DIRTYHACK for popover in top panel position
 .top.budgie-popover {
 	&.background {
+		border-radius: $menu_radius + 1;
 		border: 1px solid if($variant=='light', transparentize(black, 0.65), transparentize(black, 0.15));
 		background-clip: padding-box;
 		box-shadow: none;
