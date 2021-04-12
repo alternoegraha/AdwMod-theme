@@ -17,7 +17,7 @@
   }
 
   @if $shell_ver >= 40 { // GNOME 40
-    spacing: 6px;
+    spacing: 9px;
     padding: 6px;
     
     .workspace-thumbnail {
