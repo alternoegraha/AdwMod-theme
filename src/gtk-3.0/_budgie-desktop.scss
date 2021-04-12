@@ -3,6 +3,7 @@
 $budgie_borders: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
 $_budgie_panel_bg: black;
 $_budgie_panel_fg: #eeeeec;
+$_budgie_panel_btn_pad: 5px;
 
 .budgie-container {
 	&, &:backdrop {
@@ -35,9 +36,9 @@ $_budgie_panel_fg: #eeeeec;
 			}
 		}
 		
-		&.horizontal button { padding: 0px ($_img_btn_pad + 2); }
+		&.horizontal button { padding: 0px $_budgie_panel_btn_pad; }
 		&.vertical button { 
-			padding: ($_img_btn_pad + 2) 0; 
+			padding: $_budgie_panel_btn_pad 0; 
 			
 			&:hover, &:active, &:checked {
 				box-shadow: none;
@@ -57,7 +58,7 @@ $_budgie_panel_fg: #eeeeec;
 			> box > widget.sound-applet > widget > image, // sound indicator
 			> box > box.battery-icon > image, // battery indicator
 			> image {
-				padding: 0 ($_img_btn_pad + 2);
+				padding: 0 $_budgie_panel_btn_pad;
 			}
 			
 			// battery percentage
