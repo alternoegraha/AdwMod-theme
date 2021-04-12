@@ -442,24 +442,35 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 }
 
 // popovers
-window.budgie-popover:not(.csd) {
+
+// DIRTYHACK for popover in top panel position
+.top.budgie-popover {
+	&.background {
+		border: 1px solid if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
+		background-clip: padding-box;
+		box-shadow: 0 1px 2px transparentize(black, 0.7);
+	}
+	
+	> frame.container > border { padding: 1px; }
+}
+
+.budgie-popover {
 	&.background {
 		background-color: $popover_bg_color;
 		border-radius: $menu_radius;
-		border: 0px solid if($variant=='light', transparentize(black, 0.5), darken($borders_color, 2%));
+		background-clip: padding-box;
+		border: 0px solid if($variant=='light', transparentize(black, 0.5), $budgie_borders);
 		
 		box-shadow: 0 1px 2px transparentize(black, 0.7),
 								0 0 0 1px $budgie_borders;
 	}
 
 	> frame.container {
-		&,
-		> border {
+		margin: -2px;
+		&, > border {
 			border-style: none;
 			background-color: transparent;
 		}
-
-        margin: -2px;
 	}
 	
 	button.flat {
