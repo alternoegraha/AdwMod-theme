@@ -465,7 +465,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	}
 
 	> frame.container {
-		margin: -2px;
+		margin: 0;
 		&, > border {
 			border-style: none;
 			background-color: transparent;
@@ -474,9 +474,8 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	
 	button.flat {
 		min-height: 20px;
-  	    padding-left: 5px;
-  	    padding-right: 5px;
-  	    border-radius: $menu_radius;
+  	    padding: 2px 5px;
+  	    border-radius: $menu_radius - 2;
   	    outline-offset: -2px;
         transition: none;  	
         
@@ -515,7 +514,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
         box-shadow: none;
     }
   
-    entry { margin-bottom: 3px; }
+    entry { margin-bottom: 5px; }
   
     scrolledwindow {
 		border: 1px solid $borders_color;
@@ -532,10 +531,16 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		border-right: 0;
 		border-radius: 0;
 
-		&:hover { background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95)); }
+		&:hover { 
+			background-color: $popover_hover_color;
+			color: $text_color;
+		}
 
 		button.flat {
-			&, &:hover, &:active { background: none; }
+			&, &:hover, &:active { 
+				background: none;
+				-gtk-icon-effect: none; 
+			}
 		}
 	}
 	
@@ -553,14 +558,19 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		}
 
 		button.flat.radio.category-button {
-			border-radius: 0;
+			border-radius: $button_radius;
 			border-left: 0;
 			border-right: 0;
+			margin: 0 3px;
+			padding: 2px 0;
 			
-			&:hover { background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95)); }
+			&:hover { background-color: $popover_hover_color; }
 		
 			&:checked { 
-				&, &:hover { @extend %selected_items; } 
+				&, &:hover { 
+					background-color: $popover_hover_color;
+					color: $text_color;
+				} 
 			}
 		}
 	}
@@ -605,6 +615,9 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	}
 }
 
+// caffeine applet
+.caffeine-popover { @extend %budgie_popover_pad; }
+
 // user menu
 .user-menu {
     @extend %budgie_popover_pad;
@@ -617,6 +630,10 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	
 	row.activatable {
 		&:hover, &:selected { background: none; }
+	}
+	
+	> frame.container > box.vertical row.activatable:first-child {
+		margin-bottom: -4px;
 	}
 }
 
