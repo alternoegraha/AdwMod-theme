@@ -49,20 +49,66 @@ switch {
 }
 
 /**** scale/progressbar tweaks ****/
+%_scale_classic_trough {
+  border: 1px solid $borders_color;
+  border-radius: 3px;
+  background-color: $dark_fill;
+
+  &:disabled { background-color: $insensitive_bg_color; }
+
+  &:backdrop {
+    background-color: $backdrop_dark_fill;
+    border-color: $backdrop_borders_color;
+    transition: $backdrop_transition;
+
+    &:disabled { background-color: $insensitive_bg_color; }
+  }
+}
+
+%_scale_classic_hilight {
+	border: 1px solid $progress_border_color;
+  border-radius: 3px;
+  background-color: $progress_bg_color;
+
+  &:disabled {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:backdrop {
+    border-color: if($variant=='light', $progress_bg_color,
+                                        $progress_border_color);
+    &:disabled {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
 %_hb_progress_scale {
 	border-color: if($variant == 'light', 
-                darken($dark_fill, 12%), 
-                darken($dark_fill, 8%));
+                darken($borders_color, 8%), 
+                darken($borders_color, 6%));
   background-color: if($variant == 'light', 
-                    darken($dark_fill, 12%), 
-                    darken($dark_fill, 8%));
+                    darken($dark_fill, 8%), 
+                    darken($dark_fill, 6%));
                         
   &:backdrop {
-    border-color: $dark_fill;
-    background-color: $dark_fill;
-      	
-    transition: none;
+    background-color: $backdrop_dark_fill;
+    border-color: $backdrop_borders_color;
   }
+}
+
+scale {
+	> trough, > trough > fill { @extend %_scale_classic_trough; }
+	
+	> trough > highlight { @extend %_scale_classic_hilight; }
+}
+
+progressbar {
+	> trough { @extend %_scale_classic_trough; }
+	
+	> trough > progress { @extend %_scale_classic_hilight; }
 }
 
 headerbar {
@@ -70,6 +116,43 @@ headerbar {
 	scale {
 		> trough, > trough > fill { @extend %_hb_progress_scale; }
 	}
+}
+
+// bring back old levelbar
+levelbar {
+	> trough > block {
+    border: 1px solid;
+    border-radius: 1px;
+
+    &.low {
+      border-color: if($variant == 'light', darken($warning_color, 20%), $warning_color);
+      background-color: $warning_color;
+
+      &:backdrop { border-color: $warning_color; };
+    }
+
+    &.high,
+    &:not(.empty) {
+      border-color: if($variant == 'light', darken($progress_bg_color, 20%), $progress_bg_color);
+      background-color: $progress_bg_color;
+
+      &:backdrop { border-color: $progress_bg_color; }
+    }
+
+    &.full {
+      border-color: if($variant == 'light', darken($success_color, 20%), $success_color);
+      background-color: $success_color;
+
+      &:backdrop { border-color: $success_color; };
+    }
+
+    &.empty {
+      background-color: transparent;
+      border-color: if($variant == 'light', transparentize($fg_color,0.8), transparentize($fg_color,0.9));
+
+      &:backdrop { border-color: transparentize($backdrop_fg_color,0.85); }
+    }
+  }
 }
 
 /**** make OSD toolbar pretty or same as gtk3 ****/
