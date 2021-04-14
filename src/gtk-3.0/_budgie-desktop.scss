@@ -85,7 +85,6 @@ $_budgie_panel_btn_pad: 5px;
 																	 (right, left) {
 	.#{$_panel_pos} .budgie-panel {
 		&, &:backdrop {
-			&.dock-mode { background-clip: padding-box; }
 			border-#{$_border_pos}: 1px solid transparent;
 		}
 	}
@@ -101,6 +100,7 @@ $_dock_borders: transparentize(white, 0.84);
 	.#{$_horz_dock_pos} .budgie-panel {
 		&, &:backdrop {
 			&.dock-mode {
+				padding: 0 6px;
 				background-color: $_dock_bg;
 				color: $osd_fg_color;
 				border: 1px solid $_dock_borders;
@@ -123,6 +123,7 @@ $_dock_borders: transparentize(white, 0.84);
 	.#{$_vert_dock_pos} .budgie-panel {
 		&, &:backdrop {
 			&.dock-mode {
+				padding: 6px 0;
 				background-color: $_dock_bg; // similar to tooltip
 				color: $osd_fg_color;
 				border: 1px solid $_dock_borders;
@@ -156,6 +157,36 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
       0 1px rgba(0,0,0,0.3),
       -1px 0 rgba(0,0,0,0.1);
   }
+}
+
+@each $_tasklist_pos, $_line, $_bg_p, $_bg_s, $_tasklist_radius in
+	(top, 0 3px, bottom, '100% calc(100% - 3px)', 0 0 ($window_radius - 1) ($window_radius - 1)),
+	(bottom, 0 -3px, top, '100% calc(100% - 3px)', ($window_radius - 1) ($window_radius - 1) 0 0),
+	(left, 3px 0, right, 'calc(100% - 3px) 100%', ($window_radius - 1) 0 ($window_radius - 1) 0 ),
+	(right, -3px 0, left, 'calc(100% - 3px) 100%', 0 ($window_radius - 1) 0 ($window_radius - 1)) {
+	.#{$_tasklist_pos} box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
+		&:not(:checked):hover { background-image: image(transparentize(white, 0.9)); }
+		
+		&:checked {
+			&.running { 
+				background-image: image(transparentize(white, 0.95));
+				box-shadow: none;
+			
+				background-size: #{$_bg_s};
+				background-position: #{$_bg_p};
+				background-repeat: no-repeat; 
+			} 
+			
+			&:hover.running {
+				background-image: image(transparentize(white, 0.9));
+			}
+		}
+	}
+}
+
+// icon tasklist drop target
+widget.icon-tasklist > box:drop(active) {
+	border-radius: $menu_radius + 1;
 }
 
 // raven sidebar
