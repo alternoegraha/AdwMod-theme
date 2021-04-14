@@ -155,6 +155,11 @@ levelbar {
   }
 }
 
+/**** bring back top hilight in backdrop headerbar ****/
+.titlebar:backdrop:not(headerbar), headerbar:backdrop {
+	box-shadow: inset 0 1px $top_hilight;
+}
+
 /**** make OSD toolbar pretty or same as gtk3 ****/
 .osd {
 	padding: 13px;
