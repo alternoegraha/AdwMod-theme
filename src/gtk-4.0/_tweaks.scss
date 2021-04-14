@@ -48,32 +48,27 @@ switch {
 	}
 }
 
-/**** scale slider tweaks ****/
-scale > trough > slider {
-    border-color: $borders_color;
+/**** scale/progressbar tweaks ****/
+%_hb_progress_scale {
+	border-color: if($variant == 'light', 
+                darken($dark_fill, 12%), 
+                darken($dark_fill, 8%));
+  background-color: if($variant == 'light', 
+                    darken($dark_fill, 12%), 
+                    darken($dark_fill, 8%));
+                        
+  &:backdrop {
+    border-color: $dark_fill;
+    background-color: $dark_fill;
+      	
+    transition: none;
+  }
 }
 
-// scale: add some contrast in headerbar/CSD
 headerbar {
+	progressbar > trough { @extend %_hb_progress_scale; }
 	scale {
-		> trough, > trough > fill {
-			border-color: if($variant == 'light', 
-                    darken($borders_color, 8%), 
-                    darken($borders_color, 4%));
-      background-color: if($variant == 'light', 
-                        darken($dark_fill, 8%), 
-                        darken($dark_fill, 4%));
-
-      &:backdrop {
-      	border-color: $borders_color;
-      	background-color: $dark_fill;
-      }
-
-      &:disabled {
-   			background-color: $insensitive_bg_color;
-   			border-color: $insensitive_borders_color;
-  		}
-		}
+		> trough, > trough > fill { @extend %_hb_progress_scale; }
 	}
 }
 
