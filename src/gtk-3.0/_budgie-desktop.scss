@@ -100,7 +100,8 @@ $_dock_borders: transparentize(white, 0.84);
 	.#{$_horz_dock_pos} .budgie-panel {
 		&, &:backdrop {
 			&.dock-mode {
-				padding: 0 6px;
+				padding: 1px;
+				padding-#{$_horz_dock_pos}: 0;
 				background-color: $_dock_bg;
 				color: $osd_fg_color;
 				border: 1px solid $_dock_borders;
@@ -123,7 +124,8 @@ $_dock_borders: transparentize(white, 0.84);
 	.#{$_vert_dock_pos} .budgie-panel {
 		&, &:backdrop {
 			&.dock-mode {
-				padding: 6px 0;
+				padding: 1px;
+				padding-#{$_vert_dock_pos}: 0;
 				background-color: $_dock_bg; // similar to tooltip
 				color: $osd_fg_color;
 				border: 1px solid $_dock_borders;
@@ -148,8 +150,8 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
   &.running,
   &:active { box-shadow: none; }
   
-  &:hover image {
-  	-gtk-icon-effect: highlight;
+  image {
+  	-gtk-icon-effect: none;
   	-gtk-icon-shadow: 
   		0 1px 12px rgba(0,0,0,0.05),
       0 -1px rgba(0,0,0,0.05),
@@ -160,16 +162,21 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 }
 
 @each $_tasklist_pos, $_line, $_bg_p, $_bg_s, $_tasklist_radius in
-	(top, 0 3px, bottom, '100% calc(100% - 3px)', 0 0 ($window_radius - 1) ($window_radius - 1)),
-	(bottom, 0 -3px, top, '100% calc(100% - 3px)', ($window_radius - 1) ($window_radius - 1) 0 0),
-	(left, 3px 0, right, 'calc(100% - 3px) 100%', ($window_radius - 1) 0 ($window_radius - 1) 0 ),
-	(right, -3px 0, left, 'calc(100% - 3px) 100%', 0 ($window_radius - 1) 0 ($window_radius - 1)) {
+	(top, 0 3px, bottom, '100% calc(100% - 3px)', 0 0 ($window_radius - 2) ($window_radius - 2)),
+	(bottom, 0 -3px, top, '100% calc(100% - 3px)', ($window_radius - 2) ($window_radius - 2) 0 0),
+	(left, 3px 0, right, 'calc(100% - 3px) 100%', 0 ($window_radius - 2) ($window_radius - 2) 0 ),
+	(right, -3px 0, left, 'calc(100% - 3px) 100%', ($window_radius - 2) 0 0 ($window_radius - 2)) {
 	.#{$_tasklist_pos} box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
-		&:not(:checked):hover { background-image: image(transparentize(white, 0.9)); }
+		border-radius: $window_radius - 2;
+		transition: $button_transition;
+		&:not(:checked):hover { 
+			background-image: image(transparentize(white, 0.82)); 
+		}
 		
 		&:checked {
 			&.running { 
-				background-image: image(transparentize(white, 0.95));
+				border-radius: #{$_tasklist_radius};
+				background-image: image(transparentize(white, 0.9));
 				box-shadow: none;
 			
 				background-size: #{$_bg_s};
@@ -178,7 +185,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 			} 
 			
 			&:hover.running {
-				background-image: image(transparentize(white, 0.9));
+				background-image: image(transparentize(white, 0.82));
 			}
 		}
 	}
