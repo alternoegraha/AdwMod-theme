@@ -489,10 +489,10 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 	button.flat {
 		min-height: 20px;
-				padding: 2px 5px;
-				border-radius: $menu_radius - 2;
-				outline-offset: -2px;
-				transition: none;
+		padding: 2px 5px;
+		border-radius: $menu_radius - 2;
+		outline-offset: -2px;
+		transition: none;
 
 		@extend %undecorated_button;
 
@@ -610,7 +610,8 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 // places applet
 .places-menu {
-		.container { padding: 2px; }
+	.container { padding: 2px; }
+
 	box.vertical > revealer > list {
 		background-color: $base_color;
 		&.always-expand { background-color: transparent; }
@@ -618,8 +619,9 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 	.alternative-label {
 		font-size: 11pt;
+
 		&:dir(ltr) { padding: 2px 0 0 4px; }
-				&:dir(rtl) { padding: 2px 4px 0 0; }
+		&:dir(rtl) { padding: 2px 4px 0 0; }
 	}
 
 	list {
@@ -648,14 +650,12 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		&:hover, &:selected { background: none; }
 	}
 
-	> frame.container > box.vertical row.activatable:first-child {
-		margin-bottom: -4px;
-	}
+	> frame.container > box.vertical row.activatable:first-child { margin-bottom: -4px; }
 }
 
 // night light indicator
 .night-light-indicator {
-		@extend %budgie_popover_pad;
+	@extend %budgie_popover_pad;
 	.view-header {
 		padding-top: 2px;
 		&:dir(ltr) { padding-right: 4px; }
