@@ -8,11 +8,9 @@
 		min-width: 22px;
 		min-height: 14px;
 	}
-	
+
 	/**** Reduce PlacesSidebar height ****/
-	placessidebar row {
-		min-height: 34px;
-	}
+	placessidebar row { min-height: 34px; }
 
 	/**** Make titlebar height more 'compact' ****/
 	.titlebar.default-decoration {
@@ -23,22 +21,24 @@
 			min-width: 22px;
 		}
 	}
-  
+
 	/**** Fix slimmed circular buttons ****/
-	* { & button.circular { min-width: 0; } }
-	
+	* {
+		& button.circular { min-width: 0; }
+	}
+
 	/**** Notebooks/Tabs tweaks ****/
 	notebook > header tab {
 		min-width: $_entry_height;
 		min-height: $_entry_height;
 		padding: 1px 10px;
-		
+
 		button.flat {
 			min-width: 18px;
 			min-height: 18px;
 		}
 	}
-	
+
 	/**** Fix for apps that uses HdyViewSwitcher in headerbar ****/
 	// libhandy 0.x specific, for libhandy1 styling go to _libhandy.scss
 	headerbar {
@@ -46,31 +46,29 @@
 			button.radio {
 				box {
 					&.horizontal.wide { margin: -6px 0; }
-					
+
 					&.vertical.narrow { margin: -3px 0; }
 				}
 			}
-					
+
 			label { margin: -2px 0; }
 		}
 	}
 
 	/* Message dialog button padding reduce */
-	messagedialog.csd .dialog-action-area button {
-		padding: 6px 8px;
-	}
+	messagedialog.csd .dialog-action-area button { padding: 6px 8px; }
 }
 
 /**** selectionmode tweaks ****/
 headerbar.selection-mode {
 	text-shadow: none;
 	-gtk-icon-shadow: none;
-	
+
 	//top hilight override
 	box-shadow: inset 0 1px transparentize(white, 0.8);
 	&:backdrop {
 		box-shadow: inset 0 1px transparentize(white, 0.8);
-		label { 
+		label {
 			color: $backdrop_selected_fg_color;
 			opacity: 0.8;
 		}
@@ -81,9 +79,9 @@ headerbar.selection-mode {
 switch {
 	headerbar & {
 		border-color: darken($borders_color, 3%);
-		background-color: if($variant == 'light', 
-                        darken($dark_fill, 8%), 
-                        darken($dark_fill, 4%));
+		background-color: if($variant == 'light',
+											darken($dark_fill, 8%),
+											darken($dark_fill, 4%));
 	}
 
 	slider {
@@ -92,7 +90,7 @@ switch {
 		border-bottom-color: $borders_color;
 	}
 
-	&:hover slider { 
+	&:hover slider {
 		@include button(hover);
 		border-bottom-color: $borders_color;
 	}
@@ -103,7 +101,7 @@ switch {
 
 	&:disabled slider { @include button(insensitive); }
 	&:backdrop {
-		slider { 
+		slider {
 			@include button(backdrop);
 			transition: $backdrop_transition;
 		}
@@ -145,24 +143,24 @@ placessidebar {
 			&.activatable, & {
 				background-color: $popover_hover_color;
 				color: inherit;
-			
+
 				&:hover { background-color: darken($popover_hover_color, 5%); }
 			}
 		}
-		
+
 		&:backdrop {
 			color: inherit;
-			
+
 			&:selected {
 				&.activatable, & {
 					background-color: $popover_hover_color;
 					color: inherit;
-			
+
 					&:hover { background-color: darken($popover_hover_color, 5%); }
 				}
 			}
 		}
-		
+
 		@at-root button.sidebar-button {
 			row:selected & {
 				&:not(:active):not(:checked):not(:hover):not(disabled) {
@@ -184,33 +182,33 @@ dialog:not(messagedialog) {
 /**** scale/progressbar tweaks ****/
 // increase contrast on CSD/header bars
 headerbar {
-  scale {
-    fill, trough {
-      border-color: if($variant == 'light', 
-                    darken($borders_color, 8%), 
-                    darken($borders_color, 4%));
-      background-color: if($variant == 'light', 
-                        darken($dark_fill, 8%), 
-                        darken($dark_fill, 4%));
-    }
-  }
+	scale {
+		fill, trough {
+			border-color: if($variant == 'light',
+										darken($borders_color, 8%),
+										darken($borders_color, 4%));
+			background-color: if($variant == 'light',
+												darken($dark_fill, 8%),
+												darken($dark_fill, 4%));
+		}
+	}
 }
 
 scale slider:not(.osd) {
-  background-clip: padding-box;
-  &, &:hover {
-    border-color: if($variant == 'light', 
-                  transparentize(black, 0.7),
-                  transparentize($alt_borders_color, 0.1));
-  }
+	background-clip: padding-box;
+	&, &:hover {
+		border-color: if($variant == 'light',
+									transparentize(black, 0.7),
+									transparentize($alt_borders_color, 0.1));
+	}
 
-  &:active { border-color: $progress_border_color; }
+	&:active { border-color: $progress_border_color; }
 
-  &:backdrop { 
-    border-color: if($variant == 'light', 
-                  transparentize(black, 0.77),
-                  transparentize($alt_borders_color, 0.5));  
-  }
+	&:backdrop {
+		border-color: if($variant == 'light',
+									transparentize(black, 0.77),
+									transparentize($alt_borders_color, 0.5));
+	}
 }
 
 /**** window button tweaks ****/
@@ -218,16 +216,16 @@ $_titlebutton_hvr_color: if($variant == 'light', darken($headerbar_color,26%), d
 $_titlebutton_prs_color: if($variant == 'light', darken($headerbar_color,30%), darken($headerbar_color,15%));
 
 button.titlebutton {
-  &:not(appmenu) {
-    background-image: none;
-    border-color: transparent;
-    box-shadow: none;
-    
-    &:hover { background-color: $_titlebutton_hvr_color; }
-    &:active, &:checked { background-color: $_titlebutton_prs_color; }
+	&:not(appmenu) {
+		background-image: none;
+		border-color: transparent;
+		box-shadow: none;
 
-    &:backdrop {
-      &, &:hover, &:active, &:checked { background: none; }
-    }
-  }
+		&:hover { background-color: $_titlebutton_hvr_color; }
+		&:active, &:checked { background-color: $_titlebutton_prs_color; }
+
+		&:backdrop {
+			&, &:hover, &:active, &:checked { background: none; }
+		}
+	}
 }
