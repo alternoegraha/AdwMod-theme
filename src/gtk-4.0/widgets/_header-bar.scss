@@ -1,6 +1,6 @@
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
   border-color: $alt_borders_color;
@@ -89,8 +89,8 @@ headerbar {
   separator:not(.sidebar),
   button,
   menubutton {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: $_hb_btn_pad;
+    margin-bottom: $_hb_btn_pad;
   }
 
   // Reset margins for buttons inside menubutton
@@ -100,8 +100,8 @@ headerbar {
   }
 
   switch {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $_switch_margin;
+    margin-bottom: $_switch_margin;
   }
 }
 
@@ -133,7 +133,7 @@ windowcontrols {
     @extend %button_basic_flat;
 
     border-radius: 9999px;
-    padding: 6px;
+    padding: $_hb_btn_pad;
     margin: 0 2px;
     min-width: 0;
     min-height: 0;
