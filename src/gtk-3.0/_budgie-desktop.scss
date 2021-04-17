@@ -391,7 +391,16 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		margin-bottom: 14px;
 		border-radius: $button_radius;
 
-		button.image-button { @extend %osd_button; }
+		button.image-button {
+			@include button(osd);
+			transition: $button_transition;
+
+			&:hover { @include button(osd-hover); }
+			&:active { @include button(osd-active); }
+			&:disabled { @include button(osd-insensitive); }
+
+			@extend %linked;
+		}
 	}
 
 	// powerstrip
