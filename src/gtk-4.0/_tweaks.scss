@@ -15,6 +15,20 @@
 		min-height: 30px;
 		padding: 0 4px;
 	}
+	
+	/**** Compact Notebooks/Tabs ****/
+	notebook {
+		> header > tabs > tab {
+			min-width: 28px;
+			min-height: 28px;
+			padding: 1px 10px;
+			
+			button.flat {
+				min-width: 18px;
+				min-height: 18px;
+			}
+		}
+	}
 
 	/* Message dialog button padding reduce */
 	window.dialog.message.csd .dialog-action-area button {
