@@ -51,13 +51,53 @@ root=https://gitlab.gnome.org/GNOME/libadwaita/raw/main/src/stylesheet
 [ ! -d ${_destination} ] && echo ${_destination} folder does not exists && exit 1
 
 files=(
+    widgets/_avatar.scss
+    widgets/_buttons.scss
+    widgets/_calendar.scss
+    widgets/_checks.scss
+    widgets/_color-chooser.scss
+    widgets/_dropdowns.scss
+    widgets/_emoji-chooser.scss
+    widgets/_entries.scss
+    widgets/_expanders.scss
+    widgets/_file-chooser.scss
+    widgets/_header-bar.scss
+    widgets/_labels.scss
+    widgets/_level-bar.scss
+    widgets/_links.scss
+    widgets/_lists.scss
+    widgets/_menus.scss
+    widgets/_message-dialog.scss
+    widgets/_misc.scss
+    widgets/_notebook.scss
+    widgets/_paned.scss
+    widgets/_popovers.scss
+    widgets/_preferences.scss
+    widgets/_progress-bar.scss
+    widgets/_scale.scss
+    widgets/_scrolling.scss
+    widgets/_shortcuts-window.scss
+    widgets/_sidebars.scss
+    widgets/_spin-button.scss
+    widgets/_spinner.scss
+    widgets/_switch.scss
+    widgets/_text-selection.scss
+    widgets/_toolbars.scss
+    widgets/_tooltip.scss
+    widgets/_transition-shadow.scss
+    widgets/_trees.scss
+    widgets/_view-switcher.scss
+    widgets/_views.scss
+    widgets/_window.scss
     assets.svg
     assets.txt
     _colors-public.scss
     _colors.scss
     _common.scss
-    _custom.scss
     _drawing.scss
+    _widgets.scss
+    Adwaita-hc.scss
+    Adwaita-hc-dark.scss
     Adwaita-dark.scss
     Adwaita-light.scss
     gtk.css
