@@ -76,8 +76,8 @@ viewswitcher {
     > stack > box {
       &.narrow {
         font-size: 0.75rem;
-        padding-top: 7px;
-        padding-bottom: 5px;
+        padding-top: if($_sizevariant == 'default', 7px, 4px);
+        padding-bottom: if($_sizevariant == 'default', 5px, 2px);
 
         image,
         label {
@@ -87,7 +87,7 @@ viewswitcher {
       }
 
       &.wide {
-        padding: 8px 12px;
+        padding: if($_sizevariant == 'default', 8px, 3px) 12px;
 
         label {
           &:dir(ltr) {
@@ -138,6 +138,7 @@ viewswitcher {
 
 viewswitcherbar actionbar > revealer > box {
   padding: 0;
+  min-height: $_headerbar_height;
 }
 
 /************************
