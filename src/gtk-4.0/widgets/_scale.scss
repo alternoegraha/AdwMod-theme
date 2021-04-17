@@ -236,7 +236,7 @@ scale {
               // an asymmetric slider asset is used here, so the margins are uneven, the smaller
               // margin is set on the point side.
               margin: -10px;
-              $_scale_asset: '#{$assets}/slider-#{$dir_infix}-#{$marks_infix}#{$state_infix}#{$suffix}';
+              $_scale_asset: 'assets/slider-#{$dir_infix}-#{$marks_infix}#{$state_infix}#{$suffix}';
               border-style: none;
               border-radius: 0;
 
