@@ -733,22 +733,30 @@ widget > box.workspace-switcher {
 	}
 
 	widget.workspace-item {
+		label { padding-top: 2px; }
+		
 		label.workspace-more-label { &, &:backdrop { color: $_budgie_panel_fg; } }
 
 		background-clip: padding-box;
-		border-width: 2px 1px;
+		border-width: 0;
 		border-style: solid;
 		border-color: transparent;
-		box-shadow: inset 0 0 0 1px transparentize($_budgie_panel_fg, 0.77);
+
+		&:first-child { border-right-width: 1px; }
+
+		button.workspace-icon-button {
+			&:hover, &:active { box-shadow: none; }
+		}
 	}
 
 	widget.workspace-item {
-		background-color: transparent;
+		background-color: transparentize($_budgie_panel_fg, 0.9);
 		&.current-workspace {
-			background-color: transparentize(white, 0.8);
-			box-shadow: inset 0 0 0 1px transparentize($_budgie_panel_fg, 0.6);
+			background-color: transparentize($_budgie_panel_fg, 0.8);
 		}
 
 		label.workspace-more-label { color: $fg_color; }
 	}
 }
+
+.budgie-popover.workspace-popover { @extend %budgie_popover_pad }
