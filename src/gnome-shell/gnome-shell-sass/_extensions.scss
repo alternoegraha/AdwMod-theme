@@ -1,7 +1,7 @@
 /* Dash to Dock */
-$dtd_padding: if($_sizevariant == 'default', $dash_padding, ($dash_padding + 2));
+$dtd_padding: 4px;
 $dtd_spacing: if($_sizevariant == 'default', $dash_spacing, ($dash_spacing + 1));
-$dtd_margin: $dash_bottom_margin;
+$dtd_margin: $dash_bottom_margin / 2;
 
 #dashtodockContainer {
 	@if $shell_ver < 40 and $shell_ver >= 3.36 {
@@ -33,6 +33,19 @@ $dtd_margin: $dash_bottom_margin;
 			.app-well-app-running-dot {
 				box-shadow: 0 0 0 1px rgba(black, 0.3);
 			}
+			
+			.dash-background {
+				padding: $dtd-padding;
+				margin-bottom: $dtd-margin;
+			}
+			
+			.dash-item-container .app-well-app, .show-apps {
+    		padding: $dtd_padding 0 $dtd_padding + $dtd-margin;
+  		}
+
+  		.dash-separator {
+    		margin: 0 $dtd_padding $dtd-margin;
+  		}
 		}
 
 		&.extended {
@@ -51,7 +64,7 @@ $dtd_margin: $dash_bottom_margin;
 				box-shadow: none;
 			}
 
-			.dash-separator { margin: 0 $_separator_padding; }
+			.dash-separator { margin: 0 $dash_padding; }
 		}
 	}
 }
