@@ -12,6 +12,13 @@ window {
                 0 0 0 1px $_wm_border; //doing borders with box-shadow
     margin: 0px;
     border-radius: $window_radius;
+
+    @if $variant == 'dark' {
+      $_window_outline: if($contrast=='high', transparentize(white, .7), transparentize(white, .9));
+      outline: 1px solid $_window_outline;
+      outline-offset: -1px;
+    }
+
     &:backdrop {
       // the transparent shadow here is to enforce that the shadow extents don't
       // change when we go to backdrop, to prevent jumping windows.
@@ -27,32 +34,39 @@ window {
       box-shadow: 0 1px 2px transparentize(black, 0.8),
                   0 0 0 1px transparentize($_wm_border, 0.1);
     }
+  }
 
-    &.solid-csd {
-      margin: 0;
-      padding: 0;
-      border: solid 1px $borders_color;
-      border-radius: 0;
-      box-shadow: inset 0 0 0 3px $headerbar_bg_color, inset 0 1px $top_hilight;
+  &.solid-csd {
+    margin: 0;
+    padding: 4px;
+    border: solid 1px $borders_color;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 4px $borders_color, inset 0 0 0 3px $headerbar_bg_color;
 
-      &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color, inset 0 1px $top_hilight; }
-    }
+    &:backdrop { box-shadow: inset 0 0 0 4px $borders_color, inset 0 0 0 3px $backdrop_bg_color; }
   }
 
   &.maximized,
-  &.fullscreen { border-radius: 0; box-shadow: none; }
+  &.fullscreen {
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+  }
 
   &.tiled,
   &.tiled-top,
   &.tiled-left,
   &.tiled-right,
   &.tiled-bottom {
-   border-radius: 0;
-   box-shadow: 0 0 0 1px $_wm_border_backdrop,
-               0 0 0 20px transparent; //transparent control workaround -- #3670
-   }
-   &:backdrop { box-shadow: 0 0 0 1px $_wm_border_backdrop,
-                            0 0 0 20px transparent; // #3670
+    border-radius: 0;
+    box-shadow: 0 0 0 1px $_wm_border_backdrop,
+                0 0 0 20px transparent; //transparent control workaround -- #3670
+    outline: none;
+  }
+
+  &:backdrop {
+    box-shadow: 0 0 0 1px $_wm_border_backdrop,
+                0 0 0 20px transparent; // #3670
   }
 
   // server-side decorations as used by mutter
