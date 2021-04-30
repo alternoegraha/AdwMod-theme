@@ -37,7 +37,7 @@ $dtd_margin: $dash_bottom_margin / 2;
 			}
 			
 			.dash-background {
-				padding: $dtd-padding;
+				padding: $dtd-padding $dtd-padding*2;
 				margin-bottom: $dtd-margin;
 			}
 			
