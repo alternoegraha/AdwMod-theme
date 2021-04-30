@@ -617,6 +617,10 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	}
 }
 
+// Network applet
+// https://github.com/danielpinto8zz6/budgie-network-applet
+.budgie-network-applet > widget > box { padding: 0 $_budgie_panel_btn_pad; }
+
 // places applet
 .places-menu {
 	.container { padding: 2px; }
