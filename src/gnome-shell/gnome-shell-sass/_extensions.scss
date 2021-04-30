@@ -26,7 +26,11 @@ $dtd_margin: $dash_bottom_margin / 2;
 			}
 		}
 
-		&.extended #dash { border: 0; }
+		&.extended #dash {
+				border: 0;
+				margin: 0;
+			}
+
 	}
 	// 40
 	@else {
