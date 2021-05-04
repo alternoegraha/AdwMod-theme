@@ -28,7 +28,7 @@ entry {
     }
 
     &.flat {
-      &:focus-within, &:backdrop, &:disabled, &:backdrop:disabled, & {
+      &:focus-within, &:disabled, & {
         min-height: 0;
         padding: 2px;
         background-color: transparent;
@@ -63,7 +63,7 @@ entry {
     }
 
     &.password image.caps-lock-indicator {
-      color: mix($backdrop_fg_color, $backdrop_base_color, 80%);
+      opacity: 0.5;
     }
 
     &:drop(active) {

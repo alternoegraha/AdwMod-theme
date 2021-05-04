@@ -1,10 +1,17 @@
+$_header_bar_color: darken($bg_color, 10%);
+$_header_bar_gradient: linear-gradient(to top, darken($_header_bar_color, 2%), lighten($_header_bar_color, 1%));
+
+@if $variant == 'dark' {
+  $_header_bar_gradient: linear-gradient(to top, lighten($_header_bar_color, 4%), lighten($_header_bar_color, 6%));
+}
+
 headerbar {
   padding: 0 6px;
   min-height: 46px;
   border-width: 0 0 1px;
   border-style: solid;
   border-color: $alt_borders_color;
-  border-radius: 0;
+  background-image: $_header_bar_gradient;
 
   > windowhandle > box {
     &,
@@ -14,14 +21,17 @@ headerbar {
     }
   }
 
-  @include headerbar_fill(darken($bg_color, 10%));
-
   &:backdrop {
-    border-color: $backdrop_borders_color;
-    background-color: $bg_color;
-    background-image: none;
+    background-image: linear-gradient(to top, $bg_color, $bg_color);
 
     transition: $backdrop_transition;
+
+    > windowhandle {
+      // opacity looks weird with GtkSwitch, but filter works fine
+      filter: opacity(0.5);
+
+      transition: $backdrop_transition;
+    }
   }
 
   /* Darken switchbuttons for headerbars. issue #1588 */
@@ -31,22 +41,6 @@ headerbar {
     background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
     border-color: darken($borders_color, 3%);
     border-top-color: darken($borders_color, 8%);
-    &:backdrop {
-      @include button(backdrop-active);
-    }
-  }
-
-  // squared corners when the window is maximized, tiled, or fullscreen
-  .tiled &,
-  .tiled-top &,
-  .tiled-left &,
-  .tiled-right &,
-  .tiled-bottom &,
-  .maximized &,
-  .fullscreen & {
-    &:backdrop, & {
-      border-radius: 0;
-    }
   }
 
   &.default-decoration {
@@ -77,8 +71,6 @@ headerbar {
         margin-left: -1px;
         margin-right: -1px;
         margin-top: -1px;
-        border-radius: 0;
-        box-shadow: none;
       }
     }
   }
@@ -164,18 +156,19 @@ window.devel {
     $c: darken($bg_color, 10%);
     $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                linear-gradient(to right, transparent 65%, transparentize($selected_bg_color, 0.8)),
-               linear-gradient(to top, darken($c, 3%), $c 3px, lighten($c, 6%));
+               $_header_bar_gradient;
     @if $variant == 'dark' {
       $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                  linear-gradient(to right, transparent 65%, transparentize($selected_bg_color, 0.9)),
-                 linear-gradient(to top, lighten($c, 3%) 3px, lighten($c, 5%));
+                 $_header_bar_gradient;
     }
 
     background: $bg_color $gradient;
 
     &:backdrop {
-      background: $bg_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
-                  image($bg_color); /* background-color would flash */
+      background: $bg_color cross-fade(5% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
+                  linear-gradient(to right, transparent 65%, transparent),
+                  linear-gradient(to top, $bg_color, $bg_color);
     }
   }
 }
