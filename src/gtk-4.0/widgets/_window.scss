@@ -15,7 +15,7 @@ window {
     border-radius: $window_radius;
 
     @if $variant == 'dark' {
-      $_window_outline: if($contrast=='high', transparentize(white, .7), transparentize(white, .9));
+      $_window_outline: transparentize(white, .9);
       outline: 1px solid $_window_outline;
       outline-offset: -1px;
     }

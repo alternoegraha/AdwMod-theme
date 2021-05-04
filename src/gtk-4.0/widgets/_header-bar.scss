@@ -1,17 +1,10 @@
-$_header_bar_color: darken($bg_color, 10%);
-$_header_bar_gradient: linear-gradient(to top, darken($_header_bar_color, 2%), lighten($_header_bar_color, 1%));
-
-@if $variant == 'dark' {
-  $_header_bar_gradient: linear-gradient(to top, lighten($_header_bar_color, 4%), lighten($_header_bar_color, 6%));
-}
-
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
   border-color: $alt_borders_color;
-  background-image: $_header_bar_gradient;
+  border-radius: 0;
 
   > windowhandle > box {
     &,
@@ -20,6 +13,8 @@ headerbar {
       border-spacing: 6px;
     }
   }
+
+  @include headerbar_fill(darken($bg_color, 10%));
 
   &:backdrop {
     background-image: linear-gradient(to top, $bg_color, $bg_color);
@@ -81,8 +76,8 @@ headerbar {
   separator:not(.sidebar),
   button,
   menubutton {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: $_hb_btn_pad;
+    margin-bottom: $_hb_btn_pad;
   }
 
   // Reset margins for buttons inside menubutton
@@ -92,8 +87,8 @@ headerbar {
   }
 
   switch {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $_switch_margin;
+    margin-bottom: $_switch_margin;
   }
 }
 
@@ -113,7 +108,7 @@ windowcontrols {
     @extend %button_basic_flat;
 
     border-radius: 9999px;
-    padding: 6px;
+    padding: $_hb_btn_pad;
     margin: 0 2px;
     min-width: 0;
     min-height: 0;
@@ -156,11 +151,11 @@ window.devel {
     $c: darken($bg_color, 10%);
     $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                linear-gradient(to right, transparent 65%, transparentize($selected_bg_color, 0.8)),
-               $_header_bar_gradient;
+               linear-gradient(to top, darken($c, 3%), $c 3px, lighten($c, 6%));
     @if $variant == 'dark' {
       $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                  linear-gradient(to right, transparent 65%, transparentize($selected_bg_color, 0.9)),
-                 $_header_bar_gradient;
+                 linear-gradient(to top, lighten($c, 3%) 3px, lighten($c, 5%));
     }
 
     background: $bg_color $gradient;

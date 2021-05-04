@@ -15,6 +15,20 @@
 		min-height: 30px;
 		padding: 0 4px;
 	}
+	
+	/**** Compact Notebooks/Tabs ****/
+	notebook {
+		> header > tabs > tab {
+			min-width: 28px;
+			min-height: 28px;
+			padding: 1px 10px;
+			
+			button.flat {
+				min-width: 18px;
+				min-height: 18px;
+			}
+		}
+	}
 
 	/* Message dialog button padding reduce */
 	window.dialog.message.csd .dialog-action-area button {
@@ -33,18 +47,6 @@ switch {
 		background-color: if($variant == 'light', 
                         darken($dark_fill, 8%), 
                         darken($dark_fill, 4%));
-
-		&:backdrop {
-			border-color: $backdrop_borders_color;
-			background-color: $backdrop_dark_fill;
-
-			&:checked {
-      	@if $variant == 'light' { color: $backdrop_bg_color; }
-      	border-color: if($variant == 'light', $checkradio_borders_color,
-                                            	$selected_borders_color);
-      	background-color: $checkradio_bg_color;
-    	}
-		}
 	}
 }
 
@@ -55,14 +57,6 @@ switch {
   background-color: $dark_fill;
 
   &:disabled { background-color: $insensitive_bg_color; }
-
-  &:backdrop {
-    background-color: $backdrop_dark_fill;
-    border-color: $backdrop_borders_color;
-    transition: $backdrop_transition;
-
-    &:disabled { background-color: $insensitive_bg_color; }
-  }
 }
 
 %_scale_classic_hilight {
@@ -74,15 +68,6 @@ switch {
     background-color: transparent;
     border-color: transparent;
   }
-
-  &:backdrop {
-    border-color: if($variant=='light', $progress_bg_color,
-                                        $progress_border_color);
-    &:disabled {
-      background-color: transparent;
-      border-color: transparent;
-    }
-  }
 }
 
 %_hb_progress_scale {
@@ -92,11 +77,6 @@ switch {
   background-color: if($variant == 'light', 
                     darken($dark_fill, 8%), 
                     darken($dark_fill, 6%));
-                        
-  &:backdrop {
-    background-color: $backdrop_dark_fill;
-    border-color: $backdrop_borders_color;
-  }
 }
 
 scale {
@@ -127,30 +107,22 @@ levelbar {
     &.low {
       border-color: if($variant == 'light', darken($warning_color, 20%), $warning_color);
       background-color: $warning_color;
-
-      &:backdrop { border-color: $warning_color; };
     }
 
     &.high,
     &:not(.empty) {
       border-color: if($variant == 'light', darken($progress_bg_color, 20%), $progress_bg_color);
       background-color: $progress_bg_color;
-
-      &:backdrop { border-color: $progress_bg_color; }
     }
 
     &.full {
       border-color: if($variant == 'light', darken($success_color, 20%), $success_color);
       background-color: $success_color;
-
-      &:backdrop { border-color: $success_color; };
     }
 
     &.empty {
       background-color: transparent;
       border-color: if($variant == 'light', transparentize($fg_color,0.8), transparentize($fg_color,0.9));
-
-      &:backdrop { border-color: transparentize($backdrop_fg_color,0.85); }
     }
   }
 }

@@ -1,7 +1,7 @@
 %entry,
 entry {
   %entry_basic, & {
-    min-height: 32px;
+    min-height: $_entry_height;
     padding-left: 8px;
     padding-right: 8px;
     border: 1px solid;
