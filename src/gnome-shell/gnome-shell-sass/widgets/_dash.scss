@@ -2,9 +2,9 @@
 
 $dash_background_color: rgba(white, 0.2);
 $dash_placeholder_size: 32px;
-$dash_padding: 4px;
+$dash_padding: 6px;
 $dash_spacing: if($_sizevariant == 'default', ($base_padding / 4px), ($base_padding / 4px + 2));
-$dash_bottom_margin: $base_icon_size / 2;
+$dash_bottom_margin: $base_icon_size;
 $dash_border_radius: $base_border_radius + 3;
 
 #dash {
@@ -31,7 +31,7 @@ $dash_border_radius: $base_border_radius + 3;
     }
     
     .overview & {
-    	margin-top: $dash_bottom_margin * 3 - 2;
+    	margin-top: $dash_bottom_margin / 2 * 3 - 2;
     }
     
     StIcon {
@@ -127,7 +127,7 @@ $dash_border_radius: $base_border_radius + 3;
   &:focus,
   &:checked {
     .overview-icon {
-			background-color: darken($osd_bg_color,10%);
+			background-color: transparentize(white, .9);
       color: $osd_fg_color;
     }
   }
