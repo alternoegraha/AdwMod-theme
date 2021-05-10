@@ -1,8 +1,4 @@
 /* Dash to Dock */
-$dtd_padding: 4px;
-$dtd_spacing: if($_sizevariant == 'default', $dash_spacing, ($dash_spacing + 1));
-$dtd_margin: $dash_bottom_margin / 2;
-
 #dashtodockContainer {
 	// 3.38 and 3.36
 	@if $shell_ver < 40 and $shell_ver >= 3.36 {
@@ -41,22 +37,18 @@ $dtd_margin: $dash_bottom_margin / 2;
 			}
 			
 			.dash-background {
-				padding: $dtd_padding - 1;
-			}
-		}
-		
-		&.bottom #dash {
-			.dash-background {
-				margin-bottom: $dtd-margin;
+				border-bottom: 0;
+				margin-bottom: 0;
+				border-radius: $dash_border_radius $dash_border_radius 0 0;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dtd_padding 0 $dtd_padding + $dtd_margin;
+    		padding: $dash_padding 0 $dash_padding - 1;
   		}
-
-  		.dash-separator {
-    		margin: 0 $dtd_padding;
-    		margin-bottom: $dtd_margin;
+  		
+  		.dash-separator { 
+  			margin-bottom: 0;
+  			margin-top: 1px; 
   		}
 		}
 		
@@ -65,18 +57,20 @@ $dtd_margin: $dash_bottom_margin / 2;
 			padding: $dash_padding 0 0;
 			
 			.dash-background {
-				margin-left: $dtd_margin;
-				padding-bottom: 0;
+				border-left: 0;
+				margin-left: 0;
+				border-radius: 0 $dash_border_radius $dash_border_radius 0;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dtd_padding $dtd_padding 0 $dtd_padding + $dtd_margin;
+    		padding: $dash_padding $dash_padding 0 $dash_padding - 1;
   		}
   		
   		.vertical-dash-separator {
   			height: 1px;
-    		margin: $dtd_padding;
-    		margin-left: $dtd_margin + 4;
+    		margin: $dash_padding;
+    		margin-left: 0;
+    		margin-right: 1px;
     		background-color: transparentize($osd_fg_color, 0.7);
   		}
 		}
@@ -86,18 +80,19 @@ $dtd_margin: $dash_bottom_margin / 2;
 			padding: $dash_padding 0 0;
 			
 			.dash-background {
-				margin-right: $dtd_margin;
-				padding-bottom: 0;
+				border-right: 0;
+				margin-right: 0;
+				border-radius: $dash_border_radius 0 0 $dash_border_radius;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dtd_padding $dtd_padding + $dtd_margin 0 $dtd_padding;
+    		padding: $dash_padding $dash_padding - 1 0 $dash_padding;
   		}
   		
   		.vertical-dash-separator {
   			height: 1px;
-    		margin: $dtd_padding;
-    		margin-right: $dtd_margin + 4;
+    		margin-left: 1px;
+    		margin-right: 0;
     		background-color: transparentize($osd_fg_color, 0.7);
   		}
 		}
