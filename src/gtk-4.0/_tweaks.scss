@@ -149,3 +149,6 @@ video {
 		border-radius: 99px;
 	}
 }
+
+// misc tweaks
+stackswitcher > button.text-button { min-width: 6.25em; } // use em sizing
