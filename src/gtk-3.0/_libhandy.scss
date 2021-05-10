@@ -353,9 +353,9 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
       border-radius: $window_radius;
     }
     
-    @if $variant == 'dark' { 
-    	> decoration-overlay { box-shadow: inset 0 0 0 1px transparentize(white, .9); }
-    }
+    //@if $variant == 'dark' { 
+    //	> decoration-overlay { box-shadow: inset 0 0 0 1px transparentize(white, .9); }
+    //}
   }
 }
 
