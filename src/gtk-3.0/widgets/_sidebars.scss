@@ -22,12 +22,6 @@
     }
   }
 
-  &:backdrop {
-    background-color: $backdrop_sidebar_bg_color;
-    border-color: $backdrop_borders_color;
-    transition: $backdrop_transition;
-  }
-
   list { background-color: transparent; }
 
   paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
@@ -75,14 +69,6 @@ placessidebar {
 
     &:disabled { color: $insensitive_fg_color; }
 
-    &:backdrop {
-      color: $backdrop_fg_color;
-
-      &:selected { color: $backdrop_selected_fg_color; }
-
-      &:disabled { color: $backdrop_insensitive_color; }
-    }
-
     image.sidebar-icon {
       &:dir(ltr) { padding-right: 8px; }
       &:dir(rtl) { padding-left: 8px; }
@@ -106,8 +92,7 @@ placessidebar {
       border-radius: 100%;
       -gtk-outline-radius: 100%;
 
-      &:not(:hover):not(:active),
-      &:backdrop { > image { opacity: $_placesidebar_icons_opacity; }}
+      &:not(:hover):not(:active) { > image { opacity: $_placesidebar_icons_opacity; }}
     }
 
     // in the sidebar case it makes no sense to click the selected row
@@ -137,10 +122,6 @@ placessidebar {
 
 separator.sidebar {
   background-color: $borders_color;
-
-  &:backdrop {
-    background-color: $backdrop_borders_color;
-  }
 
   &.selection-mode,
   .selection-mode & {

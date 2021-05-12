@@ -7,8 +7,6 @@ menubar,
   padding: 0px;
   box-shadow: inset 0 -1px transparentize(black, 0.9);
 
-  &:backdrop { background-color: $backdrop_bg_color; }
-
   > menuitem {
     min-height: 16px;
     padding: 4px 8px;
@@ -53,8 +51,6 @@ menu,
     border-radius: $menu_radius;
   }
 
-  &:backdrop { background-color: $backdrop_menu_color; }
-
   menuitem {
     min-height: 16px;
     min-width: 40px;
@@ -68,13 +64,6 @@ menu,
 
     &:disabled {
       color: $insensitive_fg_color;
-      &:backdrop { color: $backdrop_insensitive_color; }
-    }
-
-    &:backdrop,
-    &:backdrop:hover {
-      color: $backdrop_fg_color;
-      background-color: transparent;
     }
 
     // submenu indicators
@@ -126,8 +115,6 @@ menu,
     }
 
     &:hover { background-color: mix($fg_color, $base_color, 10%); }
-
-    &:backdrop { background-color: $backdrop_menu_color; }
 
     &:disabled {
       color: transparent;

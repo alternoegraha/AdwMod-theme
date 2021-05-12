@@ -75,13 +75,6 @@ searchbar > revealer > box {
   border-color: $borders_color;
   $_bg: mix($bg_color, $borders_color, 70%);
   background-color: $_bg;
-
-  &:backdrop {
-    border-color: $backdrop_borders_color;
-    background-color: $backdrop_dark_fill;
-    box-shadow: none;
-    transition: $backdrop_transition;
-  }
 }
 
 /**************
@@ -100,7 +93,7 @@ infobar {
   &.question,
   &.warning,
   &.error {
-    &:backdrop > revealer > box, & > revealer > box {
+    & > revealer > box {
       label, & { color: $fg_color; }
       background-color: if($variant == 'light', desaturate(lighten(invert($selected_bg_color), 45%), 30%), 
                         desaturate(darken(invert($selected_bg_color),40%), 70%));
@@ -108,8 +101,6 @@ infobar {
     }
 
     text-shadow: none;
-
-    &:backdrop { text-shadow: none; }
 
     button {
       // FIXME: extend selection mode buttons
@@ -121,20 +112,6 @@ infobar {
       &:checked { @include button(active, $bg_color, $fg_color, none); }
 
       &:disabled { @include button(insensitive,$bg_color,$fg_color,none); }
-
-      &:backdrop {
-        @include button(backdrop, $bg_color, $fg_color, none);
-        border-color: _border_color($bg_color);
-
-        &:disabled {
-          @include button(backdrop-insensitive, $bg_color,
-                          $fg_color, none);
-          border-color: _border_color($bg_color);
-        }
-      }
-      &:backdrop, & {
-        label, & { color: $fg_color; }
-      }
     }
 
     selection { background-color: darken($bg_color, 10%); }

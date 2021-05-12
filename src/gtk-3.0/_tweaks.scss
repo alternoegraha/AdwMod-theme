@@ -223,10 +223,6 @@ button.titlebutton {
 
 		&:hover { background-color: $_titlebutton_hvr_color; }
 		&:active, &:checked { background-color: $_titlebutton_prs_color; }
-
-		&:backdrop {
-			&, &:hover, &:active, &:checked { background: none; }
-		}
 	}
 }
 

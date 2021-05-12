@@ -26,27 +26,6 @@ switch {
     text-shadow: none;
   }
 
-  &:backdrop {
-    color: $backdrop_fg_color;
-    border-color: $backdrop_borders_color;
-    background-color: $backdrop_dark_fill;
-    text-shadow: none;
-    transition: $backdrop_transition;
-
-    &:checked {
-      @if $variant == 'light' { color: $backdrop_bg_color; }
-      border-color: if($variant == 'light', $checkradio_borders_color,
-                                            $selected_borders_color);
-      background-color: $checkradio_bg_color;
-    }
-
-    &:disabled {
-      color: $backdrop_insensitive_color;
-      border-color: $backdrop_borders_color;
-      background-color: $insensitive_bg_color;
-    }
-  }
-
   slider {
     margin: -1px;
     min-width: 24px;
@@ -79,24 +58,10 @@ switch {
 
   &:disabled slider { @include button(insensitive); }
 
-  &:backdrop {
-    slider {
-      transition: $backdrop_transition;
-
-      @include button(backdrop);
-    }
-
-    &:checked > slider { border-color: $checkradio_borders_color; }
-
-    &:disabled slider { @include button(backdrop-insensitive); }
-  }
-
   row:selected & {
     @if $variant == 'light' {
       box-shadow: none;
       border-color: $checkradio_borders_color;
-
-      &:backdrop { border-color: $checkradio_borders_color; }
 
       > slider { &:checked, & { border-color: $checkradio_borders_color; } }
     }

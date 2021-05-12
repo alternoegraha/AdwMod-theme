@@ -14,12 +14,6 @@
   border-radius: 5px;
   box-shadow: if($variant == 'light', inset 0 -3px mix($base_color, $bg_color, 20%), inset 0 -3px mix($borders_color, $base_color, 60%));
   font-size: smaller;
-
-  &:backdrop {
-    background-color: $backdrop_base_color;
-    color: $backdrop_fg_color;
-    transition: $backdrop_transition;
-  }
 }
 
 :not(decoration):not(window):drop(active):focus,

@@ -21,13 +21,7 @@ scrollbar {
   &.bottom { border-top: 1px solid $borders_color; }
   &.left { border-right: 1px solid $borders_color; }
   &.right { border-left: 1px solid $borders_color; }
-
-  &:backdrop {
-    background-color: $backdrop_scrollbar_bg_color;
-    border-color: $backdrop_borders_color;
-    transition: $backdrop_transition;
-  }
-
+  
   // slider
   slider {
     min-width: $_slider_width;
@@ -42,8 +36,6 @@ scrollbar {
     &:hover { background-color: $scrollbar_slider_hover_color; }
 
     &:hover:active { background-color: $scrollbar_slider_active_color; }
-
-    &:backdrop { background-color: $backdrop_scrollbar_slider_color; }
 
     &:disabled { background-color: transparent; }
   }
@@ -144,17 +136,6 @@ scrollbar {
 
       color: transparentize($scrollbar_slider_color, 0.8);
     }
-    &:backdrop {
-      @include button(undecorated);
-
-      color: $backdrop_scrollbar_slider_color;
-
-      &:disabled {
-        @include button(undecorated);
-
-        color: transparentize($backdrop_scrollbar_slider_color, 0.8);
-      }
-    }
   }
 
   // button icons
@@ -190,26 +171,18 @@ scrolledwindow {
   overshoot {
     &.top {
       @include overshoot(top);
-
-      &:backdrop { @include overshoot(top, backdrop); }
     }
 
     &.bottom {
       @include overshoot(bottom);
-
-      &:backdrop { @include overshoot(bottom, backdrop); }
     }
 
     &.left {
       @include overshoot(left);
-
-      &:backdrop { @include overshoot(left, backdrop); }
     }
 
     &.right {
       @include overshoot(right);
-
-      &:backdrop { @include overshoot(right, backdrop); }
     }
   }
 
@@ -221,11 +194,5 @@ scrolledwindow {
     background-color: $scrollbar_bg_color;
 
     &:dir(rtl) { border-image-slice: 0 1 0 0; }
-
-    &:backdrop {
-      border-image-source: linear-gradient(to bottom, $backdrop_borders_color 1px, transparent 1px);
-      background-color: $backdrop_scrollbar_bg_color;
-      transition: $backdrop_transition;
-    }
   }
 }

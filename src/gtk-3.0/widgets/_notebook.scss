@@ -8,11 +8,6 @@ notebook {
     border-width: 1px;
     background-color: $dark_fill;
 
-    &:backdrop {
-      border-color: $backdrop_borders_color;
-      background-color: $backdrop_dark_fill;
-    }
-
     tabs { margin: -1px; }
 
     &.top {
@@ -21,8 +16,6 @@ notebook {
         margin-bottom: -2px;
         > tab {
           &:hover { box-shadow: inset 0 -4px $borders_color; }
-
-          &:backdrop { box-shadow: none; }
 
           &:checked { box-shadow: inset 0 -4px $selected_bg_color; }
         }
@@ -36,8 +29,6 @@ notebook {
         > tab {
           &:hover { box-shadow: inset 0 4px $borders_color; }
 
-          &:backdrop { box-shadow: none; }
-
           &:checked { box-shadow: inset 0 4px $selected_bg_color; }
         }
       }
@@ -49,9 +40,7 @@ notebook {
         margin-right: -2px;
         > tab {
           &:hover { box-shadow: inset -4px 0 $borders_color; }
-
-          &:backdrop { box-shadow: none; }
-
+          
           &:checked { box-shadow: inset -4px 0 $selected_bg_color; }
         }
       }
@@ -63,8 +52,6 @@ notebook {
         margin-left: -2px;
         > tab {
           &:hover { box-shadow: inset 4px 0 $borders_color; }
-
-          &:backdrop { box-shadow: none; }
 
           &:checked { box-shadow: inset 4px 0 $selected_bg_color; }
         }
@@ -126,7 +113,7 @@ notebook {
       min-width: 16px;
       border-radius: 0;
 
-      &:hover:not(:active):not(:backdrop) {
+      &:hover:not(:active) {
         background-clip: padding-box;
         background-image: none;
         background-color: transparentize(white, 0.7);
@@ -160,15 +147,6 @@ notebook {
         }
       }
 
-      &:backdrop {
-        color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
-
-        &.reorderable-page {
-          border-color: transparent;
-          background-color: transparent;
-        }
-      }
-
       &:checked {
         color: $fg_color;
         &.reorderable-page {
@@ -178,21 +156,12 @@ notebook {
           &:hover { background-color: transparentize($bg_color, 0.3); }
         }
       }
-
-      &:backdrop:checked {
-        color: $backdrop_fg_color;
-
-        &.reorderable-page {
-          border-color: $backdrop_borders_color;
-          background-color: $backdrop_bg_color;
-        }
-      }
-
+      
       // colors the button like the label, overridden otherwise
       button.flat {
         &:hover { color: currentColor; }
 
-        &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
+        color: gtkalpha(currentColor, 0.3);
 
         padding: 0;
         margin-top: 4px;
@@ -265,7 +234,5 @@ notebook {
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
     background-color: $base_color;
-
-    &:backdrop { background-color: $backdrop_base_color; }
   }
 }

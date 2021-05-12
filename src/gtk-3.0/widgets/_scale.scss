@@ -8,14 +8,6 @@
 
   &:disabled { background-color: $insensitive_bg_color; }
 
-  &:backdrop {
-    background-color: $backdrop_dark_fill;
-    border-color: $backdrop_borders_color;
-    transition: $backdrop_transition;
-
-    &:disabled { background-color: $insensitive_bg_color; }
-  }
-
   // ...on selected list rows
   row:selected & { &:disabled, & { border-color: $selected_borders_color; }}
 
@@ -36,15 +28,6 @@
   &:disabled {
     background-color: transparent;
     border-color: transparent;
-  }
-
-  &:backdrop {
-    border-color: if($variant=='light', $progress_bg_color,
-                                        $progress_border_color);
-    &:disabled {
-      background-color: transparent;
-      border-color: transparent;
-    }
   }
 
   // ...on selected list rows
@@ -120,13 +103,9 @@ scale {
   fill {
     @extend %scale_trough;
 
-    &:backdrop, & { background-color: $borders_color; }
-
     &:disabled {
-      &:backdrop, & {
-        border-color: transparent;
-        background-color: transparent;
-      }
+      border-color: transparent;
+      background-color: transparent;
     }
 
     // OSD
@@ -134,10 +113,8 @@ scale {
       background-color: mix($osd_fg_color, $osd_borders_color, 25%);
 
       &:disabled {
-        &:backdrop, & {
-          border-color: transparent;
-          background-color: transparent;
-        }
+        border-color: transparent;
+        background-color: transparent;
       }
     }
   }
@@ -155,14 +132,6 @@ scale {
     &:active { border-color: $progress_border_color; }
 
     &:disabled { @include button(insensitive); }
-
-    &:backdrop {
-      transition: $backdrop_transition;
-
-      @include button(backdrop);
-
-      &:disabled { @include button(backdrop-insensitive); }
-    }
 
     // ...on selected list rows
     row:selected & { &:disabled, & { border-color: $selected_borders_color; } }
@@ -186,16 +155,6 @@ scale {
       &:disabled {
         @include button(osd-insensitive);
         background-color: opacify($osd_bg_color, 1); // solid background needed here
-      }
-
-      &:backdrop {
-        @include button(osd-backdrop);
-        background-color: opacify($osd_bg_color, 1); // solid background needed here
-
-        &:disabled {
-          @include button(osd-backdrop-insensitive);
-          background-color: opacify($osd_bg_color, 1); // solid background needed here
-        }
       }
     }
   }
@@ -256,9 +215,7 @@ scale {
       @each $state, $state_infix in ('', ''),
                                     (':hover', '-hover'),
                                     (':active', '-active'),
-                                    (':disabled', '-insensitive'),
-                                    (':backdrop', '-backdrop'),
-                                    (':backdrop:disabled', '-backdrop-insensitive') {
+                                    (':disabled', '-insensitive') {
         &.#{$dir_class}.#{$marks_class} {
 
           slider {
@@ -353,7 +310,7 @@ scale {
 
       slider {
         &:dir(ltr), &:dir(rtl) { // specificity bumb
-          &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
+          &:hover, &:disabled, & {
             margin-bottom: -15px;
             margin-top: 6px;
           }
@@ -373,7 +330,7 @@ scale {
         }
 
         slider {
-          &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
+          &:hover, &:disabled, & {
             margin-left: -15px;
             margin-right: 6px;
           }
@@ -391,7 +348,7 @@ scale {
         }
 
         slider {
-          &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
+          &:hover, &:disabled, & {
             margin-right: -15px;
             margin-left: 6px;
           }

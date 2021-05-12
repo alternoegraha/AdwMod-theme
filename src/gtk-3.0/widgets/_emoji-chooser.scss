@@ -30,7 +30,6 @@ button.emoji-section {
   &:first-child { margin-left: 7px; }
   &:last-child { margin-right: 7px; }
 
-  &:backdrop:not(:checked) { border-color: transparent; }
   &:hover { border-color: if($variant == 'light', $borders_color, transparentize($fg_color, .9)); }
   &:checked { border-color: $selected_bg_color; }
 

@@ -21,7 +21,7 @@ entry {
 
 
     &.flat {
-      &:focus, &:backdrop, &:disabled, &:backdrop:disabled, & {
+      &:focus, &:disabled, & {
         min-height: 0;
         padding: 2px;
         background-color: transparent;
@@ -33,14 +33,6 @@ entry {
     &:focus { @include entry(focus); }
 
     &:disabled { @include entry(insensitive); }
-
-    &:backdrop {
-      @include entry(backdrop);
-
-      transition: $backdrop_transition;
-    }
-
-    &:backdrop:disabled { @include entry(backdrop-insensitive); }
 
     selection { @extend %selected_items; }
 
@@ -63,8 +55,6 @@ entry {
       &:hover { color: $fg_color; }
 
       &:active { color: $selected_bg_color; }
-
-      &:backdrop { color: mix($backdrop_fg_color, $backdrop_base_color, 80%); }
     }
 
     &:drop(active) {
@@ -79,8 +69,6 @@ entry {
 
       &:focus { @include entry(osd-focus); }
 
-      &:backdrop { @include entry(osd-backdrop); }
-
       &:disabled { @include entry(osd-insensitive); }
     }
   }
@@ -94,8 +82,6 @@ entry {
     border-color: $progress_bg_color;
     border-style: solid;
     box-shadow: none;
-
-    &:backdrop { background-color: transparent; }
   }
 
    // linked entries
@@ -121,8 +107,6 @@ entry {
     &:not(:disabled) + entry:not(:disabled),
     &:not(:disabled) + %entry:not(:disabled) {
       border-top-color: mix($borders_color, $base_color, 30%);
-
-      &:backdrop { border-top-color: mix($backdrop_borders_color, $backdrop_base_color, 30%); }
     }
 
     // brighter border between linked insensitive entries
@@ -214,18 +198,10 @@ treeview entry {
     background-color: lighten($_entry_tag_bg, 10%);
   }
 
-  :backdrop & {
-    color: $backdrop_base_color;
-    background-color: if($variant=='light', $selected_bg_color,
-                                            mix($backdrop_fg_color, $backdrop_base_color, 50%));
-  }
-
   &.button {
     background-color: transparent;
     color: transparentize($_entry_tag_color, 0.3);
-  }
 
-  :not(:backdrop) &.button {
     &:hover {
       border: 1px solid $_entry_tag_bg;
       color: $_entry_tag_color;

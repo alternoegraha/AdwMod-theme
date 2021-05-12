@@ -102,8 +102,6 @@ button.titlebutton {
 
     @extend %nobg_selected_items;
   }
-
-  &:backdrop { -gtk-icon-shadow: none; }
 }
 
 .selection-mode headerbar button.titlebutton,
@@ -111,8 +109,6 @@ button.titlebutton {
 headerbar.selection-mode button.titlebutton,
 .titlebar.selection-mode button.titlebutton {
   @include _button_text_shadow(white, $suggested_bg_color);
-
-  &:backdrop { -gtk-icon-shadow: none; }
 }
 
 // Unified window

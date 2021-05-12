@@ -14,8 +14,6 @@ paned {
 
     &:selected { background-image: image($selected_bg_color); } // FIXME is this needed?
 
-    &:backdrop { background-image: image($backdrop_borders_color); }
-
     &.wide {
       min-width: 5px;
       min-height: 5px;

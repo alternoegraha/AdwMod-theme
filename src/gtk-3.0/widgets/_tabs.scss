@@ -3,7 +3,6 @@
  *************/
 
 $tab_bg: darken($bg_color, if($variant == 'dark', 6%, 12%));
-$tab_bg_backdrop: darken($backdrop_bg_color, 6%);
 
 // Tabs
 @mixin undershoot-gradient($dir) {
@@ -31,11 +30,6 @@ tabbar {
     min-height: if($_sizevariant == 'default', 38px, 32px);
     background: darken($tab_bg, 3%);
     border-bottom: 1px solid $alt_borders_color;
-
-    &:backdrop {
-      background-color: darken($tab_bg_backdrop, 3%);
-      border-color: $backdrop_borders_color;
-    }
   }
 
   scrolledwindow.pinned {
@@ -50,28 +44,16 @@ tabbar {
     &:dir(ltr) undershoot.right {
       border-right-width: 1px;
     }
-
-    &:backdrop undershoot {
-      border-color: $backdrop_borders_color;
-    }
-
+    
     tabbox {
       &:dir(ltr) {
         padding-right: 1px;
         box-shadow: inset -1px 0 $alt_borders_color;
-
-        &:backdrop {
-          box-shadow: inset -1px 0 $backdrop_borders_color;
-        }
       }
 
       &:dir(rtl) {
         padding-left: 1px;
         box-shadow: inset 1px 0 $alt_borders_color;
-
-        &:backdrop {
-          box-shadow: inset 1px 0 $backdrop_borders_color;
-        }
       }
     }
   }
@@ -114,15 +96,6 @@ tabbar {
     &:hover {
       background-color: lighten($tab_bg, 3%);
     }
-
-    &:backdrop {
-      border-color: $backdrop_borders_color;
-      background-color: $tab_bg_backdrop;
-
-      &:checked {
-        background-color: $backdrop_bg_color;
-      }
-    }
   }
 
   .start-action,
@@ -131,11 +104,6 @@ tabbar {
     border-color: $alt_borders_color;
     border-style: solid;
     transition: background 150ms ease-in-out;
-
-    &:backdrop {
-      border-color: $backdrop_borders_color;
-      background-color: $tab_bg_backdrop;
-    }
 
     button {
       border: none;

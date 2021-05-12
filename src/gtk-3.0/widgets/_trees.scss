@@ -25,11 +25,6 @@ treeview.view {
 
       @extend %selected_items;
     }
-
-    &:backdrop, & {
-      border-left-color: mix($selected_fg_color, $selected_bg_color, 50%);
-      border-top-color: transparentize($fg_color, 0.9); // doesn't work unfortunatelly
-    }
   }
 
   &:disabled {
@@ -37,22 +32,12 @@ treeview.view {
 
     &:selected {
       color: mix($selected_fg_color, $selected_bg_color, 40%);
-      &:backdrop { color: mix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
-
-    &:backdrop { color: $backdrop_insensitive_color; }
   }
 
   &.separator {
     min-height: 2px;
     color: $bg_color;
-
-    &:backdrop { color: transparentize($bg_color, 0.9); }
-  }
-
-  &:backdrop {
-    border-left-color: mix($backdrop_fg_color, $backdrop_bg_color, 50%);
-    border-top: $backdrop_bg_color;
   }
   &:drop(active) {
     border-style: solid none;
@@ -77,13 +62,9 @@ treeview.view {
       color: mix($selected_fg_color, $selected_bg_color, 70%);
 
       &:hover { color: $selected_fg_color; }
-
-      &:backdrop { color: mix($backdrop_selected_fg_color, $selected_bg_color, 70%); }
     }
 
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-
-    &:backdrop { color: mix($backdrop_fg_color, $backdrop_base_color, 70%); }
   }
 
   &.progressbar { // progress bar in treeviews
@@ -104,22 +85,7 @@ treeview.view {
         @else { box-shadow: inset 0 1px transparentize(white, 0.95); }
 
         background-image: image($base_color);
-
-        &:backdrop {
-          @if $variant == 'light' {
-            color: $selected_bg_color;
-          }
-          background-color: $backdrop_base_color;
-        }
       }
-    }
-
-    &:backdrop {
-      @if $variant == 'light' { color: $backdrop_base_color; }
-
-      @else { border-color: $backdrop_base_color; }
-      background-image: none;
-      box-shadow: none;
     }
   }
 
@@ -196,18 +162,5 @@ treeview.view {
     background-image: none;
   }
 
-  &:backdrop {
-    color: mix($backdrop_fg_color, $backdrop_bg_color, 50%);
-    border-color: $backdrop_bg_color;
-    border-style: none solid solid none;
-    background-image: none;
-    background-color: $backdrop_base_color;
-
-    &:disabled {
-      border-color: $backdrop_bg_color;
-      background-image: none;
-    }
-  }
-
-  &:last-child { &:backdrop, & { border-right-style: none; }}
+  &:last-child { border-right-style: none; }
 }

@@ -10,15 +10,11 @@ frame > border,
   border: 1px solid $borders_color;
 
   &.flat { border-style: none; }
-
-  &:backdrop { border-color: $backdrop_borders_color; }
 }
 
 actionbar > revealer >  box {
   padding: 6px;
   border-top: 1px solid $borders_color;
-
-  &:backdrop { border-color: $backdrop_borders_color; }
 }
 
 //vbox and hbox separators
@@ -42,11 +38,6 @@ separator {
                                                transparent 2px);
   background-clip: padding-box;
 
-  &:backdrop {
-    background-image: none;
-    transition: $backdrop_transition;
-  }
-
   button { @extend %osd_button; }
 
   border { border: none; }
@@ -60,8 +51,6 @@ separator {
   background-color: darken($bg_color,7%);
 
   &:hover { -gtk-icon-effect: highlight; }
-
-  &:backdrop { background-color: darken($bg_color,7%); }
 
   rubberband, .rubberband { @extend rubberband; }
 }
@@ -80,8 +69,6 @@ separator {
       background-color: transparentize($fg_color,0.9);
       border-radius: 5px;
     }
-
-    &:backdrop { &:hover, &:disabled, & { @extend %undecorated_button; }}
   }
 }
 
@@ -94,11 +81,6 @@ printdialog {
     border: 1px solid $borders_color;
     background: white;
     padding: 0;
-
-    &:backdrop {
-      color: $backdrop_fg_color;
-      border-color: $backdrop_borders_color;
-    }
   }
 
   .dialog-action-box { margin: 12px; }
@@ -111,11 +93,6 @@ assistant {
   .sidebar {
     background-color: $base_color;
     border-top: 1px solid $borders_color;
-
-    &:backdrop {
-      background-color: $backdrop_base_color;
-      border-color: $backdrop_borders_color;
-    }
   }
 
   &.csd .sidebar { border-top-style: none; }
@@ -146,8 +123,4 @@ keypad {
 
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
   color: transparentize($fg_color, 0.5);
-
-  &:backdrop {
-    color: transparentize($backdrop_fg_color, 0.5);
-  }
 }

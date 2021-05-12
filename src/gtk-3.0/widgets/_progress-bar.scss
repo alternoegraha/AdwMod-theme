@@ -22,11 +22,6 @@ progressbar {
   color: transparentize($fg_color, 0.6);
   font-feature-settings: "tnum";
 
-  &:backdrop {
-    box-shadow: none;
-    transition: $backdrop_transition;
-  }
-
   trough { @extend %scale_trough; }
 
   progress {

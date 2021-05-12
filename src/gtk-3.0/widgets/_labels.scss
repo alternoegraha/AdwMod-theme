@@ -17,17 +17,7 @@ label {
 
     button & { color: inherit; }
 
-    &:backdrop {
-      color: $backdrop_insensitive_color;
-
-      button & { color: inherit; }
-    }
-
     selection { @extend %selected_items_disabled; }
-  }
-
-  &:backdrop {
-    selection { @extend %selected_items_backdrop; }
   }
 
   &.error {

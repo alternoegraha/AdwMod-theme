@@ -62,13 +62,6 @@ $_switch_margin: if($_sizevariant=='default', 10px, 7px);
 .background {
   color: $fg_color;
   background-color: $bg_color;
-
-  &:backdrop {
-    color: $backdrop_fg_color;
-    background-color: $backdrop_bg_color;
-    text-shadow: none;
-    -gtk-icon-shadow: none;
-  }
 }
 
 /*
@@ -113,11 +106,6 @@ $_switch_margin: if($_sizevariant=='default', 10px, 7px);
   background-clip: padding-box;
   text-shadow: 0 1px black;
   -gtk-icon-shadow: 0 1px black;
-
-  &:backdrop {
-    text-shadow: none;
-    -gtk-icon-shadow: none;
-  }
 }
 
 // catch all extend :)
