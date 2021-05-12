@@ -44,9 +44,6 @@ headerbar {
     background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
     border-color: darken($borders_color, 3%);
     border-top-color: darken($borders_color, 8%);
-    &:backdrop {
-      @include button(backdrop-active);
-    }
   }
 
   .selection-mode &,
@@ -60,8 +57,7 @@ headerbar {
     @include headerbar_fill($suggested_bg_color, $_hc);
 
     &:backdrop {
-      background-color: $suggested_bg_color;
-      background-image: none;
+      background-image: linear-gradient(to top, $suggested_bg_color, $suggested_bg_color);
       box-shadow: inset 0 1px mix($top_hilight, $suggested_bg_color, 60%);
       
       label { 
@@ -84,34 +80,6 @@ headerbar {
       &:checked,
       &.toggle:checked,
       &.toggle:active { @include button(active, $suggested_bg_color, $selected_fg_color); }
-
-      &:backdrop {
-        &.flat, & {
-          @include button(backdrop, $suggested_bg_color, $selected_fg_color);
-
-          -gtk-icon-effect: none;
-          border-color: $suggested_border_color;
-
-          &:active,
-          &:checked {
-            @include button(backdrop-active, $suggested_bg_color, $selected_fg_color);
-
-            border-color: $suggested_border_color;
-          }
-
-          &:disabled {
-            @include button(backdrop-insensitive, $suggested_bg_color, $selected_fg_color);
-
-            border-color: $suggested_border_color;
-
-            &:active, &:checked {
-              @include button(backdrop-insensitive-active, $suggested_bg_color, $selected_fg_color);
-
-              border-color: $suggested_border_color;
-            }
-          }
-        }
-      }
 
       @at-root %selection_mode_button_flat,
       &.flat { &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }}
@@ -145,37 +113,23 @@ headerbar {
 
           border-color: $suggested_border_color;
         }
-
-        &:backdrop {
-          @include button(backdrop);
-
-          border-color: $suggested_border_color;
-        }
-
-        &:backdrop:disabled {
-          @include button(backdrop-insensitive);
-
-          border-color: $suggested_border_color;
-        }
       }
     }
 
     .selection-menu {
-      &:backdrop, & {
-        border-color: transparentize($suggested_bg_color, 1);
-        background-color: transparentize($suggested_bg_color, 1);
-        background-image: none;
-        box-shadow: none;
-        min-height: 20px;
-        padding: $_sel_menu_pad;
+      border-color: transparentize($suggested_bg_color, 1);
+      background-color: transparentize($suggested_bg_color, 1);
+      background-image: none;
+      box-shadow: none;
+      min-height: 20px;
+      padding: $_sel_menu_pad;
 
-        arrow { -GtkArrow-arrow-scaling: 1; }
+      arrow { -GtkArrow-arrow-scaling: 1; }
 
-        .arrow {
-          -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
-          color: transparentize($selected_fg_color,0.5);
-          -gtk-icon-shadow: none;
-        }
+      .arrow {
+        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+        color: transparentize($selected_fg_color,0.5);
+        -gtk-icon-shadow: none;
       }
     }
   }
@@ -202,6 +156,23 @@ headerbar {
       min-width: 26px;
       margin: 0;
       padding: 0;
+      
+      // ssd decoration workaround
+      &:backdrop {
+				color: mix($bg_color, $fg_color, 50%);
+		
+				&:hover { @include button(undecorated-hover,$c:mix($bg_color,darken($headerbar_color,6%),50%)); }
+				&:active, 
+				&:checked { @include button(undecorated-active,$c:mix($bg_color,darken($headerbar_color,10%),50%)); }
+			}
+    }
+    
+    // Workaround for SSD decorations
+    // because of lacking opacity support (?)
+    // I'm sure if Mutter ported to Gtk4 this issue is gone
+    &:backdrop { 
+    	color: mix($bg_color, $fg_color, 50%);
+    	opacity: 1.0;
     }
   }
   

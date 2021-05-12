@@ -95,6 +95,12 @@ button.titlebutton {
     margin: 0;
     min-width: 0;
     min-height: 0;
+    
+    &:hover {
+    	@include button(undecorated-hover,$c:darken($headerbar_color,6%));
+  	}
+  	&:active,
+  	&:checked { @include button(undecorated-active,$c:darken($headerbar_color,10%)); }
   }
 
   .selection-mode & {
@@ -109,6 +115,16 @@ button.titlebutton {
 headerbar.selection-mode button.titlebutton,
 .titlebar.selection-mode button.titlebutton {
   @include _button_text_shadow(white, $suggested_bg_color);
+}
+
+.ssd .titlebar.default-decoration button.titlebutton {
+	&:backdrop {
+		color: mix($bg_color, $fg_color, 50%);
+		
+		&:hover { @include button(undecorated-hover,$c:mix($bg_color,darken($headerbar_color,6%),50%)); }
+		&:active, 
+		&:checked { @include button(undecorated-active,$c:mix($bg_color,darken($headerbar_color,10%),50%)); }
+	}
 }
 
 // Unified window
