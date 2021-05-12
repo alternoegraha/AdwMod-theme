@@ -1,0 +1,153 @@
+/**********
+ * Frames *
+ **********/
+frame > border,
+.frame {
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: 1px solid $borders_color;
+
+  &.flat { border-style: none; }
+
+  &:backdrop { border-color: $backdrop_borders_color; }
+}
+
+actionbar > revealer >  box {
+  padding: 6px;
+  border-top: 1px solid $borders_color;
+
+  &:backdrop { border-color: $backdrop_borders_color; }
+}
+
+//vbox and hbox separators
+separator {
+  background: transparentize(black, 0.9);
+  min-width: 1px;
+  min-height: 1px;
+}
+
+/*********************
+ * App Notifications *
+ *********************/
+.app-notification,
+.app-notification.frame {
+  @extend %osd;
+
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  background-color: $osd_bg_color;
+  background-image: linear-gradient(to bottom, transparentize(black, 0.8),
+                                               transparent 2px);
+  background-clip: padding-box;
+
+  &:backdrop {
+    background-image: none;
+    transition: $backdrop_transition;
+  }
+
+  button { @extend %osd_button; }
+
+  border { border: none; }
+}
+
+/********
+ * Misc *
+ ********/
+//content view (grid/list)
+.content-view {
+  background-color: darken($bg_color,7%);
+
+  &:hover { -gtk-icon-effect: highlight; }
+
+  &:backdrop { background-color: darken($bg_color,7%); }
+
+  rubberband, .rubberband { @extend rubberband; }
+}
+
+.scale-popup {
+  .osd & { @extend %osd; }
+
+  .osd & button.flat {  //FIXME: quick hack, redo properly
+    border-style: none;
+    border-radius: 5px;
+  }
+
+  button { // +/- buttons on GtkVolumeButton popup
+    &:hover {
+      @extend %undecorated_button;
+      background-color: transparentize($fg_color,0.9);
+      border-radius: 5px;
+    }
+
+    &:backdrop { &:hover, &:disabled, & { @extend %undecorated_button; }}
+  }
+}
+
+/****************
+ * Print dialog *
+*****************/
+printdialog {
+  paper {
+    color: $fg_color;
+    border: 1px solid $borders_color;
+    background: white;
+    padding: 0;
+
+    &:backdrop {
+      color: $backdrop_fg_color;
+      border-color: $backdrop_borders_color;
+    }
+  }
+
+  .dialog-action-box { margin: 12px; }
+}
+
+/****************
+ * GtkAssistant *
+ ****************/
+assistant {
+  .sidebar {
+    background-color: $base_color;
+    border-top: 1px solid $borders_color;
+
+    &:backdrop {
+      background-color: $backdrop_base_color;
+      border-color: $backdrop_borders_color;
+    }
+  }
+
+  &.csd .sidebar { border-top-style: none; }
+
+  .sidebar label { padding: 6px 12px; }
+
+  .sidebar label.highlight { background-color: mix($bg_color, $fg_color, 80%); }
+}
+
+// HdyKeypad
+
+keypad {
+  .digit {
+    font-size: 200%;
+    font-weight: bold;
+  }
+
+  .letters {
+    font-size: 70%;
+  }
+
+  .symbol {
+    font-size: 160%;
+  }
+}
+
+// HdyStatusPage
+
+statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
+  color: transparentize($fg_color, 0.5);
+
+  &:backdrop {
+    color: transparentize($backdrop_fg_color, 0.5);
+  }
+}
