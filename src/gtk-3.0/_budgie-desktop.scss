@@ -398,11 +398,15 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 .budgie-notification-window { background-color: transparent; }
 
 .budgie-notification-window {
-	button.flat { border-radius: 99px; }
+	button.flat { 
+		border-radius: 99px;
+		padding: 2px;
+	}
 }
 
 .drop-shadow {
 	&, decoration { border-radius: $window_radius; }
+	padding: 4px;
 	margin: 12px;
 	background-color: $bg_color;
 	box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $budgie_borders;
