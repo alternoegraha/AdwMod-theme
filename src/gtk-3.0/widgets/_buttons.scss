@@ -45,11 +45,16 @@ button {
       transition: none;
 
       &:hover {
+        @include button(undecorated-hover);
         transition: $button_transition;
         transition-duration: 500ms;
-
-        &:active { transition: $button_transition; }
       }
+      &:active,
+      &:checked {
+        @include button(undecorated-active);
+        transition: $button_transition;
+      }
+      &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }
     }
 
     &:hover {
