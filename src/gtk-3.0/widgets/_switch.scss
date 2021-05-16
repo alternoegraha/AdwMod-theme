@@ -35,23 +35,13 @@ switch {
     transition: $button_transition;
     -gtk-outline-radius: 20px;
 
-    @if $variant == 'light' {
-      @include button(normal-alt, $edge: $shadow_color);
-    } 
-    @else {
-      @include button(normal-alt, $c: lighten($bg_color,6%), $edge: $shadow_color);
-    }
+    @include button(normal);
   }
   
   image { color: transparent; } /* only show i / o for the accessible theme */
 
   &:hover slider {
-    @if $variant == 'light' {
-      @include button(hover-alt, $edge: $shadow_color);
-    }
-    @else {
-      @include button(hover-alt, $c: lighten($bg_color,6%), $edge: $shadow_color);
-    }
+    @include button(hover);
   }
 
   &:checked > slider { border: 1px solid $checkradio_borders_color; }

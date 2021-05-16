@@ -83,33 +83,6 @@ switch {
 											darken($dark_fill, 8%),
 											darken($dark_fill, 4%));
 	}
-
-	slider {
-		@include button(normal);
-		background-clip: padding-box;
-		border-bottom-color: $borders_color;
-	}
-
-	&:hover slider {
-		@include button(hover);
-		border-bottom-color: $borders_color;
-	}
-
-	&:checked > slider {
-		border: 1px solid $checkradio_borders_color;
-	}
-
-	&:disabled slider { @include button(insensitive); }
-	&:backdrop {
-		slider {
-			@include button(backdrop);
-			transition: $backdrop_transition;
-		}
-
-		&:checked > slider { border-color: $checkradio_borders_color; }
-
-		&:disabled slider { @include button(backdrop-insensitive); }
-	}
 }
 
 /**** Context menu tweaks ****/
