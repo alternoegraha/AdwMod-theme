@@ -108,44 +108,6 @@ menu,
 	}
 }
 
-/**** placessidebar tweaks ****/
-placessidebar {
-	row {
-		&:hover { background-color: darken($popover_hover_color, 5%); }
-		&:selected {
-			&.activatable, & {
-				background-color: $popover_hover_color;
-				color: inherit;
-
-				&:hover { background-color: darken($popover_hover_color, 5%); }
-			}
-		}
-
-		&:backdrop {
-			color: inherit;
-
-			&:selected {
-				&.activatable, & {
-					background-color: $popover_hover_color;
-					color: inherit;
-
-					&:hover { background-color: darken($popover_hover_color, 5%); }
-				}
-			}
-		}
-
-		@at-root button.sidebar-button {
-			row:selected & {
-				&:not(:active):not(:checked):not(:hover):not(disabled) {
-					color: $fg_color;
-					border-color: transparentize($borders_color, .5);
-
-					&:backdrop { color: $backdrop_fg_color; }
-				}
-			}
-		}
-	}
-}
 
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {

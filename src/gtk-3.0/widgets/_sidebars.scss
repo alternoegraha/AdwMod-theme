@@ -50,6 +50,15 @@ stacksidebar {
 
       background-size: 6px 6px, 0 0;
     }
+    
+    &:selected {
+    	&.activatable, & {
+				background-color: $popover_hover_color;
+				color: inherit;
+
+				&:hover { background-color: darken($popover_hover_color, 5%); }
+			}
+    }
   }
 }
 
@@ -64,8 +73,17 @@ placessidebar {
     // Using margins/padding directly in the SidebarRow
     // will make the animation of the new bookmark row jump
     > revealer { padding: 0 14px; }
+    
+    &:hover { background-color: darken($popover_hover_color, 5%); }
 
-    &:selected { color: $selected_fg_color; }
+    &:selected {
+			&.activatable, & {
+				background-color: $popover_hover_color;
+				color: inherit;
+
+				&:hover { background-color: darken($popover_hover_color, 5%); }
+			}
+		}
 
     &:disabled { color: $insensitive_fg_color; }
 
@@ -81,8 +99,6 @@ placessidebar {
 
     @at-root button.sidebar-button {
       @extend %button_basic_flat;
-
-      @extend %button_selected_flat;
 
       min-height: 26px;
       min-width: 26px;
