@@ -34,6 +34,7 @@ gtk4_scss_dependencies = [
   'widgets/_spin-button.scss',
   'widgets/_spinner.scss',
   'widgets/_switch.scss',
+  'widgets/_tab-view.scss',
   'widgets/_text-selection.scss',
   'widgets/_toolbars.scss',
   'widgets/_tooltip.scss',

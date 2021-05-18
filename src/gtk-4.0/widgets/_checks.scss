@@ -63,9 +63,6 @@ radio {
   }
 }
 
-// draw regular check and radio items using our PNG assets
-// all assets are rendered from assets.svg. never add pngs directly
-
 %check,
 check {
   border-radius: 3px;
@@ -110,7 +107,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   (':active', 'none', 'transparent', $checkradio_bg_color),
   (':checked', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color),
   (':checked:hover', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color),
-  (':checked:active', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color) {
+  (':checked:active', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color), {
 
   .view.content-view.check#{$check_state}:not(list),
   .content-view .tile check#{$check_state}:not(list) {
