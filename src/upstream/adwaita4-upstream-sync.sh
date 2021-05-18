@@ -81,6 +81,7 @@ files=(
     widgets/_spin-button.scss
     widgets/_spinner.scss
     widgets/_switch.scss
+    widgets/_tab-view.scss
     widgets/_text-selection.scss
     widgets/_toolbars.scss
     widgets/_tooltip.scss
@@ -89,8 +90,6 @@ files=(
     widgets/_view-switcher.scss
     widgets/_views.scss
     widgets/_window.scss
-    assets.svg
-    assets.txt
     _colors-public.scss
     _colors.scss
     _common.scss
