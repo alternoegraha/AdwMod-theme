@@ -8,7 +8,14 @@ switch {
 
   @include focus-ring($offset: 0, $outer: true);
 
-  headerbar & { background-color: darken($dark_fill,8%); } //3504
+  headerbar & { 
+  	border-color: if($variant == 'light', 
+                	darken($borders_color, 8%), 
+                	darken($borders_color, 6%));
+  	background-color: if($variant == 'light', 
+                    	darken($dark_fill, 8%), 
+                    	darken($dark_fill, 6%));
+  }
 
   &:checked {
     color: $selected_fg_color;

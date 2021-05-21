@@ -1,21 +1,20 @@
 %scale_trough {
-  border: 1px solid $dark_fill;
+  border: 1px solid $borders_color;
   border-radius: 3px;
   background-color: $dark_fill;
 
-  headerbar & { background-color: darken($dark_fill,8%); } //3504
+  headerbar & { 
+  	border-color: if($variant == 'light', 
+                	darken($borders_color, 8%), 
+                	darken($borders_color, 6%));
+  	background-color: if($variant == 'light', 
+                    	darken($dark_fill, 8%), 
+                    	darken($dark_fill, 6%));
+  } //3504
 
   &:disabled {
    background-color: $insensitive_bg_color;
    border-color: $insensitive_borders_color;
-  }
-
-  // ...on selected list rows
-  row:selected & {
-    &:disabled, & {
-      outline-color: $alt_focus_border_color;
-      border-color: $selected_borders_color;
-    }
   }
 
   // OSD
@@ -28,7 +27,7 @@
 }
 
 %scale_highlight {
-  border: 1px solid $selected_bg_color;
+  border: 1px solid $selected_borders_color;
   border-radius: 3px;
   background-color: $selected_bg_color;
 
@@ -36,9 +35,6 @@
     background-color: transparent;
     border-color: transparent;
   }
-
-  // ...on selected list rows
-  row:selected & { &:disabled, & { border-color: $selected_borders_color; }}
 
   // OSD
   .osd & {
@@ -95,6 +91,7 @@ scale {
       @include button(normal);
       border-width: 1px;
       border-style: solid;
+      border-color: if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
       border-radius: 100%;
       transition: $button_transition;
       transition-property: background, border, box-shadow;
@@ -104,7 +101,10 @@ scale {
       min-width: 18px;
       margin: -9px;
 
-      &:hover { @include button(hover); }
+      &:hover {
+      	@include button(hover);
+      	border-color: if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
+      }
 
       &:active { border-color: $selected_borders_color; }
 
