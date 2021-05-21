@@ -61,7 +61,7 @@ button {
         @include button(undecorated-active);
         transition: $button_transition;
       }
-      &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }
+      &:disabled { @include button(undecorated); }
     }
 
     &.image-button {
@@ -90,21 +90,6 @@ button {
       color: $drop_target_color;
       border-color: $drop_target_color;
       box-shadow: inset 0 0 0 1px $drop_target_color;
-    }
-  }
-
-  @at-root %button_selected, & {
-    row:selected & {
-      @if $variant == 'light' { border-color: $selected_borders_color; }
-    }
-
-    @at-root %button_selected_flat, &.flat {
-      row:selected & {
-        &:not(:active):not(:checked):not(:hover):not(disabled) {
-          color: $selected_fg_color;
-          border-color: transparent;
-        }
-      }
     }
   }
 
@@ -154,9 +139,9 @@ button {
     &:hover { @include button(osd-hover); }
 
     &:active,
-    &:checked { &:backdrop, & { @include button(osd-active); }}
+    &:checked { @include button(osd-active); }
 
-    &:disabled { &:backdrop, & { @include button(osd-insensitive); }}
+    &:disabled { @include button(osd-insensitive); }
 
     &.flat {
       @include button(undecorated);
@@ -216,9 +201,9 @@ button {
         &:hover { @include button(osd-hover, $b_color); }
 
         &:active,
-        &:checked { &:backdrop, & { @include button(osd-active, $b_color); }}
+        &:checked { @include button(osd-active, $b_color); }
 
-        &:disabled { &:backdrop, & { @include button(osd-insensitive, $b_color); }}
+        &:disabled { @include button(osd-insensitive, $b_color); }
       }
     }
   }
@@ -367,7 +352,7 @@ button {
 
   &:hover { @include button(undecorated-hover); }
   &:active { @include button(undecorated-active); }
-  &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }
+  &:disabled { @include button(undecorated); }
 }
 
 button.color {
