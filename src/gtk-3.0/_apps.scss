@@ -70,11 +70,6 @@
 			border-top-right-radius: 0;
 		}
 		
-		&:backdrop {
-			background-color: $backdrop_base_color;
-			border-color: $backdrop_borders_color;
-		}
-		
 		button { padding: 0px; }
 	}
 }
@@ -135,7 +130,7 @@ $disk_space_free: $osd_fg_color;
 .gedit-search-entry-occurrences-tag {
 	background-color: $base_color;
 	background-image: none;
-	color: shade($backdrop_fg_color, 0.8);
+	color: transparentize($fg_color, 0.5);
 	border: 0px;
 	margin: 2px;
 	padding: 2px;
@@ -143,17 +138,13 @@ $disk_space_free: $osd_fg_color;
 
 /**** xfce4 ****/
 
-// FIXME: 
-// using Mutter[-based] WMs the panels will uses :backdrop state
-// so let's override it
-
 .xfce4-panel {
 	&, &.background {
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 	}
 
-	button, button:backdrop {
+	button {
 		@include button(undecorated);
 		border-radius: 0;
 		border: 0;
@@ -161,7 +152,7 @@ $disk_space_free: $osd_fg_color;
 		font-weight: 700;
 		font-feature-settings: "tnum";
 		
-		label:backdrop { // backdrop override
+		label {
 			color: $fg_color;
 		} 
 
@@ -172,8 +163,6 @@ $disk_space_free: $osd_fg_color;
 		&:active, &:checked {
 			background: mix($bg_color, $fg_color, 82%);
 			transition: none;
-			// another backdrop override
-			&:backdrop { background: none; }
 		}
 
 		&#applicationmenu-button,
@@ -189,8 +178,7 @@ $disk_space_free: $osd_fg_color;
 		}
 	}
 
-	widget.tasklist > button.toggle,
-	widget.tasklist:backdrop > button.toggle:backdrop {
+	widget.tasklist > button.toggle {
 		@extend %button_basic;
 		margin: 2px 1px;
 		font-weight: normal;
@@ -251,13 +239,11 @@ dialog.xfsm-logout-dialog.keycap {
 	buttonbox { padding: 0; }
 
 	button { 
-		&, &:backdrop { 
-			@include button(normal);
+		@include button(normal);
 
-			&:hover { @include button(hover); }
-			&:active { @include button(active); }
-			&:disabled { @include button(insensitive); }
-		} 
+		&:hover { @include button(hover); }
+		&:active { @include button(active); }
+		&:disabled { @include button(insensitive); }
 	}
 }
 
@@ -369,7 +355,6 @@ na-tray-applet {
 
 /**** Nemo FM ****/
 $_storagebar_bg: mix($fg_color, $bg_color, 35%);
-$_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 
 .nemo-window {
 	.sidebar {
@@ -378,10 +363,6 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 
 			.view {
 				background-color: $sidebar_bg_color;
-				&:backdrop { 
-					background-color: $backdrop_sidebar_bg_color;
-					color: inherit;
-				}
 
 				&:hover { background: darken($popover_hover_color, 5%); }
 
@@ -389,12 +370,7 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 				&:selected {
 					&, &:hover { background: $popover_hover_color; }
 
-					color: inherit; 
-
-					&:backdrop {
-						background: $popover_hover_color;
-						color: inherit;
-					}
+					color: inherit;
 				}
 			}
 		}
@@ -403,11 +379,6 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 			-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_bg;
     	-NemoPlacesTreeView-disk-full-fg-color: $fg_color;
     	-GtkTreeView-vertical-separator: 8;
-    	
-    	&:backdrop {
-    		-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_backdrop;
-    		-NemoPlacesTreeView-disk-full-fg-color: $backdrop_fg_color;
-    	}
 		}
 	}
 
@@ -468,11 +439,6 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 		&.bottom.right {
 			border-right-style: none;
 			border-top-right-radius: 0;
-		}
-		
-		&:backdrop {
-			background-color: $backdrop_base_color;
-			border-color: $backdrop_borders_color;
 		}
 		
 		button { padding: 0px; }
