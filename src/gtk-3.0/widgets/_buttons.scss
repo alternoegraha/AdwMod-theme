@@ -54,7 +54,7 @@ button {
         @include button(undecorated-active);
         transition: $button_transition;
       }
-      &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }
+      &:disabled { @include button(undecorated); }
     }
 
     &:hover {
