@@ -16,7 +16,6 @@ $_budgie_panel_btn_pad: 5px;
 	font-weight: bold;
 
 	button {
-		@include button(undecorated);
 		color: $_budgie_panel_fg;
 		border: 0;
 		border-radius: 0;
@@ -25,6 +24,7 @@ $_budgie_panel_btn_pad: 5px;
 		label { padding: 0; }
 
 		&:hover, &:active, &:checked {
+			background: none;
 			color: $selected_fg_color;
 			box-shadow: inset 0 -2px $selected_bg_color;
 			
