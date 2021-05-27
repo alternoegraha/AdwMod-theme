@@ -15,12 +15,16 @@
 
 	.nautilus-canvas-item {
 		border-radius: 5px;
+		
+		&:selected {
+			background-color: $base_solid_menu_selected_color;
+			color: $text_color;
+		}
 	}
 
 	.nautilus-canvas-item.dim-label,
 	.nautilus-list-dim-label {
 		color: mix($fg_color, $bg_color, 50%);
-    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	entry.search > * {
@@ -364,11 +368,12 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 			.view {
 				background-color: $sidebar_bg_color;
 
-				&:hover { background: darken($popover_hover_color, 5%); }
+				&:hover { background: $menu_hover_color; }
 
 				&:active,
 				&:selected {
-					&, &:hover { background: $popover_hover_color; }
+					background: $menu_selected_color;
+					&:hover { background: $menu_selected_hover_color; }
 
 					color: inherit;
 				}
@@ -383,19 +388,27 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 	}
 
 	.nemo-window-pane widget.entry {
-    	border: 0;
-    	border-radius: $button_radius;
-    	background-color: $base_color;
+    border: 0;
+    border-radius: $button_radius;
+    background-color: $base_color;
 
-    	@include entry(focus);
+    @include entry(focus);
 
-    	&:selected { &:focus, & { @extend %selected_items; }}
-  	}
+    &:selected { &:focus, & { @extend %selected_items; }}
+  }
 
-  	.nemo-canvas-item.dim-label,
+	.nemo-canvas-item {
+		border-radius: 5px;
+		
+		&:selected {
+			background-color: $base_solid_menu_selected_color;
+			color: $text_color;
+		}
+	}
+
+  .nemo-canvas-item.dim-label,
 	.nemo-dim-list-label {
 		color: mix($fg_color, $bg_color, 50%);
-    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	toolbar.horizontal.primary-toolbar { 
