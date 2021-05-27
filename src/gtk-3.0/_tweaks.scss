@@ -97,17 +97,6 @@ decoration {
 	}
 }
 
-menu,
-.menu,
-.context-menu {
-	menuitem {
-		&:hover {
-			color: $text_color;
-			background-color: $popover_hover_color;
-		}
-	}
-}
-
 
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {
