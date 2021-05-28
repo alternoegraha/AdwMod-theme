@@ -66,8 +66,6 @@ headerbar {
       }
     }
 
-    .subtitle:link { @extend %link_selected; }
-
     button {
       @include button(normal, $suggested_bg_color, $selected_fg_color);
 
