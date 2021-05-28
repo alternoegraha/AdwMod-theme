@@ -34,18 +34,17 @@ entry {
 
     &:disabled { @include entry(insensitive); }
 
-    selection { @extend %selected_items; }
-
     // entry error and warning style
     @each $e_type, $e_color in (error, $error_color),
                                (warning, $warning_color) {
       &.#{$e_type} {
-        color: $e_color;
+        color: mix($e_color, $text_color, 70%);
+
         border-color: entry_focus_border($e_color);
 
         &:focus { @include entry(focus, $e_color); }
 
-        selection { background-color: $e_color; }
+        selection { background-color: transparentize($e_color, .8); }
       }
     }
 
@@ -147,8 +146,6 @@ entry {
       + combobox > box > button.combo { border-top-color: $drop_target_color; }
     }
   }
-
-  &.error { color: $error_color; }
 }
 
 treeview entry {
