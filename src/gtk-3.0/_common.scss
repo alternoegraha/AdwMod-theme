@@ -108,6 +108,13 @@ $_switch_margin: if($_sizevariant=='default', 10px, 7px);
   -gtk-icon-shadow: 0 1px black;
 }
 
+/* Text selection */
+
+selection {
+  background-color: transparentize($selected_bg_color, 0.7);
+  color: mix($selected_bg_color, $text_color, 20%);
+}
+
 // catch all extend :)
 
 %selected_items {
