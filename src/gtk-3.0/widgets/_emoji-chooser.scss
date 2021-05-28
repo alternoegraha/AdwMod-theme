@@ -7,31 +7,48 @@ popover.emoji-picker {
   padding-right: 0;
 
   entry.search { margin: 3px 5px 5px 5px; }
+  
+  scrolledwindow { // make emoji-picker popover same as Gtk4 ones
+  	border-top-width: 1px;
+  	border-bottom-width: 1px;
+  	border-style: solid;
+  	border-color: $borders_color;
+  }
 }
 
 button.emoji-section {
-  border-color: transparent;
-  border-width: 3px;
-  border-style: none none solid;
-  border-radius: 0;
+  border-radius: 16px;
 
-  margin: 2px 4px 2px 4px;
-  padding: 3px 0 0;
-  min-width: 32px;
-  min-height: 28px;
+  margin: 3px;
+  padding: 0;
+  min-width: if($_sizevariant == 'default', 32px, 28px);
+  min-height: if($_sizevariant == 'default', 32px, 28px);
 
   /* reset props inherited from the button style */
   background: none;
   box-shadow: none;
   text-shadow: none;
 
-  outline-offset: -5px;
+  outline: none;
 
-  &:first-child { margin-left: 7px; }
-  &:last-child { margin-right: 7px; }
+  &:first-child { margin-left: 6px; }
+  &:last-child { margin-right: 6px; }
+  
+  &:hover {
+    background: $menu_hover_color;
+  }
 
-  &:hover { border-color: if($variant == 'light', $borders_color, transparentize($fg_color, .9)); }
-  &:checked { border-color: $selected_bg_color; }
+  &:checked {
+    background: $menu_selected_color;
+
+    &:hover {
+      background: $menu_selected_hover_color;
+    }
+  }
+
+  &:hover:active {
+    background: $menu_active_color;
+  }
 
   label {
     padding: 0;
@@ -48,7 +65,7 @@ popover.emoji-picker .emoji {
   padding: 6px;
 
   :hover {
-    background: $selected_bg_color;
+    background: $menu_selected_color;
     border-radius: 6px;
   }
 }
@@ -63,5 +80,5 @@ popover.emoji-completion contents row box {
 }
 
 popover.emoji-completion .emoji:hover {
-  background: $popover_hover_color;
+  background: $menu_selected_color;
 }
