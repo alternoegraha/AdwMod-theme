@@ -85,19 +85,6 @@ switch {
 	}
 }
 
-/**** Context menu tweaks ****/
-// Derived from yaru-theme
-decoration {
-	$_wm_border: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
-
-	.csd.popup & {
-		border-radius: $menu_radius;
-		box-shadow: 0 1px 2px transparentize(black, 0.7),
-								0 0 0 1px $_wm_border;
-	}
-}
-
-
 /**** dialog action box (non-CSD) margin tweaks ****/
 dialog:not(messagedialog) {
 	buttonbox, .dialog-action-area { margin: 8px; }
