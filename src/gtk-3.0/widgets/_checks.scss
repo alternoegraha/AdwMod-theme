@@ -122,6 +122,25 @@ radio {
         box-shadow: none;
         -gtk-icon-shadow: none;
         color: inherit;
+      }
+    }
+  }
+}
+
+check {
+	menu menuitem & {
+    &, &:checked, &:indeterminate {
+      &, &:hover, &:disabled {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+radio {
+	menu menuitem & {
+    &, &:checked, &:indeterminate {
+      &, &:hover, &:disabled {
         border-color: currentColor;
       }
     }
@@ -173,16 +192,3 @@ menu menuitem {
      &:checked, &:indeterminate { transition: none; }
   }
 }
-
-treeview.view check,
-treeview.view radio {
-  &:selected {
-    &:focus, & {
-      color: $checkradio_fg_color;
-
-      @if $variant == 'light' { border-color: $selected_borders_color; }
-    }
-  }
-}
-
-treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a workaround
