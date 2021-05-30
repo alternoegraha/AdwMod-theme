@@ -502,3 +502,11 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 		}
 	}
 }
+
+/**** Chrome/ium ****/
+window.background.chromium {
+	.view:selected { // fix invisible starred bookmark icon
+		background-color: $selected_bg_color;
+		color: $selected_fg_color;
+	}
+}
