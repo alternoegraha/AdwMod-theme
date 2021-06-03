@@ -150,23 +150,24 @@ $disk_space_free: $osd_fg_color;
 
 	button {
 		@include button(undecorated);
-		border-radius: 0;
+		border-radius: $button_radius;
 		border: 0;
 
 		font-weight: 700;
 		font-feature-settings: "tnum";
-		
-		label {
-			color: $fg_color;
-		} 
+
+		color: $fg_color;
 
 		&:hover {
-			background: mix($bg_color, $fg_color, 87%);
+			background: $menu_hover_color;
+			color: $text_color;
+			-gtk-icon-effect: none;
+			transition: none;
 		} 
 
 		&:active, &:checked {
-			background: mix($bg_color, $fg_color, 82%);
-			transition: none;
+			background: $menu_selected_color;
+			color: $text_color;
 		}
 
 		&#applicationmenu-button,
@@ -198,23 +199,6 @@ $disk_space_free: $osd_fg_color;
 	.linked button {
 		@extend %button_basic;
 		@extend %linked;
-
-		// special case for light variant button borders 
-		// instead of creating 'artifacts' when hovering media controls section menuitem
-		@if $variant == 'light' {
-			&, &:hover, &:disabled { 
-				border-color: transparentize(black, 0.77);
-				border-bottom-color: transparentize(black, 0.7);
-				background-clip: padding-box;
-			}
-
-			&:active { 
-				border-color: transparentize(black, 0.7);
-				border-top-color: transparentize(black, 0.64);
-			}
-
-			&:disabled { border-color: transparentize(black, 0.77); }
-		}
 	}
 }
 
