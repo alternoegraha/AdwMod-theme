@@ -192,3 +192,5 @@ menu menuitem {
      &:checked, &:indeterminate { transition: none; }
   }
 }
+
+treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a workaround
