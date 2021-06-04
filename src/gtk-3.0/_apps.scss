@@ -484,6 +484,8 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 				label, image { color: $insensitive_fg_color; }
 			}
 		}
+
+		label { padding: 0 8px; } // clock applet/hostname applet
 	}
 }
 
