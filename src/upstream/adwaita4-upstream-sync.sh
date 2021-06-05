@@ -101,7 +101,7 @@ files=(
     Adwaita-light.scss
     gtk.css
     gtk-dark.css
-    README
+    README.md
 )
 
 set -e
