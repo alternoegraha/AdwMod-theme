@@ -64,6 +64,7 @@ files=(
     widgets/_header-bar.scss
     widgets/_labels.scss
     widgets/_level-bar.scss
+    widgets/_linked.scss
     widgets/_links.scss
     widgets/_lists.scss
     widgets/_menus.scss
