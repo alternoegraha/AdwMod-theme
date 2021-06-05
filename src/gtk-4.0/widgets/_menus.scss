@@ -5,7 +5,7 @@ popover.menu {
     padding: 0 $menu_padding;
 
     button.image-button.model {
-      @include button(undecorated);
+      @extend %button_basic_flat;
 
       min-height: 30px;
       min-width: 30px;
@@ -14,7 +14,7 @@ popover.menu {
       outline: none;
       transition: none;
 
-      &:selected { background: image($menu_selected_color); }
+      &:selected { background: image($view_selected_color); }
     }
   }
 
@@ -26,8 +26,8 @@ popover.menu {
 
       padding: 11px;
       &:focus {
-         background-color: $menu_selected_color;
-         border-color: $menu_selected_color;
+         background-color: $view_selected_color;
+         border-color: $view_selected_color;
       }
     }
   }
@@ -93,10 +93,10 @@ popover.menu {
     &:hover,
     &:selected {
       color: $text-color;
-      background-color: $menu_selected_color;
+      background-color: $view_selected_color;
 
       &:active {
-        background-color: $menu_active_color; // matching buttons
+        background-color: $view_active_color; // matching buttons
       }
     }
 
@@ -134,7 +134,7 @@ menubar {
     border-radius: $button_radius;
 
     &:selected { //Seems like it :hover even with keyboard focus
-      background-color: $menu_selected_color;
+      background-color: $view_selected_color;
     }
 
     &:disabled {
