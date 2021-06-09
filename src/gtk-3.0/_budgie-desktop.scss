@@ -492,11 +492,11 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		@extend %undecorated_button;
 
 		&:hover {
-			background-color: $menu_hover_color;
+			background-color: $view_hover_color;
 			color: $text_color;
 		}
 
-		&:selected { background: $menu_selected_color; }
+		&:selected { background: $view_selected_color; }
 	}
 
 	&.night-light-indicator {
@@ -543,7 +543,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		border-radius: 0;
 
 		&:hover {
-			background-color: $menu_hover_color;
+			background-color: $view_hover_color;
 			color: $text_color;
 		}
 
@@ -576,15 +576,15 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 			padding: 2px 0;
 
 			&:hover { 
-				background-color: $menu_hover_color;
+				background-color: $view_hover_color;
 				color: $text_color;
 			}
 
 			&:checked {
-				background-color: $menu_selected_color;
+				background-color: $view_selected_color;
 				color: $text_color;
 
-				&:hover { background-color: $menu_selected_hover_color; }
+				&:hover { background-color: $view_selected_hover_color; }
 			}
 		}
 	}
