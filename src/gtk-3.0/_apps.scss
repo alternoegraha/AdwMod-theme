@@ -17,7 +17,7 @@
 		border-radius: 5px;
 		
 		&:selected {
-			background-color: $base_solid_menu_selected_color;
+			background-color: $base_solid_view_selected_color;
 			color: $text_color;
 		}
 	}
@@ -159,14 +159,14 @@ $disk_space_free: $osd_fg_color;
 		color: $fg_color;
 
 		&:hover {
-			background: $menu_hover_color;
+			background: $view_hover_color;
 			color: $text_color;
 			-gtk-icon-effect: none;
 			transition: none;
 		} 
 
 		&:active, &:checked {
-			background: $menu_selected_color;
+			background: $view_selected_color;
 			color: $text_color;
 		}
 
@@ -352,12 +352,12 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 			.view {
 				background-color: $sidebar_bg_color;
 
-				&:hover { background: $menu_hover_color; }
+				&:hover { background: $view_hover_color; }
 
 				&:active,
 				&:selected {
-					background: $menu_selected_color;
-					&:hover { background: $menu_selected_hover_color; }
+					background: $view_selected_color;
+					&:hover { background: $view_selected_hover_color; }
 
 					color: inherit;
 				}
@@ -385,7 +385,7 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 		border-radius: 5px;
 		
 		&:selected {
-			background-color: $base_solid_menu_selected_color;
+			background-color: $base_solid_view_selected_color;
 			color: $text_color;
 		}
 	}
@@ -415,8 +415,6 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 		box-shadow: 0 -1px $borders_color;
 		button { 
 			@extend %button_basic_flat;
-			&:hover { @include button(hover); }
-			&:active { @include button(active); }
 		}
 	}
 
