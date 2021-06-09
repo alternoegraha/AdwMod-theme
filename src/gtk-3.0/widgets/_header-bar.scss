@@ -39,7 +39,7 @@ headerbar {
 
   /* Darken switchbuttons for headerbars. issue #1588 */
   stackswitcher button:checked,
-  button.toggle:checked {
+  button:not(.flat).toggle:checked {
 
     background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
     border-color: darken($borders_color, 3%);

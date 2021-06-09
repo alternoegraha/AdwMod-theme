@@ -10,7 +10,7 @@
 
   &:selected {
     &:focus, & {
-      background-color: $menu_selected_color;
+      background-color: $view_selected_color;
 
       border-radius: 3px;
     }
@@ -41,7 +41,7 @@ flowbox {
     padding: 3px;
 
     &:selected {
-      background-color: $menu_selected_color;
+      background-color: $view_selected_color;
 
       outline-offset: -2px;
     }

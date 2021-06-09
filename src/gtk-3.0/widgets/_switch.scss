@@ -47,14 +47,4 @@ switch {
   &:checked > slider { border: 1px solid $checkradio_borders_color; }
 
   &:disabled slider { @include button(insensitive); }
-
-  row:selected & {
-    @if $variant == 'light' {
-      box-shadow: none;
-      border-color: $checkradio_borders_color;
-
-      > slider { &:checked, & { border-color: $checkradio_borders_color; } }
-    }
-  }
-
 }

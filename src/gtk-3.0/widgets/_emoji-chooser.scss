@@ -35,19 +35,19 @@ button.emoji-section {
   &:last-child { margin-right: 6px; }
   
   &:hover {
-    background: $menu_hover_color;
+    background: $view_hover_color;
   }
 
   &:checked {
-    background: $menu_selected_color;
+    background: $view_selected_color;
 
     &:hover {
-      background: $menu_selected_hover_color;
+      background: $view_selected_hover_color;
     }
   }
 
   &:hover:active {
-    background: $menu_active_color;
+    background: $view_active_color;
   }
 
   label {
@@ -65,7 +65,7 @@ popover.emoji-picker .emoji {
   padding: 6px;
 
   :hover {
-    background: $menu_selected_color;
+    background: $view_selected_color;
     border-radius: 6px;
   }
 }
@@ -80,5 +80,5 @@ popover.emoji-completion contents row box {
 }
 
 popover.emoji-completion .emoji:hover {
-  background: $menu_selected_color;
+  background: $view_selected_color;
 }

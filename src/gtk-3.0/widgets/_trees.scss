@@ -2,7 +2,7 @@
  * Tree Views *
  **************/
 
-$treeview_selection_opaque: mix(opacify($menu_selected_color, 1), $base_color, 100% * alpha($menu_selected_color));
+$treeview_selection_opaque: mix(opacify($view_selected_color, 1), $base_color, 100% * alpha($view_selected_color));
 $_treeview_borders_color: if($variant=='light',mix($borders_color, $base_color,80%),mix($fg_color, $base_color, 20%));
 
 treeview.view {
@@ -33,7 +33,7 @@ treeview.view {
   &:drop(active) {
     border-style: solid none;
     border-width: 1px;
-    border-color: $selected_borders_color;
+    border-color: $drop_target_color;
 
     &.after { border-top-style: none; }
 
@@ -64,7 +64,7 @@ treeview.view {
   }
 
   &.trough { // progress bar trough in treeviews
-    background-color: transparentize($fg_color,0.9);
+    &, &:selected { background-color: transparentize($fg_color,0.9); }
   }
 
   header {

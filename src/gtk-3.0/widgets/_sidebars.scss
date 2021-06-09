@@ -51,14 +51,14 @@ stacksidebar {
       background-size: 6px 6px, 0 0;
     }
     
-    &:hover { background-color: $menu_hover_color; }
+    &:hover { background-color: $view_hover_color; }
     
     &:selected {
     	&.activatable, & {
-				background-color: $menu_selected_color;
+				background-color: $view_selected_color;
 				color: inherit;
 
-				&:hover { background-color: $menu_selected_hover_color; }
+				&:hover { background-color: $view_selected_hover_color; }
 			}
     }
   }
@@ -76,14 +76,14 @@ placessidebar {
     // will make the animation of the new bookmark row jump
     > revealer { padding: 0 14px; }
     
-    &:hover { background-color: $menu_hover_color; }
+    &:hover { background-color: $view_hover_color; }
 
     &:selected {
 			&.activatable, & {
-				background-color: $menu_selected_color;
+				background-color: $view_selected_color;
 				color: inherit;
 
-				&:hover { background-color: $menu_selected_hover_color; }
+				&:hover { background-color: $view_selected_hover_color; }
 			}
 		}
 
