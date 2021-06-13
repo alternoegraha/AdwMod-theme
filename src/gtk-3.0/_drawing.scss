@@ -603,7 +603,7 @@ $_default_button_c: lighten($bg_color,2%);
   }
 
   @if $t==active {
-    box-shadow: inset 0 1px 1px 0px if($variant == 'light', rgba(0, 0, 0, 0.2), black);
+    box-shadow: inset 0 0 0 1px transparentize(black, 0.9);
   }
 
   @if $t==insensitive {
