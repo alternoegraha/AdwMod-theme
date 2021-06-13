@@ -6,6 +6,15 @@
   border-radius: 3px;
   background-color: $dark_fill;
 
+  headerbar & {
+    border-color: if($variant == 'light',
+                    darken($borders_color, 8%),
+                    darken($borders_color, 4%));
+    background-color: if($variant == 'light',
+                      darken($dark_fill, 8%),
+                      darken($dark_fill, 4%));
+  }
+
   &:disabled { background-color: $insensitive_bg_color; }
 
   // ...on selected list rows

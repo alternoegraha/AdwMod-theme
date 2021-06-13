@@ -90,20 +90,5 @@ dialog:not(messagedialog) {
 	buttonbox, .dialog-action-area { margin: 8px; }
 }
 
-/**** scale/progressbar tweaks ****/
-// increase contrast on CSD/header bars
-headerbar {
-	scale {
-		fill, trough {
-			border-color: if($variant == 'light',
-										darken($borders_color, 8%),
-										darken($borders_color, 4%));
-			background-color: if($variant == 'light',
-												darken($dark_fill, 8%),
-												darken($dark_fill, 4%));
-		}
-	}
-}
-
 // misc tweaks
 stackswitcher button.text-button { min-width: 6.25em; } // use em sizing
