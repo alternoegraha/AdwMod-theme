@@ -411,10 +411,19 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 	}
 
 	grid.vertical > widget {
-		> box { padding: 0; }
+		> box { 
+			padding: 0;
+			margin: -2px -4px;
+		}
+
 		box-shadow: 0 -1px $borders_color;
 		button { 
 			@extend %button_basic_flat;
+
+			padding: 0 7px;
+			min-width: 0;
+
+			margin: 4px;
 		}
 	}
 
