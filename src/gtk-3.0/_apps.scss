@@ -15,12 +15,16 @@
 
 	.nautilus-canvas-item {
 		border-radius: 5px;
+		
+		&:selected {
+			background-color: $base_solid_view_selected_color;
+			color: $text_color;
+		}
 	}
 
 	.nautilus-canvas-item.dim-label,
 	.nautilus-list-dim-label {
 		color: mix($fg_color, $bg_color, 50%);
-    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	entry.search > * {
@@ -68,11 +72,6 @@
 		&.bottom.right {
 			border-right-style: none;
 			border-top-right-radius: 0;
-		}
-		
-		&:backdrop {
-			background-color: $backdrop_base_color;
-			border-color: $backdrop_borders_color;
 		}
 		
 		button { padding: 0px; }
@@ -135,7 +134,7 @@ $disk_space_free: $osd_fg_color;
 .gedit-search-entry-occurrences-tag {
 	background-color: $base_color;
 	background-image: none;
-	color: shade($backdrop_fg_color, 0.8);
+	color: transparentize($fg_color, 0.5);
 	border: 0px;
 	margin: 2px;
 	padding: 2px;
@@ -143,37 +142,32 @@ $disk_space_free: $osd_fg_color;
 
 /**** xfce4 ****/
 
-// FIXME: 
-// using Mutter[-based] WMs the panels will uses :backdrop state
-// so let's override it
-
 .xfce4-panel {
 	&, &.background {
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 	}
 
-	button, button:backdrop {
+	button {
 		@include button(undecorated);
-		border-radius: 0;
+		border-radius: $button_radius;
 		border: 0;
 
 		font-weight: 700;
 		font-feature-settings: "tnum";
-		
-		label:backdrop { // backdrop override
-			color: $fg_color;
-		} 
+
+		color: $fg_color;
 
 		&:hover {
-			background: mix($bg_color, $fg_color, 87%);
+			background: $view_hover_color;
+			color: $text_color;
+			-gtk-icon-effect: none;
+			transition: none;
 		} 
 
 		&:active, &:checked {
-			background: mix($bg_color, $fg_color, 82%);
-			transition: none;
-			// another backdrop override
-			&:backdrop { background: none; }
+			background: $view_selected_color;
+			color: $text_color;
 		}
 
 		&#applicationmenu-button,
@@ -189,8 +183,7 @@ $disk_space_free: $osd_fg_color;
 		}
 	}
 
-	widget.tasklist > button.toggle,
-	widget.tasklist:backdrop > button.toggle:backdrop {
+	widget.tasklist > button.toggle {
 		@extend %button_basic;
 		margin: 2px 1px;
 		font-weight: normal;
@@ -206,23 +199,6 @@ $disk_space_free: $osd_fg_color;
 	.linked button {
 		@extend %button_basic;
 		@extend %linked;
-
-		// special case for light variant button borders 
-		// instead of creating 'artifacts' when hovering media controls section menuitem
-		@if $variant == 'light' {
-			&, &:hover, &:disabled { 
-				border-color: transparentize(black, 0.77);
-				border-bottom-color: transparentize(black, 0.7);
-				background-clip: padding-box;
-			}
-
-			&:active { 
-				border-color: transparentize(black, 0.7);
-				border-top-color: transparentize(black, 0.64);
-			}
-
-			&:disabled { border-color: transparentize(black, 0.77); }
-		}
 	}
 }
 
@@ -251,13 +227,11 @@ dialog.xfsm-logout-dialog.keycap {
 	buttonbox { padding: 0; }
 
 	button { 
-		&, &:backdrop { 
-			@include button(normal);
+		@include button(normal);
 
-			&:hover { @include button(hover); }
-			&:active { @include button(active); }
-			&:disabled { @include button(insensitive); }
-		} 
+		&:hover { @include button(hover); }
+		&:active { @include button(active); }
+		&:disabled { @include button(insensitive); }
 	}
 }
 
@@ -369,7 +343,6 @@ na-tray-applet {
 
 /**** Nemo FM ****/
 $_storagebar_bg: mix($fg_color, $bg_color, 35%);
-$_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 
 .nemo-window {
 	.sidebar {
@@ -378,23 +351,15 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 
 			.view {
 				background-color: $sidebar_bg_color;
-				&:backdrop { 
-					background-color: $backdrop_sidebar_bg_color;
-					color: inherit;
-				}
 
-				&:hover { background: darken($popover_hover_color, 5%); }
+				&:hover { background: $view_hover_color; }
 
 				&:active,
 				&:selected {
-					&, &:hover { background: $popover_hover_color; }
+					background: $view_selected_color;
+					&:hover { background: $view_selected_hover_color; }
 
-					color: inherit; 
-
-					&:backdrop {
-						background: $popover_hover_color;
-						color: inherit;
-					}
+					color: inherit;
 				}
 			}
 		}
@@ -403,28 +368,31 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 			-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_bg;
     	-NemoPlacesTreeView-disk-full-fg-color: $fg_color;
     	-GtkTreeView-vertical-separator: 8;
-    	
-    	&:backdrop {
-    		-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_backdrop;
-    		-NemoPlacesTreeView-disk-full-fg-color: $backdrop_fg_color;
-    	}
 		}
 	}
 
 	.nemo-window-pane widget.entry {
-    	border: 0;
-    	border-radius: $button_radius;
-    	background-color: $base_color;
+    border: 0;
+    border-radius: $button_radius;
+    background-color: $base_color;
 
-    	@include entry(focus);
+    @include entry(focus);
 
-    	&:selected { &:focus, & { @extend %selected_items; }}
-  	}
+    &:selected { &:focus, & { @extend %selected_items; }}
+  }
 
-  	.nemo-canvas-item.dim-label,
+	.nemo-canvas-item {
+		border-radius: 5px;
+		
+		&:selected {
+			background-color: $base_solid_view_selected_color;
+			color: $text_color;
+		}
+	}
+
+  .nemo-canvas-item.dim-label,
 	.nemo-dim-list-label {
 		color: mix($fg_color, $bg_color, 50%);
-    	&:selected { color: mix($selected_fg_color, $selected_bg_color, 80%); }
 	}
 
 	toolbar.horizontal.primary-toolbar { 
@@ -443,12 +411,19 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 	}
 
 	grid.vertical > widget {
-		> box { padding: 0; }
+		> box { 
+			padding: 0;
+			margin: -2px -4px;
+		}
+
 		box-shadow: 0 -1px $borders_color;
 		button { 
 			@extend %button_basic_flat;
-			&:hover { @include button(hover); }
-			&:active { @include button(active); }
+
+			padding: 0 7px;
+			min-width: 0;
+
+			margin: 4px;
 		}
 	}
 
@@ -468,11 +443,6 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 		&.bottom.right {
 			border-right-style: none;
 			border-top-right-radius: 0;
-		}
-		
-		&:backdrop {
-			background-color: $backdrop_base_color;
-			border-color: $backdrop_borders_color;
 		}
 		
 		button { padding: 0px; }
@@ -521,5 +491,25 @@ $_storagebar_backdrop: mix($fg_color, $bg_color, 20%);
 				label, image { color: $insensitive_fg_color; }
 			}
 		}
+
+		label { padding: 0 8px; } // clock applet/hostname applet
+	}
+}
+
+/**** Chrome/ium ****/
+window.background.chromium {
+	.view:selected { // fix invisible starred bookmark icon
+		background-color: $selected_bg_color;
+		color: $selected_fg_color;
+	}
+}
+
+/**** Firefox ****/
+#MozillaGtkWidget {
+	// FIXME since Firefox Proton, check/radio will lose it's contrast on dark variant
+	// because HTML form widgets UI now uses Firefox's own widget theming
+	selection {
+		background-color: $selected_bg_color;
+		color: $selected_fg_color;
 	}
 }

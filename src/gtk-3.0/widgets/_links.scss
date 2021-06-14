@@ -1,0 +1,47 @@
+/*********
+ * Links *
+ *********/
+
+%link,
+*:link {
+  color: $link_color;
+
+  &:visited {
+    color: $link_visited_color;
+  }
+
+  &:hover {
+    $_fg: lighten($link_color, 10%);
+    color: $_fg;
+  }
+
+  &:active {
+    color: $link_color;
+  }
+
+  &:disabled, &:disabled:backdrop { color: transparentize(desaturate($link_color, 100%), 0.2); }
+}
+
+button:link,
+button:visited {
+  @extend %undecorated_button;
+
+  @extend %link;
+
+  text-shadow: none;
+
+  &:hover,
+  &:active,
+  &:checked {
+    @extend %undecorated_button;
+
+    text-shadow: none;
+  }
+
+  > label {
+    @extend %link;
+
+    text-decoration-line: underline;
+
+  }
+}

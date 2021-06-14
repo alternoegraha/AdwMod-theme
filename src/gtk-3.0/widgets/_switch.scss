@@ -1,0 +1,50 @@
+/**********
+ * Switch *
+ **********/
+switch {
+  outline-offset: -4px;
+
+  // similar to the .scale
+  border: 1px solid $borders_color;
+  border-radius: 14px;
+  color: $fg_color;
+  background-color: $dark_fill;
+  text-shadow: 0 1px transparentize(black, 0.9);
+
+  &:checked {
+    color: $selected_fg_color;
+    border-color: $checkradio_borders_color;
+    background-color: $checkradio_bg_color;
+    text-shadow: 0 1px transparentize($selected_borders_color, 0.5),
+                 0 0 2px transparentize(white, 0.4);
+  }
+
+  &:disabled {
+    color: $insensitive_fg_color;
+    border-color: $borders_color;
+    background-color: $insensitive_bg_color;
+    text-shadow: none;
+  }
+
+  slider {
+    margin: -1px;
+    min-width: 24px;
+    min-height: 24px;
+    border: 1px solid;
+    border-radius: 50%;
+    transition: $button_transition;
+    -gtk-outline-radius: 20px;
+
+    @include button(normal);
+  }
+  
+  image { color: transparent; } /* only show i / o for the accessible theme */
+
+  &:hover slider {
+    @include button(hover);
+  }
+
+  &:checked > slider { border: 1px solid $checkradio_borders_color; }
+
+  &:disabled slider { @include button(insensitive); }
+}

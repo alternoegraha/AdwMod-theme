@@ -1,0 +1,200 @@
+/*********
+ * Lists *
+ *********/
+list {
+  color: $text_color;
+  background-color: $base_color;
+  border-color: $borders_color;
+
+  row { padding: 2px; }
+}
+
+row {
+  transition: all 150ms $ease-out-quad;
+
+  &:hover { transition: none; }
+
+  &.activatable {
+    &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
+
+    &:hover { background-color: $view_hover_color; }
+
+    &:active { background-color: $view_active_color; }
+
+    &:selected {
+      &.has-open-popup,
+      &:hover { background-color: $view_selected_hover_color; }
+
+      &:active { background-color: $view_active_color; }
+    }
+  }
+
+  &:selected { background-color: $view_selected_color; }
+  
+	&:disabled { color: gtkalpha(currentColor, .55); }
+}
+
+// HdyComboRow
+popover.background.combo {
+  padding: 0px;
+
+  list {
+    border-style: none;
+    background-color: transparent;
+
+    > row {
+      padding: 0px 12px 0px 12px;
+      min-height: 50px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba($borders_color, 0.5)
+      }
+
+      &:first-child {
+        border-top-left-radius: $popover_radius - 2;
+        border-top-right-radius: $popover_radius - 2;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: $popover_radius - 2;
+        border-bottom-right-radius: $popover_radius - 2;
+        border-bottom: none;
+      }
+    }
+  }
+
+  @each $border in top, bottom {
+    overshoot.#{$border} {
+      border-radius: $window_radius;
+      -gtk-outline-radius: $window_radius - 1;
+    }
+  }
+
+  scrollbar.vertical {
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    &:dir(ltr) {
+      border-top-right-radius: $popover_radius;
+      -gtk-outline-top-right-radius: $popover_radius - 1;
+      border-bottom-right-radius: $popover_radius;
+      -gtk-outline-bottom-right-radius: $popover_radius - 1;
+    }
+
+    &:dir(rtl) {
+      border-top-left-radius: $popover_radius;
+      -gtk-outline-top-left-radius: $popover_radius - 1;
+      border-bottom-left-radius: $popover_radius;
+      -gtk-outline-bottom-left-radius: $popover_radius - 1;
+    }
+  }
+}
+
+// HdyExpanderRow
+row.expander {
+  padding: 0px;
+
+  image.expander-row-arrow {
+    &:dir(ltr) { margin-left: 6px; }
+    &:dir(rtl) { margin-right: 6px; }
+  }
+}
+
+// Content list
+@mixin rounded-border($border) {
+	$corners: (
+		'top': (('top'), ('left', 'right')),
+    'bottom': (('bottom'), ('left', 'right')),
+    'left': (('top', 'bottom'), ('left')),
+    'right': (('top', 'bottom'), ('right')),
+	);
+	
+	@each $floor in nth(map-get($corners, $border), 1) {
+    @each $wall in nth(map-get($corners, $border), 2) {
+      border-#{$floor}-#{$wall}-radius: $window_radius;
+      -gtk-outline-#{$floor}-#{$wall}-radius: $window_radius - 1;
+    }
+  }
+}
+
+list.content {
+	border-color: rgba($borders_color, 0.7);
+
+  &,
+  list {
+    background-color: transparent;
+  }
+
+  // Nested rows background
+  list.nested > row:not(:active) {
+    &:not(:hover):not(:selected),
+    &:hover:not(.activatable):not(:selected) {
+      background-color: mix($bg_color, $base_color, 0.5);
+    }
+
+    &:hover.activatable:not(:selected) {
+      background-color: mix($fg_color, $base_color, 0.95);
+    }
+  }
+
+  > row {
+    // Regular rows and expander header rows background
+    &:not(.expander):not(:active):not(:hover):not(:selected),
+    &:not(.expander):not(:active):hover:not(.activatable):not(:selected),
+    &.expander row.header:not(:active):not(:hover):not(:selected),
+    &.expander row.header:not(:active):hover:not(.activatable):not(:selected) {
+      background-color: $base_color;
+    }
+
+    &:not(.expander):not(:active):hover.activatable:not(:selected),
+    &.expander row.header:not(:active):hover.activatable:not(:selected) {
+      background-color: mix($fg_color, $base_color, 0.95);
+    }
+
+    &,
+    list > row {
+      border-color: rgba($borders_color, 0.7);
+      border-style: solid;
+      transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    // Top border
+    &:not(:last-child) {
+      border-width: 1px 1px 0px 1px;
+    }
+
+    // Rounded top
+    &:first-child,
+    &.expander:first-child row.header,
+    &.expander:checked,
+    &.expander:checked row.header,
+    &.expander:checked + row,
+    &.expander:checked + row.expander row.header {
+      @include rounded-border(top);
+    }
+
+    // Bottom border
+    &:last-child,
+    &.checked-expander-row-previous-sibling,
+    &.expander:checked {
+      border-width: 1px;
+    }
+
+    // Rounded bottom
+    &:last-child,
+    &.checked-expander-row-previous-sibling,
+    &.expander:checked,
+    &.expander:not(:checked):last-child row.header,
+    &.expander:not(:checked).checked-expander-row-previous-sibling row.header,
+    &.expander.empty:checked row.header,
+    &.expander list.nested > row:last-child {
+      @include rounded-border(bottom);
+    }
+
+    // Add space around expanded rows
+    &.expander:checked:not(:first-child),
+    &.expander:checked + row {
+      margin-top: 6px;
+    }
+  }
+}

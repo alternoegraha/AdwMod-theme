@@ -1,0 +1,79 @@
+/****************
+ * File chooser *
+ ****************/
+$_placesidebar_icons_opacity: 0.7;
+
+row image.sidebar-icon { opacity: $_placesidebar_icons_opacity; } // dim the sidebar icons
+                                                                  // see bug #786613 for details 
+                                                                  // on this oddity
+
+placesview {
+  .server-list-button > image {
+    transition: 200ms $ease-out-quad;
+    -gtk-icon-transform: rotate(0turn);
+  }
+
+  .server-list-button:checked > image {
+    transition: 200ms $ease-out-quad;
+    -gtk-icon-transform: rotate(-0.5turn);
+  }
+
+  row.activatable:hover { background-color: transparent; }
+
+  // this selects the "connect to server" label
+  > actionbar > revealer > box > label {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/************
+ * Pathbars *
+ ************/
+
+// GtkPathBar does not work with just .linked, so we must override that. But we
+// can’t simply remove .linked from the widget as that might break other themes.
+// Note also we select on filechooser to avoid interfering with NautilusPathBar.
+filechooser .path-bar.linked > button {
+  @extend %linked_flippable;
+}
+
+.path-bar button {
+  &.text-button, &.image-button, & {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &.text-button.image-button label {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.text-button.image-button, & {
+    label:last-child { padding-right: 8px; }
+    label:first-child { padding-left: 8px; }
+  }
+
+  image {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &.slider-button {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+filechooser {
+  .dialog-action-box {
+    border-top: 1px solid $borders_color;
+  }
+
+  #pathbarbox { border-bottom: 1px solid $bg_color; }
+}
+
+filechooserbutton:drop(active) {
+  box-shadow: none;
+  border-color: transparent;
+}

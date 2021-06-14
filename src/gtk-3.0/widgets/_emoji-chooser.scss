@@ -1,0 +1,84 @@
+/*********
+ * Emoji *
+ ********/
+
+popover.emoji-picker { 
+  padding-left: 0;
+  padding-right: 0;
+
+  entry.search { margin: 3px 5px 5px 5px; }
+  
+  scrolledwindow { // make emoji-picker popover same as Gtk4 ones
+  	border-top-width: 1px;
+  	border-bottom-width: 1px;
+  	border-style: solid;
+  	border-color: $borders_color;
+  }
+}
+
+button.emoji-section {
+  border-radius: 16px;
+
+  margin: 3px;
+  padding: 0;
+  min-width: if($_sizevariant == 'default', 32px, 28px);
+  min-height: if($_sizevariant == 'default', 32px, 28px);
+
+  /* reset props inherited from the button style */
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+
+  outline: none;
+
+  &:first-child { margin-left: 6px; }
+  &:last-child { margin-right: 6px; }
+  
+  &:hover {
+    background: $view_hover_color;
+  }
+
+  &:checked {
+    background: $view_selected_color;
+
+    &:hover {
+      background: $view_selected_hover_color;
+    }
+  }
+
+  &:hover:active {
+    background: $view_active_color;
+  }
+
+  label {
+    padding: 0;
+
+    opacity: 0.55;
+  }
+
+  &:hover label { opacity: 0.775; }
+  &:checked label { opacity: 1; }
+}
+
+popover.emoji-picker .emoji {
+  font-size: x-large;
+  padding: 6px;
+
+  :hover {
+    background: $view_selected_color;
+    border-radius: 6px;
+  }
+}
+
+popover.emoji-completion arrow {
+  border: none;
+  background: none;
+}
+
+popover.emoji-completion contents row box {
+  padding: 2px 10px;
+}
+
+popover.emoji-completion .emoji:hover {
+  background: $view_selected_color;
+}
