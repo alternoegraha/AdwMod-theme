@@ -49,11 +49,17 @@ separator {
  **************/
 
 video {
+  & .osd {
+    padding: $_hb_btn_pad $_hb_btn_pad+1; // same as headerbar padding
+    border-radius: 0;
+  }
+
   & image.osd {
     min-width: 64px;
     min-height: 64px;
-    border-radius: 32px;
+    border-radius: 99px;
   }
+
   background: black;
 }
 

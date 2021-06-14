@@ -96,6 +96,14 @@ headerbar {
     margin-top: $_switch_margin;
     margin-bottom: $_switch_margin;
   }
+
+  // button.color tweak for compact sizing
+  @if $_sizevariant == 'compact' {
+    button.color {
+      min-width: 22px;
+      min-height: 14px;
+    }
+  }
 }
 
 .titlebar:not(headerbar) {
@@ -114,7 +122,7 @@ windowcontrols {
 
     border-radius: 9999px;
     padding: $_hb_btn_pad;
-    margin: 0 2px;
+    margin: if($_sizevariant == 'default', 0 2px, 0px);
     min-width: 0;
     min-height: 0;
   }

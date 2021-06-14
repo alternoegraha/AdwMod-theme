@@ -123,9 +123,9 @@ notebook {
 
     > tabs > tab {
       transition: $focus_transition;
-      min-height: 30px;
-      min-width: 30px;
-      padding: 3px 12px;
+      min-height: if($_sizevariant == 'default', 30px, 28px);
+      min-width: if($_sizevariant == 'default', 30px, 28px);
+      padding: if($_sizevariant == 'default', 3px 12px, 1px 10px);
 
       color: $fg_color;
       font-weight: normal;
@@ -166,8 +166,8 @@ notebook {
         margin-top: 4px;
         margin-bottom: 4px;
         // FIXME: generalize .small-button?
-        min-width: 20px;
-        min-height: 20px;
+        min-width: if($_sizevariant == 'default', 20px, 18px);
+        min-height: if($_sizevariant == 'default', 20px, 18px);
 
         &:last-child {
           margin-left: 4px;

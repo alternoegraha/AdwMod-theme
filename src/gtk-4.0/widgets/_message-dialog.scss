@@ -25,7 +25,7 @@ window.dialog.message {
     }
 
     .dialog-action-area button {
-      padding: 10px 14px; // labels are not vertically centered on message dialog, this is a workaround
+      padding: if($_sizevariant == 'default', 10px 14px, 6px 8px); // labels are not vertically centered on message dialog, this is a workaround
       border-radius: 0;
       border-left-style: solid;
       border-right-style: none;
