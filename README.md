@@ -10,16 +10,16 @@ AdwMod (**Adw**aita **Mod**ified, formerly AdwaitaExtended) is a Adwaita (GNOME/
 - Consistent GTK2 theme (finally!)
 
 ## Supported desktop environments
-- GNOME shell (3.36 and up)
-- Budgie Desktop (10.5.x and up)
-- Xfce (4.14 and up)
-- MATE (1.22 and up)
+- GNOME shell `>=3.36`
+- Budgie Desktop `>=10.5.x`
+- Xfce `>=4.14`
+- MATE `>=1.22`
 
 ### Unsupported
 - Downstream-patched GNOME sessions (only on Ubuntu and Pop!_OS)
 > use vanilla/stock GNOME session by installing `gnome-session`
-- GNOME shell < 3.34
-- Xfce < 4.12
+- GNOME shell `< 3.34`
+- Xfce `< 4.12`
 - LXDE/Openbox
 - Pantheon/elementary OS
 >	elementary OS platform apps only works with elementary stylesheet. It doesn't work properly with any 3rd-party themes including AdwMod
