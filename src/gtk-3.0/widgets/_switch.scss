@@ -11,6 +11,13 @@ switch {
   background-color: $dark_fill;
   text-shadow: 0 1px transparentize(black, 0.9);
 
+  headerbar & {
+    border-color: darken($borders_color, 3%);
+    background-color: if($variant == 'light',
+                      darken($dark_fill, 8%),
+                      darken($dark_fill, 4%));
+  }
+
   &:checked {
     color: $selected_fg_color;
     border-color: $checkradio_borders_color;

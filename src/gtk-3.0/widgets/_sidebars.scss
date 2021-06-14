@@ -69,7 +69,7 @@ placessidebar {
 
   row {
     // Needs overriding of the GtkListBoxRow padding
-    min-height: 36px;
+    min-height: if($_sizevariant == 'default', 36px, 32px);
     padding: 0px;
 
     // Using margins/padding directly in the SidebarRow

@@ -303,6 +303,8 @@ button {
     -gtk-outline-radius: 9999px;
     padding: $_circ_btn_pad; /* circles instead of ellipses */
 
+    @if $_sizevariant == 'compact' { min-width: 0; }
+
     label { padding: 0; }
 
     // the followind code is needed since we use a darker bottom border on buttons, which looks pretty

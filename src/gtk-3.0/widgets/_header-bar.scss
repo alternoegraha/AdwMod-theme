@@ -52,12 +52,13 @@ headerbar {
 
     color: $selected_fg_color;
     border-color: $suggested_border_color;
-    text-shadow: 0 -1px transparentize(black, 0.5);
+    text-shadow: none;
+    -gtk-icon-shadow: none;
 
     @include headerbar_fill($suggested_bg_color, $_hc);
 
     &:backdrop {
-      background-image: linear-gradient(to top, $suggested_bg_color, $suggested_bg_color);
+      background-image: image($suggested_bg_color);
       box-shadow: inset 0 1px mix($top_hilight, $suggested_bg_color, 60%);
       
       label { 
@@ -146,12 +147,12 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 28px;
+    min-height: if($_sizevariant == 'default', 28px, 24px);
     padding: 4px;
 
     button.titlebutton {
-      min-height: 26px;
-      min-width: 26px;
+      min-height: if($_sizevariant == 'default', 26px, 22px);
+      min-width: if($_sizevariant == 'default', 26px, 22px);
       margin: 0;
       padding: 0;
       
@@ -173,9 +174,7 @@ headerbar {
     	opacity: 1.0;
     }
   }
-  
 
-  
   separator.titlebutton { opacity: 0; } /* hide the close button separator */
 
   .solid-csd & {
@@ -213,6 +212,13 @@ headerbar {
     // See https://gitlab.gnome.org/GNOME/gtk/issues/1264 for more information.
     background: none;
     box-shadow: none;
+  }
+
+  @if $_sizevariant == 'compact' {
+    button.color {
+      min-width: 22px;
+      min-height: 14px;
+    }
   }
 }
 
