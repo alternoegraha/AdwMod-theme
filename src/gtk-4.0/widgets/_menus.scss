@@ -55,8 +55,6 @@ popover.menu {
       background: none;
       color: $text_color;
       box-shadow: none;
-
-      transform: scale(0.8);
     }
   }
 
@@ -65,7 +63,7 @@ popover.menu {
   
   radio {
     padding: 0;
-    border: 1.2px solid transparentize($text_color, 0.7);
+    border: 1px solid transparentize($text_color, 0.7);
   }
 
   check,
