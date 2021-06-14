@@ -92,7 +92,7 @@ button.titlebutton {
   &:not(.appmenu) {
     border-radius: 9999px;
     padding: $_hb_btn_pad;
-    margin: 0;
+    margin: if($_sizevariant == 'default', 0 2px, 0);
     min-width: 0;
     min-height: 0;
     
