@@ -2,9 +2,13 @@
  * Level Bar *
  *************/
 levelbar {
+  &:disabled {
+    opacity: 0.5;
+  }
+
   &.horizontal {
     block {
-      min-height: 1px;
+      min-height: 4px;
     }
 
     &.discrete block {
@@ -15,7 +19,7 @@ levelbar {
 
   &.vertical {
     block {
-      min-width: 1px;
+      min-width: 4px;
     }
 
     &.discrete block {
@@ -24,36 +28,24 @@ levelbar {
     }
   }
 
-  trough {
-    border: 1px solid;
-    padding: 2px;
-    border-radius: 3px;
-    @include entry(normal);
-  }
-
   block {
-    border: 1px solid;
-    border-radius: 1px;
+    border-radius: 6px;
 
     &.low {
-      border-color: if($variant == 'light', darken($warning_color, 20%), $warning_color);
       background-color: $warning_color;
     }
 
     &.high,
     &:not(.empty) {
-      border-color: if($variant == 'light', darken($progress_bg_color, 20%), $progress_bg_color);
-      background-color: $progress_bg_color;
+      background-color: $fill_color;
     }
 
     &.full {
-      border-color: if($variant == 'light', darken($success_color, 20%), $success_color);
       background-color: $success_color;
     }
 
     &.empty {
-      background-color: transparent;
-      border-color: if($variant == 'light', transparentize($fg_color,0.8), transparentize($fg_color,0.9));
+      background-color: $trough_color;
     }
   }
 }

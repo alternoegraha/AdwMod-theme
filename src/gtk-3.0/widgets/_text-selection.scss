@@ -8,9 +8,7 @@ cursor-handle {
   box-shadow: none;
   border-style: none;
 
-  @each $s,$as in ('',''),
-                  (':hover','-hover'),
-                  (':active','-active') { //no need for insensitive and backdrop
+  @each $s,$as in ('','') { //no need for insensitive and backdrop
     &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
       $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
@@ -26,7 +24,7 @@ cursor-handle {
     }
 
     &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
-      $_url: 'assets/slider-horz-scale-has-marks-above#{$as}#{$asset_suffix}';
+      $_url: 'assets/text-select-insert#{$as}#{$asset_suffix}';
       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
                                     url('#{$_url}@2.png'));
     }
