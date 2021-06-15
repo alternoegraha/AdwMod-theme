@@ -2,7 +2,8 @@
  * Tree Views *
  **************/
 
-$treeview_selection_opaque: mix(opacify($view_selected_color, 1), $base_color, 100% * alpha($view_selected_color));
+$treeview_selection_default: transparentize($text_color, .9);
+$treeview_selection_opaque: mix(opacify($treeview_selection_default, 1), $base_color, 100% * alpha($treeview_selection_default));
 $_treeview_borders_color: if($variant=='light',mix($borders_color, $base_color,80%),mix($fg_color, $base_color, 20%));
 
 treeview.view {
