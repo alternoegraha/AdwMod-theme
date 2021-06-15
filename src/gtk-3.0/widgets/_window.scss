@@ -110,13 +110,6 @@ button.titlebutton {
   }
 }
 
-.selection-mode headerbar button.titlebutton,
-.selection-mode .titlebar button.titlebutton,
-headerbar.selection-mode button.titlebutton,
-.titlebar.selection-mode button.titlebutton {
-  @include _button_text_shadow(white, $suggested_bg_color);
-}
-
 .ssd .titlebar.default-decoration button.titlebutton {
 	&:backdrop {
 		color: mix($bg_color, $fg_color, 50%);
