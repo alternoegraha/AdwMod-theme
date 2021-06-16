@@ -1,3 +1,12 @@
+%_nautilus_canvas_item {
+	border-radius: 5px;
+
+	&:selected {
+		background-color: $base_solid_view_selected_color;
+		color: $text_color;
+	}
+}
+
 /**** Nautilus ****/
 
 .nautilus-window {
@@ -14,12 +23,7 @@
 
 
 	.nautilus-canvas-item {
-		border-radius: 5px;
-		
-		&:selected {
-			background-color: $base_solid_view_selected_color;
-			color: $text_color;
-		}
+		@extend %_nautilus_canvas_item;
 	}
 
 	.nautilus-canvas-item.dim-label,
@@ -382,12 +386,7 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
   }
 
 	.nemo-canvas-item {
-		border-radius: 5px;
-		
-		&:selected {
-			background-color: $base_solid_view_selected_color;
-			color: $text_color;
-		}
+		@extend %_nautilus_canvas_item;
 	}
 
   .nemo-canvas-item.dim-label,
