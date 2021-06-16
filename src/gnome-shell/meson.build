@@ -70,6 +70,10 @@ foreach theme: themes
   install_data(
     [
       'pad-osd.css',
+      'toggle-off.svg',
+      'toggle-off-dark.svg',
+      'toggle-on.svg',
+      'toggle-on-dark.svg',
     ],
     install_dir: gnome_shell_dir,
   )
