@@ -7,7 +7,7 @@ $popover_arrow_height: 12px;
   -arrow-border-radius: $base_border_radius+4;
   -arrow-background-color: $base_color;
   -arrow-border-width: 1px;
-  -arrow-border-color: if($variant == 'light', rgba(0,0,0, 0.6), $borders_color);
+  -arrow-border-color: rgba(0,0,0, 0.6), rgba(0,0,0, 0.75));
   -arrow-base: $popover_arrow_height * 2;
   -arrow-rise: $popover_arrow_height;
   -arrow-box-shadow: 0 1px 3px rgba(0,0,0,0.5); // dreaming bugzilla #689995
@@ -47,19 +47,18 @@ $popover_arrow_height: 12px;
   }
 
   &:checked {
-    background-color: darken($bg_color, 2%);
+    background-color: $view_selected_color;
     box-shadow: none;
   }
 
   &.selected {
-	background-color: if($variant == 'light', darken($bg_color, 6%), 
-darken($bg_color, 8%));
-    color: $fg_color;
+	background-color: $view_hover_color;
+    color: $text_color;
   }
 
   &:active { 
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
+    background-color: $view_selected_color;
+    color: $text_color;
   }
 
   &:insensitive { color: transparentize($fg_color,0.5);}

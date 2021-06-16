@@ -5,6 +5,7 @@ $base_color: if($variant == 'light', #fff, lighten(desaturate(#241f31, 100%),
 2%));
 $bg_color: if($variant == 'light', desaturate(#f6f5f4, 100%), darken(desaturate(#3d3846, 100%), 4%));
 $fg_color: if($variant == 'light', #2e3436, #eeeeec);
+$text_color: if($variant == 'light', #000000, #ffffff);
 
 $selected_fg_color: #fff;
 $selected_bg_color: if($variant == 'light', #3584e4, darken(#3584e4, 10%));
@@ -14,6 +15,23 @@ $borders_edge: if($variant == 'light', rgba(255,255,255,0.8), transparentize($fg
 $link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
 $link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
 $top_hilight: $borders_edge;
+
+$view_hover_color: transparentize($text_color, .93);
+$view_selected_color: transparentize($text_color, .9);
+$view_selected_hover_color: transparentize($text_color, .87);
+$view_active_color: transparentize($text_color, .85);
+
+$trough_color: transparentize($text_color, .85);
+$trough_hover_color: transparentize($text_color, .8);
+$trough_active_color: transparentize(black, .75);
+
+$fill_color: $selected_bg_color;
+$fill_text_color: $selected_fg_color;
+$fill_hover_color: mix($selected_bg_color, $text_color, 90%);
+$fill_active_color: mix($selected_bg_color, black, 80%);
+
+$slider_color: mix(white, $base_color, 80%);
+$slider_hover_color: white;
 
 $warning_color: #f57900;
 $error_color: #ff8080;
