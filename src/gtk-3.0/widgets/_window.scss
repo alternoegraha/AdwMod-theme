@@ -110,16 +110,6 @@ button.titlebutton {
   }
 }
 
-.ssd .titlebar.default-decoration button.titlebutton {
-	&:backdrop {
-		color: mix($bg_color, $fg_color, 50%);
-		
-		&:hover { @include button(undecorated-hover,$c:mix($bg_color,darken($headerbar_color,6%),50%)); }
-		&:active, 
-		&:checked { @include button(undecorated-active,$c:mix($bg_color,darken($headerbar_color,10%),50%)); }
-	}
-}
-
 // Unified window
 
 window.csd.unified:not(.solid-csd):not(.fullscreen) {
