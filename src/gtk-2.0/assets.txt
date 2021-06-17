@@ -117,7 +117,6 @@ spin-up-insensitive
 spin-down-insensitive
 scale-slider
 scale-slider-hover
-scale-slider-active
 scale-slider-insensitive
 scale-horz-focus
 scale-horz-trough
