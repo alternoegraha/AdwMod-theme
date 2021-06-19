@@ -8,6 +8,7 @@
 }
 
 /**** Nautilus ****/
+$_nautilus_disclosure_btn_pad: if($_sizevariant == 'default', 4px, 2px);
 
 .nautilus-window {
 	notebook {
@@ -17,8 +18,8 @@
 	}
 
 	.disclosure-button {
-  	padding-left: 4px;
-  	padding-right: 4px;
+  	padding-left: $_nautilus_disclosure_btn_pad;
+  	padding-right: $_nautilus_disclosure_btn_pad;
 	}
 
 
@@ -48,6 +49,7 @@
 
 		border: 1px solid $borders_color;
 		background-color: $bg_color;
+		background-clip: padding-box;
 
 		button:first-child {
 			border-radius: 3.5px 0 0 3.5px;
