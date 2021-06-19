@@ -14,7 +14,13 @@ popover.menu {
       outline: none;
       transition: none;
 
-      &:selected { background: image($view_selected_color); }
+      &:selected {
+        background-color: $view_selected_color;
+
+        &:active {
+          background-color: $view_selected_active_color;
+        }
+      }
     }
   }
 
@@ -24,10 +30,14 @@ popover.menu {
     button.circular.image-button.model {
       @extend %outline_button;
 
+      outline: none;
       padding: 11px;
-      &:focus {
-         background-color: $view_selected_color;
-         border-color: $view_selected_color;
+      &:selected {
+        background-color: $view_selected_color;
+
+        &:active {
+          background-color: $view_selected_active_color;
+        }
       }
     }
   }
@@ -35,6 +45,7 @@ popover.menu {
   & > arrow,
   &.background > contents {
     background-color: $menu_color;
+    color: $text_color;
     padding: $menu-margin;
   }
 
@@ -53,7 +64,7 @@ popover.menu {
   radio {
     &, &:hover, &:hover:active, &:checked, &:disabled {
       background: none;
-      color: $text_color;
+      color: inherit;
 
       transform: scale(0.8);
     }
@@ -62,7 +73,7 @@ popover.menu {
   //only menu radios have a border
   radio {
     padding: 0;
-    border: 1.2px solid transparentize($text_color, if($contrast == "high", 0, 0.7));
+    border: 1.2px solid gtkalpha(currentColor, if($contrast == "high", 1, 0.3));
   }
 
   check,
@@ -89,11 +100,10 @@ popover.menu {
 
     &:hover,
     &:selected {
-      color: $text-color;
       background-color: $view_selected_color;
 
       &:active {
-        background-color: $view_active_color; // matching buttons
+        background-color: $view_selected_active_color; // matching buttons
       }
     }
 

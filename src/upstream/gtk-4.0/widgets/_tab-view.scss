@@ -1,4 +1,4 @@
-$tab_bg: darken($bg_color, if($variant == 'dark', 6%, 12%));
+$tab_bg: darken($headerbar_bg_color, 6%);
 
 @mixin undershoot-gradient($dir) {
   @if $variant == 'dark' {
@@ -15,9 +15,9 @@ $tab_bg: darken($bg_color, if($variant == 'dark', 6%, 12%));
 
 @mixin need-attention-gradient($dir) {
   background: linear-gradient(to #{$dir},
-                              transparentize($selected_bg_color, .3),
-                              transparentize($selected_bg_color, .5) 1px,
-                              transparentize($selected_bg_color, 1) 20px);
+                              gtkalpha($accent_color, .7),
+                              gtkalpha($accent_color, .5) 1px,
+                              gtkalpha($accent_color, 0) 20px);
 }
 
 tabbar {
@@ -145,8 +145,8 @@ dnd {
       background-image:
         radial-gradient(ellipse at bottom,
                         transparentize(white, .2),
-                        transparentize($selected_bg_color, .8) 15%,
-                        transparentize($selected_bg_color, 1) 15%);
+                        gtkalpha($accent_color, .2) 15%,
+                        gtkalpha($accent_color, 0) 15%);
     }
 
     button.image-button {
@@ -155,18 +155,6 @@ dnd {
       min-width: 24px;
       min-height: 24px;
       border-radius: 99px;
-
-      border: none;
-      box-shadow: none;
-      background: none;
-
-      &:hover {
-        background: gtkalpha($fg_color, .15);
-      }
-
-      &:active {
-        background: gtkalpha(black, .2);
-      }
     }
   }
 }

@@ -94,7 +94,10 @@ files=(
     _colors-public.scss
     _colors.scss
     _common.scss
+    _defaults.scss
     _drawing.scss
+    _functions.scss
+    _palette.scss
     _widgets.scss
     Adwaita-hc.scss
     Adwaita-hc-dark.scss
