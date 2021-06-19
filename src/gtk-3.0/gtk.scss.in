@@ -7,6 +7,8 @@
 $variant: "@variant@";
 $_sizevariant: "@_sizevariant@";
 
+@import '../functions';
+@import '../palette';
 @import 'colors';
 @import 'drawing';
 @import 'common';

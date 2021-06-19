@@ -1,6 +1,8 @@
 $variant: 'dark';
 $_sizevariant: "@_sizevariant@";
 
+@import '../palette';
+@import '../functions';
 @import 'colors';
 @import 'drawing';
 @import 'common';

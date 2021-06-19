@@ -43,6 +43,8 @@ gtk4_scss_dependencies = [
   'widgets/_views.scss',
   'widgets/_view-switcher.scss',
   'widgets/_window.scss',
+  '../_functions.scss',
+  '../_palette.scss',
   '_colors-public.scss',
   '_colors.scss',
   '_common.scss',
