@@ -30,6 +30,7 @@ button {
     min-width: 16px;
     padding: $_btn_pad;
     border: 1px solid;
+    background-clip: padding-box;
     border-radius: $button_radius;
     transition: $button_transition;
 
