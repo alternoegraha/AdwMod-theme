@@ -102,20 +102,20 @@ $_msg_icon_vert_pad: if($_sizevariant == 'default', 1.125em, 0.75em);
 /* Media Controls */
 .message-media-control {
 	padding: if($_sizevariant == 'default', 0.75em 1.5em, 0.625em 1.375em);
-  color: darken($fg_color, 15%);
+  color: $fg_color;
 
   // uses $hover_bg_color since the media controls are in a notification_bubble
   &:hover {
-    background-color: lighten($hover_bg_color, 5%);
-    color: $fg_color;
+    background-color: $view_hover_color;
+    color: $text_color;
   }
 
   &:active { 
-    background-color: darken($hover_bg_color, 2%);
-    color: $fg_color;
+    background-color: $view_active_color;
+    color: $text_color;
   }
 
-  &:insensitive { color: darken($fg_color,40%); }
+  &:insensitive { color: transparentize($fg_color, 0.5); }
   
   // fix border-radius for last button
   &:last-child:ltr { border-radius: 0 $base_border_radius+2 $base_border_radius+2 0; }
