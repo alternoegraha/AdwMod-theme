@@ -7,7 +7,7 @@ $popover_arrow_height: 12px;
   -arrow-border-radius: $base_border_radius+4;
   -arrow-background-color: $base_color;
   -arrow-border-width: 1px;
-  -arrow-border-color: if($variant == 'light', rgba(0,0,0, 0.6), rgba(0,0,0, 0.75));
+  -arrow-border-color: if($variant == 'light', rgba(0,0,0, 0.45), rgba(0,0,0, 0.75));
   -arrow-base: $popover_arrow_height * 2;
   -arrow-rise: $popover_arrow_height;
   -arrow-box-shadow: 0 1px 3px rgba(0,0,0,0.5); // dreaming bugzilla #689995
