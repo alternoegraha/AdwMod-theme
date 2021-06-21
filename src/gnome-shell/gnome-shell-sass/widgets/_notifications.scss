@@ -9,12 +9,11 @@ $notification_banner_width: if($_sizevariant == 'default', 36em, 34em);
   width: $notification_banner_width;
   margin: $base_margin * 4;
   
-  background-clip: padding-box;
-  
-  @if $variant == "light" {
-    &, &:hover, &:active {
-      border-color: transparentize(black, 0.6);
-    }
+  border: 0;
+
+  // draw border with box-shadow
+  &, &:hover, &:focus, &:active {
+    box-shadow: 0 0 0 1px if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.35));
   }
 
   .notification-actions {
