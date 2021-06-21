@@ -8,6 +8,11 @@
   border-radius: $modal_radius;
   @extend %bubble_panel;
 
+  @if $shell_ver >= 40 {
+    border: 0;
+    box-shadow: 0 0 0 1px if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
+  }
+
   .modal-dialog-content-box {
     margin: 32px 40px;
     spacing: 32px;
