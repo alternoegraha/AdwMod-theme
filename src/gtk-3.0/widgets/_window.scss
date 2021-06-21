@@ -102,12 +102,6 @@ button.titlebutton {
   	&:active,
   	&:checked { @include button(undecorated-active,$c:darken($headerbar_color,10%)); }
   }
-
-  .selection-mode & {
-    @extend %selection_mode_button_flat;
-
-    @extend %nobg_selected_items;
-  }
 }
 
 // Unified window
