@@ -18,7 +18,7 @@
 
   @if $shell_ver >= 40 { // GNOME 40
     spacing: 9px;
-    padding: 6px;
+    padding: 0px;
     
     .workspace-thumbnail {
       @extend %overview_panel;
