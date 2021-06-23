@@ -54,10 +54,6 @@
   		}
 		}
 		
-		&.overview.bottom #dash {
-    	margin-top: $dash_bottom_margin / 2 * 3 - 2;
-    }
-		
 		&.left #dash {
 			margin-right: 2px;
 			padding: $dash_padding 0 0;
