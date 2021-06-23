@@ -37,7 +37,8 @@ combobox {
       padding: 8px 0;
 
       & > row {
-        padding: 8px;
+        min-height: 26px;
+        padding: 0px 8px;
       }
     }
 

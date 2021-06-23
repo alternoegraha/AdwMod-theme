@@ -39,7 +39,7 @@ popover.menu {
   }
 
   &.background separator {
-    margin: 6px 0;
+    margin: 4px 0;
   }
 
   accelerator {
@@ -55,15 +55,20 @@ popover.menu {
       background: none;
       color: $text_color;
       box-shadow: none;
+      -gtk-icon-shadow: none;
     }
+
+    &:disabled { filter: opacity(0.5); }
   }
 
   //only menu radios have a border
-  check { border-color: transparent; }
+  check {
+    &, &:hover, &:hover:active, &:checked, &:disabled { border-color: transparent; }
+  }
   
   radio {
     padding: 0;
-    border: 1px solid transparentize($text_color, 0.7);
+    &, &:hover, &:hover:active, &:checked { border: 1px solid transparentize($text_color, 0.7); }
   }
 
   check,
@@ -81,7 +86,7 @@ popover.menu {
   }
 
   modelbutton {
-    min-height: 30px;
+    min-height: 26px;
     min-width: 40px;
     padding: 0 $menu_padding;
     border-radius: $menu-margin;
@@ -102,7 +107,7 @@ popover.menu {
       background: none;
       min-width: 16px;
       min-height: 16px;
-      opacity: 0.3; // dim icon
+      opacity: 1.0; // dim icon
 
       &:hover { background: none; }
 
@@ -110,9 +115,9 @@ popover.menu {
         filter: opacity(0.5);
       }
 
-      &.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
+      &.left { -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
 
-      &.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
+      &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
     }
   }
 
