@@ -162,8 +162,8 @@ tabbar,
     .tab-indicator {
       padding: 0;
       margin: 0;
-      min-width: 24px;
-      min-height: 24px;
+      min-width: if($_sizevariant == 'default', 24px, 22px);
+      min-height: if($_sizevariant == 'default', 24px, 22px);
       border-radius: 99px;
 
       border: none;
@@ -176,11 +176,11 @@ tabbar,
     .tab-close-button,
     .tab-indicator.clickable {
       &:hover {
-        background: rgba($fg_color, .15);
+        background-color: $view_hover_color;
       }
 
       &:active {
-        background: rgba(black, .2);
+        background-color: $view_active_color;
       }
     }
   }
