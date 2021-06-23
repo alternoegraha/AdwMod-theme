@@ -22,6 +22,7 @@ message('Set GNOME Shell version to ' + gnome_shell_version)
 
 # theme sources .scss files
 theme_sources = [
+  '../_palette.scss',
   'gnome-shell-sass/_colors.scss',
   'gnome-shell-sass/_common.scss',
   'gnome-shell-sass/_extensions.scss',

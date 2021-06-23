@@ -2,6 +2,7 @@ $variant: "@variant@";
 $_sizevariant: "@_sizevariant@";
 $shell_ver: @version@;
 
+@import "../palette";
 @import "gnome-shell-sass/_colors"; //use gtk colors
 @import "gnome-shell-sass/_drawing";
 @import "gnome-shell-sass/_common";
