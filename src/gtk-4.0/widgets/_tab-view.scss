@@ -22,7 +22,7 @@ $tab_bg: darken($bg_color, if($variant == 'dark', 6%, 12%));
 
 tabbar {
   .box {
-    min-height: 38px;
+    min-height: if($_sizevariant == 'default', 38px, 32px);
     background: darken($tab_bg, 3%);
     border-bottom: 1px solid $alt_borders_color;
   }
@@ -118,7 +118,7 @@ tabbar {
 }
 
 dnd tab {
-  min-height: 26px;
+  min-height: if($_sizevariant == 'default', 26px, 24px);
   background-color: lighten($tab_bg, 9%);
 
   $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
@@ -133,13 +133,13 @@ dnd tab {
     outline-offset: -1px;
   }
 
-  margin: 25px;
+  margin: if($_sizevariant == 'default', 25px, 23px);
 }
 
 tabbar,
 dnd {
   tab {
-    padding: 6px;
+    padding: if($_sizevariant == 'default', 6px, 4px);
 
     &.needs-attention {
       background-image:
@@ -152,21 +152,9 @@ dnd {
     button.image-button {
       padding: 0;
       margin: 0;
-      min-width: 24px;
-      min-height: 24px;
+      min-width: if($_sizevariant == 'default', 24px, 22px);
+      min-height: if($_sizevariant == 'default', 24px, 22px);
       border-radius: 99px;
-
-      border: none;
-      box-shadow: none;
-      background: none;
-
-      &:hover {
-        background: gtkalpha($fg_color, .15);
-      }
-
-      &:active {
-        background: gtkalpha(black, .2);
-      }
     }
   }
 }
