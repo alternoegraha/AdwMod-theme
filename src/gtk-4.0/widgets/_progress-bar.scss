@@ -27,12 +27,7 @@ progressbar {
     // FIXME since now I switched to use currentColor
     // I noticed progressbar trough have different opacity with scale
     border-radius: 3px;
-    background-color: #{"alpha(currentColor, .38)"};
-
-    // OSD
-    .osd & {
-      background-color: transparentize($osd_text_color, .85);
-    }
+    background-color: gtkalpha(currentColor, .38);
 
     > progress {
       @extend %scale_highlight; /* share most of scales' */

@@ -1,11 +1,6 @@
 %scale_trough {
   border-radius: 3px;
   background-color: $trough_color;
-
-  // OSD
-  .osd & {
-    background-color: transparentize($osd_text_color, .85);
-  }
 }
 
 %scale_highlight {
@@ -35,11 +30,6 @@ scale {
     // in media player to indicate how much video stream as been cached
     > fill {
       @extend %scale_trough;
-
-      // OSD
-      .osd & {
-        background-color: mix($osd_fg_color, $osd_borders_color, 25%);
-      }
     }
 
     > slider {
