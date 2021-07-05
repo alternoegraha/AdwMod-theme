@@ -32,6 +32,7 @@
 	@else {
 		#dash {
 			margin-top: 0;
+			padding: 0;
 		
 			// legible running dot
 			.app-well-app-running-dot {
@@ -55,8 +56,7 @@
 		}
 		
 		&.left #dash {
-			margin-right: 2px;
-			padding: $dash_padding 0 0;
+			margin-right: 0;
 			
 			.dash-background {
 				border-left: 0;
@@ -68,7 +68,7 @@
     		padding: $dash_padding $dash_padding 0 $dash_padding - 1;
   		}
   		
-  		.vertical-dash-separator {
+  		.dash-separator {
   			height: 1px;
     		margin: $dash_padding;
     		margin-left: 0;
@@ -78,8 +78,7 @@
 		}
 		
 		&.right #dash {
-			margin-left: 2px;
-			padding: $dash_padding 0 0;
+			margin-left: 0;
 			
 			.dash-background {
 				border-right: 0;
@@ -91,7 +90,7 @@
     		padding: $dash_padding $dash_padding - 1 0 $dash_padding;
   		}
   		
-  		.vertical-dash-separator {
+  		.dash-separator {
   			height: 1px;
     		margin-left: 1px;
     		margin-right: 0;
@@ -109,9 +108,9 @@
 
 			.dash-background {
 				border: 0;
-				padding: 0;
 				margin: 0;
-				background-color: rgba($osd_bg_color, 0.6);
+				border-radius: 0;
+				background-color: rgba(black, 0.45);
 				box-shadow: none;
 			}
 
