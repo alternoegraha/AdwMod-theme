@@ -538,35 +538,15 @@ $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%)
 		@include headerbar_fill(darken($_incognito_bg_color, 10%));
 		border-color: $_incognito_alt_borders;
 
+		> clamp { color: $_incognito_fg_color; }
+
 		&:backdrop {
 	    background-image: image($_incognito_bg_color);
 	    border-color: $_incognito_backdrop_borders;
 	  }
 
-	  button {
-	    @include button(normal, $_incognito_bg_color);
-	    // we need to override button border color
-	    border-color: $_incognito_borders_color;
-	    border-bottom-color: $_incognito_alt_borders;
-
-	    &.flat, &.titlebutton { @include button(undecorated); }
-
-	    &:hover {
-	    	@include button(hover, $_incognito_bg_color);
-	    	border-color: $_incognito_borders_color;
-	    	border-bottom-color: $_incognito_alt_borders;
-	    }
-
-	    &:active, &:checked {
-	    	@include button(active, $_incognito_bg_color);
-	    	border-color: $_incognito_borders_color;
-	    	border-top-color: $_incognito_alt_borders;
-	    }
-
-	    &:disabled {
-	    	@include button(insensitive, $_incognito_bg_color);
-	    	border-color: $_incognito_borders_color;
-	    }
+	  > * {
+	  	color: $_incognito_fg_color;
 	  }
 
 	  stackswitcher button:checked,
@@ -580,6 +560,41 @@ $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%)
 	  	border-color: $_incognito_borders_color;
 
 	  	&:focus { border-color: $selected_bg_color; }
+	  }
+	}
+
+	actionbar {
+  	background: $_incognito_bg_color;
+
+  	> revealer > box {
+    	border-color: $_incognito_borders_color;
+  	}
+
+  	&:backdrop {
+    	> revealer > box {
+      	border-color: $_incognito_backdrop_borders;
+    	}
+  	}
+	}
+
+	headerbar, actionbar {
+		button {
+	    @include button(incognito-normal, $_incognito_bg_color);
+
+	    &.flat, &.titlebutton { @include button(undecorated); }
+
+	    &:hover {
+	    	@include button(incognito-hover, $_incognito_bg_color);
+	    }
+
+	    &:active, &:checked {
+	    	@include button(incognito-active, $_incognito_bg_color);
+	    }
+
+	    &:disabled {
+	    	@include button(insensitive, $_incognito_bg_color);
+	    	border-color: $_incognito_borders_color;
+	    }
 	  }
 	}
 
