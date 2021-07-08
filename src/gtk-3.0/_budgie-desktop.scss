@@ -56,32 +56,6 @@ $_invert_active_color: transparentize(white, .85);
 	> box > widget > separator {
 		background-color: transparentize($_budgie_panel_fg, 0.77);
 	}
-
-	> box > widget > widget > image { // user indicator
-		padding: 0 $_budgie_panel_btn_pad;
-	}
-
-	widget > widget > box.horizontal { // icon popovers
-		margin: 0 $_budgie_panel_btn_pad;
-	}
-
-	// 'Status Indicator' applet
-	widget {
-		// battery percentage
-		> box > box.battery-icon.horizontal > label.percent-label {
-			&:dir(ltr) { margin: 0 -4px 0 4px; }
-			&:dir(rtl) { margin: 0 4px 0 -4px; }
-
-			font-size: 90%;
-		}
-
-		> box > box.battery-icon.vertical > label.percent-label {
-			&:dir(ltr) { margin-right: -6px; }
-			&:dir(rtl) { margin-left: -6px; }
-
-			font-size: 90%;
-		}
-	}
 }
 
 // dock mode theming
