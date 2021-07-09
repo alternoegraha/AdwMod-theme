@@ -31,69 +31,45 @@
 	// 40
 	@else {
 		#dash {
-			margin-top: 0;
-			padding: 0;
-		
 			// legible running dot
 			.app-well-app-running-dot {
 				box-shadow: 0 0 0 1px rgba(black, 0.3);
 			}
-			
-			.dash-background {
-				border-bottom: 0;
-				margin-bottom: 0;
-				border-radius: $dash_border_radius $dash_border_radius 0 0;
-			}
-			
-			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dash_padding 0 $dash_padding - 1;
-  		}
-  		
-  		.dash-separator { 
-  			margin-bottom: 0;
-  			margin-top: 1px; 
-  		}
 		}
 		
 		&.left #dash {
-			margin-right: 0;
+			margin-right: $dash_bottom_margin;
 			
 			.dash-background {
-				border-left: 0;
-				margin-left: 0;
-				border-radius: 0 $dash_border_radius $dash_border_radius 0;
+				margin-left: $dash_bottom_margin;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dash_padding $dash_padding 0 $dash_padding - 1;
+    		padding: $dash_padding $dash_padding 0 $dash_padding + $dash_bottom_margin;
   		}
   		
   		.dash-separator {
   			height: 1px;
     		margin: $dash_padding;
-    		margin-left: 0;
-    		margin-right: 1px;
+    		margin-left: $dash_bottom_margin;
     		background-color: transparentize($osd_fg_color, 0.7);
   		}
 		}
 		
 		&.right #dash {
-			margin-left: 0;
+			margin-left: $dash_bottom_margin;
 			
 			.dash-background {
-				border-right: 0;
-				margin-right: 0;
-				border-radius: $dash_border_radius 0 0 $dash_border_radius;
+				margin-right: $dash_bottom_margin;
 			}
 			
 			.dash-item-container .app-well-app, .show-apps {
-    		padding: $dash_padding $dash_padding - 1 0 $dash_padding;
+    		padding: $dash_padding $dash_padding + $dash_bottom_margin 0 $dash_padding;
   		}
   		
   		.dash-separator {
   			height: 1px;
-    		margin-left: 1px;
-    		margin-right: 0;
+    		margin-right: $dash_bottom_margin;
     		background-color: transparentize($osd_fg_color, 0.7);
   		}
 		}

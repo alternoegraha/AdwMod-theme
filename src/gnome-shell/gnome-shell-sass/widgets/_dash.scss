@@ -2,9 +2,9 @@
 
 $dash_background_color: rgba(white, 0.2);
 $dash_placeholder_size: 32px;
-$dash_padding: 4px;
+$dash_padding: 2px;
 $dash_spacing: if($_sizevariant == 'default', ($base_padding / 4px), ($base_padding / 4px + 2));
-$dash_bottom_margin: $base_icon_size;
+$dash_bottom_margin: 4px;
 $dash_border_radius: $base_border_radius + 3;
 
 #dash {
@@ -23,8 +23,8 @@ $dash_border_radius: $base_border_radius + 3;
   } 
 
   @if $shell_ver >= 40 { // GNOME 40
-    margin-top: 2px;
-    padding: 0 $dash_padding 0;
+    margin-top: $dash_bottom_margin;
+    padding: 0 ($dash_padding + 2) 0;
 
     .overview-icon {
       padding: 0; // reset
@@ -127,7 +127,7 @@ $dash_border_radius: $base_border_radius + 3;
   &:focus,
   &:checked {
     .overview-icon {
-			background-color: transparentize(white, .9);
+			background-color: transparentize(darken($osd_bg_color, 10%), .5);
       color: $osd_fg_color;
     }
   }
