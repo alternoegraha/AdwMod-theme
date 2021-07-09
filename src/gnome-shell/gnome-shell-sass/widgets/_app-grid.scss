@@ -9,8 +9,7 @@ $app_icon_padding: if($_sizevariant == 'default', 24px, 22px);
   @if $shell_ver == 3.36 { // 3.36
     -shell-grid-horizontal-item-size: $app_icon_size + $app_icon_padding * 2;
     -shell-grid-vertical-item-size: $app_icon_size + $app_icon_padding * 2;
-    spacing: if($_sizevariant == 'default', $base_spacing * 4, $base_spacing * 
-6);
+    spacing: if($_sizevariant == 'default', $base_spacing * 4, $base_spacing * 6);
 
     .overview-icon {
       icon-size: $app_icon_size;
@@ -82,6 +81,7 @@ $dash_background_color: #3b3b3b;
 		padding: if($_sizevariant == 'default', 12px, 10px); 
 	}
   @if $shell_ver >= 40 {
+    border: 1px solid $osd_outer_borders_color;
     background-color: $dash_background_color;
     padding: if($_sizevariant == 'default', 12px 0px 12px 0px, 10px 0px 10px 0px); 
   }
@@ -102,7 +102,22 @@ $dash_background_color: #3b3b3b;
     & .folder-name-label { padding: 5px 7px; color: $osd_fg_color; }
 
     & .edit-folder-button {
-      @extend %button;
+      border: 0;
+      background-color: transparent;
+
+      &:focus {
+        box-shadow: inset 0 0 0 2px $selected_bg_color;
+      }
+
+      &:hover {
+        background-color: transparentize(white, .93);
+      }
+
+      &:insensitive { @include button(insensitive);}
+
+      &:active {
+        background-color: transparentize(white, .85);
+      }
 
       padding: 0;
 			width: if($_sizevariant == 'default', 36px, 32px);
