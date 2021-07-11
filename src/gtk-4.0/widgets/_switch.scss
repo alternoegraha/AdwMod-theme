@@ -23,8 +23,8 @@ switch {
   }
 
   > slider {
-    min-width: 22px;
-    min-height: 22px;
+    min-width: if($_sizevariant == 'default', 22px, 20px);
+    min-height: if($_sizevariant == 'default', 22px, 20px);
     border-radius: 50%;
     background-color: $slider_color;
     box-shadow: 0 2px 4px transparentize(black, .8);
