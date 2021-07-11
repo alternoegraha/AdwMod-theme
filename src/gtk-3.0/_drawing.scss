@@ -132,7 +132,7 @@ $_default_button_c: lighten($bg_color,2%);
   $_hilight_color: _button_hilight_color($c);
   $_button_edge: if($edge == none, none, _widget_edge($edge));
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
-  $_button_shadow: 0 1px 2px transparentize($shadow_color, 0.03);
+  $_button_shadow: 0 1px rgba(black, 0.05);
   $_accent_button_borders: if($variant == 'light', $c, darken($c, 12%));
 
   @if $t==normal {
@@ -227,7 +227,6 @@ $_default_button_c: lighten($bg_color,2%);
     -gtk-icon-shadow: none;
     // white with 0 alpha to avoid an ugly transition, since no color means
     // black with 0 alpha
-    @include _shadows(inset 0 1px transparentize(white, 1), $_button_edge);
   }
 
   @else if $t==insensitive-active {
@@ -242,7 +241,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-image: image($_bg);
     // white with 0 alpha to avoid an ugly transition, since no color means
     // black with 0 alpha
-    @include _shadows(inset 0 1px transparentize(white, 1), $_button_edge);
+    box-shadow: none;
   }
 
   @else if $t==osd {
