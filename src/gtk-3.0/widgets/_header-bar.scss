@@ -38,14 +38,13 @@ headerbar {
   }
 
   /* Darken switchbuttons for headerbars. issue #1588 */
-  &:not(.selection-mode) {
-    stackswitcher button:checked,
-    button:not(.flat).toggle:checked {
-
-      background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
-      border-color: darken($borders_color, 3%);
-      border-top-color: darken($borders_color, 8%);
-    }
+  stackswitcher button:active,
+  stackswitcher button:checked,
+  button:not(.flat).toggle:active,
+  button:not(.flat).toggle:checked {
+    background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
+    border-color: darken($borders_color, 3%);
+    border-top-color: darken($borders_color, 8%);
   }
 
   // squared corners when the window is maximized, tiled, or fullscreen
