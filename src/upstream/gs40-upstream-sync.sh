@@ -108,6 +108,7 @@ files=(
 	checkbox.svg
 	color-pick.svg
 	dash-placeholder.svg
+	workspace-placeholder.svg
 	gnome-shell-start.svg
 	message-indicator-symbolic.svg
 	eye-open-negative-filled-symbolic.svg
