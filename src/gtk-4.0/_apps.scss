@@ -1,4 +1,5 @@
 /* GNOME text editor */
+// NOTE: this styling are not work since it's uses libadwaita
 .org-gnome-TextEditor {
 	page searchbar {
 		background-clip: padding-box;
@@ -7,5 +8,14 @@
 	
 	listview row button {
 		border: 0;
+	}
+}
+
+/* Clapper video player */
+.osdheaderbar {
+	padding: 0; // kill large padding in their custom headerbar styling
+
+	button {
+		&, &:hover, &:disabled { box-shadow: none; } // remove button top hilight
 	}
 }
