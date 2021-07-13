@@ -90,20 +90,39 @@ files=(
 	gnome-shell-sass/widgets/_window-picker.scss
 	gnome-shell-sass/widgets/_workspace-switcher.scss
 	gnome-shell-sass/widgets/_workspace-thumbnails.scss
-  gnome-shell-sass/_colors.scss
-  gnome-shell-sass/_common.scss
-  gnome-shell-sass/COPYING
-  gnome-shell-sass/_drawing.scss
-  gnome-shell-sass/_widgets.scss
-  gnome-shell-sass/gnome-shell-sass.doap
-  gnome-shell-sass/_high-contrast-colors.scss
-  gnome-shell-sass/NEWS
-  gnome-shell-sass/README.md
-  gnome-shell-high-contrast.scss
-  gnome-shell.scss
-  meson.build
-  pad-osd.css
-  README.md
+	calendar-today.svg
+	checkbox-focused.svg
+	checkbox-off-focused.svg
+	checkbox-off.svg
+	checkbox.svg
+	color-pick.svg
+	dash-placeholder.svg
+	message-indicator-symbolic.svg
+	eye-open-negative-filled-symbolic.svg
+	eye-not-looking-symbolic.svg
+	no-events.svg
+	no-notifications.svg
+	pointer-double-click-symbolic.svg
+	pointer-drag-symbolic.svg
+	pointer-primary-click-symbolic.svg
+	pointer-secondary-click-symbolic.svg
+	keyboard-caps-lock-filled-symbolic.svg
+	keyboard-enter-symbolic.svg
+	keyboard-hide-symbolic.svg
+	keyboard-layout-filled-symbolic.svg
+	keyboard-shift-filled-symbolic.svg
+	process-working.svg
+	toggle-off.svg
+	toggle-off-dark.svg
+	toggle-off-hc.svg
+	toggle-on.svg
+	toggle-on-dark.svg
+	toggle-on-hc.svg
+	gnome-shell-high-contrast.scss
+	gnome-shell.scss
+	meson.build
+	pad-osd.css
+	README.md
 )
 
 gresource_files=(
