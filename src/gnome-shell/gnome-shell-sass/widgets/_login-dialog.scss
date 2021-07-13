@@ -73,12 +73,13 @@
   .cancel-button,
   .switch-user-button,
   .login-dialog-session-list-button {
+    color: $osd_fg_color;
     padding: 0;
     border-radius: 99px;
     width: $base_icon_size * 2;
     height: $base_icon_size * 2;
-    border-color: transparentize($bg_color,0.7);
-    background-color: transparentize($bg_color,0.7);
+    border-color: darken($system_bg_color, 3%);
+    background-color: darken($system_bg_color, 3%);
 
     StIcon { icon-size: $base_icon_size; }
   }
