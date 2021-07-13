@@ -68,13 +68,34 @@ theme_sources = [
 foreach theme: themes
   gnome_shell_dir = join_paths(theme['dir'], 'gnome-shell')
 
+  install_subdir(
+    'icons',
+    install_dir: gnome_shell_dir,
+  )
+
   install_data(
     [
+      'calendar-today.svg',
+      'checkbox.svg',
+      'checkbox-dark.svg',
+      'checkbox-focused.svg',
+      'checkbox-focused-dark.svg',
+      'checkbox-off.svg',
+      'checkbox-off-dark.svg',
+      'checkbox-off-focused.svg',
+      'checkbox-off-focused-dark.svg',
+      'dash-placeholder.svg',
+      'gnome-shell-start.svg',
+      'gnome-shell-theme.gresource.xml',
+      'no-events.svg',
+      'no-notifications.svg',
       'pad-osd.css',
+      'process-working.svg',
       'toggle-off.svg',
       'toggle-off-dark.svg',
       'toggle-on.svg',
       'toggle-on-dark.svg',
+      'workspace-placeholder.svg',
     ],
     install_dir: gnome_shell_dir,
   )

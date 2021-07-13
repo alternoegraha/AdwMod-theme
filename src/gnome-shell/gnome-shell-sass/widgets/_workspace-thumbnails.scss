@@ -30,10 +30,15 @@
 
   // drag and drop indicator
   .placeholder {
-    background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
     background-size: contain;
-    @if $shell_ver < 40 and $shell_ver >= 3.36 { height: 24px; }
-    @else { width: 18px; }
+    @if $shell_ver < 40 and $shell_ver >= 3.36 {
+      background-image: url("dash-placeholder.svg");
+      height: 24px; 
+    }
+    @else {
+      background-image: url("workspace-placeholder.svg");
+      width: 18px;
+    }
   }
 }
 
