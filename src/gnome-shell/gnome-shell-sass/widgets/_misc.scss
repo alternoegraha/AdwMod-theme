@@ -11,16 +11,16 @@ $text_color: if($variant == 'light', black, white);
   background-size: contain;
   color: $fg_color;
   border-radius: 99px;
-  border: 2px transparentize($fg_color, 0.25);
   &:hover {
     color: $text_color;
   }
 
   & StIcon {
-    background-color: transparentize($base_color, 0.10);
+    background-color: if($variant == 'light', $base_color, darken($base_color, 4%));
     border-radius: 99px;
+    box-shadow: 0 0 0 1px transparentize($text_color, 0.85);
     
-    padding: 14px;
+    padding: 16px;
     width: $base_icon_size * 2.5; height:  $base_icon_size * 2.5; // 40px;
   }
   
