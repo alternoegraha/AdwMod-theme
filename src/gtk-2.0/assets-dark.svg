@@ -17,6 +17,30 @@
   <defs
      id="defs3034">
     <linearGradient
+       id="linearGradient1784"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#373737;stop-opacity:1"
+         offset="0"
+         id="stop1780" />
+      <stop
+         style="stop-color:#2d2d2d;stop-opacity:1"
+         offset="1"
+         id="stop1782" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1778"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#424242;stop-opacity:1"
+         offset="0"
+         id="stop1774" />
+      <stop
+         style="stop-color:#373737;stop-opacity:1"
+         offset="1"
+         id="stop1776" />
+    </linearGradient>
+    <linearGradient
        inkscape:collect="always"
        id="linearGradient17962">
       <stop
@@ -65,18 +89,6 @@
          id="stop2845" />
     </linearGradient>
     <linearGradient
-       id="linearGradient1765"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#3c3c3c;stop-opacity:1"
-         offset="0"
-         id="stop1761" />
-      <stop
-         style="stop-color:#373737;stop-opacity:1"
-         offset="1"
-         id="stop1763" />
-    </linearGradient>
-    <linearGradient
        id="linearGradient1611"
        inkscape:collect="always">
       <stop
@@ -95,18 +107,6 @@
          id="stop1609"
          offset="1"
          style="stop-color:#070707;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient1601"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#323232;stop-opacity:1"
-         offset="0"
-         id="stop1597" />
-      <stop
-         style="stop-color:#303030;stop-opacity:1"
-         offset="1"
-         id="stop1599" />
     </linearGradient>
     <linearGradient
        id="linearGradient1574"
@@ -156,23 +156,23 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1765"
+       xlink:href="#linearGradient1778"
        id="linearGradient5403"
        gradientUnits="userSpaceOnUse"
        x1="5"
        y1="2"
        x2="5"
-       y2="30" />
+       y2="28" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1601"
+       xlink:href="#linearGradient1784"
        id="linearGradient5405"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(10)"
        x1="5"
-       y1="28"
+       y1="2"
        x2="5"
-       y2="30" />
+       y2="28" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath6964">
@@ -213,22 +213,22 @@
        y2="82.123726" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1765"
+       xlink:href="#linearGradient1778"
        id="linearGradient7055"
        gradientUnits="userSpaceOnUse"
        x1="5"
        y1="2"
        x2="5"
-       y2="30" />
+       y2="28" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1601"
+       xlink:href="#linearGradient1784"
        id="linearGradient7105"
        gradientUnits="userSpaceOnUse"
        x1="5"
-       y1="28"
+       y1="2"
        x2="5"
-       y2="30"
+       y2="28"
        gradientTransform="translate(35,125)" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -242,23 +242,23 @@
     </clipPath>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1765"
+       xlink:href="#linearGradient1778"
        id="linearGradient7426"
        gradientUnits="userSpaceOnUse"
        x1="5"
        y1="2"
        x2="5"
-       y2="30" />
+       y2="28" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1601"
+       xlink:href="#linearGradient1784"
        id="linearGradient7430"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(35,125)"
        x1="5"
-       y1="28"
+       y1="2"
        x2="5"
-       y2="30" />
+       y2="28" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6819"
@@ -684,9 +684,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6589639"
-     inkscape:cx="113.00655"
-     inkscape:cy="96.572449"
+     inkscape:zoom="1"
+     inkscape:cx="124"
+     inkscape:cy="256"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
@@ -694,7 +694,7 @@
      inkscape:snap-global="true"
      inkscape:snap-nodes="true"
      inkscape:window-width="1366"
-     inkscape:window-height="643"
+     inkscape:window-height="659"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
@@ -2845,7 +2845,7 @@
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="cssssc" />
         <path
-           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7426);fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7426);fill-opacity:1.0;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
            d="m 2,1.5 h 3.5 c 1.662,0 3,1.338 3,3 v 23 c 0,1.662 -1.338,3 -3,3 H 2 Z"
            id="path7360"
            inkscape:connector-curvature="0"
@@ -2948,7 +2948,7 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cssssc" />
       <path
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7430);fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7430);fill-opacity:1.0;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
          d="m 37,126.5 h 3.5 c 1.662,0 3,1.338 3,3 v 23 c 0,1.662 -1.338,3 -3,3 H 37 Z"
          id="path7386"
          inkscape:connector-curvature="0"
