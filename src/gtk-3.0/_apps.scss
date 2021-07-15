@@ -549,7 +549,9 @@ $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%)
 	  	color: $_incognito_fg_color;
 	  }
 
+	  stackswitcher button:active,
 	  stackswitcher button:checked,
+	  button:not(.flat).toggle:active,
 	  button:not(.flat).toggle:checked {
 	    background: if($variant == 'light', image(darken($_incognito_bg_color, 17%)), image(darken($_incognito_bg_color, 9%)));
 	    border-color: darken($_incognito_borders_color, 3%);
@@ -557,6 +559,7 @@ $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%)
 	  }
 
 	  entry {
+	  	background-color: transparentize($base_color, 0.1);
 	  	border-color: $_incognito_borders_color;
 
 	  	&:focus { border-color: $selected_bg_color; }
