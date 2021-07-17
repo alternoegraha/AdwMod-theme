@@ -4,6 +4,7 @@ $osd_levelbar_height:8px;
 
 .osd-window {
   @extend %osd_panel;
+  @if $shell_ver >= 40 { border: 1px solid $osd_outer_borders_color; }
   text-align: center;
   font-weight: bold;
   spacing: $base_spacing * 2; // 12px
