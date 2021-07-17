@@ -61,7 +61,7 @@ $app_grid_fg_color: #fff;
     background-color: transparentize($osd_bg_color, 0.8);
   } 
   @if $shell_ver >= 40 {
-    background-color: darken($system_bg_color, 3%)
+    background-color: darken($system_bg_color, 3%);
   }
   border-radius: $base_border_radius + 4px; // same as %icon_tile
 }
