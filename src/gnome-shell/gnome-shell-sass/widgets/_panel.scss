@@ -17,7 +17,7 @@ $panel_transition_duration: 250ms;
   @if $shell_ver >= 40 {
     transition-duration: $panel_transition_duration;
 
-    &:overview { background-color: transparent; }
+    &:overview { background-color: transparentize(black, 0.6); }
   }
 
   // transparent panel on lock & login screens
