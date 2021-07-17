@@ -22,6 +22,7 @@
     
     .workspace-thumbnail {
       @extend %overview_panel;
+      border: 1px solid $osd_outer_borders_color;
       border-radius: 3px;
     }
   }
