@@ -471,7 +471,9 @@ $_default_button_c: lighten($bg_color,2%);
                                     image(lighten($c, 5%)));
     border-color: $_border_color;
     border-bottom-color: darken($_border_color, 5%);
-    box-shadow: 0 1px transparentize(black, 0.9);
+    box-shadow: 0 1px transparentize(black, 0.9), 
+                inset 0 1px if($checked , transparentize(white, 0.85),
+                            if($variant == 'light', transparent, transparentize(white, 0.95)));
     color: $tc;
     -gtk-icon-shadow: 0 1px transparentize(black, 0.85);
   }
