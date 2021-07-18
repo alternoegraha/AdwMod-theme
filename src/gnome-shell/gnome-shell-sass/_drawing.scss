@@ -132,7 +132,7 @@
   $hilight_color: draw_button_hilight_color($c);
   $button_edge: if($edge == none, none, draw_widget_edge($edge));
   $blank_edge: if($edge == none, none, draw_widget_edge(transparentize($edge,1)));
-  $button_shadow: if($shadow == none, none, 0 1px 1px 0 $shadow);
+  $button_shadow: if($shadow == none, none, 0 1px rgba(black, 0.1));
 
   // normal button
   @if $t==normal {
