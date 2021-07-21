@@ -41,5 +41,5 @@ messagedialog { // Message Dialog styling
 
 // non-CSD message dialog tweaks
 dialog:not(messagedialog) {
-  buttonbox, .dialog-action-area { margin: 8px; }
+  buttonbox, .dialog-action-area { margin: 6px; }
 }
