@@ -364,15 +364,19 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 
 			.view {
 				background-color: $sidebar_bg_color;
+				color: $fg_color;
 
-				&:hover { background: $view_hover_color; }
+				&:hover {
+					background: $view_hover_color;
+					color: $text_color;
+				}
 
 				&:active,
 				&:selected {
 					background: $view_selected_color;
 					&:hover { background: $view_selected_hover_color; }
 
-					color: inherit;
+					color: $text_color;
 				}
 			}
 		}
