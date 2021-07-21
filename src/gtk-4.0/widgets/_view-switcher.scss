@@ -16,7 +16,7 @@ viewswitcher {
         padding-top: if($_sizevariant == 'default', 7px, 4px);
         padding-bottom: if($_sizevariant == 'default', 5px, 2px);
 
-        label {
+        > stack > label {
           padding-left: 8px;
           padding-right: 8px;
         }
@@ -25,7 +25,7 @@ viewswitcher {
       &.wide {
         padding: if($_sizevariant == 'default', 8px, 3px) 12px;
 
-        label {
+        > stack > label {
           &:dir(ltr) {
             padding-right: 7px;
           }
@@ -66,15 +66,33 @@ viewswitchertitle viewswitcher {
  *******************/
 
 indicatorbin {
-  > indicator { margin: 1px; }
-  > mask { padding: 1px; }
-
   > indicator, > mask {
-    $_indicator_color: #3584e4;
-
-    background: $_indicator_color;
     min-width: 6px;
     min-height: 6px;
-    border-radius: 100%;
+    border-radius: 100px;
+  }
+
+  > indicator {
+    margin: 1px;
+    background: gtkalpha(currentColor, .4);
+
+    > label {
+      font-size: 0.6rem;
+      font-weight: bold;
+      padding: 1px 4px;
+      color: white;
+      font-feature-settings: "tnum";
+    }
+  }
+
+  > mask {
+    padding: 1px;
+    background: black;
+  }
+
+  &.needs-attention > indicator {
+    background: $selected_bg_color;
+
+    > label { color: $selected_fg_color; }
   }
 }
