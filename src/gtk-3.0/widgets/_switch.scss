@@ -30,8 +30,8 @@ switch {
   }
 
   slider {
-    min-width: if($_sizevariant == 'default', 22px, 20px);
-    min-height: if($_sizevariant == 'default', 22px, 20px);
+    min-width: $_switch_height;
+    min-height: $_switch_height;
     border-radius: 50%;
     transition: $button_transition;
     -gtk-outline-radius: 20px;
