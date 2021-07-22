@@ -100,3 +100,9 @@ $base_solid_view_hover_color: mix($base_color, $text_color, 93%);
 $base_solid_view_selected_color: mix($base_color, $text_color, 90%);
 $base_solid_view_selected_hover_color: mix($base_color, $text_color, 90%);
 $base_solid_view_active_color: mix($base_color, black, 85%);
+
+// standalone panel colors
+$panel_bg_color: darken(desaturate($dark_3, 100%), 4%);
+$panel_fg_color: #eeeeec;
+$panel_text_color: white;
+$panel_borders_color: darken($panel_bg_color, 10%);
