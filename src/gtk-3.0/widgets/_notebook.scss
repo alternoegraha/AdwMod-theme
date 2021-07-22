@@ -125,9 +125,9 @@ notebook {
     }
 
     tab {
-      min-height: if($_sizevariant == 'default', 30px, 28px);
-      min-width: if($_sizevariant == 'default', 30px, 28px);
-      padding: if($_sizevariant == 'default', 3px 12px, 1px 10px);
+      min-height: $_notebook_height;
+      min-width: $_notebook_height;
+      padding: $_notebook_pad;
 
       outline-offset: -5px;
 
