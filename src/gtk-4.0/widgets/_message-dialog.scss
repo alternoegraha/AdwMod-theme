@@ -25,15 +25,15 @@ window.dialog.message {
     }
 
     .dialog-action-area {
-      border-top: 1px solid $borders_color;
       margin: 0;
       border-spacing: 0;
 
       > button {
-        padding: if($_sizevariant == 'default', 10px 14px, 6px 8px); // labels are not vertically centered on message dialog, this is a workaround
+        padding: $_msgdialog_btn_pad; // labels are not vertically centered on message dialog, this is a workaround
         border-radius: 0;
-        border: none;
-        border-left: 1px solid $borders_color;
+        border-left-style: solid;
+        border-right-style: none;
+        border-bottom-style: none;
 
         &:first-child {
           border-bottom-left-radius: $window_radius+1;
