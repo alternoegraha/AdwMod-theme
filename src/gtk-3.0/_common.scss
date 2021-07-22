@@ -20,7 +20,14 @@ $_hb_btn_pad: if($_sizevariant=='default', 6px, 5px);
 $_img_btn_pad: if($_sizevariant=='default', 5px, 2px);
 $_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
 $_circ_btn_pad: if($_sizevariant=='default', 4px, 2px 6px);
-$_switch_margin: if($_sizevariant=='default', 10px, 7px);
+$_switch_margin: if($_sizevariant=='default', 10px, 8px);
+
+$_emoji_btn_height: if($_sizevariant == 'default', 32px, 28px);
+$_msgdialog_btn_pad: if($_sizevariant == 'default', 10px 14px, 6px 8px);
+$_notebook_height: if($_sizevariant == 'default', 30px, 28px);
+$_notebook_pad: if($_sizevariant == 'default', 3px 12px, 1px 10px);
+$_placessidebar_height: if($_sizevariant == 'default', 36px, 30px);
+$_switch_height: if($_sizevariant == 'default', 22px, 20px);
 
 * {
   padding: 0;
