@@ -53,8 +53,8 @@ separator.sidebar {
   }
 
   > row {
-    min-height: if($_sizevariant == 'default', 36px, 30px);
-    padding: if($_sizevariant == 'default', 0 8px, 0 4px);
+    min-height: $_nav_sidebar_height;
+    padding: $_nav_sidebar_pad;
     border-radius: $menu_radius;
     margin: 0 $menu_margin 2px;
   }
