@@ -393,7 +393,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 %budgie_dialog_button {
 	.linked.horizontal > button { // same as GTK 3 message dialog
-		padding: if($_sizevariant == 'default', 10px 14px, 6px 8px);
+		padding: $_msgdialog_btn_pad;
 		border-radius: 0;
 		border-left-style: solid;
 		border-right-style: none;
