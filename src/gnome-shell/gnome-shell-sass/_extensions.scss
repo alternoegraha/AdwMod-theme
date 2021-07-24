@@ -4,30 +4,30 @@
 	@if $shell_ver < 40 and $shell_ver >= 3.36 {
 		&.left, &.right {
 			#dash {
-				padding: $base_margin+4 0;
+				padding: $dash_padding 0;
 			}
 
 			.dash-item-container > StWidget {
-				padding: 0 $base_margin+4;
+				padding: 0 $dash_padding;
 			}
 		}
 
 		&.top, &.bottom {
 			#dash {
-				padding: 0 $base_margin+4;
+				padding: 0 $dash_padding;
 			}
 
 			.dash-item-container > StWidget {
-				padding: $base_margin+4 0;
+				padding: $dash_padding 0;
 			}
 		}
 
 		&.extended #dash {
-				border: 0;
-				margin: 0;
-			}
-
+			border: 0;
+			margin: 0;
+		}
 	}
+
 	// 40
 	@else {
 		#dash {

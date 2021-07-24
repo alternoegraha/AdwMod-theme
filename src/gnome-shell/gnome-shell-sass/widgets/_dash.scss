@@ -12,7 +12,7 @@ $dash_border_radius: $base_border_radius + 3;
 
   @if $shell_ver <= 3.38 { // 3.38 and 3.36
     @extend %overview_panel;
-    padding: ($dash_padding / 2)*2 0;
+    padding: $dash_padding 0;
 
     border-radius: 0 $dash_border_radius $dash_border_radius 0; 
     border-left-width: 0;
