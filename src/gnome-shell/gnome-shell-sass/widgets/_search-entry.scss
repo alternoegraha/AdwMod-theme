@@ -6,11 +6,15 @@ $search_entry_height: 36px;
 %search_entry,
 .search-entry {
   width: $search_entry_width;
-  padding: 1px $base_padding+3;
+  padding: 2px $base_padding+4;
   border-radius: $search_entry_height * 0.5; // half the height
-  color: transparentize($fg_color,0.3);
-  background-color: $bg_color;
-  border-color: $borders_color;
+  color: transparentize(white, 0.3);
+  background-color: transparentize(white, 0.9);
+  border: 0;
+
+  StLabel.hint-text {
+    color: transparentize(white, 0.3);
+  }
 
   @if $shell_ver >= 40 {
     margin-top: $base_icon_size / 2;
@@ -18,9 +22,9 @@ $search_entry_height: 36px;
   }
 
   &:hover {
-    background-color: $hover_bg_color;
-    border-color: $hover_borders_color;
-    color: $hover_fg_color;
+    background-color: transparentize(white, 0.85);
+    border-color: transparent;
+    color: white;
   }
 
   &:focus {
@@ -28,7 +32,7 @@ $search_entry_height: 36px;
     border-width: 2px;
     border-style: solid;
     border-color: $selected_bg_color;
-    color: $fg_color;
+    color: white;
     box-shadow: none;
   }
 
