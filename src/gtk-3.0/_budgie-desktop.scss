@@ -56,6 +56,17 @@ $_invert_active_color: transparentize(white, .85);
 	> box > widget > separator {
 		background-color: transparentize($_budgie_panel_fg, 0.77);
 	}
+
+	// re-introduce icon spacing hacks but make it only changed if 'stylize end region' is enabled
+	.end-region {
+		> widget > widget > image { // night light, notifications and user indicator
+			padding: 0 $_budgie_panel_btn_pad;
+		}
+
+		.budgie-network-applet > widget > box { // budgie-network-applet
+			padding: 0 $_budgie_panel_btn_pad;
+		}
+	}
 }
 
 // dock mode theming
@@ -125,6 +136,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 	.#{$_tasklist_pos} box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 		border-radius: $window_radius - 2;
 		transition: $button_transition;
+		padding: 0;
 
 		&:checked {
 			&.running {
