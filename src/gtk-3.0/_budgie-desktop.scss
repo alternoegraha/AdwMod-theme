@@ -700,19 +700,34 @@ widget > box.workspace-switcher {
 		border: none;
 	}
 
+	// add (+) button
+	> revealer > button.image-button.workspace-add-button {
+		background: none;
+		min-width: 0;
+		border: 1px solid transparent;
+		background-clip: padding-box;
+
+		&:hover { background-color: $_invert_hover_color; }
+
+		&:active, &:checked { background-color: $_invert_active_color; }
+	}
+
 	widget.workspace-item {
-		label { padding-top: 2px; }
-		
-		label.workspace-more-label { color: $_budgie_panel_fg; }
+		label {
+			padding-top: 2px;
+
+			&, &.workspace-more-label { color: $_budgie_panel_fg; }
+		}
 
 		background-clip: padding-box;
-		border-width: 0;
+		border-width: 1px 0 0;
 		border-style: solid;
 		border-color: transparent;
 
 		&:first-child { border-right-width: 1px; }
 
 		button.workspace-icon-button {
+			padding: 0;
 			&:hover, &:active { box-shadow: none; }
 		}
 	}
@@ -723,7 +738,9 @@ widget > box.workspace-switcher {
 			background-color: transparentize($_budgie_panel_fg, 0.8);
 		}
 
-		label.workspace-more-label { color: $fg_color; }
+		label {
+			&, &.workspace-more-label { color: $_budgie_panel_fg; }
+		}
 	}
 }
 
