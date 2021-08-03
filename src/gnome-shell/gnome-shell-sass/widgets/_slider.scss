@@ -5,9 +5,9 @@ $slider_size: 16px;
 .slider {
   height: $slider_size;
   // slider trough
-  -barlevel-height: 4px; // has to be an odd number
+  -barlevel-height: 5px; // has to be an odd number
   -barlevel-background-color: $trough_color; //background of the trough
-  -barlevel-border-width: 0px; 
+  -barlevel-border-width: 0px;
   -barlevel-border-color: $trough_color; // trough border color
   // fill style
   -barlevel-active-background-color: $selected_bg_color; //active trough fill
