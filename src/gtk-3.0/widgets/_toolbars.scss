@@ -3,14 +3,14 @@
  ************/
 %toolbar {
   -GtkWidget-window-dragging: true;
-  padding: 4px;
+  padding: if($_sizevariant == 'default', 4px, 2px);
   background-color: $bg_color;
 }
 
 toolbar {
   @extend %toolbar;
 
-  padding: 4px 3px 3px 4px;
+  padding: if($_sizevariant == 'default', 4px 3px 3px 4px, 2px 1px 1px 2px);
 
   // on OSD
   .osd & { background-color: transparent; }
@@ -29,8 +29,8 @@ toolbar {
   }
 
   // toolbar separators
-  &.horizontal separator { margin: 0 7px 1px 6px; }
-  &.vertical separator { margin: 6px 1px 7px 0; }
+  &.horizontal separator { margin: if($_sizevariant == 'default', 0 7px 1px 6px, 0 5px 1px 4px); }
+  &.vertical separator { margin: if($_sizevariant == 'default', 6px 1px 7px 0, 4px 1px 5px 0); }
 
   &:not(.inline-toolbar):not(.osd) {
     // workaround: add margins to the children of tool items to simulate
@@ -49,7 +49,7 @@ toolbar {
 
   @extend %darkbar;
 
-  padding: 3px;
+  padding: if($_sizevariant == 'default', 3px, 1px);;
   border-width: 0 1px 1px;
   border-radius: 0  0 5px 5px;
 }
