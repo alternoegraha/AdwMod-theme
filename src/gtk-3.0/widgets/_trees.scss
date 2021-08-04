@@ -21,9 +21,17 @@ treeview.view {
 
   rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
 
+  &:hover {
+    color: $text_color;
+    background-color: $view_hover_color;
+  }
+
   &:selected {
     &:focus, & {
       border-radius: 0;
+
+      color: $text_color;
+      background-color: $view_selected_color;
     }
   }
 

@@ -10,7 +10,7 @@
 
   &:selected {
     &:focus, & {
-      background-color: $view_selected_color;
+      @extend %selected_items;
 
       border-radius: 3px;
     }
