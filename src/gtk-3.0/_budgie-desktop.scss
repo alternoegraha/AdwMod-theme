@@ -110,6 +110,9 @@ $_dock_borders: transparentize(white, 0.84);
 	}
 }
 
+// budgie-clock-applet
+.budgie-clock-applet { font-feature-settings: "tnum"; } // use tabular number style
+
 // 10.5x icon task list
 box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 	&:hover,
