@@ -570,21 +570,23 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
 	}
 
 	#panel_window {
-		color: $fg_color;
+		color: $panel_fg_color;
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 
-		border-bottom: 1px solid if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
-		background-color: if($variant == 'light', transparentize($bg_color, 0.2), transparentize($bg_color, 0.05));
-		background-clip: padding-box;
+		border: none;
+		background-color: transparentize(black, 0.2);
 
 		menubar {
-			&:disabled { 
-				label, image { color: $insensitive_fg_color; }
+			&:disabled {
+				label, image { opacity: 0.5; }
 			}
 		}
 
-		label { padding: 0 8px; } // clock applet/hostname applet
+		label { // clock applet/hostname applet
+			padding: 0 8px;
+			font-feature-settings: "tnum";
+		}
 	}
 }
 
