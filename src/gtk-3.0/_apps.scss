@@ -1,12 +1,3 @@
-%_nautilus_canvas_item {
-	border-radius: 5px;
-
-	&:selected {
-		background-color: $base_solid_view_selected_color;
-		color: $text_color;
-	}
-}
-
 // Tasklist button for MATE and Xfce4
 %_tasklist_button {
 	background-color: gtkalpha(currentColor, .1);
@@ -70,14 +61,11 @@ $_nautilus_disclosure_btn_pad: if($_sizevariant == 'default', 4px, 2px);
   	padding-right: $_nautilus_disclosure_btn_pad;
 	}
 
-
-	.nautilus-canvas-item {
-		@extend %_nautilus_canvas_item;
-	}
-
 	.nautilus-canvas-item.dim-label,
 	.nautilus-list-dim-label {
 		color: mix($fg_color, $bg_color, 50%);
+
+		&:selected { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 	}
 
 	entry.search > * {
@@ -478,13 +466,11 @@ $_storagebar_bg: mix($fg_color, $bg_color, 35%);
     &:selected { &:focus, & { @extend %selected_items; }}
   }
 
-	.nemo-canvas-item {
-		@extend %_nautilus_canvas_item;
-	}
-
   .nemo-canvas-item.dim-label,
 	.nemo-dim-list-label {
 		color: mix($fg_color, $bg_color, 50%);
+
+		&:selected { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 	}
 
 	toolbar.horizontal.primary-toolbar { 
