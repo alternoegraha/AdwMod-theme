@@ -734,13 +734,3 @@ window.background.chromium {
 		color: $selected_fg_color;
 	}
 }
-
-/**** Firefox ****/
-#MozillaGtkWidget {
-	// FIXME since Firefox Proton, check/radio will lose it's contrast on dark variant
-	// because HTML form widgets UI now uses Firefox's own widget theming
-	selection {
-		background-color: $selected_bg_color;
-		color: $selected_fg_color;
-	}
-}
