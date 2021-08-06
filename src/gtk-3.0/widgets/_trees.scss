@@ -33,6 +33,8 @@ treeview.view {
       color: $text_color;
       background-color: $view_selected_color;
     }
+
+    &:disabled { color: gtkalpha($text_color, .55); }
   }
 
   &.separator {
