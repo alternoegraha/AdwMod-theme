@@ -13,5 +13,4 @@ $_sizevariant: "@_sizevariant@";
 @import 'drawing';
 @import 'common';
 @import 'apps';
-@import 'budgie-desktop';
 @import 'colors-public';

@@ -1,0 +1,48 @@
+/**** LightDM Gtk Greeter/Xfce4-screensaver ****/
+.lightdm-gtk-greeter {
+	#login_window,
+  #restart_dialog,
+  #shutdown_dialog {
+  	padding: 0;
+  	border-color: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
+  	background-clip: padding-box;
+  	box-shadow: inset 0 1px $borders_edge;
+
+  	font-size: 100%; // fix small font size in shutdown/restart dialog
+  }
+
+  #login_window {
+  	button.combo {
+  		padding: 2px 0;
+  		@include button(undecorated);
+  		font-size: 13pt;
+  		font-weight: bold;
+
+  		&:hover { color: $text_color; }
+  	}
+
+  	infobar {
+  		margin: 6px 1px;
+  	}
+	}
+
+	#panel_window {
+		color: $panel_fg_color;
+		text-shadow: none;
+		-gtk-icon-shadow: none;
+
+		border: none;
+		background-color: transparentize(black, 0.2);
+
+		menubar {
+			&:disabled {
+				label, image { opacity: 0.5; }
+			}
+		}
+
+		label { // clock applet/hostname applet
+			padding: 0 8px;
+			font-feature-settings: "tnum";
+		}
+	}
+}

@@ -4,6 +4,16 @@ gtk_versions = [
 
 # Dependencies of the files that need to be compiled
 gtk3_scss_dependencies = [
+  'apps/_budgie-desktop.scss',
+  'apps/_chromium.scss',
+  'apps/_epiphany.scss',
+  'apps/_gedit.scss',
+  'apps/_libhandy-legacy.scss',
+  'apps/_lightdm-gtk-greeter.scss',
+  'apps/_mate.scss',
+  'apps/_nautilus.scss',
+  'apps/_nemo.scss',
+  'apps/_xfce.scss',
   'widgets/_buttons.scss',
   'widgets/_calendar.scss',
   'widgets/_checks.scss',
@@ -46,7 +56,6 @@ gtk3_scss_dependencies = [
   '_colors.scss',
   '_common.scss',
   '_apps.scss',
-  '_budgie-desktop.scss',
   '_drawing.scss',
   '_widgets.scss',
 ]

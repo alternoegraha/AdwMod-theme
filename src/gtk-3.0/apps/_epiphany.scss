@@ -1,0 +1,136 @@
+/**** Epiphany ****/
+// based on upstream code:
+// https://gitlab.gnome.org/GNOME/epiphany/-/blob/master/src/resources/themes/_Adwaita-colored-window.scss
+
+// color defs
+$incognito_color: if($variant == 'light', #d7e3f0, #1c2438);
+
+$_incognito_base_color: lighten($incognito_color, 5%);
+$_incognito_bg_color: lighten($incognito_color, 5%);
+$_incognito_fg_color: hsl(hue($_incognito_base_color), saturation($_incognito_base_color), lightness($fg_color));
+
+$_incognito_borders_color: if($variant == 'light', darken($_incognito_bg_color, 18%), darken($_incognito_bg_color, 10%));
+$_incognito_alt_borders: if($variant == 'light', darken($_incognito_bg_color, 24%), darken($_incognito_bg_color, 18%));
+$_incognito_dark_fill: mix($_incognito_borders_color, $_incognito_bg_color, 50%);
+
+$_incognito_backdrop_borders: mix($_incognito_borders_color, $_incognito_bg_color, 80%);
+
+$_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%));
+
+.incognito-mode {
+  // incognito mode headerbar
+	headerbar {
+		@include headerbar_fill(darken($_incognito_bg_color, 10%));
+		border-color: $_incognito_alt_borders;
+
+		> clamp { color: $_incognito_fg_color; }
+
+		&:backdrop {
+	    background-image: image($_incognito_bg_color);
+	    border-color: $_incognito_backdrop_borders;
+	  }
+
+	  > * {
+	  	color: $_incognito_fg_color;
+	  }
+
+	  stackswitcher button:active,
+	  stackswitcher button:checked,
+	  button:not(.flat).toggle:active,
+	  button:not(.flat).toggle:checked {
+	    background: if($variant == 'light', image(darken($_incognito_bg_color, 17%)), image(darken($_incognito_bg_color, 9%)));
+	    border-color: darken($_incognito_borders_color, 3%);
+	    border-top-color: darken($_incognito_borders_color, 8%);
+	  }
+
+	  entry {
+	  	background-color: transparentize($base_color, 0.1);
+	  	border-color: $_incognito_borders_color;
+
+	  	&:focus { border-color: $selected_bg_color; }
+	  }
+	}
+
+  // action bar (bottom toolbar, visible when in adaptive mode)
+	actionbar {
+  	background: $_incognito_bg_color;
+
+  	> revealer > box {
+    	border-color: $_incognito_borders_color;
+  	}
+
+  	&:backdrop {
+    	> revealer > box {
+      	border-color: $_incognito_backdrop_borders;
+    	}
+  	}
+	}
+
+	headerbar, actionbar {
+		button {
+	    @include button(incognito-normal, $_incognito_bg_color);
+
+	    &.flat, &.titlebutton { @include button(undecorated); }
+
+	    &:hover {
+	    	@include button(incognito-hover, $_incognito_bg_color);
+	    }
+
+	    &:active, &:checked {
+	    	@include button(incognito-active, $_incognito_bg_color);
+	    }
+
+	    &:disabled {
+	    	@include button(insensitive, $_incognito_bg_color);
+	    	border-color: $_incognito_borders_color;
+	    }
+	  }
+	}
+
+  // hdytabbar
+	tabbar {
+  	.box {
+    	background: darken($_incognito_tab_bg, 3%);
+    	border-bottom: 1px solid $_incognito_alt_borders;
+  	}
+
+  	scrolledwindow.pinned {
+    	undershoot {
+      	border-color: $_incognito_alt_borders;
+    	}
+
+    	tabbox {
+      	&:dir(ltr) {
+        	box-shadow: inset -1px 0 $_incognito_alt_borders;
+      	}
+
+      	&:dir(rtl) {
+        	box-shadow: inset 1px 0 $_incognito_alt_borders;
+      	}
+    	}
+  	}
+
+  	tab {
+    	border-color: $_incognito_alt_borders;
+    	background-color: $_incognito_tab_bg;
+
+    	&:checked {
+      	background-color: lighten($_incognito_tab_bg, 6%);
+
+      	&:hover {
+        	background-color: lighten($_incognito_tab_bg, 9%);
+      	}
+    	}
+
+    	&:hover {
+      	background-color: lighten($_incognito_tab_bg, 3%);
+    	}
+    }
+
+    .start-action,
+  	.end-action {
+    	background: $_incognito_tab_bg;
+    	border-color: $_incognito_alt_borders;
+  	}
+  }
+}

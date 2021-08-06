@@ -1,0 +1,27 @@
+/**** Gedit ****/
+.gedit-document-panel {
+	background-color: $sidebar_bg_color;
+}
+
+.gedit-bottom-panel-paned ~ statusbar {
+	border-top: 1px solid $borders_color;
+}
+
+.gedit-search-slider {
+	background-color: $base_color;
+	padding: 6px;
+	background-clip: padding-box;
+	border-color: if($variant == 'light', transparentize(black, 0.77), transparentize(black, 0.25));
+	border-radius: 0 0 5px 5px;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+}
+
+.gedit-search-entry-occurrences-tag {
+	background-color: $base_color;
+	background-image: none;
+	color: transparentize($fg_color, 0.5);
+	border: 0px;
+	margin: 2px;
+	padding: 2px;
+}

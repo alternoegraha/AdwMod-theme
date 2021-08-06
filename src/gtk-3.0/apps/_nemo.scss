@@ -1,0 +1,104 @@
+/**** Nemo FM ****/
+$_storagebar_bg: mix($fg_color, $bg_color, 35%);
+
+.nemo-window {
+	.sidebar {
+		scrolledwindow.frame { 
+			border: none;
+
+			.view {
+				background-color: $sidebar_bg_color;
+				color: $fg_color;
+
+				&:hover {
+					background-color: $view_hover_color;
+					color: $text_color;
+				}
+
+				&:active,
+				&:selected {
+					background-color: $view_selected_color;
+					&:hover { background: $view_selected_hover_color; }
+
+					color: $text_color;
+				}
+			}
+		}
+		
+		.places-treeview {
+			-NemoPlacesTreeView-disk-full-bg-color: $_storagebar_bg;
+    	-NemoPlacesTreeView-disk-full-fg-color: $fg_color;
+    	-GtkTreeView-vertical-separator: 8;
+		}
+	}
+
+	.nemo-window-pane widget.entry {
+    border: 0;
+    border-radius: $button_radius;
+    background-color: $base_color;
+
+    @include entry(focus);
+
+    &:selected { &:focus, & { @extend %selected_items; }}
+  }
+
+  .nemo-canvas-item.dim-label,
+	.nemo-dim-list-label {
+		color: mix($fg_color, $bg_color, 50%);
+
+		&:selected { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+	}
+
+	toolbar.horizontal.primary-toolbar { 
+		border-bottom: 1px solid $borders_color;
+		padding: 4px;
+		padding-top: 5px;
+		&:dir(ltr) { padding-left: 5px; }
+		&:dir(rtl) { padding-right: 5px; }
+
+		toolitem box widget * {
+			min-height: 0;
+			min-width: 0;
+		}
+
+		.linked button { margin-right: 0; }
+	}
+
+	grid.vertical > widget {
+		> box { 
+			padding: 0;
+			margin: -2px -4px;
+		}
+
+		box-shadow: 0 -1px $borders_color;
+		button { 
+			@extend %button_basic_flat;
+
+			padding: 0 7px;
+			min-width: 0;
+
+			margin: 4px;
+		}
+	}
+
+	.floating-bar {
+		padding: 1px;
+		background-color: $base_color;
+		border-width: 1px;
+		border-style: solid solid none;
+		border-color: $borders_color;
+		border-radius: 3px 3px 0 0;
+		
+		&.bottom.left {
+			border-left-style: none;
+			border-top-left-radius: 0;
+		}
+		
+		&.bottom.right {
+			border-right-style: none;
+			border-top-right-radius: 0;
+		}
+		
+		button { padding: 0px; }
+	}
+}

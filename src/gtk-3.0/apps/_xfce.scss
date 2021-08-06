@@ -1,0 +1,107 @@
+/**** xfce4 ****/
+.xfce4-panel {
+	&, &.background {
+		background-color: $panel_bg_color;
+		color: $panel_fg_color;
+		text-shadow: none;
+		-gtk-icon-shadow: none;
+	}
+
+	button {
+		@include button(undecorated);
+		border-radius: $button_radius;
+		border: 0;
+
+		font-weight: 700;
+		font-feature-settings: "tnum";
+
+		color: $panel_fg_color;
+
+		&:hover {
+			background: $view_hover_color;
+			color: $panel_text_color;
+			-gtk-icon-effect: none;
+			transition: none;
+		} 
+
+		&:active, &:checked {
+			background: $view_selected_color;
+			color: $panel_text_color;
+		}
+
+		&#applicationmenu-button,
+		&#clock-button {
+			image, label { padding: 0 4px; }
+		}
+	}
+
+	&.vertical {
+		&#applicationmenu-button,
+		&#clock-button {
+			image, label { padding: 4px 0; }
+		}
+	}
+
+	widget.tasklist > button.toggle {
+		border-width: 1px;
+		border-style: solid;
+		font-weight: normal;
+		transition: none;
+
+		label { padding: 0; }
+
+		@extend %_tasklist_button;
+
+		&.flat { @extend %_flat_tasklist_button; }
+	}
+
+	menu { font-weight: normal; }
+}
+
+// PulseAudio applet
+#pulseaudio-button menu {
+	.linked button {
+		@extend %button_basic;
+		@extend %linked;
+	}
+}
+
+// session dialog
+$xfsm_dialog_borders: if($variant == 'light', transparentize(black, 0.44), $borders_color);
+
+dialog.xfsm-logout-dialog.keycap {
+	background-color: $bg_color;
+	box-shadow: none;
+	border-color: $xfsm_dialog_borders;
+	background-clip: padding-box;
+	border-radius: $window_radius;
+	
+	separator.horizontal { background-color: transparent; }
+}
+
+// xfce4-notifyd
+#XfceNotifyWindow {
+	background-color: $bg_color;
+	color: $fg_color;
+	border-color: if($variant == 'light', transparentize(black, 0.77), $borders_color);
+	background-clip: padding-box;
+	box-shadow: none;
+	border-radius: $window_radius;
+
+	buttonbox { padding: 0; }
+
+	button { 
+		@include button(normal);
+
+		&:hover { @include button(hover); }
+		&:active { @include button(active); }
+		&:disabled { @include button(insensitive); }
+	}
+}
+
+// xfce4-docklike-plugin (davekeogh fork)
+#docklike-plugin {
+	.group {
+		border-radius: 0;
+	}
+}

@@ -1,0 +1,16 @@
+/**** libhandy 0.1 ****/
+@if $_sizevariant == 'compact' {
+	headerbar {
+		hdyviewswitcher {
+			button.radio {
+				box {
+					&.horizontal.wide { margin: -6px 0; }
+
+					&.vertical.narrow { margin: -3px 0; }
+				}
+			}
+
+			label { margin: -2px 0; }
+		}
+	}
+}
