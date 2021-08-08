@@ -25,7 +25,7 @@ switch {
   > slider {
     min-width: $_switch_height;
     min-height: $_switch_height;
-    border-radius: 50%;
+    border-radius: 99px;
     background-color: $slider_color;
     box-shadow: 0 2px 4px transparentize(black, .8);
 
