@@ -23,6 +23,7 @@ headerbar {
   }
 
   &:backdrop {
+    border-color: $borders_color;
     background-image: linear-gradient(to top, $bg_color, $bg_color);
 
     transition: $backdrop_transition;
