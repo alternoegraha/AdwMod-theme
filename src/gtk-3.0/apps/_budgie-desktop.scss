@@ -177,7 +177,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	// Raven borders
 	.#{$pos} frame.raven-frame > border {
 		margin-#{$b_pos}: 32px;
-		box-shadow: $_drop_shadow, 0 0 0 1px $budgie_borders;
+		box-shadow: 0 1px 2px transparentize(black, 0.8), 0 0 0 1px $budgie_borders;
 	}
 }
 
