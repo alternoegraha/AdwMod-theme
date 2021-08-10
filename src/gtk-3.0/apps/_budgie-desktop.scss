@@ -417,8 +417,10 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		box-shadow: none;
 	}
 
-	progressbar trough {
-		background-color: transparentize($osd_text_color, .85);
+	progressbar {
+		trough { background-color: transparentize($osd_text_color, .85); }
+
+		progress { background-color: $osd_fg_color; } // use neutral color
 	}
 }
 
