@@ -9,6 +9,12 @@ $_invert_selected_color: transparentize(white, .9);
 $_invert_selected_hover_color: transparentize(white, .87);
 $_invert_active_color: transparentize(white, .85);
 
+$_drop_shadow:
+	0 1px 3px 3px transparent,
+	0 2px 8px 2px transparentize(black, 0.87),
+	0 3px 20px 10px transparentize(black, 0.91),
+	0 6px 32px 16px transparentize(black, 0.96);
+
 .budgie-container {
 	padding: 0;
 	background-color: transparent;
@@ -171,7 +177,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	// Raven borders
 	.#{$pos} frame.raven-frame > border {
 		margin-#{$b_pos}: 32px;
-		box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $budgie_borders;
+		box-shadow: $_drop_shadow, 0 0 0 1px $budgie_borders;
 	}
 }
 
@@ -355,8 +361,6 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 	.raven-mpris {
 		@extend %osd;
-		border: 1px solid $osd_borders_color;
-		background-clip: padding-box;
 		margin: 6px;
 		margin-bottom: 14px;
 		border-radius: $button_radius;
@@ -397,7 +401,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	padding: 4px;
 	margin: 12px;
 	background-color: $bg_color;
-	box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $budgie_borders;
+	box-shadow: $_drop_shadow, 0 0 0 1px $budgie_borders;
 }
 
 %budgie_dialog {
@@ -484,7 +488,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 			color: $text_color;
 		}
 
-		&:selected { background: $view_selected_color; }
+		&:selected { background-color: $view_selected_color; }
 	}
 
 	&.night-light-indicator {
@@ -678,24 +682,36 @@ stack.icon-popover-stack {
 .background.csd.budgie-run-dialog {
 	@extend %budgie_dialog;
 
-	background-color: $bg_color;
+	background-color: $base_color;
 
 	entry {
 		&, &.search {
 			@include button(undecorated);
 			padding: 6px 12px;
+			min-width: 30em;
+			font-size: 150%;
 		}
 	}
 
 	scrolledwindow {
-		background-color: $base_color;
-		border: 1px solid $borders_color;
-		border-radius: 0;
+		background-color: $bg_color;
+		border-radius: $window_radius;
+		border-top: 1px solid $borders_color;
 
-		margin: 0 5px 5px;
+		// scrollbars
+		// LTR
+		scrollbar.right { border-bottom-right-radius: $window_radius; }
+		// RTL
+		scrollbar.left { border-bottom-left-radius: $window_radius; }
 
 		list {
-			row.activatable .dim-label { opacity: 1.0; }
+			background-color: transparent;
+			padding: 6px;
+
+			row.activatable {
+				border-radius: $button_radius;
+				.dim-label { opacity: 1.0; }
+			}
 		}
 	}
 }
