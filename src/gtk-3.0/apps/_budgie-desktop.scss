@@ -80,8 +80,7 @@ $_drop_shadow:
 $_dock_bg: transparentize(transparentize(darken(desaturate(#3d3846, 100%), 12%),0.04), 0.2);
 $_dock_borders: transparentize(white, 0.84);
 
-@each $_horz_dock_pos, $_horz_corners in (top, bottom)
-																				 (bottom, top) {
+@each $_horz_dock_pos, $_horz_corners in (top, bottom) (bottom, top) {
 	.#{$_horz_dock_pos} .budgie-panel {
 		&.dock-mode {
 			padding: 1px;
@@ -96,8 +95,7 @@ $_dock_borders: transparentize(white, 0.84);
 	}
 }
 
-@each $_vert_dock_pos, $_vert_corners in (left, right)
-																				 (right, left) {
+@each $_vert_dock_pos, $_vert_corners in (left, right) (right, left) {
 	.#{$_vert_dock_pos} .budgie-panel {
 		&.dock-mode {
 			padding: 1px;
@@ -131,12 +129,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 
 	image {
 		-gtk-icon-effect: none;
-		-gtk-icon-shadow:
-			0 1px 12px rgba(0,0,0,0.05),
-			0 -1px rgba(0,0,0,0.05),
-			1px 0 rgba(0,0,0,0.1),
-			0 1px rgba(0,0,0,0.3),
-			-1px 0 rgba(0,0,0,0.1);
+		@extend .lowres-icon;
 	}
 }
 
