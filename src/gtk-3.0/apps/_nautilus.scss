@@ -13,8 +13,7 @@ $_nautilus_disclosure_btn_pad: if($_sizevariant == 'default', 4px, 2px);
   	padding-right: $_nautilus_disclosure_btn_pad;
 	}
 
-	.nautilus-canvas-item.dim-label,
-	.nautilus-list-dim-label {
+	.nautilus-canvas-item.dim-label {
 		color: mix($fg_color, $bg_color, 50%);
 
 		&:selected { color: mix($selected_fg_color, $selected_bg_color, 50%); }
