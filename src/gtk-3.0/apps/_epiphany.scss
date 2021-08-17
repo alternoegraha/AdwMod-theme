@@ -15,6 +15,7 @@ $_incognito_dark_fill: mix($_incognito_borders_color, $_incognito_bg_color, 50%)
 
 $_incognito_backdrop_borders: mix($_incognito_borders_color, $_incognito_bg_color, 80%);
 
+$_incognito_button_color: if($variant == 'light', $_incognito_bg_color, lighten($_incognito_bg_color, 1%));
 $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%));
 
 .incognito-mode {
@@ -68,20 +69,20 @@ $_incognito_tab_bg: darken($_incognito_bg_color, if($variant == 'dark', 6%, 12%)
 
 	headerbar, actionbar {
 		button {
-	    @include button(incognito-normal, $_incognito_bg_color);
+	    @include button(incognito-normal, $_incognito_button_color);
 
 	    &.flat, &.titlebutton { @include button(undecorated); }
 
 	    &:hover {
-	    	@include button(incognito-hover, $_incognito_bg_color);
+	    	@include button(incognito-hover, $_incognito_button_color);
 	    }
 
 	    &:active, &:checked {
-	    	@include button(incognito-active, $_incognito_bg_color);
+	    	@include button(incognito-active, $_incognito_button_color);
 	    }
 
 	    &:disabled {
-	    	@include button(insensitive, $_incognito_bg_color);
+	    	@include button(insensitive, $_incognito_button_color);
 	    	border-color: $_incognito_borders_color;
 	    }
 	  }

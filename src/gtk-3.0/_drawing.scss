@@ -111,7 +111,7 @@
   @else { @return transparentize(white, 0.93); }
 }
 
-$_default_button_c: lighten($bg_color,2%);
+$_default_button_c: if($variant == 'light', $bg_color, lighten($bg_color, 1%));
 @mixin button($t, $c:$_default_button_c, $tc:$fg_color, $edge: none, $backimage: null) {
 //
 // Button drawing function
@@ -132,6 +132,7 @@ $_default_button_c: lighten($bg_color,2%);
   $_hilight_color: _button_hilight_color($c);
   $_button_edge: if($edge == none, none, _widget_edge($edge));
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
+  $_button_hilight: inset 0 1px if($c!=$_default_button_c, transparentize(white, 0.8), $_hilight_color);
   $_button_shadow: 0 1px rgba(black, 0.05);
   $_accent_button_borders: if($variant == 'light', lighten($c, 2%), darken($c, 12%));
 
@@ -146,7 +147,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-image: if($c!=$_default_button_c, linear-gradient(to top, darken($c, 4%) 2px, $c),
                                                  if($variant == 'light', linear-gradient(to top, darken($c, 4%) 2px, $c),
                                                  linear-gradient(to top, darken($c,1%) 2px, lighten($c, 3%)))), $backimage;
-    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
+    @include _shadows($_button_hilight, $_button_edge, $_button_shadow);
   }
 
   @if $t==incognito-normal {
@@ -173,7 +174,7 @@ $_default_button_c: lighten($bg_color,2%);
     background-image: if($c!=$_default_button_c, linear-gradient(to top, darken($c,10%) 2px, darken($c,6%)),
                                                  if($variant == 'light', linear-gradient(to top, darken($c,10%) 2px, darken($c,6%)),
                                                  linear-gradient(to top, darken($c,5%) 2px, darken($c, 1%)))), $backimage;
-    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
+    @include _shadows($_button_hilight, $_button_edge, $_button_shadow);
   }
 
   @if $t==incognito-hover {
@@ -223,6 +224,7 @@ $_default_button_c: lighten($bg_color,2%);
     color: if($tc != $fg_color, mix($tc, $_bg, 50%), $insensitive_fg_color);
     border-color: if($c != $_default_button_c, _border_color($_accent_button_borders, true), $insensitive_borders_color);
     background-image: image($_bg);
+    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
     text-shadow: none;
     -gtk-icon-shadow: none;
     // white with 0 alpha to avoid an ugly transition, since no color means
