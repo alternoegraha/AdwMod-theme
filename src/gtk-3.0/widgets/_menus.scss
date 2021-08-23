@@ -43,13 +43,12 @@ menu,
 .menu,
 .context-menu {
   margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
-  padding: 5px 1px;
+  padding: 4px 0px;
   background-color: $menu_color;
   border: 1px solid $borders_color; // adds borders in a non composited env
 
   .csd & {
-    background-clip: padding-box;
-    border: 1px solid if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
+    border: none;
     border-radius: $menu_radius;
   }
 
@@ -108,8 +107,8 @@ menu,
     }
 
     &.bottom {
-      margin-top: 10px;
-      margin-bottom: -14px;
+      margin-top: 8px;
+      margin-bottom: -12px;
       border-top: 1px solid mix($fg_color, $base_color, 10%);
       border-bottom-right-radius: $menu_radius;
       border-bottom-left-radius: $menu_radius;
