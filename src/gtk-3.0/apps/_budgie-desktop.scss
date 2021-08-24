@@ -469,9 +469,9 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 .top.budgie-popover {
 	&.background {
 		border-radius: $menu_radius + 1;
-		border: 1px solid if($variant=='light', transparentize(black, 0.65), transparentize(black, 0.15));
+		border: 1px solid $_popover_border;
 		background-clip: padding-box;
-		box-shadow: none;
+		box-shadow: 0 1px 2px transparentize(black, 0.8);
 	}
 
 	> frame.container > border { padding: 1px; }
@@ -482,9 +482,9 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		background-color: $popover_bg_color;
 		border-radius: $menu_radius;
 		background-clip: padding-box;
-		border: 0px solid if($variant=='light', transparentize(black, 0.65), transparentize(black, 0.15));
+		border: 0px solid $_popover_border;
 
-		box-shadow: 0 0 0 1px if($variant=='light', transparentize(black, 0.65), transparentize(black, 0.15));
+		box-shadow: 0 0 0 1px transparentize($_popover_border, 0.1), 0 1px 2px 1px transparentize(black, 0.8);
 	}
 
 	> frame.container {
