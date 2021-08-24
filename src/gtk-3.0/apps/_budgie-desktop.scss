@@ -555,6 +555,8 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 		border-right: 0;
 		border-radius: 0;
 
+		image { @extend .lowres-icon; }
+
 		&:hover {
 			background-color: $view_hover_color;
 			color: $text_color;
@@ -728,7 +730,7 @@ stack.icon-popover-stack {
 
 		list {
 			background-color: transparent;
-			padding: 6px;
+			padding: 8px;
 			@extend .lowres-icon; // add drop shadow in icons
 
 			row.activatable {
