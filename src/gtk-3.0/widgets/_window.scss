@@ -62,7 +62,7 @@ decoration {
   .csd.popup & {
     border-radius: $menu_radius;
     box-shadow: 0 1px 2px 1px transparentize(black, 0.8),
-                0 0 0 1px $_wm_border;
+                0 0 0 1px transparentize($_popover_border, 0.1);
   }
 
   tooltip.csd & {

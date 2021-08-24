@@ -29,6 +29,8 @@ $_notebook_pad: if($_sizevariant == 'default', 3px 12px, 1px 10px);
 $_placessidebar_height: if($_sizevariant == 'default', 36px, 30px);
 $_switch_height: if($_sizevariant == 'default', 22px, 20px);
 
+$_popover_border: if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
+
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 4;

@@ -1,7 +1,6 @@
 /***************
  * Popovers   *
  ***************/
-
 popover.background {
   padding: 2px;
   background-color: $popover_bg_color;
@@ -12,8 +11,6 @@ popover.background {
   }
 
   .csd & {
-    $_popover_border: if($variant=='light', transparentize(black, 0.77), transparentize(black, 0.25));
-
     background-clip: padding-box;
     border-color: $_popover_border;
   }
