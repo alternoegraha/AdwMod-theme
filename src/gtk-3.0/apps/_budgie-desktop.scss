@@ -468,7 +468,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 // DIRTYHACK for popover in top panel position
 .top.budgie-popover {
 	&.background {
-		border-radius: $menu_radius + 1;
+		border-radius: $menu_radius;
 		border: 1px solid $_popover_border;
 		background-clip: padding-box;
 		box-shadow: 0 1px 2px transparentize(black, 0.8);
@@ -480,7 +480,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 .budgie-popover {
 	&.background {
 		background-color: $popover_bg_color;
-		border-radius: $menu_radius;
+		border-radius: $menu_radius - 1px;
 		background-clip: padding-box;
 		border: 0px solid $_popover_border;
 
