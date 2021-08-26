@@ -25,6 +25,7 @@ $_drop_shadow:
 	background-color: $_budgie_panel_bg;
 
 	font-weight: bold;
+	transition: $button_transition;
 
 	button {
 		color: $_budgie_panel_fg;
@@ -33,6 +34,8 @@ $_drop_shadow:
 		box-shadow: none;
 
 		label { padding: 0; }
+
+		&:hover, &:active, &:checked { transition: none; }
 
 		&:hover {
 			color: white;
@@ -57,7 +60,10 @@ $_drop_shadow:
 		&:hover, &:active, &:checked { box-shadow: none; }
 	}
 
-	&.transparent { background-color: rgba($_budgie_panel_bg, 0.45); }
+	&.transparent {
+		background-color: rgba($_budgie_panel_bg, 0.45);
+		transition: $button_transition;
+	}
 
 	> box > widget > separator {
 		background-color: transparentize($_budgie_panel_fg, 0.77);
@@ -140,7 +146,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 	(right, -3px 0, left, 'calc(100% - 3px) 100%', ($window_radius - 2) 0 0 ($window_radius - 2)) {
 	.#{$_tasklist_pos} box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher {
 		border-radius: $window_radius - 2;
-		transition: $button_transition;
+		transition: none;
 		padding: 0;
 
 		&:checked {
@@ -480,7 +486,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 .budgie-popover {
 	&.background {
 		background-color: $popover_bg_color;
-		border-radius: $menu_radius - 1px;
+		border-radius: $menu_radius - 0.5px;
 		background-clip: padding-box;
 		border: 0px solid $_popover_border;
 
