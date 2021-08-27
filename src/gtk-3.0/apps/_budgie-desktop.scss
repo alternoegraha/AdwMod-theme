@@ -3,6 +3,7 @@ $budgie_borders: if($variant == 'light', transparentize(black, 0.77), transparen
 $_budgie_panel_bg: black;
 $_budgie_panel_fg: #eeeeec;
 $_budgie_panel_btn_pad: 9px;
+$_budgie_osd_bg: transparentize(darken(desaturate(#3d3846, 100%), 12%),0.04);
 
 $_invert_hover_color: transparentize(white, .93);
 $_invert_selected_color: transparentize(white, .9);
@@ -61,8 +62,13 @@ $_drop_shadow:
 	}
 
 	&.transparent {
-		background-color: rgba($_budgie_panel_bg, 0.45);
+		background-color: rgba($_budgie_panel_bg, 0.35);
 		transition: $button_transition;
+
+		&, button {
+			text-shadow: 0 1px 2px transparentize(black, 0.9);
+			-gtk-icon-shadow: 0 1px 2px transparentize(black, 0.9);
+		}
 	}
 
 	> box > widget > separator {
@@ -83,7 +89,7 @@ $_drop_shadow:
 
 // dock mode theming
 
-$_dock_bg: transparentize(transparentize(darken(desaturate(#3d3846, 100%), 12%),0.04), 0.2);
+$_dock_bg: transparentize($_budgie_osd_bg, 0.2);
 $_dock_borders: transparentize(white, 0.84);
 
 @each $_horz_dock_pos, $_horz_corners in (top, bottom) (bottom, top) {
@@ -410,7 +416,7 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 	background: none;
 	.drop-shadow {
 		color: $osd_fg_color;
-		background-color: $_dock_bg;
+		background-color: $_budgie_osd_bg;
 		border: 1px solid $_dock_borders;
 		background-clip: border-box;
 		box-shadow: none;
@@ -691,9 +697,13 @@ $raven_borders: ((top, bottom), (bottom, top), (left, right), (right, left));
 // icon tasklist popover
 stack.icon-popover-stack {
 	margin: 6px;
+	box.horizontal > button.flat {
+		label { padding: 0 3px; }
+	}
 
 	grid.horizontal {
 		> button.flat.image-button {
+			min-height: 28px;
 			border-radius: 99px;
 		}
 	}
@@ -798,3 +808,13 @@ widget > box.workspace-switcher {
 }
 
 .budgie-popover.workspace-popover { @extend %budgie_popover_pad }
+
+// budgie desktop settings
+.budgie-settings-window {
+	// rounded 'add applets (+)' button
+	button.suggested-action {
+		padding: if($_sizevariant == 'default', 4px, 2px);
+		border-radius: 99px;
+		-gtk-outline-radius: 99px;
+	}
+}
