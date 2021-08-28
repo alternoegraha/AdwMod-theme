@@ -811,6 +811,10 @@ widget > box.workspace-switcher {
 
 // budgie desktop settings
 .budgie-settings-window {
+	buttonbox.inline-toolbar {
+		border-style: none none solid;
+	}
+
 	// rounded 'add applets (+)' button
 	button.suggested-action {
 		padding: if($_sizevariant == 'default', 4px, 2px);
