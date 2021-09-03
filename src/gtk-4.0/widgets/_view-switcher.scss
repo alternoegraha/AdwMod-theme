@@ -13,27 +13,22 @@ viewswitcher {
     > stack > box {
       &.narrow {
         font-size: 0.75rem;
-        padding-top: if($_sizevariant == 'default', 7px, 4px);
-        padding-bottom: if($_sizevariant == 'default', 5px, 2px);
+        padding-top: if($_sizevariant == 'default', 7px, 5px);
+        padding-bottom: if($_sizevariant == 'default', 5px, 3px);
 
         > stack > label {
           padding-left: 8px;
           padding-right: 8px;
+
+          @if $_sizevariant == 'compact' {
+            margin-top: -2px;
+            margin-bottom: 0px;
+          }
         }
       }
 
       &.wide {
         padding: if($_sizevariant == 'default', 8px, 3px) 12px;
-
-        > stack > label {
-          &:dir(ltr) {
-            padding-right: 7px;
-          }
-
-          &:dir(rtl) {
-            padding-left: 7px;
-          }
-        }
       }
 
       label.active {
