@@ -75,19 +75,33 @@ statusbar {
  * AdwStatusPage *
  *****************/
 
-statuspage > scrolledwindow > viewport > box {
-  margin: 36px 12px;
-  border-spacing: 36px;
+ statuspage {
+  > scrolledwindow > viewport > box {
+    margin: 36px 12px;
+    border-spacing: 36px;
 
-  > clamp > box {
-    border-spacing: 12px;
+    > clamp > box {
+      border-spacing: 12px;
 
-    > .icon {
-      color: transparentize($fg_color, 0.5);
+      > .icon {
+        -gtk-icon-size: 128px;
 
-      &:not(:last-child) {
-        margin-bottom: 24px;
+        color: gtkalpha(currentColor, 0.5);
+
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
       }
+    }
+  }
+
+  &.compact > scrolledwindow > viewport > box > clamp > box {
+    > .icon {
+      -gtk-icon-size: 96px;
+    }
+
+    > .title {
+      font-size: 150%;
     }
   }
 }
