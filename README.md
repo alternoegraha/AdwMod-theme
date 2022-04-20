@@ -1,3 +1,5 @@
+# This project have been discontinued. Feel free to fork if you want to continue the development
+
 <img src=".data/logo.svg" alt="AdwMod" align="left" width="64" height="64"/>
 
 # AdwMod
